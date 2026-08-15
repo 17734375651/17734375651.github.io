@@ -1,0 +1,28 @@
+# Public Pages repository: keep signing and customer material out of Git.
+*.lic
+*.license-request.json
+*.pdb
+*.pem
+*.pfx
+*.p12
+*.key
+*password*
+*passwd*
+*pwd*
+*密码*
+*管理员*
+LicenseMaker*
+license-private*
+admin-manifest.json
+issuer-key/
+security/
+secret/
+secrets/
+licenses/
+requests/
+customers/
+clients/
+logs/
+testdata/
+# Public ZIP binaries are released through GitHub Releases, not Pages Git history.
+downloads/fangcun/*/*.zip
