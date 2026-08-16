@@ -12,4 +12,4 @@ c:I[76515,["/_next/static/chunks/3mqccfv_o27za.js"],"default",1]
 9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0B0E0D"}],["$","meta","3",{"name":"color-scheme","content":"dark"}]]
 d:I[12093,["/_next/static/chunks/3mqccfv_o27za.js"],"IconMark"]
 6:null
-b:[["$","title","0",{"children":"方寸有序工作室｜降本增效软件与个性化定制"}],["$","meta","1",{"name":"description","content":"标签印刷排版、PDF 配印、本地 ERP 与个性化软件定制。微信/电话：17734375651。"}],["$","link","2",{"rel":"icon","href":"/assets/favicon-32.png"}],["$","link","3",{"rel":"apple-touch-icon","href":"/assets/apple-touch-icon.png"}],["$","$Ld","4",{}]]
+b:[["$","title","0",{"children":"方寸有序工作室｜降本增效软件与个性化定制"}],["$","meta","1",{"name":"description","content":"标签印刷排版、CMYK 胀色裁切、PDF 配印、本地 ERP 与个性化软件定制。微信/电话：17734375651。"}],["$","link","2",{"rel":"icon","href":"/assets/favicon-32.png"}],["$","link","3",{"rel":"apple-touch-icon","href":"/assets/apple-touch-icon.png"}],["$","$Ld","4",{}]]
