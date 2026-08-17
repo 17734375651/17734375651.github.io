@@ -10,8 +10,10 @@
     "tree": "602f2dd82b28ab4693d0063fc2c915f0c2566596"
   },
   "content": {
-    "commit": "754bdde02cbe72e22450a669d83a996cfd3ba6c2",
-    "tree": "9d365dc292208683957dbf53e32bfc75e77c333b"
+    "primaryCommit": "754bdde02cbe72e22450a669d83a996cfd3ba6c2",
+    "primaryTree": "9d365dc292208683957dbf53e32bfc75e77c333b",
+    "contactCopyFixCommit": "e24242e8bd79ed798ec8b9c0b4d80c7a66150f5b",
+    "contactCopyFixTree": "67f805bdc8d2f50b7c2665f0ae069bdf152bee0d"
   },
   "pagesSource": {
     "before": {
@@ -26,14 +28,19 @@
   "modifiedArtifact": "docs",
   "patch": {
     "path": "artifacts/changes.patch",
-    "sha256": "d0139650e2216129eb62b34e990f20d1e09cb0f6a0e84e8920b6d47e7bb43291",
-    "bytes": 58742636
+    "sha256": "cd822542ac567f26b53e696dae9987293eb81156b9c93125c9b60d4d2ac0e9c1",
+    "bytes": 58666871,
+    "scope": [
+      ".gitignore",
+      "docs",
+      "site"
+    ]
   },
   "verificationRecord": "artifacts/verification-record.md",
   "rollback": "scripts/rollback-deployment.ps1",
   "baselineLiveHtmlSha256": "52c3d53db8309308a526a774ee5fb1d9e315af8e24a5c1f127032c63ede764fc",
   "docs": {
     "files": 32,
-    "treeSha256": "af100913b8542b3b126dfd7f0face1aa26eb1c21e676d79e88b76e03775c434c"
+    "treeSha256": "3346bd5a2a3244c1fbe14544d0d11de44b9906d20ddedda0d8e41ee27a6be019"
   }
 }

@@ -1,5 +1,4 @@
-BUNDLE=main-BxL9oovx.js
-BYTES=347433
+FILES=18
 小工厂=False
 待负责人确认=False
 静态代码审计=False
@@ -20,4 +19,7 @@ evidenceRefs=False
 forbiddenInventedFields=False
 product-truth-matrix.json=False
 微信 / 电话=False
+EXPECTED_CONTACT_FILES=2
+FORBIDDEN_HIT_FILES=0
+AUDIT=PASS
 EXIT_CODE=0

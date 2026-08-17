@@ -15,23 +15,36 @@ if (-not (Test-Path -LiteralPath $manifestPath -PathType Leaf)) {
 }
 
 $manifest = Get-Content -Raw -LiteralPath $manifestPath | ConvertFrom-Json
-$contentCommit = [string]$manifest.content.commit
+$primaryCommit = [string]$manifest.content.primaryCommit
+$contactCopyFixCommit = [string]$manifest.content.contactCopyFixCommit
 $baseCommit = [string]$manifest.base.commit
 $remote = [string]$manifest.remote
 $repository = [string]$manifest.repository
 $publicUrl = [string]$manifest.publicUrl
 $docsPath = Join-Path $repo ([string]$manifest.modifiedArtifact)
+$patchPath = Join-Path $repo ([string]$manifest.patch.path)
 
 Push-Location $repo
 try {
     git rev-parse --is-inside-work-tree | Out-Null
     if ($LASTEXITCODE -ne 0) { throw 'RepoRoot is not a Git worktree.' }
 
-    git cat-file -e "$contentCommit`^{commit}"
-    if ($LASTEXITCODE -ne 0) { throw "Content commit is unavailable: $contentCommit" }
+    git cat-file -e "$primaryCommit`^{commit}"
+    if ($LASTEXITCODE -ne 0) { throw "Primary content commit is unavailable: $primaryCommit" }
 
-    git merge-base --is-ancestor $baseCommit $contentCommit
-    if ($LASTEXITCODE -ne 0) { throw 'The recorded base is not an ancestor of the content commit.' }
+    git cat-file -e "$contactCopyFixCommit`^{commit}"
+    if ($LASTEXITCODE -ne 0) { throw "Contact-copy fix commit is unavailable: $contactCopyFixCommit" }
+
+    git merge-base --is-ancestor $baseCommit $primaryCommit
+    if ($LASTEXITCODE -ne 0) { throw 'The recorded base is not an ancestor of the primary content commit.' }
+
+    if (-not (Test-Path -LiteralPath $patchPath -PathType Leaf)) {
+        throw "Rollback patch is missing: $patchPath"
+    }
+    $patchHash = (Get-FileHash -Algorithm SHA256 -LiteralPath $patchPath).Hash.ToLowerInvariant()
+    if ($patchHash -ne [string]$manifest.patch.sha256) {
+        throw "Rollback patch hash mismatch: $patchHash"
+    }
 
     if (-not (Test-Path -LiteralPath (Join-Path $docsPath 'index.html') -PathType Leaf)) {
         throw 'Modified artifact is missing docs/index.html.'
@@ -43,10 +56,16 @@ try {
     Write-Output "MODE=$Mode"
     Write-Output "REPO=$repo"
     Write-Output "BASE_COMMIT=$baseCommit"
-    Write-Output "CONTENT_COMMIT=$contentCommit"
+    Write-Output "PRIMARY_CONTENT_COMMIT=$primaryCommit"
+    Write-Output "CONTACT_COPY_FIX_COMMIT=$contactCopyFixCommit"
+    Write-Output "PATCH_SHA256=$patchHash"
     Write-Output "PUBLIC_URL=$publicUrl"
     Write-Output 'TARGET_PAGES_SOURCE=main:/docs'
     Write-Output 'ROLLBACK_PAGES_SOURCE=main:/'
+
+    git apply --check -R --binary $patchPath
+    if ($LASTEXITCODE -ne 0) { throw 'Reverse patch check failed.' }
+    Write-Output 'REVERSE_PATCH_CHECK=PASS'
 
     if ($Mode -eq 'Check') {
         if (Get-Command gh -ErrorAction SilentlyContinue) {
@@ -72,8 +91,14 @@ try {
         throw 'Apply mode requires a clean working tree.'
     }
 
-    git revert --no-edit $contentCommit
-    if ($LASTEXITCODE -ne 0) { throw 'git revert failed.' }
+    git apply -R --binary $patchPath
+    if ($LASTEXITCODE -ne 0) { throw 'Reverse patch apply failed.' }
+
+    git add -- .gitignore docs site
+    if ($LASTEXITCODE -ne 0) { throw 'Failed to stage rollback content.' }
+
+    git commit -m 'rollback website deployment to baseline'
+    if ($LASTEXITCODE -ne 0) { throw 'Rollback commit failed.' }
 
     git push $remote main
     if ($LASTEXITCODE -ne 0) { throw 'git push failed.' }

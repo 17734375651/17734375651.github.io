@@ -5,7 +5,6 @@
 [PASS] resources: checked 141 local/external resource references; 0 missing
 [PASS] robots_sitemap: robots=present, sitemap=present, 0 failures
 [PASS] product_states: checked 6 product surfaces; 0 failures
-[PASS] file_hashes: SHA-256 inventory covers 32 files; tree af100913b8542b3b
+[PASS] file_hashes: SHA-256 inventory covers 32 files; tree 3346bd5a2a3244c1
 SUMMARY: PASS (8 pass, 0 fail, 0 warn)
 JSON: C:\Users\17734\Documents\ChatGPT\���\site-zhihuiji-v3-implementation\artifacts\static-verification-docs.json
-EXIT_CODE=0

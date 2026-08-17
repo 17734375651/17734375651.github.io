@@ -24,11 +24,10 @@ dist/client/custom/requirements/index.html    4.57 kB │ gzip:   1.84 kB
 dist/client/products/erp/index.html           4.75 kB │ gzip:   1.73 kB
 dist/client/products/pdf/index.html           4.90 kB │ gzip:   1.81 kB
 dist/client/products/label/index.html         4.95 kB │ gzip:   1.83 kB
-dist/client/index.html                        4.95 kB │ gzip:   1.96 kB
+dist/client/index.html                        4.96 kB │ gzip:   1.97 kB
 dist/client/products/bleed/index.html         5.00 kB │ gzip:   1.85 kB
 dist/client/assets/main-DJo5tRrY.css         33.08 kB │ gzip:   7.57 kB
 dist/client/assets/main-BxL9oovx.js         347.43 kB │ gzip: 100.03 kB
 ✓ built in 2.37s
 Prepared Sites build: dist/server/index.js and dist/.openai/hosting.json
 Published 32 files to C:\Users\17734\Documents\ChatGPT\大舅\site-zhihuiji-v3-implementation\docs
-EXIT_CODE=0

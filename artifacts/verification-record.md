@@ -7,8 +7,10 @@ repository=17734375651/17734375651.github.io
 public_url=https://17734375651.github.io/
 base_commit=b09ae98fd48eb59d68e3e452676c96bbac84dede
 base_tree=602f2dd82b28ab4693d0063fc2c915f0c2566596
-content_commit=754bdde02cbe72e22450a669d83a996cfd3ba6c2
-content_tree=9d365dc292208683957dbf53e32bfc75e77c333b
+primary_content_commit=754bdde02cbe72e22450a669d83a996cfd3ba6c2
+primary_content_tree=9d365dc292208683957dbf53e32bfc75e77c333b
+contact_copy_fix_commit=e24242e8bd79ed798ec8b9c0b4d80c7a66150f5b
+contact_copy_fix_tree=67f805bdc8d2f50b7c2665f0ae069bdf152bee0d
 pages_source_before=main:/
 pages_source_after=main:/docs
 ```
@@ -58,9 +60,9 @@ npm test
 Literal result:
 
 ```text
-tests 36
+tests 37
 suites 0
-pass 36
+pass 37
 fail 0
 cancelled 0
 skipped 0
@@ -137,29 +139,27 @@ Literal output:
 [PASS] resources: checked 141 local/external resource references; 0 missing
 [PASS] robots_sitemap: robots=present, sitemap=present, 0 failures
 [PASS] product_states: checked 6 product surfaces; 0 failures
-[PASS] file_hashes: SHA-256 inventory covers 32 files; tree af100913b8542b3b
+[PASS] file_hashes: SHA-256 inventory covers 32 files; tree 3346bd5a2a3244c1
 SUMMARY: PASS (8 pass, 0 fail, 0 warn)
 EXIT_CODE=0
 ```
 
-JSON evidence: `artifacts/static-verification-docs.json`; full tree SHA-256: `af100913b8542b3b126dfd7f0face1aa26eb1c21e676d79e88b76e03775c434c`.
+JSON evidence: `artifacts/static-verification-docs.json`; full tree SHA-256: `3346bd5a2a3244c1fbe14544d0d11de44b9906d20ddedda0d8e41ee27a6be019`.
 
 ## Public-bundle copy audit
 
 Command and input:
 
 ```powershell
-$bundle = Get-ChildItem docs/assets/main-*.js -File | Select-Object -First 1
+$files = Get-ChildItem docs -Recurse -File | Where-Object { $_.Extension -in @('.html','.js','.css','.json','.xml','.txt') }
 $terms = @('小工厂','待负责人确认','静态代码审计','秘密扫描','私钥','secretScan','webWhitelist','本地工作树','evidenceRefs','forbiddenInventedFields','微信 / 电话')
-$body = Get-Content -Raw -LiteralPath $bundle.FullName
-$terms | ForEach-Object { "$_=$($body.Contains($_))" }
+$terms | ForEach-Object { "$_=$(@($files | Select-String -SimpleMatch $_ -List).Count -gt 0)" }
 ```
 
 Literal output:
 
 ```text
-BUNDLE=main-BxL9oovx.js
-BYTES=347433
+FILES=18
 小工厂=False
 待负责人确认=False
 静态代码审计=False
@@ -171,6 +171,9 @@ webWhitelist=False
 evidenceRefs=False
 forbiddenInventedFields=False
 微信 / 电话=False
+EXPECTED_CONTACT_FILES=2
+FORBIDDEN_HIT_FILES=0
+AUDIT=PASS
 EXIT_CODE=0
 ```
 
@@ -205,15 +208,15 @@ Structured evidence: `artifacts/browser-qa.json`; visual QA: `site/design-qa.md`
 Command and input:
 
 ```powershell
-git diff --binary --full-index --output=artifacts/changes.patch b09ae98fd48eb59d68e3e452676c96bbac84dede 754bdde02cbe72e22450a669d83a996cfd3ba6c2
+git diff --binary --full-index --output=artifacts/changes.patch b09ae98fd48eb59d68e3e452676c96bbac84dede e24242e8bd79ed798ec8b9c0b4d80c7a66150f5b -- .gitignore docs site
 Get-FileHash -Algorithm SHA256 artifacts/changes.patch
 ```
 
 Literal output:
 
 ```text
-BYTES=58742636
-SHA256=d0139650e2216129eb62b34e990f20d1e09cb0f6a0e84e8920b6d47e7bb43291
+BYTES=58666871
+SHA256=cd822542ac567f26b53e696dae9987293eb81156b9c93125c9b60d4d2ac0e9c1
 EXIT_CODE=0
 ```
 
@@ -224,9 +227,9 @@ EXIT_CODE=0
 Command and input:
 
 ```powershell
-git worktree add --detach 'C:\Users\17734\Documents\ChatGPT\大舅\_patch-verify-754bdde' b09ae98fd48eb59d68e3e452676c96bbac84dede
-git -C 'C:\Users\17734\Documents\ChatGPT\大舅\_patch-verify-754bdde' apply --check --binary 'C:\Users\17734\Documents\ChatGPT\大舅\site-zhihuiji-v3-implementation\artifacts\changes.patch'
-git worktree remove 'C:\Users\17734\Documents\ChatGPT\大舅\_patch-verify-754bdde'
+git worktree add --detach 'C:\Users\17734\Documents\ChatGPT\大舅\_patch-verify-e24242e' b09ae98fd48eb59d68e3e452676c96bbac84dede
+git -C 'C:\Users\17734\Documents\ChatGPT\大舅\_patch-verify-e24242e' apply --check --binary 'C:\Users\17734\Documents\ChatGPT\大舅\site-zhihuiji-v3-implementation\artifacts\changes.patch'
+git worktree remove 'C:\Users\17734\Documents\ChatGPT\大舅\_patch-verify-e24242e'
 ```
 
 Literal output:
@@ -253,10 +256,13 @@ Literal output:
 MODE=Check
 REPO=C:\Users\17734\Documents\ChatGPT\大舅\site-zhihuiji-v3-implementation
 BASE_COMMIT=b09ae98fd48eb59d68e3e452676c96bbac84dede
-CONTENT_COMMIT=754bdde02cbe72e22450a669d83a996cfd3ba6c2
+PRIMARY_CONTENT_COMMIT=754bdde02cbe72e22450a669d83a996cfd3ba6c2
+CONTACT_COPY_FIX_COMMIT=e24242e8bd79ed798ec8b9c0b4d80c7a66150f5b
+PATCH_SHA256=cd822542ac567f26b53e696dae9987293eb81156b9c93125c9b60d4d2ac0e9c1
 PUBLIC_URL=https://17734375651.github.io/
 TARGET_PAGES_SOURCE=main:/docs
 ROLLBACK_PAGES_SOURCE=main:/
+REVERSE_PATCH_CHECK=PASS
 CHECK_RESULT=PASS
 EXIT_CODE=0
 ```

@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generated_at_utc": "2026-08-17T10:39:59Z",
+  "generated_at_utc": "2026-08-17T11:06:51Z",
   "site_root": "C:\\Users\\17734\\Documents\\ChatGPT\\大舅\\site-zhihuiji-v3-implementation\\docs",
   "contract": "C:\\Users\\17734\\Documents\\ChatGPT\\大舅\\zhihuiji-benchmark-20260817\\foundation\\verification\\site-contract.json",
   "include_docs": false,
@@ -523,15 +523,15 @@
     {
       "id": "file_hashes",
       "status": "pass",
-      "message": "SHA-256 inventory covers 32 files; tree af100913b8542b3b",
+      "message": "SHA-256 inventory covers 32 files; tree 3346bd5a2a3244c1",
       "details": {
         "file_count": 32,
-        "tree_sha256": "af100913b8542b3b126dfd7f0face1aa26eb1c21e676d79e88b76e03775c434c",
+        "tree_sha256": "3346bd5a2a3244c1fbe14544d0d11de44b9906d20ddedda0d8e41ee27a6be019",
         "failures": {}
       }
     }
   ],
-  "tree_sha256": "af100913b8542b3b126dfd7f0face1aa26eb1c21e676d79e88b76e03775c434c",
+  "tree_sha256": "3346bd5a2a3244c1fbe14544d0d11de44b9906d20ddedda0d8e41ee27a6be019",
   "file_hashes": {
     ".nojekyll": {
       "bytes": 0,
@@ -614,8 +614,8 @@
       "sha256": "53605f1b28803aecaaa44ef6e7fdb17f9c8dee57696b51fdc534b81f660435d3"
     },
     "index.html": {
-      "bytes": 4951,
-      "sha256": "349e817b32f450b41453f5d3b77c383617393dd2c1590e91791b7dcae62537bd"
+      "bytes": 4960,
+      "sha256": "1c82eccdc287420945590a220ded99fc4d1b7d6e6feba81b94b40a1559a15a06"
     },
     "legal/privacy/index.html": {
       "bytes": 2408,
