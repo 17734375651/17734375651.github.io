@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "browser": "Codex In-app Browser",
+  "local_url": "http://127.0.0.1:4173/",
+  "desktop": {
+    "css_viewport_override": { "width": 1502, "height": 1177 },
+    "native_screenshot_pixels": { "width": 1487, "height": 949 },
+    "screenshot": "site/design-qa-captures/iteration-4-native.png",
+    "comparison": "site/design-qa-captures/iteration-4-final-comparison.png",
+    "header_left_css_px": 28,
+    "horizontal_overflow": false,
+    "small_factory_visible": false,
+    "sme_visible": true
+  },
+  "interactions": {
+    "industry_tab": {
+      "selected": "中小企业",
+      "aria_selected": true,
+      "internal_copy_detected": false,
+      "recommendation": "方寸有序 ERP",
+      "action": "预约体验"
+    },
+    "product_navigation": {
+      "url": "http://127.0.0.1:4173/products/",
+      "h1": "产品中心",
+      "product_card_count": 4
+    },
+    "label_product_status": {
+      "url": "http://127.0.0.1:4173/products/label/#availability",
+      "h1": "标签印刷排版计划",
+      "status": "正式销售 · 下载验收中",
+      "public_download_promised": false
+    },
+    "requirements": {
+      "completion": "4/4",
+      "copy_button_enabled": true,
+      "summary_contains_all_required_fields": true,
+      "copy_feedback": "已复制到剪贴板；内容只在当前页面生成。"
+    }
+  },
+  "mobile": {
+    "css_viewport": { "width": 390, "height": 844 },
+    "closed_screenshot": "site/design-qa-captures/iteration-4-mobile-closed.png",
+    "open_screenshot": "site/design-qa-captures/iteration-4-mobile-open.png",
+    "horizontal_overflow": false,
+    "menu_open_aria_expanded": true,
+    "escape_closes_menu": true,
+    "escape_returns_focus": true,
+    "closed_aria_hidden": true,
+    "closed_visibility": "hidden"
+  },
+  "console": {
+    "errors": [],
+    "warnings": []
+  },
+  "exit_status": 0
+}

@@ -1,0 +1,19 @@
+{
+  "schema": 1,
+  "capturedAt": "2026-08-17",
+  "baseBranch": "origin/main",
+  "baseCommit": "b09ae98fd48eb59d68e3e452676c96bbac84dede",
+  "baseTree": "602f2dd82b28ab4693d0063fc2c915f0c2566596",
+  "pagesSource": {
+    "branch": "main",
+    "path": "/"
+  },
+  "publicUrl": "https://17734375651.github.io/",
+  "baselineLiveHtmlSha256": "52c3d53db8309308a526a774ee5fb1d9e315af8e24a5c1f127032c63ede764fc",
+  "baselineChecks": {
+    "http": 200,
+    "containsOldHero": true,
+    "containsWorkflowAsset": false,
+    "usesButtonOnlyPrimaryNav": true
+  }
+}

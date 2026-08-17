@@ -26,3 +26,9 @@ logs/
 testdata/
 # Public ZIP binaries are released through GitHub Releases, not Pages Git history.
 downloads/fangcun/*/*.zip
+
+# Product Design source build output and local tooling.
+site/node_modules/
+site/dist/
+site/.vite/
+site/design-qa-captures/

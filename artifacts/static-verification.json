@@ -1,0 +1,661 @@
+{
+  "schema": 1,
+  "generated_at_utc": "2026-08-17T10:40:07Z",
+  "site_root": "C:\\Users\\17734\\Documents\\ChatGPT\\大舅\\site-zhihuiji-v3-implementation\\site\\dist\\client",
+  "contract": "C:\\Users\\17734\\Documents\\ChatGPT\\大舅\\zhihuiji-benchmark-20260817\\foundation\\verification\\site-contract.json",
+  "include_docs": false,
+  "summary": {
+    "status": "pass",
+    "pass": 8,
+    "fail": 0,
+    "warn": 0,
+    "total": 8
+  },
+  "checks": [
+    {
+      "id": "core_routes",
+      "status": "pass",
+      "message": "6/6 core routes present",
+      "details": {
+        "present": [
+          {
+            "route": "/",
+            "file": "index.html"
+          },
+          {
+            "route": "/products/label/",
+            "file": "products/label/index.html"
+          },
+          {
+            "route": "/products/bleed/",
+            "file": "products/bleed/index.html"
+          },
+          {
+            "route": "/products/pdf/",
+            "file": "products/pdf/index.html"
+          },
+          {
+            "route": "/products/erp/",
+            "file": "products/erp/index.html"
+          },
+          {
+            "route": "/custom/requirements/",
+            "file": "custom/requirements/index.html"
+          }
+        ],
+        "missing": []
+      }
+    },
+    {
+      "id": "old_terms",
+      "status": "pass",
+      "message": "1 old-term rules; scanned 18 files; 0 hit files",
+      "details": {
+        "scope": "deployable text (markdown/audit docs excluded)",
+        "terms": [
+          "小工厂"
+        ],
+        "hits": []
+      }
+    },
+    {
+      "id": "page_metadata",
+      "status": "pass",
+      "message": "checked 6 pages; 0 failure groups",
+      "details": {
+        "pages": [
+          {
+            "route": "/",
+            "file": "index.html",
+            "title": "方寸有序工作室｜降本增效软件与个性化定制",
+            "description": "标签印刷排版、CMYK 胀色裁切、PDF 配印、本地 ERP 与个性化软件定制。微信/电话：17734375651。",
+            "canonical": "https://17734375651.github.io/",
+            "h1": "让重复核算、整理、校验变为可执行、可复核、可追踪的流程",
+            "og_keys": [
+              "og:description",
+              "og:image",
+              "og:title",
+              "og:type",
+              "og:url"
+            ],
+            "missing": []
+          },
+          {
+            "route": "/products/label/",
+            "file": "products/label/index.html",
+            "title": "标签印刷排版计划｜方寸有序",
+            "description": "标签印刷排版计划：把多品种、不同数量的标签订单整理成可执行、可复核的排版计划。年授权 199 元，下载入口验收中。",
+            "canonical": "https://17734375651.github.io/products/label/",
+            "h1": "标签印刷排版计划",
+            "og_keys": [
+              "og:description",
+              "og:image",
+              "og:title",
+              "og:type",
+              "og:url"
+            ],
+            "missing": []
+          },
+          {
+            "route": "/products/bleed/",
+            "file": "products/bleed/index.html",
+            "title": "方寸有序胀色裁切｜CMYK 胀色与印前复检",
+            "description": "方寸有序胀色裁切：读取 Excel 订单与 PDF，自动完成胀色、裁切、拼版与印前复检。年授权 799 元，提供已验证 Windows x86 下载。",
+            "canonical": "https://17734375651.github.io/products/bleed/",
+            "h1": "方寸有序胀色裁切",
+            "og_keys": [
+              "og:description",
+              "og:image",
+              "og:title",
+              "og:type",
+              "og:url"
+            ],
+            "missing": []
+          },
+          {
+            "route": "/products/pdf/",
+            "file": "products/pdf/index.html",
+            "title": "方寸 PDF 配印助手｜逐页可追溯的 PDF 配印任务",
+            "description": "方寸 PDF 配印助手：把 Excel、CSV 或文字页数要求转换成可追溯的 PDF 配印任务。年授权 599 元，下载入口验收中。",
+            "canonical": "https://17734375651.github.io/products/pdf/",
+            "h1": "方寸 PDF 配印助手",
+            "og_keys": [
+              "og:description",
+              "og:image",
+              "og:title",
+              "og:type",
+              "og:url"
+            ],
+            "missing": []
+          },
+          {
+            "route": "/products/erp/",
+            "file": "products/erp/index.html",
+            "title": "方寸有序 ERP｜本地订单、库存与权限工作台",
+            "description": "方寸有序 ERP：面向小型经营团队的本地业务工作台，让订单、库存与权限流转更清楚。重点新品，完善中，预约体验。",
+            "canonical": "https://17734375651.github.io/products/erp/",
+            "h1": "方寸有序 ERP",
+            "og_keys": [
+              "og:description",
+              "og:image",
+              "og:title",
+              "og:type",
+              "og:url"
+            ],
+            "missing": []
+          },
+          {
+            "route": "/custom/requirements/",
+            "file": "custom/requirements/index.html",
+            "title": "软件定制需求｜按你的流程做可落地工具｜方寸有序",
+            "description": "填写业务类型、最耗时环节、可提供资料与期望交付，页面生成可复制的微信需求摘要。定制设计及首个可用版本 499 元起。",
+            "canonical": "https://17734375651.github.io/custom/requirements/",
+            "h1": "按你的流程，做真正能落地的工具",
+            "og_keys": [
+              "og:description",
+              "og:image",
+              "og:title",
+              "og:type",
+              "og:url"
+            ],
+            "missing": []
+          }
+        ],
+        "duplicates": {},
+        "required_og": [
+          "og:title",
+          "og:description",
+          "og:url",
+          "og:type",
+          "og:image"
+        ]
+      }
+    },
+    {
+      "id": "real_hrefs",
+      "status": "pass",
+      "message": "104 anchor hrefs; 0 invalid; 0 required links missing",
+      "details": {
+        "anchors_by_route": {
+          "/": [
+            "/",
+            "/products/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/",
+            "/solutions/",
+            "/custom/requirements/",
+            "/updates/",
+            "/guides/",
+            "/downloads/",
+            "/legal/privacy/",
+            "/legal/service/",
+            "#pricing",
+            "#contact",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/"
+          ],
+          "/products/label/": [
+            "/",
+            "/products/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/",
+            "/solutions/",
+            "/custom/requirements/",
+            "/updates/",
+            "/guides/",
+            "/downloads/",
+            "/legal/privacy/",
+            "/legal/service/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/"
+          ],
+          "/products/bleed/": [
+            "/",
+            "/products/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/",
+            "/solutions/",
+            "/custom/requirements/",
+            "/updates/",
+            "/guides/",
+            "/downloads/",
+            "/legal/privacy/",
+            "/legal/service/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/"
+          ],
+          "/products/pdf/": [
+            "/",
+            "/products/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/",
+            "/solutions/",
+            "/custom/requirements/",
+            "/updates/",
+            "/guides/",
+            "/downloads/",
+            "/legal/privacy/",
+            "/legal/service/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/"
+          ],
+          "/products/erp/": [
+            "/",
+            "/products/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/",
+            "/solutions/",
+            "/custom/requirements/",
+            "/updates/",
+            "/guides/",
+            "/downloads/",
+            "/legal/privacy/",
+            "/legal/service/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/"
+          ],
+          "/custom/requirements/": [
+            "/",
+            "/products/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/",
+            "/solutions/",
+            "/custom/requirements/",
+            "/updates/",
+            "/guides/",
+            "/downloads/",
+            "/legal/privacy/",
+            "/legal/service/",
+            "/products/label/",
+            "/products/bleed/",
+            "/products/pdf/",
+            "/products/erp/"
+          ]
+        },
+        "required": [
+          "/",
+          "/products/label",
+          "/products/bleed",
+          "/products/pdf",
+          "/products/erp",
+          "/custom/requirements",
+          "#contact"
+        ],
+        "missing_required": [],
+        "invalid": []
+      }
+    },
+    {
+      "id": "resources",
+      "status": "pass",
+      "message": "checked 141 local/external resource references; 0 missing",
+      "details": {
+        "reference_count": 141,
+        "missing": [],
+        "css_reference_count": 1
+      }
+    },
+    {
+      "id": "robots_sitemap",
+      "status": "pass",
+      "message": "robots=present, sitemap=present, 0 failures",
+      "details": {
+        "robots": "robots.txt",
+        "sitemap": "sitemap.xml",
+        "sitemap_routes": [
+          "/",
+          "/products/label",
+          "/products/bleed",
+          "/products/pdf",
+          "/products/erp",
+          "/custom/requirements",
+          "/products",
+          "/solutions",
+          "/updates",
+          "/guides",
+          "/downloads",
+          "/legal/privacy",
+          "/legal/service"
+        ],
+        "robots_sitemaps": [
+          "https://17734375651.github.io/sitemap.xml"
+        ],
+        "failures": []
+      }
+    },
+    {
+      "id": "product_states",
+      "status": "pass",
+      "message": "checked 6 product surfaces; 0 failures",
+      "details": {
+        "surface_routes": [
+          "/",
+          "/custom/requirements/",
+          "/products/bleed/",
+          "/products/erp/",
+          "/products/label/",
+          "/products/pdf/"
+        ],
+        "per_page": {
+          "/": {
+            "card_count": 4,
+            "products": [
+              {
+                "name": "标签印刷排版计划",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥199 / 年"
+              },
+              {
+                "name": "方寸有序胀色裁切",
+                "status": "正式销售 · 已验证下载",
+                "metric": "¥799 / 年"
+              },
+              {
+                "name": "方寸 PDF 配印助手",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥599 / 年"
+              },
+              {
+                "name": "方寸有序 ERP",
+                "status": "重点新品 · 完善中 · 预约体验",
+                "metric": "预约 体验"
+              }
+            ],
+            "unexpected_names": []
+          },
+          "/products/label/": {
+            "card_count": 4,
+            "products": [
+              {
+                "name": "标签印刷排版计划",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥199 / 年"
+              },
+              {
+                "name": "方寸有序胀色裁切",
+                "status": "正式销售 · 已验证下载",
+                "metric": "¥799 / 年"
+              },
+              {
+                "name": "方寸 PDF 配印助手",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥599 / 年"
+              },
+              {
+                "name": "方寸有序 ERP",
+                "status": "重点新品 · 完善中 · 预约体验",
+                "metric": "预约 体验"
+              }
+            ],
+            "unexpected_names": []
+          },
+          "/products/bleed/": {
+            "card_count": 4,
+            "products": [
+              {
+                "name": "标签印刷排版计划",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥199 / 年"
+              },
+              {
+                "name": "方寸有序胀色裁切",
+                "status": "正式销售 · 已验证下载",
+                "metric": "¥799 / 年"
+              },
+              {
+                "name": "方寸 PDF 配印助手",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥599 / 年"
+              },
+              {
+                "name": "方寸有序 ERP",
+                "status": "重点新品 · 完善中 · 预约体验",
+                "metric": "预约 体验"
+              }
+            ],
+            "unexpected_names": []
+          },
+          "/products/pdf/": {
+            "card_count": 4,
+            "products": [
+              {
+                "name": "标签印刷排版计划",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥199 / 年"
+              },
+              {
+                "name": "方寸有序胀色裁切",
+                "status": "正式销售 · 已验证下载",
+                "metric": "¥799 / 年"
+              },
+              {
+                "name": "方寸 PDF 配印助手",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥599 / 年"
+              },
+              {
+                "name": "方寸有序 ERP",
+                "status": "重点新品 · 完善中 · 预约体验",
+                "metric": "预约 体验"
+              }
+            ],
+            "unexpected_names": []
+          },
+          "/products/erp/": {
+            "card_count": 4,
+            "products": [
+              {
+                "name": "标签印刷排版计划",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥199 / 年"
+              },
+              {
+                "name": "方寸有序胀色裁切",
+                "status": "正式销售 · 已验证下载",
+                "metric": "¥799 / 年"
+              },
+              {
+                "name": "方寸 PDF 配印助手",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥599 / 年"
+              },
+              {
+                "name": "方寸有序 ERP",
+                "status": "重点新品 · 完善中 · 预约体验",
+                "metric": "预约 体验"
+              }
+            ],
+            "unexpected_names": []
+          },
+          "/custom/requirements/": {
+            "card_count": 4,
+            "products": [
+              {
+                "name": "标签印刷排版计划",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥199 / 年"
+              },
+              {
+                "name": "方寸有序胀色裁切",
+                "status": "正式销售 · 已验证下载",
+                "metric": "¥799 / 年"
+              },
+              {
+                "name": "方寸 PDF 配印助手",
+                "status": "正式销售 · 下载验收中",
+                "metric": "¥599 / 年"
+              },
+              {
+                "name": "方寸有序 ERP",
+                "status": "重点新品 · 完善中 · 预约体验",
+                "metric": "预约 体验"
+              }
+            ],
+            "unexpected_names": []
+          }
+        },
+        "inconsistent": {},
+        "failures": []
+      }
+    },
+    {
+      "id": "file_hashes",
+      "status": "pass",
+      "message": "SHA-256 inventory covers 31 files; tree 6e93328bdf184412",
+      "details": {
+        "file_count": 31,
+        "tree_sha256": "6e93328bdf184412c6032e06d307d33c9e1ed4746579244fd20480fc01ea7e75",
+        "failures": {}
+      }
+    }
+  ],
+  "tree_sha256": "6e93328bdf184412c6032e06d307d33c9e1ed4746579244fd20480fc01ea7e75",
+  "file_hashes": {
+    "404.html": {
+      "bytes": 1735,
+      "sha256": "a04c26d7c2384492caa4782fdba87eca46392f04140ca61689670b7c76677fe5"
+    },
+    "apple-touch-icon.png": {
+      "bytes": 53525,
+      "sha256": "8b8cb8154eb028cf6abb0031aa45f18f1827c02f5e94eaf2dd2b38a33fa56edc"
+    },
+    "assets/brand/seal.png": {
+      "bytes": 60443,
+      "sha256": "57899545e170383bf5d9fb2ce0a9c71f4ffbc668fcaf1c60a04eee4b6145a043"
+    },
+    "assets/generated/hero-gold-wave.png": {
+      "bytes": 448552,
+      "sha256": "2b86f8036ff89135e3852f1688f6da32e7ef3c19a5beeff0ec9e549c8160885f"
+    },
+    "assets/generated/hero-gold-wave.webp": {
+      "bytes": 26302,
+      "sha256": "a9d276052e2b643301a25fa7c12d78b7b694f5a890b42e25c35b8d2b9c6a827c"
+    },
+    "assets/generated/hero-workflow.png": {
+      "bytes": 1509454,
+      "sha256": "8bee37bfb14e2782cc85c1b361f952c9fdfcf8bb3421f23f5f0130c29086fe86"
+    },
+    "assets/generated/hero-workflow.webp": {
+      "bytes": 72400,
+      "sha256": "df3c34c6ad1fae11c1cc98d4e03d3fdf7b09edae7a273668958fe230fe49a3a4"
+    },
+    "assets/main-BxL9oovx.js": {
+      "bytes": 347433,
+      "sha256": "1493b2e658c3ece77a58fbaaddd3b46d00bf038a21f18f7447afe0cc3bc5c8c7"
+    },
+    "assets/main-DJo5tRrY.css": {
+      "bytes": 33084,
+      "sha256": "1bc76d06986fb8378b491a2fce3a0566bfffbcf0cbf4280e09aef80cc449aabe"
+    },
+    "assets/media/erp-demo.mp4": {
+      "bytes": 5453189,
+      "sha256": "96917f85045f06f82804fbb35d6bc01193b0769a1dcba16e194e6536852da81c"
+    },
+    "assets/media/erp-poster.webp": {
+      "bytes": 35844,
+      "sha256": "cc942b7540d1f6c7be6e59090ae538c431740f8dbc4d90156175a0fe89713297"
+    },
+    "assets/media/label-demo.mp4": {
+      "bytes": 5469585,
+      "sha256": "b94d5ea2384f8b6eccddacf32eb4dc93e2c023a740aa8e999d4e5cb974dc9f48"
+    },
+    "assets/media/label-poster.webp": {
+      "bytes": 37448,
+      "sha256": "99b063cb0db39d7b9e302c990bc1aabdb435e8dbd92b344ce35c80a439744ccf"
+    },
+    "assets/media/pdf-demo.mp4": {
+      "bytes": 5461729,
+      "sha256": "2270e50d790ccbe0181b2becbe926aa89d1ac550426818e4283959033336616d"
+    },
+    "assets/media/pdf-poster.webp": {
+      "bytes": 34692,
+      "sha256": "1703d50ea7e9258e8c2597976e0612f23bf1ab984c0070a0331393dbfdd0d718"
+    },
+    "custom/requirements/index.html": {
+      "bytes": 4568,
+      "sha256": "cce913367a7d1c0110587ed81e1ce8582524a735cb5db12d7c43a683ff47c649"
+    },
+    "downloads/index.html": {
+      "bytes": 2409,
+      "sha256": "df5b1e45d09475a8df9d519b2f2297a29d8c913ca5f247beb7b5c86261cab532"
+    },
+    "favicon.png": {
+      "bytes": 2423,
+      "sha256": "b777b3a73394fdf9d86ad9916f5371703fd589986e545ffdc0f62e4adaefb36a"
+    },
+    "guides/index.html": {
+      "bytes": 2382,
+      "sha256": "53605f1b28803aecaaa44ef6e7fdb17f9c8dee57696b51fdc534b81f660435d3"
+    },
+    "index.html": {
+      "bytes": 4951,
+      "sha256": "349e817b32f450b41453f5d3b77c383617393dd2c1590e91791b7dcae62537bd"
+    },
+    "legal/privacy/index.html": {
+      "bytes": 2408,
+      "sha256": "c7dcdb61528a59df76036df57ecf1e5abdf627b42bf8af7552ce75102912fb5a"
+    },
+    "legal/service/index.html": {
+      "bytes": 2393,
+      "sha256": "9ebd357efad1d5f9516c644e2336e4493cd0e918769eaa3fa9e238b56d6d1959"
+    },
+    "products/bleed/index.html": {
+      "bytes": 5002,
+      "sha256": "537fdaff2dc34a420127d1dff891c4f30c59f813b85a2752d9d8dea67e535ac1"
+    },
+    "products/erp/index.html": {
+      "bytes": 4754,
+      "sha256": "f5eab70f8415aab89a959b701356e078518ad76c37948245d5a4a700535730f9"
+    },
+    "products/index.html": {
+      "bytes": 4472,
+      "sha256": "d1ad32afa2821711f17e70eeda5250242369d8a71e3ee197119d89cede461f4f"
+    },
+    "products/label/index.html": {
+      "bytes": 4950,
+      "sha256": "20a4feca59c52b9c07547cb9e78c99a6a4eb9e2cca6841e6926491835a092cdf"
+    },
+    "products/pdf/index.html": {
+      "bytes": 4898,
+      "sha256": "ecd1039ddaa1b49a5f78a1208557159c6cafd2238a84d0018ee0d982732a08fa"
+    },
+    "robots.txt": {
+      "bytes": 74,
+      "sha256": "4e9a644c02decacd377c096e504a88a9eeb97ee76670485db979f172bc6429af"
+    },
+    "sitemap.xml": {
+      "bytes": 973,
+      "sha256": "0f0bd5c1aeeae6eddabd3bfdaec3b0be651096ed690252f85a3d878938368d6c"
+    },
+    "solutions/index.html": {
+      "bytes": 4201,
+      "sha256": "28c6088d5031fa8a3a6c36c99917715db993eb2159b0b4adf2fd2374172e1540"
+    },
+    "updates/index.html": {
+      "bytes": 2402,
+      "sha256": "42b1b59ce2ebb4dd4a13fd68fa97fd2f5d791e0c74ae8236b302e79120c7eb8c"
+    }
+  }
+}

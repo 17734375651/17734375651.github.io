@@ -1,0 +1,11 @@
+[PASS] core_routes: 6/6 core routes present
+[PASS] old_terms: 1 old-term rules; scanned 19 files; 0 hit files
+[PASS] page_metadata: checked 6 pages; 0 failure groups
+[PASS] real_hrefs: 104 anchor hrefs; 0 invalid; 0 required links missing
+[PASS] resources: checked 141 local/external resource references; 0 missing
+[PASS] robots_sitemap: robots=present, sitemap=present, 0 failures
+[PASS] product_states: checked 6 product surfaces; 0 failures
+[PASS] file_hashes: SHA-256 inventory covers 32 files; tree af100913b8542b3b
+SUMMARY: PASS (8 pass, 0 fail, 0 warn)
+JSON: C:\Users\17734\Documents\ChatGPT\���\site-zhihuiji-v3-implementation\artifacts\static-verification-docs.json
+EXIT_CODE=0
