@@ -158,6 +158,7 @@ zip HEAD: 200, Content-Length=98141990, Content-Type=application/zip
 - `artifacts/video-redaction-v2/review-final/contact-sheet.jpg`
 - `artifacts/video-redaction-v2/qa/bleed-media-desktop.png`
 - `artifacts/video-redaction-v2/qa/bleed-media-mobile.png`
+- `artifacts/video-redaction-v2/qa/bleed-media-live.png`
 
 ## 6. 回滚
 
@@ -179,4 +180,53 @@ next=powershell -NoProfile -File scripts/rollback-operation-video.ps1 -Apply
 
 ## 7. GitHub Pages
 
-发布提交与正式站点哈希在推送后补录。
+首个发布提交：`7941ec5ca6b2ba2342e6d9144097584839150224`
+
+推送结果：
+
+```text
+origin/codex/zhihuiji-benchmark-v3 -> 7941ec5ca6b2ba2342e6d9144097584839150224, exit 0
+origin/main -> 7941ec5ca6b2ba2342e6d9144097584839150224, exit 0
+GitHub Pages bundle: assets/main-CjoI8skv.js
+```
+
+正式站点：`https://17734375651.github.io/products/bleed/`
+
+线上 HTTP 与文件校验（exit 0）：
+
+```text
+video HEAD: 200, Content-Length=18181165, Content-Type=video/mp4, Accept-Ranges=bytes
+zip bytes 0-99: 206, Content-Range=bytes 0-99/98141990, Accept-Ranges=bytes
+live video SHA256=C8BEDDFDA01C9B76695A8B86EAF487C146AE2F21AD25E4D447D84BBC771F9215
+live poster SHA256=49AFB976585D4A0ECFBF7B184DE0C4A83FD76CA206931B4EC766BF8636860341
+LIVE_MEDIA_MATCH=True
+```
+
+线上浏览器 DOM 结果：
+
+```json
+{
+  "video": {
+    "src": "https://17734375651.github.io/assets/media/bleed-operation-sanitized.mp4",
+    "poster": "/assets/media/bleed-operation-sanitized-poster.webp",
+    "controls": true,
+    "readyState": 4,
+    "duration": 88,
+    "width": 1920,
+    "height": 1080
+  },
+  "attachment": {
+    "href": "https://17734375651.github.io/assets/downloads/bleed-redacted-demo-materials-20260814.zip",
+    "download": "bleed-redacted-demo-materials-20260814.zip"
+  },
+  "copyChecks": {
+    "actualOperation": true,
+    "noMosaic": true,
+    "replacementData": true,
+    "package": true,
+    "size": true,
+    "fileCount": true
+  },
+  "hasHorizontalOverflow": false
+}
+```
