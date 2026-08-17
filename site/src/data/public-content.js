@@ -53,7 +53,7 @@ export const CONTENT_CATEGORIES = [
         CTA: {
           primary: '查看产品详情',
           primaryHref: '/products/bleed/',
-          secondary: '查看能力演示',
+          secondary: '查看实际操作演示',
           secondaryHref: '/products/bleed/',
         },
       },

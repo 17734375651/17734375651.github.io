@@ -159,19 +159,25 @@ test('interactive UI exposes mobile-menu and industry-tab semantics', async () =
   assert.match(app, /aria-selected\s*=/)
 })
 
-test('product media has controls and poster data, with a declared fallback when video is absent', async () => {
+test('product media exposes four local videos and distinguishes the redacted actual operation recording', async () => {
   const app = await readSource(appPath)
   const mediaProducts = PRODUCTS.filter((product) => product.media.video)
-  assert.equal(mediaProducts.length, 3)
+  assert.equal(mediaProducts.length, 4)
   for (const product of mediaProducts) {
-    assert.ok(product.media.poster, `${product.id} needs a poster`) 
+    assert.ok(product.media.poster, `${product.id} needs a poster`)
   }
-  const noVideoProducts = PRODUCTS.filter((product) => !product.media.video)
-  assert.ok(noVideoProducts.some((product) => product.media.fallback), 'a missing product video needs fallback copy')
+  const bleed = PRODUCTS.find((product) => product.id === 'bleed')
+  assert.equal(bleed.media.mode, 'actual-operation-redacted')
+  assert.equal(bleed.media.redacted, true)
+  assert.equal(bleed.media.silent, true)
+  assert.match(bleed.media.video, /bleed-operation-redacted\.mp4$/)
 
   assert.match(app, /<video\b/i)
   assert.match(app, /\bcontrols\b/)
   assert.match(app, /\bposter\b/)
+  assert.match(app, /actual-operation-redacted/)
+  assert.match(app, /查看实际操作演示/)
+  assert.match(app, /实际操作 · 已脱敏/)
   assert.match(app, /(?:\.media\s*\.|media\.(?:video|poster|fallback)|fallback)/)
   assert.match(app, /(?:\.media\s*\.|media\.video|video)/)
 })

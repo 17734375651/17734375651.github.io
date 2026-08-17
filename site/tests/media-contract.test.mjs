@@ -19,3 +19,13 @@ test('every declared local product media path exists in the public tree', async 
     }
   }
 })
+
+test('the bleed operation recording is explicitly redacted and silent', () => {
+  const bleed = PRODUCTS.find((product) => product.id === 'bleed')
+  assert.equal(bleed.media.declared, true)
+  assert.equal(bleed.media.mode, 'actual-operation-redacted')
+  assert.equal(bleed.media.redacted, true)
+  assert.equal(bleed.media.silent, true)
+  assert.equal(bleed.media.video, '/assets/media/bleed-operation-redacted.mp4')
+  assert.equal(bleed.media.poster, '/assets/media/bleed-operation-poster.webp')
+})

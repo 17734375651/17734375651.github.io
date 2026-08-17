@@ -238,7 +238,9 @@ function Breadcrumbs({ items = [] }) {
 
 function DetailHero({ product }) {
   const action = getProductAction(product.status.effectiveStatus, product.id)
-  return <section className="detail-hero" aria-labelledby="detail-title"><div className="container detail-hero-grid"><div className="detail-hero-copy"><Breadcrumbs items={[{ label: product.shortName }]} /><span className="product-eyebrow">{product.eyebrow}</span><h1 id="detail-title">{product.name}</h1><p>{product.statement}</p><div className="detail-meta"><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><span className="detail-price">{product.price.public ? product.price.display : '预约体验'}</span></div><div className="detail-actions"><LinkButton href={action.href}>{action.label}</LinkButton><LinkButton href="#workflow" variant="outline">查看工作流</LinkButton></div></div><div className="detail-hero-art">{product.media.poster ? <img src={mediaPath(product.media.poster)} alt={`${product.name} 模拟演示画面`} /> : <div className="detail-art-fallback"><FlowArrow size={66} weight="duotone" aria-hidden="true" /><span>输入 → 处理 → 输出</span><small>{product.media.fallback}</small></div>}</div></div></section>
+  const actualOperation = product.media.mode === 'actual-operation-redacted'
+  const posterAlt = actualOperation ? `${product.name} 实际操作演示画面（已脱敏）` : `${product.name} 模拟演示画面`
+  return <section className="detail-hero" aria-labelledby="detail-title"><div className="container detail-hero-grid"><div className="detail-hero-copy"><Breadcrumbs items={[{ label: product.shortName }]} /><span className="product-eyebrow">{product.eyebrow}</span><h1 id="detail-title">{product.name}</h1><p>{product.statement}</p><div className="detail-meta"><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><span className="detail-price">{product.price.public ? product.price.display : '预约体验'}</span></div><div className="detail-actions"><LinkButton href={action.href}>{action.label}</LinkButton><LinkButton href="#workflow" variant="outline">查看工作流</LinkButton></div></div><div className="detail-hero-art">{product.media.poster ? <img src={mediaPath(product.media.poster)} alt={posterAlt} /> : <div className="detail-art-fallback"><FlowArrow size={66} weight="duotone" aria-hidden="true" /><span>输入 → 处理 → 输出</span><small>{product.media.fallback}</small></div>}</div></div></section>
 }
 
 function WorkflowSection({ product }) {
@@ -254,7 +256,18 @@ function AvailabilityPanel({ product }) {
 
 function ProductMedia({ product }) {
   if (!product.media.poster && !product.media.video) return null
-  return <section className="section media-section" aria-labelledby="media-title"><div className="container media-layout"><div><p className="section-kicker">SIMULATED DEMO</p><h2 id="media-title">体验模拟演示</h2><p>演示使用筛选后的示例参数，仅用于说明输入、处理和输出的关系，不代表客户项目结果。</p></div><div className="media-frame"><div className="media-frame-top"><span>{product.shortName}</span><span><span className="status-dot" />模拟演示</span></div>{product.media.video ? <video controls preload="metadata" poster={mediaPath(product.media.poster)} src={mediaPath(product.media.video)} aria-label={`${product.name} 模拟演示`} /> : <img src={mediaPath(product.media.poster)} alt={`${product.name} 模拟演示`} />}<div className="media-frame-caption"><PlayCircle size={19} weight="duotone" aria-hidden="true" />模拟演示可用，产品短片与下载状态按页面记录为准。</div></div></div></section>
+  const actualOperation = product.media.mode === 'actual-operation-redacted'
+  const kicker = actualOperation ? 'ACTUAL WORKFLOW' : 'SIMULATED DEMO'
+  const title = actualOperation ? '查看实际操作演示' : '体验模拟演示'
+  const description = actualOperation
+    ? '录制自实际操作流程，订单、条码、品牌与文件信息均已脱敏；素材来自非最终版界面，功能与样式以正式版本为准。'
+    : '演示使用筛选后的示例参数，仅用于说明输入、处理和输出的关系，不代表客户项目结果。'
+  const label = actualOperation ? '实际操作 · 已脱敏' : '模拟演示'
+  const accessibilityLabel = actualOperation ? `${product.name} 实际操作演示（已脱敏）` : `${product.name} 模拟演示`
+  const caption = actualOperation
+    ? '真实录屏已去除音轨并完成脱敏，展示输入设置、排版调整与导出复检细节。'
+    : '模拟演示可用，产品短片与下载状态按页面记录为准。'
+  return <section className="section media-section" aria-labelledby="media-title"><div className="container media-layout"><div><p className="section-kicker">{kicker}</p><h2 id="media-title">{title}</h2><p>{description}</p></div><div className="media-frame"><div className="media-frame-top"><span>{product.shortName}</span><span><span className="status-dot" />{label}</span></div>{product.media.video ? <video controls preload="metadata" playsInline poster={mediaPath(product.media.poster)} src={mediaPath(product.media.video)} aria-label={accessibilityLabel} /> : <img src={mediaPath(product.media.poster)} alt={accessibilityLabel} />}<div className="media-frame-caption"><PlayCircle size={19} weight="duotone" aria-hidden="true" />{caption}</div></div></div></section>
 }
 
 function ProductPage({ product }) {

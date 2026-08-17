@@ -126,10 +126,14 @@ export const PRODUCTS = [
       "localArchiveNote": "安装包由公开下载页提供，下载前可核对版本、大小与 SHA-256。"
     },
     "media": {
-      "video": null,
-      "poster": null,
-      "declared": false,
-      "fallback": "产品短片正在生成；页面中的模拟演示和产品信息可正常使用。"
+      "video": "/assets/media/bleed-operation-redacted.mp4",
+      "poster": "/assets/media/bleed-operation-poster.webp",
+      "declared": true,
+      "mode": "actual-operation-redacted",
+      "redacted": true,
+      "silent": true,
+      "sourceBuild": "1.2.6 验证版",
+      "fallback": "实际操作视频暂不可用；产品信息、下载与价格仍可正常查看。"
     },
     "workflow": {
       "input": [
@@ -153,12 +157,12 @@ export const PRODUCTS = [
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
-      "productHeroSecondary": "体验模拟演示",
+      "productHeroSecondary": "查看实际操作演示",
       "downloadPanel": "已核验下载 / 方寸有序胀色裁切 / SHA-256",
       "downloadButton": "Windows 32 / 64 位 · x86 兼容版 · 64.6 MB",
       "recommended": {
         "primary": "下载客户端",
-        "secondary": "体验模拟演示",
+        "secondary": "查看实际操作演示",
         "nextStep": "核对版本 1.2.11 与 SHA-256 后联系微信/电话 17734375651 完成授权"
       }
     }
