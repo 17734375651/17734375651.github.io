@@ -140,3 +140,40 @@ baseline=39b505495f17f6dca2892e5b1185d0409e8ca349
 next=powershell -NoProfile -File scripts/rollback-operation-video.ps1 -Apply
 rollback_exit=0
 ```
+
+## 6. GitHub Pages 正式站点验证
+
+部署提交：`83f82a8cb945a532aa101bb4cb9eed78291a8cdc`
+
+分支同步输出（exit 0）：
+
+```text
+83f82a8cb945a532aa101bb4cb9eed78291a8cdc refs/heads/codex/zhihuiji-benchmark-v3
+83f82a8cb945a532aa101bb4cb9eed78291a8cdc refs/heads/main
+```
+
+正式站点轮询与远端文件核验（exit 0）：
+
+```text
+LIVE_VERIFY status=200 bundle=assets/main-D6uyR3A1.js
+video_hash=2D1619148CE7343E4789F59A32AC0F0F3110BE1A5621011C847A463D3DFE24B1
+poster_hash=A0688D686BF892E86329BFEC89E0F4644010CE050A7E2B6DACE664E780253185
+```
+
+正式站点浏览器 DOM 结果：
+
+```json
+{
+  "actualHeading": 1,
+  "simulatedLabel": 0,
+  "video": {
+    "controls": true,
+    "currentSrc": "https://17734375651.github.io/assets/media/bleed-operation-redacted.mp4",
+    "duration": 53.6,
+    "poster": "https://17734375651.github.io/assets/media/bleed-operation-poster.webp",
+    "readyState": 4,
+    "videoHeight": 1080,
+    "videoWidth": 1920
+  }
+}
+```
