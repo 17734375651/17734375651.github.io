@@ -158,7 +158,7 @@ zip HEAD: 200, Content-Length=98141990, Content-Type=application/zip
 - `artifacts/video-redaction-v2/review-final/contact-sheet.jpg`
 - `artifacts/video-redaction-v2/qa/bleed-media-desktop.png`
 - `artifacts/video-redaction-v2/qa/bleed-media-mobile.png`
-- `artifacts/video-redaction-v2/qa/bleed-media-live.png`
+- `artifacts/video-redaction-v2/qa/bleed-media-live.jpg`
 
 ## 6. 回滚
 
@@ -180,13 +180,15 @@ next=powershell -NoProfile -File scripts/rollback-operation-video.ps1 -Apply
 
 ## 7. GitHub Pages
 
-首个发布提交：`7941ec5ca6b2ba2342e6d9144097584839150224`
+功能与媒体发布提交：`7941ec5ca6b2ba2342e6d9144097584839150224`
 
-推送结果：
+首轮线上验证记录提交：`52a132dff528184ab5473bc9ce844ad551f67daa`
+
+已验证的推送历史（不是会随本记录提交而变化的当前 refs 快照）：
 
 ```text
-origin/codex/zhihuiji-benchmark-v3 -> 7941ec5ca6b2ba2342e6d9144097584839150224, exit 0
-origin/main -> 7941ec5ca6b2ba2342e6d9144097584839150224, exit 0
+7941ec5 -> origin/codex/zhihuiji-benchmark-v3 and origin/main, exit 0
+52a132d -> origin/codex/zhihuiji-benchmark-v3 and origin/main, exit 0
 GitHub Pages bundle: assets/main-CjoI8skv.js
 ```
 
