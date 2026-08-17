@@ -51,3 +51,9 @@ test('customer-facing copy uses bounded workflow language', async () => {
   assert.match(app, /把输入、处理与输出梳理成可复核流程/)
   assert.match(app, /一小时体验适用于三款正式软件/)
 })
+
+test('generated static shell uses the same customer-facing contact wording', async () => {
+  const generator = await readFile(path.join(root, 'scripts', 'generate-route-pages.mjs'), 'utf8')
+  assert.doesNotMatch(generator, /微信 \/ 电话/)
+  assert.match(generator, /电话 17734375651（微信同号）/)
+})

@@ -245,7 +245,7 @@ export function buildRouteHtml(route) {
       </section>`
     : ''
   const homeSections = route.path === '/'
-    ? '<section id="pricing"><h2>服务与价格</h2></section><footer id="contact">微信 / 电话 17734375651</footer>'
+    ? '<section id="pricing"><h2>服务与价格</h2></section><footer id="contact">电话 17734375651（微信同号）</footer>'
     : ''
   const structuredData = structuredDataForRoute(route)
 
