@@ -124,7 +124,7 @@ export const CONTENT_CATEGORIES = [
         "CTA": {
           "primary": "查看产品能力说明",
           "primaryHref": "/products/bleed/",
-          "secondary": "体验模拟演示",
+          "secondary": "查看实际操作演示",
           "secondaryHref": "/products/bleed/",
           "note": "下载链接只证明公开包记录，不证明任何客户项目结果。"
         },
@@ -306,7 +306,7 @@ export const CONTENT_CATEGORIES = [
           "primaryHref": "/products/bleed/",
           "secondary": "体验模拟演示",
           "secondaryHref": "/products/bleed/",
-          "note": "发布正文只写已核验的输入、处理、输出和边界；实际操作视频已脱敏，并明确标注来自非最终版界面。"
+          "note": "发布正文只写已核验的输入、处理、输出和边界；实际操作视频使用虚构演示数据，并保留清晰操作画面。"
         },
         "SEO": {
           "title": "方寸有序胀色裁切｜CMYK 胀色、裁切、拼版与复检能力说明",
@@ -330,8 +330,8 @@ export const CONTENT_CATEGORIES = [
             "role": "产品能力说明唯一事实源"
           },
           {
-            "source": "bleed-operation-redacted.mp4",
-            "anchor": "actual-operation-redacted; audio removed; customer and order content pixelated",
+            "source": "bleed-operation-sanitized.mp4",
+            "anchor": "actual-operation-redacted; synthetic demo data; audio removed; clear operation frames",
             "role": "实际操作演示资产；仅用于展示输入、排版调整与导出复检流程"
           },
           {

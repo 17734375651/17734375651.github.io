@@ -126,14 +126,30 @@ export const PRODUCTS = [
       "localArchiveNote": "安装包由公开下载页提供，下载前可核对版本、大小与 SHA-256。"
     },
     "media": {
-      "video": "/assets/media/bleed-operation-redacted.mp4",
-      "poster": "/assets/media/bleed-operation-poster.webp",
+      "video": "/assets/media/bleed-operation-sanitized.mp4",
+      "poster": "/assets/media/bleed-operation-sanitized-poster.webp",
       "declared": true,
       "mode": "actual-operation-redacted",
       "redacted": true,
+      "redactionMethod": "synthetic-demo-data",
       "silent": true,
-      "sourceBuild": "1.2.6 验证版",
-      "fallback": "实际操作视频暂不可用；产品信息、下载与价格仍可正常查看。"
+      "sourceBuild": "1.2.11",
+      "fallback": "实际操作视频暂不可用；产品信息、下载与价格仍可正常查看。",
+      "attachments": [
+        {
+          "title": "脱敏功能演示素材包",
+          "description": "含复杂演示订单、单页 PDF、实际排版示例与自动验收记录",
+          "filename": "bleed-redacted-demo-materials-20260814.zip",
+          "path": "/assets/downloads/bleed-redacted-demo-materials-20260814.zip",
+          "format": "ZIP",
+          "bytes": 98141990,
+          "displaySize": "93.6 MB",
+          "fileCount": 152,
+          "sha256": "7740F2C032FDFCE313B6333FF83D8048591982B470FADCFF877C370B97A235B6",
+          "notice": "公开演示数据 · 已脱敏",
+          "buttonLabel": "下载脱敏功能演示素材包"
+        }
+      ]
     },
     "workflow": {
       "input": [

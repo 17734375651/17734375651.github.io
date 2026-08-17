@@ -260,14 +260,43 @@ function ProductMedia({ product }) {
   const kicker = actualOperation ? 'ACTUAL WORKFLOW' : 'SIMULATED DEMO'
   const title = actualOperation ? '查看实际操作演示' : '体验模拟演示'
   const description = actualOperation
-    ? '录制自实际操作流程，订单、条码、品牌与文件信息均已脱敏；素材来自非最终版界面，功能与样式以正式版本为准。'
+    ? '录制自 1.2.11 实际操作流程，演示订单、条码与品牌均为虚构数据；画面未使用马赛克，可清晰查看输入、排版、导出与复检细节。'
     : '演示使用筛选后的示例参数，仅用于说明输入、处理和输出的关系，不代表客户项目结果。'
-  const label = actualOperation ? '实际操作 · 已脱敏' : '模拟演示'
-  const accessibilityLabel = actualOperation ? `${product.name} 实际操作演示（已脱敏）` : `${product.name} 模拟演示`
+  const label = actualOperation ? '实际操作 · 脱敏演示数据' : '模拟演示'
+  const accessibilityLabel = actualOperation ? `${product.name} 实际操作演示（虚构演示数据）` : `${product.name} 模拟演示`
   const caption = actualOperation
-    ? '真实录屏已去除音轨并完成脱敏，展示输入设置、排版调整与导出复检细节。'
+    ? '真实录屏已去除无内容音轨；脱敏方式为替换演示数据，不对操作画面打码。'
     : '模拟演示可用，产品短片与下载状态按页面记录为准。'
-  return <section className="section media-section" aria-labelledby="media-title"><div className="container media-layout"><div><p className="section-kicker">{kicker}</p><h2 id="media-title">{title}</h2><p>{description}</p></div><div className="media-frame"><div className="media-frame-top"><span>{product.shortName}</span><span><span className="status-dot" />{label}</span></div>{product.media.video ? <video controls preload="metadata" playsInline poster={mediaPath(product.media.poster)} src={mediaPath(product.media.video)} aria-label={accessibilityLabel} /> : <img src={mediaPath(product.media.poster)} alt={accessibilityLabel} />}<div className="media-frame-caption"><PlayCircle size={19} weight="duotone" aria-hidden="true" />{caption}</div></div></div></section>
+  const attachments = product.media.attachments ?? []
+  return (
+    <section className="section media-section" aria-labelledby="media-title">
+      <div className="container media-layout">
+        <div>
+          <p className="section-kicker">{kicker}</p>
+          <h2 id="media-title">{title}</h2>
+          <p>{description}</p>
+        </div>
+        <div className="media-column">
+          <div className="media-frame">
+            <div className="media-frame-top"><span>{product.shortName}</span><span><span className="status-dot" />{label}</span></div>
+            {product.media.video ? <video controls preload="metadata" playsInline poster={mediaPath(product.media.poster)} src={mediaPath(product.media.video)} aria-label={accessibilityLabel} /> : <img src={mediaPath(product.media.poster)} alt={accessibilityLabel} />}
+            <div className="media-frame-caption"><PlayCircle size={19} weight="duotone" aria-hidden="true" />{caption}</div>
+          </div>
+          {attachments.length > 0 && <div className="media-attachments" aria-label="公开演示数据下载">
+            {attachments.map((attachment) => <article className="media-attachment" key={attachment.path}>
+              <div className="media-attachment-copy">
+                <p className="media-attachment-notice"><ShieldCheck size={16} weight="duotone" aria-hidden="true" />{attachment.notice}</p>
+                <h3>{attachment.title}</h3>
+                <p>{attachment.description}</p>
+                <small>{attachment.filename} · {attachment.format} · {attachment.displaySize} · {attachment.fileCount} 个文件</small>
+              </div>
+              <a className="download-link media-attachment-download" href={attachment.path} download={attachment.filename} aria-label={`${attachment.buttonLabel}（${attachment.format}）`}><DownloadSimple size={19} weight="bold" aria-hidden="true" />{attachment.buttonLabel}</a>
+            </article>)}
+          </div>}
+        </div>
+      </div>
+    </section>
+  )
 }
 
 function ProductPage({ product }) {

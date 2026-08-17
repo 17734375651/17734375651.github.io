@@ -286,6 +286,15 @@ img, video { display: block; max-width: 100%; }
 .media-frame-top > span:last-child { display: inline-flex; align-items: center; gap: 7px; color: #aeb7ab; }
 .media-frame video, .media-frame img { width: 100%; height: auto; aspect-ratio: 16 / 9; max-height: 420px; object-fit: cover; }
 .media-frame-caption { min-height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 16px; color: #aeb8b0; font-size: 11px; }
+.media-column { min-width: 0; }
+.media-attachments { margin-top: 14px; border: 1px solid #cfd7c5; border-radius: 8px; background: #fffdf8; }
+.media-attachment { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 18px 19px; }
+.media-attachment-copy { min-width: 0; }
+.media-attachment-notice { display: inline-flex; align-items: center; gap: 6px; margin: 0; color: #587044; font-size: 11px; font-weight: 800; }
+.media-attachment-copy h3 { margin: 8px 0 0; color: #252d2b; font-size: 16px; }
+.media-attachment-copy p:not(.media-attachment-notice) { margin: 6px 0 0; color: #69736d; font-size: 12px; line-height: 1.6; }
+.media-attachment-copy small { display: block; margin-top: 8px; overflow-wrap: anywhere; color: #8a938d; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; }
+.media-attachment-download { flex: none; min-width: 190px; justify-content: center; margin-top: 0; }
 .boundary-section { padding-top: 75px; padding-bottom: 75px; background: var(--paper); }
 .boundary-card { display: flex; align-items: center; gap: 20px; padding: 27px 30px; border: 1px solid #d9d2c1; border-radius: 8px; background: #fffdf8; }
 .boundary-card > svg { color: var(--gold-deep); flex: none; }
@@ -427,6 +436,8 @@ img, video { display: block; max-width: 100%; }
   .download-spec-grid { grid-template-columns: repeat(2, 1fr); }
   .media-layout { gap: 27px; }
   .media-layout > div:first-child h2 { font-size: 32px; }
+  .media-attachment { align-items: stretch; flex-direction: column; gap: 14px; }
+  .media-attachment-download { width: 100%; }
   .boundary-card { align-items: flex-start; flex-wrap: wrap; padding: 22px; }
   .boundary-card .button { margin-left: 48px; }
   .page-intro { padding: 39px 0 54px; }

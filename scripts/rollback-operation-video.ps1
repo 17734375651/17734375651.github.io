@@ -1,7 +1,7 @@
 [CmdletBinding()]
 param(
     [switch]$Apply,
-    [string]$BaselineCommit = '39b505495f17f6dca2892e5b1185d0409e8ca349'
+    [string]$BaselineCommit = 'c74a86fdf1b35240125edca5f19d394e891eb1b5'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -19,17 +19,23 @@ $trackedPaths = @(
     'site/src/data/products.js',
     'site/src/data/public-content.js',
     'site/src/data/site.js',
+    'site/src/styles.css',
+    'site/public/assets/media/bleed-operation-poster.webp',
+    'site/public/assets/media/bleed-operation-redacted.mp4',
     'site/tests/media-contract.test.mjs',
     'site/tests/ui-content-contract.test.mjs',
     'docs'
 )
 
 $newFiles = @(
-    'site/public/assets/media/bleed-operation-poster.webp',
-    'site/public/assets/media/bleed-operation-redacted.mp4',
-    'docs/assets/media/bleed-operation-poster.webp',
-    'docs/assets/media/bleed-operation-redacted.mp4',
-    'docs/assets/main-D6uyR3A1.js'
+    'site/public/assets/downloads/bleed-redacted-demo-materials-20260814.zip',
+    'site/public/assets/media/bleed-operation-sanitized-poster.webp',
+    'site/public/assets/media/bleed-operation-sanitized.mp4',
+    'site/tests/sanitized-video-build-contract.test.mjs',
+    'scripts/build-sanitized-operation-video.ps1',
+    'docs/assets/downloads/bleed-redacted-demo-materials-20260814.zip',
+    'docs/assets/media/bleed-operation-sanitized-poster.webp',
+    'docs/assets/media/bleed-operation-sanitized.mp4'
 )
 
 if (-not $Apply) {

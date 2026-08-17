@@ -1,0 +1,402 @@
+diff --git a/scripts/build-sanitized-operation-video.ps1 b/scripts/build-sanitized-operation-video.ps1
+new file mode 100644
+index 0000000..fd007cd
+--- /dev/null
++++ b/scripts/build-sanitized-operation-video.ps1
+@@ -0,0 +1,54 @@
++[CmdletBinding()]
++param(
++    [Parameter(Mandatory = $true)]
++    [string]$Source,
++    [string]$VideoOutput,
++    [string]$PosterOutput
++)
++
++$ErrorActionPreference = 'Stop'
++$repoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..')).Path
++$sourcePath = (Resolve-Path -LiteralPath $Source).Path
++
++if (-not $VideoOutput) {
++    $VideoOutput = Join-Path $repoRoot 'site\public\assets\media\bleed-operation-sanitized.mp4'
++}
++if (-not $PosterOutput) {
++    $PosterOutput = Join-Path $repoRoot 'site\public\assets\media\bleed-operation-sanitized-poster.webp'
++}
++
++$videoPath = [System.IO.Path]::GetFullPath($VideoOutput)
++$posterPath = [System.IO.Path]::GetFullPath($PosterOutput)
++if ($sourcePath -eq $videoPath -or $sourcePath -eq $posterPath) {
++    throw 'Source and output paths must be different.'
++}
++
++New-Item -ItemType Directory -Force -Path (Split-Path -Parent $videoPath) | Out-Null
++New-Item -ItemType Directory -Force -Path (Split-Path -Parent $posterPath) | Out-Null
++
++$token = [guid]::NewGuid().ToString('N')
++$tempVideo = Join-Path ([System.IO.Path]::GetTempPath()) "bleed-operation-$token.mp4"
++$tempPoster = Join-Path ([System.IO.Path]::GetTempPath()) "bleed-operation-poster-$token.webp"
++$filter = '[0:v]trim=start=34:end=103,setpts=PTS-STARTPTS,scale=1920:1080:flags=lanczos[v0];[0:v]trim=start=121:end=140,setpts=PTS-STARTPTS,scale=1920:1080:flags=lanczos[v1];[v0][v1]concat=n=2:v=1:a=0,format=yuv420p[outv]'
++
++try {
++    & ffmpeg -hide_banner -loglevel warning -i $sourcePath -filter_complex $filter -map '[outv]' -an -c:v libx264 -preset slow -crf 22 -profile:v high -level 4.1 -r 30 -movflags '+faststart' $tempVideo
++    if ($LASTEXITCODE -ne 0) { throw "ffmpeg video build failed with exit $LASTEXITCODE" }
++
++    & ffmpeg -hide_banner -loglevel error -ss 40 -i $tempVideo -frames:v 1 -vf 'crop=1000:562:240:270,scale=1920:1080:flags=lanczos' -c:v libwebp -quality 86 $tempPoster
++    if ($LASTEXITCODE -ne 0) { throw "ffmpeg poster build failed with exit $LASTEXITCODE" }
++
++    Move-Item -LiteralPath $tempVideo -Destination $videoPath -Force
++    Move-Item -LiteralPath $tempPoster -Destination $posterPath -Force
++}
++finally {
++    if (Test-Path -LiteralPath $tempVideo) { Remove-Item -LiteralPath $tempVideo -Force }
++    if (Test-Path -LiteralPath $tempPoster) { Remove-Item -LiteralPath $tempPoster -Force }
++}
++
++Write-Output "video=$videoPath"
++Write-Output "video_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $videoPath).Hash)"
++Write-Output "poster=$posterPath"
++Write-Output "poster_sha256=$((Get-FileHash -Algorithm SHA256 -LiteralPath $posterPath).Hash)"
++& ffprobe -v error -show_entries format=duration,size,bit_rate:stream=index,codec_name,codec_type,width,height,pix_fmt,r_frame_rate -of json $videoPath
++if ($LASTEXITCODE -ne 0) { throw "ffprobe failed with exit $LASTEXITCODE" }
+diff --git a/scripts/rollback-operation-video.ps1 b/scripts/rollback-operation-video.ps1
+index 2a978cd..2aec44d 100644
+--- a/scripts/rollback-operation-video.ps1
++++ b/scripts/rollback-operation-video.ps1
+@@ -1,7 +1,7 @@
+ [CmdletBinding()]
+ param(
+     [switch]$Apply,
+-    [string]$BaselineCommit = '39b505495f17f6dca2892e5b1185d0409e8ca349'
++    [string]$BaselineCommit = 'c74a86fdf1b35240125edca5f19d394e891eb1b5'
+ )
+
+ $ErrorActionPreference = 'Stop'
+@@ -19,17 +19,23 @@ $trackedPaths = @(
+     'site/src/data/products.js',
+     'site/src/data/public-content.js',
+     'site/src/data/site.js',
++    'site/src/styles.css',
++    'site/public/assets/media/bleed-operation-poster.webp',
++    'site/public/assets/media/bleed-operation-redacted.mp4',
+     'site/tests/media-contract.test.mjs',
+     'site/tests/ui-content-contract.test.mjs',
+     'docs'
+ )
+
+ $newFiles = @(
+-    'site/public/assets/media/bleed-operation-poster.webp',
+-    'site/public/assets/media/bleed-operation-redacted.mp4',
+-    'docs/assets/media/bleed-operation-poster.webp',
+-    'docs/assets/media/bleed-operation-redacted.mp4',
+-    'docs/assets/main-D6uyR3A1.js'
++    'site/public/assets/downloads/bleed-redacted-demo-materials-20260814.zip',
++    'site/public/assets/media/bleed-operation-sanitized-poster.webp',
++    'site/public/assets/media/bleed-operation-sanitized.mp4',
++    'site/tests/sanitized-video-build-contract.test.mjs',
++    'scripts/build-sanitized-operation-video.ps1',
++    'docs/assets/downloads/bleed-redacted-demo-materials-20260814.zip',
++    'docs/assets/media/bleed-operation-sanitized-poster.webp',
++    'docs/assets/media/bleed-operation-sanitized.mp4'
+ )
+
+ if (-not $Apply) {
+diff --git a/site/package.json b/site/package.json
+index 45eb959..5a78dff 100644
+--- a/site/package.json
++++ b/site/package.json
+@@ -8,7 +8,7 @@
+     "build": "node scripts/generate-route-pages.mjs && vite build && node scripts/prepare-sites-build.mjs",
+     "preview": "vite preview",
+     "publish:pages": "npm run build && node scripts/publish-pages.mjs",
+-    "test": "node --test tests/build-contract.test.mjs tests/media-contract.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/route-pages.test.mjs tests/ui-content-contract.test.mjs",
++    "test": "node --test tests/build-contract.test.mjs tests/media-contract.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/route-pages.test.mjs tests/sanitized-video-build-contract.test.mjs tests/ui-content-contract.test.mjs",
+     "test:sites": "node --test tests/sites-worker.test.mjs"
+   },
+   "dependencies": {
+diff --git a/site/src/App.jsx b/site/src/App.jsx
+index ec47848..baaf82b 100644
+--- a/site/src/App.jsx
++++ b/site/src/App.jsx
+@@ -260,14 +260,43 @@ function ProductMedia({ product }) {
+   const kicker = actualOperation ? 'ACTUAL WORKFLOW' : 'SIMULATED DEMO'
+   const title = actualOperation ? '查看实际操作演示' : '体验模拟演示'
+   const description = actualOperation
+-    ? '录制自实际操作流程，订单、条码、品牌与文件信息均已脱敏；素材来自非最终版界面，功能与样式以正式版本为准。'
++    ? '录制自 1.2.11 实际操作流程，演示订单、条码与品牌均为虚构数据；画面未使用马赛克，可清晰查看输入、排版、导出与复检细节。'
+     : '演示使用筛选后的示例参数，仅用于说明输入、处理和输出的关系，不代表客户项目结果。'
+-  const label = actualOperation ? '实际操作 · 已脱敏' : '模拟演示'
+-  const accessibilityLabel = actualOperation ? `${product.name} 实际操作演示（已脱敏）` : `${product.name} 模拟演示`
++  const label = actualOperation ? '实际操作 · 脱敏演示数据' : '模拟演示'
++  const accessibilityLabel = actualOperation ? `${product.name} 实际操作演示（虚构演示数据）` : `${product.name} 模拟演示`
+   const caption = actualOperation
+-    ? '真实录屏已去除音轨并完成脱敏，展示输入设置、排版调整与导出复检细节。'
++    ? '真实录屏已去除无内容音轨；脱敏方式为替换演示数据，不对操作画面打码。'
+     : '模拟演示可用，产品短片与下载状态按页面记录为准。'
+-  return <section className="section media-section" aria-labelledby="media-title"><div className="container media-layout"><div><p className="section-kicker">{kicker}</p><h2 id="media-title">{title}</h2><p>{description}</p></div><div className="media-frame"><div className="media-frame-top"><span>{product.shortName}</span><span><span className="status-dot" />{label}</span></div>{product.media.video ? <video controls preload="metadata" playsInline poster={mediaPath(product.media.poster)} src={mediaPath(product.media.video)} aria-label={accessibilityLabel} /> : <img src={mediaPath(product.media.poster)} alt={accessibilityLabel} />}<div className="media-frame-caption"><PlayCircle size={19} weight="duotone" aria-hidden="true" />{caption}</div></div></div></section>
++  const attachments = product.media.attachments ?? []
++  return (
++    <section className="section media-section" aria-labelledby="media-title">
++      <div className="container media-layout">
++        <div>
++          <p className="section-kicker">{kicker}</p>
++          <h2 id="media-title">{title}</h2>
++          <p>{description}</p>
++        </div>
++        <div className="media-column">
++          <div className="media-frame">
++            <div className="media-frame-top"><span>{product.shortName}</span><span><span className="status-dot" />{label}</span></div>
++            {product.media.video ? <video controls preload="metadata" playsInline poster={mediaPath(product.media.poster)} src={mediaPath(product.media.video)} aria-label={accessibilityLabel} /> : <img src={mediaPath(product.media.poster)} alt={accessibilityLabel} />}
++            <div className="media-frame-caption"><PlayCircle size={19} weight="duotone" aria-hidden="true" />{caption}</div>
++          </div>
++          {attachments.length > 0 && <div className="media-attachments" aria-label="公开演示数据下载">
++            {attachments.map((attachment) => <article className="media-attachment" key={attachment.path}>
++              <div className="media-attachment-copy">
++                <p className="media-attachment-notice"><ShieldCheck size={16} weight="duotone" aria-hidden="true" />{attachment.notice}</p>
++                <h3>{attachment.title}</h3>
++                <p>{attachment.description}</p>
++                <small>{attachment.filename} · {attachment.format} · {attachment.displaySize} · {attachment.fileCount} 个文件</small>
++              </div>
++              <a className="download-link media-attachment-download" href={attachment.path} download={attachment.filename} aria-label={`${attachment.buttonLabel}（${attachment.format}）`}><DownloadSimple size={19} weight="bold" aria-hidden="true" />{attachment.buttonLabel}</a>
++            </article>)}
++          </div>}
++        </div>
++      </div>
++    </section>
++  )
+ }
+
+ function ProductPage({ product }) {
+diff --git a/site/src/data/content.js b/site/src/data/content.js
+index 6d12cc3..8b88f74 100644
+--- a/site/src/data/content.js
++++ b/site/src/data/content.js
+@@ -124,7 +124,7 @@ export const CONTENT_CATEGORIES = [
+         "CTA": {
+           "primary": "查看产品能力说明",
+           "primaryHref": "/products/bleed/",
+-          "secondary": "体验模拟演示",
++          "secondary": "查看实际操作演示",
+           "secondaryHref": "/products/bleed/",
+           "note": "下载链接只证明公开包记录，不证明任何客户项目结果。"
+         },
+@@ -306,7 +306,7 @@ export const CONTENT_CATEGORIES = [
+           "primaryHref": "/products/bleed/",
+           "secondary": "体验模拟演示",
+           "secondaryHref": "/products/bleed/",
+-          "note": "发布正文只写已核验的输入、处理、输出和边界；实际操作视频已脱敏，并明确标注来自非最终版界面。"
++          "note": "发布正文只写已核验的输入、处理、输出和边界；实际操作视频使用虚构演示数据，并保留清晰操作画面。"
+         },
+         "SEO": {
+           "title": "方寸有序胀色裁切｜CMYK 胀色、裁切、拼版与复检能力说明",
+@@ -330,8 +330,8 @@ export const CONTENT_CATEGORIES = [
+             "role": "产品能力说明唯一事实源"
+           },
+           {
+-            "source": "bleed-operation-redacted.mp4",
+-            "anchor": "actual-operation-redacted; audio removed; customer and order content pixelated",
++            "source": "bleed-operation-sanitized.mp4",
++            "anchor": "actual-operation-redacted; synthetic demo data; audio removed; clear operation frames",
+             "role": "实际操作演示资产；仅用于展示输入、排版调整与导出复检流程"
+           },
+           {
+diff --git a/site/src/data/products.js b/site/src/data/products.js
+index 4cc4270..f384615 100644
+--- a/site/src/data/products.js
++++ b/site/src/data/products.js
+@@ -126,14 +126,30 @@ export const PRODUCTS = [
+       "localArchiveNote": "安装包由公开下载页提供，下载前可核对版本、大小与 SHA-256。"
+     },
+     "media": {
+-      "video": "/assets/media/bleed-operation-redacted.mp4",
+-      "poster": "/assets/media/bleed-operation-poster.webp",
++      "video": "/assets/media/bleed-operation-sanitized.mp4",
++      "poster": "/assets/media/bleed-operation-sanitized-poster.webp",
+       "declared": true,
+       "mode": "actual-operation-redacted",
+       "redacted": true,
++      "redactionMethod": "synthetic-demo-data",
+       "silent": true,
+-      "sourceBuild": "1.2.6 验证版",
+-      "fallback": "实际操作视频暂不可用；产品信息、下载与价格仍可正常查看。"
++      "sourceBuild": "1.2.11",
++      "fallback": "实际操作视频暂不可用；产品信息、下载与价格仍可正常查看。",
++      "attachments": [
++        {
++          "title": "脱敏功能演示素材包",
++          "description": "含复杂演示订单、单页 PDF、实际排版示例与自动验收记录",
++          "filename": "bleed-redacted-demo-materials-20260814.zip",
++          "path": "/assets/downloads/bleed-redacted-demo-materials-20260814.zip",
++          "format": "ZIP",
++          "bytes": 98141990,
++          "displaySize": "93.6 MB",
++          "fileCount": 152,
++          "sha256": "7740F2C032FDFCE313B6333FF83D8048591982B470FADCFF877C370B97A235B6",
++          "notice": "公开演示数据 · 已脱敏",
++          "buttonLabel": "下载脱敏功能演示素材包"
++        }
++      ]
+     },
+     "workflow": {
+       "input": [
+diff --git a/site/src/styles.css b/site/src/styles.css
+index a653928..8b804e3 100644
+--- a/site/src/styles.css
++++ b/site/src/styles.css
+@@ -286,6 +286,15 @@ img, video { display: block; max-width: 100%; }
+ .media-frame-top > span:last-child { display: inline-flex; align-items: center; gap: 7px; color: #aeb7ab; }
+ .media-frame video, .media-frame img { width: 100%; height: auto; aspect-ratio: 16 / 9; max-height: 420px; object-fit: cover; }
+ .media-frame-caption { min-height: 44px; display: flex; align-items: center; gap: 8px; padding: 0 16px; color: #aeb8b0; font-size: 11px; }
++.media-column { min-width: 0; }
++.media-attachments { margin-top: 14px; border: 1px solid #cfd7c5; border-radius: 8px; background: #fffdf8; }
++.media-attachment { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 18px 18px 19px; }
++.media-attachment-copy { min-width: 0; }
++.media-attachment-notice { display: inline-flex; align-items: center; gap: 6px; margin: 0; color: #587044; font-size: 11px; font-weight: 800; }
++.media-attachment-copy h3 { margin: 8px 0 0; color: #252d2b; font-size: 16px; }
++.media-attachment-copy p:not(.media-attachment-notice) { margin: 6px 0 0; color: #69736d; font-size: 12px; line-height: 1.6; }
++.media-attachment-copy small { display: block; margin-top: 8px; overflow-wrap: anywhere; color: #8a938d; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 10px; }
++.media-attachment-download { flex: none; min-width: 190px; justify-content: center; margin-top: 0; }
+ .boundary-section { padding-top: 75px; padding-bottom: 75px; background: var(--paper); }
+ .boundary-card { display: flex; align-items: center; gap: 20px; padding: 27px 30px; border: 1px solid #d9d2c1; border-radius: 8px; background: #fffdf8; }
+ .boundary-card > svg { color: var(--gold-deep); flex: none; }
+@@ -427,6 +436,8 @@ img, video { display: block; max-width: 100%; }
+   .download-spec-grid { grid-template-columns: repeat(2, 1fr); }
+   .media-layout { gap: 27px; }
+   .media-layout > div:first-child h2 { font-size: 32px; }
++  .media-attachment { align-items: stretch; flex-direction: column; gap: 14px; }
++  .media-attachment-download { width: 100%; }
+   .boundary-card { align-items: flex-start; flex-wrap: wrap; padding: 22px; }
+   .boundary-card .button { margin-left: 48px; }
+   .page-intro { padding: 39px 0 54px; }
+diff --git a/site/tests/build-contract.test.mjs b/site/tests/build-contract.test.mjs
+index 6aaa7cb..90901e6 100644
+--- a/site/tests/build-contract.test.mjs
++++ b/site/tests/build-contract.test.mjs
+@@ -13,7 +13,7 @@ test('package scripts generate static routes before serving and building', async
+   assert.equal(pkg.scripts['publish:pages'], 'npm run build && node scripts/publish-pages.mjs')
+   assert.equal(
+     pkg.scripts.test,
+-    'node --test tests/build-contract.test.mjs tests/media-contract.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/route-pages.test.mjs tests/ui-content-contract.test.mjs',
++    'node --test tests/build-contract.test.mjs tests/media-contract.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/route-pages.test.mjs tests/sanitized-video-build-contract.test.mjs tests/ui-content-contract.test.mjs',
+   )
+ })
+
+diff --git a/site/tests/media-contract.test.mjs b/site/tests/media-contract.test.mjs
+index 6563e7d..4d93e15 100644
+--- a/site/tests/media-contract.test.mjs
++++ b/site/tests/media-contract.test.mjs
+@@ -1,6 +1,6 @@
+ import test from 'node:test'
+ import assert from 'node:assert/strict'
+-import { access } from 'node:fs/promises'
++import { access, readFile } from 'node:fs/promises'
+ import path from 'node:path'
+ import { fileURLToPath } from 'node:url'
+
+@@ -20,12 +20,59 @@ test('every declared local product media path exists in the public tree', async
+   }
+ })
+
+-test('the bleed operation recording is explicitly redacted and silent', () => {
++test('the bleed operation recording uses sanitized demo data and is silent', () => {
+   const bleed = PRODUCTS.find((product) => product.id === 'bleed')
+   assert.equal(bleed.media.declared, true)
+   assert.equal(bleed.media.mode, 'actual-operation-redacted')
+   assert.equal(bleed.media.redacted, true)
++  assert.equal(bleed.media.redactionMethod, 'synthetic-demo-data')
+   assert.equal(bleed.media.silent, true)
+-  assert.equal(bleed.media.video, '/assets/media/bleed-operation-redacted.mp4')
+-  assert.equal(bleed.media.poster, '/assets/media/bleed-operation-poster.webp')
++  assert.equal(bleed.media.sourceBuild, '1.2.11')
++  assert.equal(bleed.media.video, '/assets/media/bleed-operation-sanitized.mp4')
++  assert.equal(bleed.media.poster, '/assets/media/bleed-operation-sanitized-poster.webp')
++})
++
++test('only bleed exposes the redacted demo materials download contract', () => {
++  const bleed = PRODUCTS.find((product) => product.id === 'bleed')
++  assert.deepEqual(bleed.media.attachments, [
++    {
++      title: '脱敏功能演示素材包',
++      description: '含复杂演示订单、单页 PDF、实际排版示例与自动验收记录',
++      filename: 'bleed-redacted-demo-materials-20260814.zip',
++      path: '/assets/downloads/bleed-redacted-demo-materials-20260814.zip',
++      format: 'ZIP',
++      bytes: 98141990,
++      displaySize: '93.6 MB',
++      fileCount: 152,
++      sha256: '7740F2C032FDFCE313B6333FF83D8048591982B470FADCFF877C370B97A235B6',
++      notice: '公开演示数据 · 已脱敏',
++      buttonLabel: '下载脱敏功能演示素材包',
++    },
++  ])
++
++  const otherProductsWithAttachments = PRODUCTS
++    .filter((product) => product.id !== 'bleed' && product.media.attachments?.length)
++    .map((product) => product.id)
++  assert.deepEqual(otherProductsWithAttachments, [])
++})
++
++test('the product media surface renders attachment metadata as a download action', async () => {
++  const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
++  assert.match(app, /product\.media\.attachments/)
++  assert.match(app, /className="media-attachments"/)
++  assert.match(app, /media-attachment-download/)
++  assert.match(app, /download=\{attachment\.filename\}/)
++  assert.match(app, /attachment\.displaySize/)
++  assert.match(app, /公开演示数据下载/)
++})
++
++test('every declared demo attachment exists in the public download tree', async () => {
++  for (const product of PRODUCTS) {
++    for (const attachment of product.media.attachments ?? []) {
++      await assert.doesNotReject(
++        access(path.join(root, 'public', attachment.path.replace(/^\//, ''))),
++        `${product.id} attachment is missing: ${attachment.path}`,
++      )
++    }
++  }
+ })
+diff --git a/site/tests/sanitized-video-build-contract.test.mjs b/site/tests/sanitized-video-build-contract.test.mjs
+new file mode 100644
+index 0000000..af2f53b
+--- /dev/null
++++ b/site/tests/sanitized-video-build-contract.test.mjs
+@@ -0,0 +1,17 @@
++import test from 'node:test'
++import assert from 'node:assert/strict'
++import { readFile } from 'node:fs/promises'
++import path from 'node:path'
++import { fileURLToPath } from 'node:url'
++
++const siteRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
++const repoRoot = path.resolve(siteRoot, '..')
++
++test('the current operation-video build preserves clear frames and removes only idle sections and audio', async () => {
++  const script = await readFile(path.join(repoRoot, 'scripts', 'build-sanitized-operation-video.ps1'), 'utf8')
++  assert.match(script, /trim=start=34:end=103/)
++  assert.match(script, /trim=start=121:end=140/)
++  assert.match(script, /-an/)
++  assert.match(script, /-movflags\s+'?\+faststart'?/)
++  assert.doesNotMatch(script, /pixel|mosaic|boxblur|gblur/i)
++})
+diff --git a/site/tests/ui-content-contract.test.mjs b/site/tests/ui-content-contract.test.mjs
+index b15a2cf..0e19125 100644
+--- a/site/tests/ui-content-contract.test.mjs
++++ b/site/tests/ui-content-contract.test.mjs
+@@ -170,14 +170,15 @@ test('product media exposes four local videos and distinguishes the redacted act
+   assert.equal(bleed.media.mode, 'actual-operation-redacted')
+   assert.equal(bleed.media.redacted, true)
+   assert.equal(bleed.media.silent, true)
+-  assert.match(bleed.media.video, /bleed-operation-redacted\.mp4$/)
++  assert.equal(bleed.media.redactionMethod, 'synthetic-demo-data')
++  assert.match(bleed.media.video, /bleed-operation-sanitized\.mp4$/)
+
+   assert.match(app, /<video\b/i)
+   assert.match(app, /\bcontrols\b/)
+   assert.match(app, /\bposter\b/)
+   assert.match(app, /actual-operation-redacted/)
+   assert.match(app, /查看实际操作演示/)
+-  assert.match(app, /实际操作 · 已脱敏/)
++  assert.match(app, /实际操作 · 脱敏演示数据/)
+   assert.match(app, /(?:\.media\s*\.|media\.(?:video|poster|fallback)|fallback)/)
+   assert.match(app, /(?:\.media\s*\.|media\.video|video)/)
+ })
