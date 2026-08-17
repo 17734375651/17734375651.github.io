@@ -1,9 +1,9 @@
 ﻿{
     "schema":  1,
     "package":  "worker-public",
-    "version":  "1.2.4",
+    "version":  "1.2.11",
     "runtime":  "win-x86",
-    "generatedUtc":  "2026-08-14T22:35:44.0174967Z",
+    "generatedUtc":  "2026-08-17T01:58:57.8695552Z",
     "files":  [
                   {
                       "path":  "Accessibility.dll",
@@ -207,8 +207,13 @@
                   },
                   {
                       "path":  "LabelLayout.Core.dll",
-                      "length":  185344,
-                      "sha256":  "8AB3E81785ED5EDD4C2A7A8DAD392BF929BB1D5F9CCE4C893177C57E0723E088"
+                      "length":  10817536,
+                      "sha256":  "0527416F2BD6ED815769B533A89E0121B59ED65FB569BC530BAD2BD5F3C464AC"
+                  },
+                  {
+                      "path":  "libSkiaSharp.dll",
+                      "length":  10698040,
+                      "sha256":  "DA13BAB99EA444F7259E22B1E9B84CC35C7503427F60479E039625E26910CAB6"
                   },
                   {
                       "path":  "Microsoft.CSharp.dll",
@@ -321,6 +326,11 @@
                       "sha256":  "1A60C1D44F9479CEC6E6E6AEE63511985DA5971388319F943C70E4D2A1DFDE8B"
                   },
                   {
+                      "path":  "pdfium.dll",
+                      "length":  6724608,
+                      "sha256":  "484151989607DA0920A6573483FC6EFD8844AABAF4C0936C37D266EE86759051"
+                  },
+                  {
                       "path":  "PdfSharp.BarCodes.dll",
                       "length":  35840,
                       "sha256":  "00576638751CEFCFDBBF3AFE834F7ADB4F693F6B5286450E53913A8E25CDF4AA"
@@ -364,6 +374,11 @@
                       "path":  "PdfSharp.WPFonts.dll",
                       "length":  421376,
                       "sha256":  "C947A77B1D66FDE3DBA54669ED6994E058E78440191353DCB19084E97793D86D"
+                  },
+                  {
+                      "path":  "PDFtoImage.dll",
+                      "length":  96096,
+                      "sha256":  "6C4C47F3A6100363E83F10DCD52A21D6267A88A0761D64538FBDA58BD39B7CA8"
                   },
                   {
                       "path":  "pl/Microsoft.VisualBasic.Forms.resources.dll",
@@ -424,6 +439,11 @@
                       "path":  "ru/System.Windows.Forms.resources.dll",
                       "length":  479528,
                       "sha256":  "74B0ED977ED2DC80C08513F50A3D12B84B1E636A00FA9478C3C8120B68D50AFF"
+                  },
+                  {
+                      "path":  "SkiaSharp.dll",
+                      "length":  526176,
+                      "sha256":  "B1B2F317D17D5C99AB37CF993B89A0A502E6C7F61EFB6D55C4F8636698B519BF"
                   },
                   {
                       "path":  "System.AppContext.dll",
@@ -1351,6 +1371,21 @@
                       "sha256":  "F0ECF526B28C5835FED4663A7246AEB44F315B879C499A085B4EDE38691A68CC"
                   },
                   {
+                      "path":  "THIRD-PARTY-LICENSES/Apache-2.0.txt",
+                      "length":  11358,
+                      "sha256":  "CFC7749B96F63BD31C3C42B5C471BF756814053E847C10F3EB003417BC523D30"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/bblanchon.PDFium.Win32.nuspec",
+                      "length":  1430,
+                      "sha256":  "5440E70FF5FECD4AD9191AF56B61647EBBEC816AFE15976719634A7DEF51FE8C"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/bblanchon.PDFium.Win32-NOTICE.txt",
+                      "length":  350,
+                      "sha256":  "349CAEA40473BB8C48FA1FCAC5B58C4DD7C04FA2C516A42B741035B0BB08C47D"
+                  },
+                  {
                       "path":  "THIRD-PARTY-LICENSES/BouncyCastle.Cryptography.nuspec",
                       "length":  1407,
                       "sha256":  "27103DC39E0C5625FC165AAAAE892AFDA7A8ADF14D697F45D8A37890E4982F3B"
@@ -1411,9 +1446,34 @@
                       "sha256":  "BA816C4F032729926E66212EA1D703141446AAC32A8BC7831DF27723517AD17E"
                   },
                   {
+                      "path":  "THIRD-PARTY-LICENSES/FangCunSansSC/OFL.txt",
+                      "length":  4388,
+                      "sha256":  "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/FangCunSansSC/SOURCE.md",
+                      "length":  1639,
+                      "sha256":  "B38F3DC740401F4F217098FDB444E1A27F9DF760D59171D20F31AFD4F3155626"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/FangCunSansSC-OFL.txt",
+                      "length":  4388,
+                      "sha256":  "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/FangCunSansSC-SOURCE.md",
+                      "length":  1639,
+                      "sha256":  "B38F3DC740401F4F217098FDB444E1A27F9DF760D59171D20F31AFD4F3155626"
+                  },
+                  {
                       "path":  "THIRD-PARTY-LICENSES/MIT-direct-dependencies-LICENSE.txt",
                       "length":  1040,
                       "sha256":  "2A93D505F8CDEDCC3782E6725793EB9D9C4C6BCDAE225A181D8E00780DF2CBCE"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/PDFium-Win32-NOTICE.md",
+                      "length":  18439,
+                      "sha256":  "D8E80BD7481416E70990F931D330BB472505E51ED4531FA3E5B0797CEC1DDDB8"
                   },
                   {
                       "path":  "THIRD-PARTY-LICENSES/PDFsharp.nuspec",
@@ -1431,6 +1491,21 @@
                       "sha256":  "5A4368600931B74AE24D64A330283C1C4DA3EAFF6F666EA32EE4EACFBDEC617E"
                   },
                   {
+                      "path":  "THIRD-PARTY-LICENSES/PDFtoImage.nuspec",
+                      "length":  9904,
+                      "sha256":  "3E75371633747709E56163E559247B4AB6678EA9A64070501BBA3372D1E413F0"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/PDFtoImage-NOTICE.md",
+                      "length":  5231,
+                      "sha256":  "AF4CEEA9C583A3D656A41497A74A51EE07A232B16F85EAE8E690458A47E666D2"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/PDFtoImage-NOTICE.txt",
+                      "length":  283,
+                      "sha256":  "04014756C2906FFB0B49AB145B2BB3E7364CEE0EA44CF18BB510B98DBEBE0A5E"
+                  },
+                  {
                       "path":  "THIRD-PARTY-LICENSES/qpdf-LICENSE.txt",
                       "length":  458,
                       "sha256":  "6BD81AA03C651C1A88B50EC99DC060D458A4C6439F46BF109AFA6A7178538A90"
@@ -1439,6 +1514,41 @@
                       "path":  "THIRD-PARTY-LICENSES/qpdf-license-notice.html",
                       "length":  6644,
                       "sha256":  "D9C0F00A8E0DF2CA3D3A93FE147C12F222F3EE00D1081824CF3F0697C5FE0405"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/SkiaSharp.NativeAssets.Win32.nuspec",
+                      "length":  1832,
+                      "sha256":  "DE0458B8F5EF603431B615660DBCA96DD8DA3ED9FECBECD4120A83E7C42252DB"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/SkiaSharp.NativeAssets.Win32-NOTICE.txt",
+                      "length":  365,
+                      "sha256":  "ABA44B6E9E668C1C0C7A14BA7B30CEECA110C4E4526956BB92E17A8FBF8F1703"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/SkiaSharp.nuspec",
+                      "length":  6088,
+                      "sha256":  "3E120227D9A133F67FD987C1148F7619C22CB5903C7656C559B36BD2B060DA41"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/SkiaSharp-LICENSE.txt",
+                      "length":  1129,
+                      "sha256":  "89101E35A8C66FD4D6DFFC1763259161D35CB564C169714EC227A768C89F2938"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/SkiaSharp-NOTICE.md",
+                      "length":  219,
+                      "sha256":  "E6A863CAA3A58AAA6D52F565E75C22115E6880B880677FF098BD5CE78CFC8823"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/SkiaSharp-NOTICE.txt",
+                      "length":  308,
+                      "sha256":  "9EE99E9229DBA3EF63F32C3ABB28300E0322D2452BFBCB402DEFD66146FC3F2A"
+                  },
+                  {
+                      "path":  "THIRD-PARTY-LICENSES/SkiaSharp-Win32-THIRD-PARTY-NOTICES.txt",
+                      "length":  139775,
+                      "sha256":  "21504C46C4C58AA64C1055BD2DCBC5F9A136B4B8C412ED3CC6740E22C5B127F5"
                   },
                   {
                       "path":  "tools/concrt140.dll",
@@ -1562,18 +1672,18 @@
                   },
                   {
                       "path":  "标签排版软件.deps.json",
-                      "length":  41702,
-                      "sha256":  "26EA86035BDB620D0DB2468E09F6381781F81B559E6709957AA9AE826EDDFD1D"
+                      "length":  46167,
+                      "sha256":  "C2478527B32166E070ADBF2F2C8BAF6F7135244AE676729DF015667B2CBFA3F1"
                   },
                   {
                       "path":  "标签排版软件.dll",
-                      "length":  251392,
-                      "sha256":  "F4C82FB0739F29E6E7912EEB2D7EA5F674E7F78D1FD086C19D787A9A4630C46B"
+                      "length":  266752,
+                      "sha256":  "C1EC8A7E65721C000BC018B11E632D1E0282C0138A87843A28D4889EDCA58CAB"
                   },
                   {
                       "path":  "标签排版软件.exe",
                       "length":  260096,
-                      "sha256":  "B9536A8BC926071B3898A77E20407F7D7BB8F66BC97485DFB909A0969B4B493C"
+                      "sha256":  "427034B18DAA87BF56D756E1C66E1556F79956BE1BBD7A818B8D5226A702503E"
                   },
                   {
                       "path":  "标签排版软件.runtimeconfig.json",
@@ -1592,8 +1702,8 @@
                   },
                   {
                       "path":  "使用说明.md",
-                      "length":  3014,
-                      "sha256":  "3182F510B2514C2A262C43278EAB5E6A93C8AC53C9C3EB56CE431E7A3D762B01"
+                      "length":  4001,
+                      "sha256":  "E0222271080FBDFB3C890B6A84B08EE19BBE97A12C8330FC2A0BB697508B2EE9"
                   }
               ]
 }
