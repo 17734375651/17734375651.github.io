@@ -263,10 +263,110 @@ PUBLIC_URL=https://17734375651.github.io/
 TARGET_PAGES_SOURCE=main:/docs
 ROLLBACK_PAGES_SOURCE=main:/
 REVERSE_PATCH_CHECK=PASS
+CURRENT_PAGES_SOURCE=main:/docs
 CHECK_RESULT=PASS
 EXIT_CODE=0
 ```
 
 ### Live deployment
 
-This section is populated after GitHub Pages switches to `main:/docs` and the cache-busted public URL returns the modified behavior.
+GitHub Pages source and build command:
+
+```powershell
+gh api repos/17734375651/17734375651.github.io/pages
+gh api repos/17734375651/17734375651.github.io/pages/builds/latest
+```
+
+Literal result:
+
+```text
+PAGES_SOURCE=main:/docs
+PAGES_STATUS=built
+BUILD_ID=1156824944
+BUILD_STATUS=built
+BUILD_COMMIT=0839765b5f82623a56fa3135d80f62774a93425d
+BUILD_CREATED=2026-08-17T11:09:59Z
+BUILD_UPDATED=2026-08-17T11:10:26Z
+EXIT_CODE=0
+```
+
+Cache-busted live command and inputs:
+
+```powershell
+$commit = '0839765b5f82623a56fa3135d80f62774a93425d'
+$buildId = '1156824944'
+curl.exe -L -sS -H 'Cache-Control: no-cache' `
+  -D artifacts/live-final-headers.txt `
+  -o artifacts/live-final.html `
+  "https://17734375651.github.io/?v=$commit-$buildId"
+curl.exe -L -sS -H 'Cache-Control: no-cache' `
+  -o artifacts/live-final-main.js `
+  "https://17734375651.github.io/assets/main-BxL9oovx.js?v=$commit-$buildId"
+```
+
+Literal final result:
+
+```text
+homeHttp=200
+jsHttp=200
+homeSha256=1c82eccdc287420945590a220ded99fc4d1b7d6e6feba81b94b40a1559a15a06
+jsSha256=1493b2e658c3ece77a58fbaaddd3b46d00bf038a21f18f7447afe0cc3bc5c8c7
+containsNewHero=true
+containsOldHero=false
+containsWorkflowAsset=true
+containsSmeTerm=true
+containsOldFactoryTerm=false
+containsProductRoute=true
+containsPreferredContact=true
+internalTermHits=[]
+/products/=200
+/products/label/=200
+/products/bleed/=200
+/products/pdf/=200
+/products/erp/=200
+/solutions/=200
+/custom/requirements/=200
+/updates/=200
+/guides/=200
+/downloads/=200
+/legal/privacy/=200
+/legal/service/=200
+/robots.txt=200
+/sitemap.xml=200
+unknownRoute=404
+LIVE_VERIFICATION=PASS
+EXIT_CODE=0
+```
+
+Structured evidence: `artifacts/live-verification.json`; HTTP evidence: `artifacts/live-final-headers.txt` and `artifacts/live-final.html`.
+
+The first source-switch build exposed one remaining static-fallback wording mismatch (`微信 / 电话`). A regression test failed at 5/6, the generator was corrected to `电话 17734375651（微信同号）`, and the focused test then passed 6/6 before the full 37/37 run and the final build above.
+
+### Live browser verification
+
+Input: clean public URL `https://17734375651.github.io/` in Codex In-app Browser.
+
+Literal recorded result:
+
+```text
+title=方寸有序工作室｜降本增效软件与个性化定制
+newHero=true
+containsSmeTerm=true
+containsOldFactoryTerm=false
+preferredContact=电话 17734375651（微信同号）
+industryTab=中小企业
+industryAriaSelected=true
+recommendation=方寸有序 ERP
+action=预约体验
+productIndex=https://17734375651.github.io/products/
+productCards=4
+allFourProductsPresent=true
+consoleErrorsAndWarnings=[]
+screenshot=site/design-qa-captures/live-final.png
+screenshotDimensions=1265x712
+screenshotSha256=0391fbb742d141c8e3eb07ad751e403440f48202745baa42bdf5fafdb3f0ccb3
+DELIVERABLE_TAB_MARKED=true
+EXIT_CODE=0
+```
+
+Structured evidence: `artifacts/live-browser-qa.json`.

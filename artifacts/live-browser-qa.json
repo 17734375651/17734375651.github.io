@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "verifiedAt": "2026-08-17T19:11:00+08:00",
+  "browser": "Codex In-app Browser",
+  "url": "https://17734375651.github.io/",
+  "title": "方寸有序工作室｜降本增效软件与个性化定制",
+  "home": {
+    "newHero": true,
+    "containsSmeTerm": true,
+    "containsOldFactoryTerm": false,
+    "preferredContact": "电话 17734375651（微信同号）"
+  },
+  "industryTab": {
+    "selected": "中小企业",
+    "ariaSelected": "true",
+    "recommendation": "方寸有序 ERP",
+    "action": "预约体验"
+  },
+  "productIndex": {
+    "url": "https://17734375651.github.io/products/",
+    "title": "产品中心｜方寸有序工作室",
+    "productCards": 4,
+    "allFourProductsPresent": true,
+    "containsOldFactoryTerm": false
+  },
+  "console": {
+    "errorsAndWarnings": []
+  },
+  "screenshot": {
+    "path": "site/design-qa-captures/live-final.png",
+    "width": 1265,
+    "height": 712,
+    "bytes": 95454,
+    "sha256": "0391fbb742d141c8e3eb07ad751e403440f48202745baa42bdf5fafdb3f0ccb3"
+  },
+  "deliverableTabMarked": true
+}
