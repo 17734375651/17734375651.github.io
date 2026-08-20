@@ -97,7 +97,7 @@ test('primary navigation uses crawlable destination routes', () => {
 
 test('home metadata leads with the selected workflow value proposition', () => {
   const home = collectRouteDefinitions().find((route) => route.path === '/')
-  assert.equal(home.h1, '让重复核算、整理、校验变为可执行、可复核、可追踪的流程')
+  assert.equal(home.h1, '把重复工作，整理成清晰可执行的流程')
   assert.doesNotMatch(home.h1, /正式成立/)
 })
 

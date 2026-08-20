@@ -88,11 +88,11 @@ test('hero and third industry solution retain audience and input-process-output 
   assert.match(app, /(?:coreStaticBody|TRUST_POINTS|commonInputs|keyProcessing|verifiableOutputs|中小企业)/)
 })
 
-test('hero workflow asset is wired and source CSS contains no gradient fills', async () => {
+test('selected light workflow asset is wired and source CSS contains no gradient fills', async () => {
   const app = await readSource(appPath)
-  const heroAsset = path.join(root, 'public', 'assets', 'generated', 'hero-workflow.webp')
+  const heroAsset = path.join(root, 'public', 'assets', 'generated', 'home-workflow-light.webp')
   await access(heroAsset)
-  assert.match(app, /hero-workflow\.webp/)
+  assert.match(app, /home-workflow-light\.webp/)
 
   const cssFiles = await collectFiles(srcRoot, '.css')
   assert.ok(cssFiles.length > 0, 'source CSS is required')

@@ -18,7 +18,7 @@ import {
   GearSix,
   Key,
   LockKey,
-  Hamburger,
+  List,
   Phone,
   PlayCircle,
   Plus,
@@ -129,9 +129,9 @@ function Header({ dark = false }) {
           {NAV_ITEMS.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
         </nav>
         <div className="header-actions">
-          <LinkButton href="/products/" variant="small">查看产品</LinkButton>
+          <LinkButton href="/products/" variant="small">查看成品软件</LinkButton>
           <button ref={menuButtonRef} className="menu-toggle" type="button" aria-label={open ? '关闭菜单' : '打开菜单'} aria-expanded={open} aria-controls="mobile-navigation" onClick={() => setOpen((value) => !value)}>
-            {open ? <X size={24} weight="bold" aria-hidden="true" /> : <Hamburger size={24} weight="bold" aria-hidden="true" />}
+            {open ? <X size={24} weight="bold" aria-hidden="true" /> : <List size={24} weight="bold" aria-hidden="true" />}
           </button>
         </div>
       </div>
@@ -165,7 +165,108 @@ function PageShell({ children, darkHeader = false, className = '' }) {
 }
 
 function Hero() {
-  return <section className="hero" aria-labelledby="hero-title"><div className="hero-wave" aria-hidden="true" /><div className="container hero-grid"><div className="hero-copy"><p className="eyebrow"><span className="eyebrow-rule" />为图文店、印刷店、中小企业打造的效率软件</p><h1 id="hero-title">让重复核算、整理、校验<br /><span>变为可执行、可复核、可追踪</span>的流程</h1><p className="hero-lede">把输入、处理与输出梳理成可复核流程，帮助减少重复整理与核对。</p><div className="hero-actions"><LinkButton href="#products">查看产品</LinkButton><LinkButton href="/custom/requirements/" variant="outline"><ClipboardText size={18} aria-hidden="true" />描述你的需求</LinkButton></div><div className="hero-proof-row" aria-label="流程特点"><span><FlowArrow size={18} weight="duotone" aria-hidden="true" />输入—处理—输出</span><span><CheckCircle size={18} weight="duotone" aria-hidden="true" />规则化与校验</span><span><ShieldCheck size={18} weight="duotone" aria-hidden="true" />可复核、可追踪</span></div></div><div className="hero-media"><img src="/assets/generated/hero-workflow.webp" alt="方寸有序处理中心：表格、PDF 与文字规则经过流程处理，输出可复核文件" /><div className="hero-media-caption"><span className="status-dot" />处理中心 · 示例流程</div></div></div></section>
+  return (
+    <section className="hero" aria-labelledby="hero-title">
+      <div className="container hero-grid">
+        <div className="hero-copy">
+          <p className="eyebrow"><span className="eyebrow-rule" />为图文店、印刷店与中小企业打造</p>
+          <h1 id="hero-title">把重复工作，<br />整理成<span>清晰可执行</span>的流程</h1>
+          <p className="hero-lede">把输入、处理与输出梳理成可复核流程，让每一步都能检查、复核和追踪。</p>
+          <div className="hero-actions">
+            <LinkButton href="#solutions">选择业务场景</LinkButton>
+            <LinkButton href="#products" variant="outline">查看成品软件</LinkButton>
+          </div>
+        </div>
+        <div className="hero-media">
+          <img src="/assets/generated/home-workflow-light.webp" alt="输入资料经过规则处理和人工复核后导出可复核结果的示例工作流" />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+const HOME_SCENARIO_BENEFITS = [
+  { title: '减少重复整理', detail: '以统一输入和规则减少来回抄录', icon: ClipboardText },
+  { title: '降低出错返工', detail: '关键步骤保留人工复核入口', icon: ShieldCheck },
+  { title: '保留复核依据', detail: '输出与处理结果便于再次检查', icon: CheckCircle },
+]
+
+function HomeScenarioTabs() {
+  const initialId = SOLUTIONS_BY_ID['small-and-medium-enterprise']?.id ?? SOLUTIONS[0]?.id
+  const [activeId, setActiveId] = useState(initialId)
+  const tabRefs = useRef([])
+  const activeSolution = SOLUTIONS_BY_ID[activeId] ?? SOLUTIONS[0]
+  if (!activeSolution) return null
+
+  const recommended = activeSolution.relatedProducts?.[0]
+  const recommendedProduct = recommended ? PRODUCTS_BY_ID[recommended.productId] : null
+  const recommendedAction = recommendedProduct ? getProductAction(recommendedProduct.status.effectiveStatus, recommendedProduct.id) : null
+  const recommendedHref = recommendedProduct && recommendedAction
+    ? (recommendedProduct.status.effectiveStatus === 'appointment' ? recommendedAction.href : `${recommendedProduct.route}${recommendedAction.href}`)
+    : '/custom/requirements/'
+  const steps = [
+    { label: '输入资料', detail: activeSolution.commonInputs[0] ?? '整理现有资料' },
+    { label: '规则处理', detail: activeSolution.keyProcessing[0] ?? '按既定规则处理' },
+    { label: '人工复核', detail: '检查关键字段与处理结果' },
+    { label: '导出结果', detail: activeSolution.verifiableOutputs[0] ?? '生成可复核结果' },
+  ]
+  const moveTab = (event, index) => {
+    if (!['ArrowRight', 'ArrowLeft', 'Home', 'End'].includes(event.key)) return
+    event.preventDefault()
+    const next = event.key === 'Home' ? 0 : event.key === 'End' ? SOLUTIONS.length - 1 : (index + (event.key === 'ArrowRight' ? 1 : -1) + SOLUTIONS.length) % SOLUTIONS.length
+    setActiveId(SOLUTIONS[next].id)
+    tabRefs.current[next]?.focus()
+  }
+
+  return (
+    <div className="home-scenario-explorer">
+      <div className="home-scenario-tabs" role="tablist" aria-label="选择业务场景">
+        {SOLUTIONS.map((solution, index) => (
+          <button
+            key={solution.id}
+            ref={(node) => { tabRefs.current[index] = node }}
+            className={`home-scenario-tab ${solution.id === activeId ? 'is-active' : ''}`}
+            type="button"
+            role="tab"
+            aria-selected={solution.id === activeId}
+            aria-controls={`home-scenario-panel-${solution.id}`}
+            id={`home-scenario-tab-${solution.id}`}
+            tabIndex={solution.id === activeId ? 0 : -1}
+            onClick={() => setActiveId(solution.id)}
+            onKeyDown={(event) => moveTab(event, index)}
+          >
+            <span className="home-scenario-tab-icon"><IconForSolution id={solution.id} /></span>
+            <span><strong>{solution.label}</strong><small>{solution.currentStaticCard}</small></span>
+          </button>
+        ))}
+      </div>
+      <div className="home-scenario-panel" role="tabpanel" id={`home-scenario-panel-${activeSolution.id}`} aria-labelledby={`home-scenario-tab-${activeSolution.id}`} tabIndex={0}>
+        <div className="home-scenario-workflow">
+          <div className="home-scenario-panel-head">
+            <p><span className="status-dot" />{activeSolution.label}工作流</p>
+            <a href={recommendedHref}>{recommendedProduct ? `查看${recommendedProduct.shortName}` : '描述你的流程'} <ArrowUpRight size={16} aria-hidden="true" /></a>
+          </div>
+          <ol className="home-flow-steps">
+            {steps.map((step, index) => (
+              <React.Fragment key={step.label}>
+                <li><span>{index + 1}</span><strong>{step.label}</strong><small>{step.detail}</small></li>
+                {index < steps.length - 1 && <ArrowRight className="home-flow-arrow" size={20} weight="bold" aria-hidden="true" />}
+              </React.Fragment>
+            ))}
+          </ol>
+        </div>
+        <div className="home-scenario-benefits" aria-label="流程目标">
+          <p className="mini-label">流程目标</p>
+          <div>
+            {HOME_SCENARIO_BENEFITS.map((benefit) => {
+              const BenefitIcon = benefit.icon
+              return <article key={benefit.title}><BenefitIcon size={31} weight="duotone" aria-hidden="true" /><strong>{benefit.title}</strong><small>{benefit.detail}</small></article>
+            })}
+          </div>
+        </div>
+      </div>
+    </div>
+  )
 }
 
 function SolutionTabs({ compact = false }) {
@@ -190,7 +291,7 @@ function SolutionTabs({ compact = false }) {
 }
 
 function HomeSolutions() {
-  return <section className="section solutions-section" id="solutions" aria-labelledby="solutions-title"><div className="container"><div className="section-heading centered"><p className="section-kicker">SCENARIO FIT</p><h2 id="solutions-title">行业方案</h2><p>按作业流程匹配公开产品或定制路径。</p></div><SolutionTabs /></div></section>
+  return <section className="section solutions-section" id="solutions" aria-labelledby="solutions-title"><div className="container"><div className="home-scenario-heading"><span aria-hidden="true" /><div><p className="section-kicker">SCENARIO FIT</p><h2 id="solutions-title">选择适合您的业务场景</h2><p>切换场景，查看输入、处理、复核与输出如何衔接。</p></div><span aria-hidden="true" /></div><HomeScenarioTabs /></div></section>
 }
 
 function ProductCard({ product, featured = false }) {
@@ -229,7 +330,7 @@ function HomeCTA() {
 }
 
 function HomePage() {
-  return <PageShell darkHeader><main><Hero /><HomeSolutions /><ProductsSection /><TrustSection /><ContentSection /><PricingSection /><HomeCTA /></main></PageShell>
+  return <PageShell className="home-page"><main><Hero /><HomeSolutions /><ProductsSection /><TrustSection /><ContentSection /><PricingSection /><HomeCTA /></main></PageShell>
 }
 
 function Breadcrumbs({ items = [] }) {

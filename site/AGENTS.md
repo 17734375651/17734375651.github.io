@@ -8,9 +8,9 @@ When implementing from a selected generated mock, treat that image as the source
 
 ## Selected visual target
 
-- User selected Product Design option 3 on 2026-08-17.
-- Source truth: `references/option-3-hybrid-industry.png` (1487 × 1058).
-- Direction: dark charcoal hero with warm-gold accents and acid-lime result text, followed by a warm-white industry-solution section.
+- User reconfirmed the latest Product Design option 3 on 2026-08-20.
+- Source truth: `references/option-3-sme-workflow.png` (1487 × 1058).
+- Direction: warm-paper light homepage with an ink-and-gold brand system, a real workflow visual in the hero, and an inset business-scenario explorer with `中小企业` selected by default.
 - Preserve the layout hierarchy and density of the selected image while using the verified product/status/content manifests; never invent customer metrics, logos, awards, testimonials, or download availability.
 
 Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.
