@@ -4,7 +4,7 @@ import { access, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { PRODUCTS } from '../src/data/products.js'
+import { PRODUCTS, getProductPublicFiles } from '../src/data/products.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
@@ -84,6 +84,41 @@ test('every declared demo attachment exists in the public download tree', async 
         access(path.join(root, 'public', attachment.path.replace(/^\//, ''))),
         `${product.id} attachment is missing: ${attachment.path}`,
       )
+    }
+  }
+})
+
+test('every retained product exposes direct public files without substituting a demo package for a client', async () => {
+  const filesByProduct = Object.fromEntries(PRODUCTS.map((product) => [product.id, getProductPublicFiles(product)]))
+  assert.deepEqual(Object.fromEntries(Object.entries(filesByProduct).map(([id, files]) => [id, files.length])), {
+    label: 1,
+    bleed: 5,
+    pdf: 1,
+  })
+  assert.deepEqual(filesByProduct.label.map((file) => file.kind), ['demo-materials'])
+  assert.deepEqual(filesByProduct.pdf.map((file) => file.kind), ['demo-materials'])
+  assert.equal(filesByProduct.bleed.filter((file) => file.kind === 'client').length, 1)
+  assert.deepEqual(
+    filesByProduct.bleed.filter((file) => file.kind === 'release-record').map((file) => file.filename),
+    ['public-manifest.json', 'release-record.json', 'SHA256SUMS.txt'],
+  )
+  for (const files of Object.values(filesByProduct)) {
+    for (const file of files.filter((entry) => !entry.external)) {
+      await access(path.join(root, 'public', file.path.replace(/^\//, '')))
+    }
+  }
+})
+
+test('download surfaces expose every public file as a real link', async () => {
+  const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
+  const content = await readFile(path.join(root, 'src', 'data', 'public-content.js'), 'utf8')
+  assert.match(app, /getProductPublicFiles/)
+  assert.match(app, /className="download-file-list"/)
+  assert.match(app, /className="download-file-row"/)
+  assert.match(app, /contentMode === 'direct-download'/)
+  for (const product of PRODUCTS) {
+    for (const file of getProductPublicFiles(product)) {
+      assert.match(`${app}\n${content}\n${JSON.stringify(PRODUCTS)}`, new RegExp(file.filename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
     }
   }
 })

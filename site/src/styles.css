@@ -164,7 +164,7 @@ img, video { display: block; max-width: 100%; }
 
 /* cards and sections */
 .products-section { background: #f0ede5; }
-.products-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
 .product-card { min-width: 0; display: flex; flex-direction: column; padding: 22px 20px 20px; border: 1px solid #ddd9cf; border-radius: 8px; background: #fff; transition: transform .2s ease, box-shadow .2s ease; }
 .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .product-card-featured { color: #f7f3e8; border-color: #252b29; background: var(--ink); }
@@ -308,6 +308,14 @@ img, video { display: block; max-width: 100%; }
 .download-link { min-height: 49px; display: flex; align-items: center; gap: 9px; margin-top: 16px; padding: 0 15px; color: #17200e; background: #a8d36d; font-size: 13px; font-weight: 800; }
 .download-link svg:last-child { margin-left: auto; }
 .download-link:hover { background: #c0e98b; }
+.download-file-list { display: grid; gap: 8px; margin-top: 18px; padding-top: 17px; border-top: 1px solid #dfe1d7; }
+.download-file-list h3 { margin: 0 0 2px; color: #38403d; font-size: 13px; }
+.download-file-row { min-width: 0; display: flex; align-items: center; gap: 14px; padding: 12px 13px; border: 1px solid #d5dacd; border-radius: 5px; color: #26302a; background: #fffdf8; }
+.download-file-row:hover { border-color: #a9ba91; background: #fff; }
+.download-file-row > span { min-width: 0; display: grid; gap: 4px; }
+.download-file-row strong { font-size: 13px; }
+.download-file-row small { overflow-wrap: anywhere; color: #6b7470; font-size: 10px; line-height: 1.45; }
+.download-file-row > svg { flex: none; margin-left: auto; color: #6e8e47; }
 .download-note { margin: 14px 0 0; color: #7b8680; font-size: 11px; line-height: 1.65; }
 .release-candidate { display: flex; gap: 14px; padding: 22px 0 9px; color: #6c7473; }
 .release-candidate > svg { color: var(--gold-deep); flex: none; }

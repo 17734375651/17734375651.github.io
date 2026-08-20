@@ -2,8 +2,8 @@
  * Product truth for the Fangcun Youxu site.
  *
  * Values are deliberately limited to facts present in the audited product
- * matrix. In particular, validation products do not get download URLs and
- * the ERP line remains appointment-only.
+ * matrix. Validation products expose their real demo packages while client
+ * installers remain tied to verified release records.
  */
 export const PRODUCTS = [
   {
@@ -25,8 +25,8 @@ export const PRODUCTS = [
       "sourceStatus": "正式销售",
       "downloadable": false,
       "effectiveStatus": "validation",
-      "label": "正式销售 · 下载验收中",
-      "reason": "当前公开价格与体验规则已确认，安装包仍在完成发布确认。"
+      "label": "正式销售 · 展示包可下载",
+      "reason": "脱敏展示包已开放下载；客户端仍在完成发布确认。"
     },
     "trial": {
       "minutes": 60,
@@ -40,8 +40,8 @@ export const PRODUCTS = [
       "version": null,
       "verification": null,
       "sha256": null,
-      "reason": "当前尚无可公开核对的版本、文件大小与 SHA-256 记录。",
-      "panelText": "发布确认中｜安装包正在完成发布确认，状态更新后再开放下载。",
+      "reason": "当前尚无可公开核对的客户端版本、文件大小与 SHA-256 记录。",
+      "panelText": "客户端发布确认中｜脱敏展示包已开放直接下载。",
       "localArchivePresent": false
     },
     "media": {
@@ -90,9 +90,9 @@ export const PRODUCTS = [
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "体验模拟演示",
-      "downloadPanel": "发布确认中 / 联系 17734375651",
+      "downloadPanel": "脱敏展示包可下载 / 客户端发布确认中",
       "recommended": {
-        "primary": "查看价格与发布状态",
+        "primary": "下载展示包",
         "secondary": "体验模拟演示",
         "nextStep": "联系微信/电话 17734375651 了解购买与发布状态"
       }
@@ -129,6 +129,7 @@ export const PRODUCTS = [
     "download": {
       "state": "available",
       "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.11/fangcun-bleed-cutting-1.2.11-win-x86-public.zip",
+      "filename": "fangcun-bleed-cutting-1.2.11-win-x86-public.zip",
       "platform": "win-x86",
       "version": "1.2.11",
       "date": "2026-08-17",
@@ -140,7 +141,36 @@ export const PRODUCTS = [
       "sha256CaseInsensitiveMatch": true,
       "releaseRecordPackage": "方寸有序胀色裁切-1.2.11-win-x86-官网公开包.zip",
       "localArchivePresent": false,
-      "localArchiveNote": "安装包由公开下载页提供，下载前可核对版本、大小与 SHA-256。"
+      "localArchiveNote": "安装包由公开下载页提供，下载前可核对版本、大小与 SHA-256。",
+      "supportFiles": [
+        {
+          "title": "公开发布清单",
+          "filename": "public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.11/public-manifest.json",
+          "format": "JSON",
+          "bytes": 86348,
+          "displaySize": "84.3 KB",
+          "buttonLabel": "下载公开发布清单"
+        },
+        {
+          "title": "发布记录",
+          "filename": "release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.11/release-record.json",
+          "format": "JSON",
+          "bytes": 244,
+          "displaySize": "244 B",
+          "buttonLabel": "下载发布记录"
+        },
+        {
+          "title": "SHA-256 校验文件",
+          "filename": "SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.11/SHA256SUMS.txt",
+          "format": "TXT",
+          "bytes": 130,
+          "displaySize": "130 B",
+          "buttonLabel": "下载 SHA-256 校验文件"
+        }
+      ]
     },
     "media": {
       "video": "/assets/media/bleed-operation-sanitized-no-taskbar.mp4",
@@ -219,8 +249,8 @@ export const PRODUCTS = [
       "sourceStatus": "正式销售",
       "downloadable": false,
       "effectiveStatus": "validation",
-      "label": "正式销售 · 下载验收中",
-      "reason": "当前公开价格与体验规则已确认，安装包仍在完成发布确认。"
+      "label": "正式销售 · 展示包可下载",
+      "reason": "脱敏展示包已开放下载；客户端仍在完成发布确认。"
     },
     "trial": {
       "minutes": 60,
@@ -234,8 +264,8 @@ export const PRODUCTS = [
       "version": null,
       "verification": null,
       "sha256": null,
-      "reason": "当前尚无可公开核对的版本、文件大小与 SHA-256 记录。",
-      "panelText": "发布确认中｜安装包正在完成发布确认，状态更新后再开放下载。",
+      "reason": "当前尚无可公开核对的客户端版本、文件大小与 SHA-256 记录。",
+      "panelText": "客户端发布确认中｜脱敏展示包已开放直接下载。",
       "localArchivePresent": false
     },
     "media": {
@@ -284,87 +314,11 @@ export const PRODUCTS = [
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "体验模拟演示",
-      "downloadPanel": "发布确认中 / 联系 17734375651",
+      "downloadPanel": "脱敏展示包可下载 / 客户端发布确认中",
       "recommended": {
-        "primary": "查看价格与发布状态",
+        "primary": "下载展示包",
         "secondary": "体验模拟演示",
         "nextStep": "联系微信/电话 17734375651 了解购买与发布状态"
-      }
-    }
-  },
-  {
-    "id": "erp",
-    "route": "/products/erp/",
-    "name": "方寸有序 ERP",
-    "shortName": "方寸 ERP",
-    "eyebrow": "LOCAL ERP",
-    "statement": "面向小型经营团队的本地业务工作台，让订单、库存与权限流转更清楚。",
-    "outcome": "本地优先，帮助梳理订单、库存与权限流程",
-    "price": {
-      "amountCny": null,
-      "display": "预约体验",
-      "termDays": null,
-      "sourceUnit": null,
-      "public": false,
-      "reason": "当前为预约体验，公开安装包与正式价格尚未开放。"
-    },
-    "status": {
-      "sourceStatus": "重点新品 · 完善中 · 预约体验",
-      "downloadable": false,
-      "effectiveStatus": "appointment",
-      "label": "重点新品 · 完善中 · 预约体验",
-      "reason": "当前提供预约体验，公开安装包与正式价格尚未开放。"
-    },
-    "trial": {
-      "minutes": null,
-      "display": "预约体验，公开安装包未开放",
-      "state": "appointment-only",
-      "source": "公开预约体验规则"
-    },
-    "download": {
-      "state": "appointment",
-      "publicLink": null,
-      "version": null,
-      "verification": null,
-      "sha256": null,
-      "reason": "当前仅提供预约体验，尚无公开安装包与正式价格。",
-      "panelText": "预约体验｜重点新品正在完善｜当前公开安装包和正式价格均未开放。可联系 17734375651（微信同号）预约查看已完成方向。",
-      "localArchivePresent": false
-    },
-    "media": {
-      "video": "/assets/media/erp-demo.mp4",
-      "poster": "/assets/media/erp-poster.webp",
-      "declared": true,
-      "fallback": null
-    },
-    "workflow": {
-      "input": [
-        "商品与客户资料",
-        "采购销售单据",
-        "角色与审批规则"
-      ],
-      "process": [
-        "本地优先的商品、客户与供应商资料",
-        "采购、销售、库存与待办流程衔接",
-        "按角色控制字段、审批与可见范围"
-      ],
-      "output": [
-        "待办工作台",
-        "库存事件",
-        "按角色可见的经营视图"
-      ]
-    },
-    "capabilityBoundary": "当前只展示已完成方向，不承诺未完成模块，不公开下载或价格。",
-    "cta": {
-      "homeCard": "查看产品详情",
-      "pricingCard": null,
-      "productHeroPrimary": "预约体验",
-      "productHeroSecondary": "体验模拟演示",
-      "downloadPanel": "预约体验 / 联系 17734375651",
-      "recommended": {
-        "primary": "预约体验",
-        "secondary": "体验模拟演示",
-        "nextStep": "联系微信/电话 17734375651，先确认已完成方向和适用流程"
       }
     }
   }
@@ -374,14 +328,12 @@ export const PRODUCTS_BY_ID = Object.fromEntries(PRODUCTS.map((product) => [prod
 
 export const PRODUCT_STATUS = Object.freeze({
   available: '正式销售 · 已验证下载',
-  validation: '正式销售 · 下载验收中',
-  appointment: '重点新品 · 完善中 · 预约体验',
+  validation: '正式销售 · 展示包可下载',
 });
 
 export const PRODUCT_STATUS_DESCRIPTIONS = Object.freeze({
-  available: '存在已核验的公开下载记录，可将下载作为主转化动作。',
-  validation: '价格与销售文案已公开，下载入口仍在发布验收中。',
-  appointment: '仅预约体验，暂不公开正式价格或安装包。',
+  available: '客户端、脱敏展示包与发布校验文件均可直接下载。',
+  validation: '脱敏展示包可直接下载；客户端仍在完成发布确认。',
 });
 
 export const products = PRODUCTS;
@@ -397,4 +349,29 @@ export function productAction(product) {
     return { label: product.cta.recommended.primary, href: product.download.publicLink, external: true };
   }
   return { label: product.cta.recommended.primary, href: product.route, external: false };
+}
+
+export function getProductPublicFiles(product) {
+  if (!product) return [];
+  const files = [];
+  if (product.download?.publicLink) {
+    files.push({
+      kind: 'client',
+      title: `${product.name} ${product.download.version} Windows 客户端`,
+      description: `${product.download.platform} · ${product.download.displaySize}`,
+      filename: product.download.filename,
+      path: product.download.publicLink,
+      format: 'ZIP',
+      displaySize: product.download.displaySize,
+      buttonLabel: product.cta.downloadButton ?? '下载客户端',
+      external: true,
+    });
+  }
+  for (const file of product.download?.supportFiles ?? []) {
+    files.push({ ...file, kind: 'release-record', external: true });
+  }
+  for (const attachment of product.media?.attachments ?? []) {
+    files.push({ ...attachment, kind: 'demo-materials', external: false });
+  }
+  return files;
 }

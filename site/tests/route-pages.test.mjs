@@ -23,7 +23,6 @@ test('route definitions cover the mature-site information architecture', () => {
     '/products/label/',
     '/products/bleed/',
     '/products/pdf/',
-    '/products/erp/',
     '/solutions/',
     '/custom/requirements/',
     '/updates/',
@@ -68,14 +67,32 @@ test('generated HTML contains static route content and real navigation links', (
 test('product surfaces keep truthful product cards and crawlable mature-site links without JavaScript', () => {
   const home = collectRouteDefinitions().find((item) => item.path === '/')
   const html = buildRouteHtml(home)
-  assert.equal((html.match(/class="product-card"/g) ?? []).length, 4)
+  assert.equal((html.match(/class="product-card"/g) ?? []).length, 3)
   assert.match(html, /正式销售 · 已验证下载/)
-  assert.match(html, /重点新品 · 完善中 · 预约体验/)
-  assert.match(html, /href="\/products\/erp\/"/)
+  assert.match(html, /正式销售 · 展示包可下载/)
+  assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
   assert.match(html, /href="\/updates\/"/)
   assert.match(html, /href="\/guides\/"/)
   assert.match(html, /href="#pricing"/)
   assert.match(html, /href="#contact"/)
+})
+
+test('downloads page exposes every real public file without JavaScript', () => {
+  const route = collectRouteDefinitions().find((item) => item.path === '/downloads/')
+  const html = buildRouteHtml(route)
+  for (const filename of [
+    'fangcun-bleed-cutting-1.2.11-win-x86-public.zip',
+    'label-redacted-demo-materials-20260820.zip',
+    'bleed-redacted-demo-materials-20260814.zip',
+    'pdf-redacted-demo-materials-20260820.zip',
+    'public-manifest.json',
+    'release-record.json',
+    'SHA256SUMS.txt',
+  ]) {
+    assert.match(html, new RegExp(filename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+  }
+  assert.equal((html.match(/class="download-card"/g) ?? []).length, 7)
+  assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
 })
 
 test('sitemap and robots expose indexable canonicals but exclude the 404 page', () => {

@@ -13,4 +13,10 @@ When implementing from a selected generated mock, treat that image as the source
 - Direction: warm-paper light homepage with an ink-and-gold brand system, a real workflow visual in the hero, and an inset business-scenario explorer with `中小企业` selected by default.
 - Preserve the layout hierarchy and density of the selected image while using the verified product/status/content manifests; never invent customer metrics, logos, awards, testimonials, or download availability.
 
+## Current product and download decision
+
+- User removed ERP from the public website on 2026-08-20. Do not restore ERP cards, routes, media, SEO text, content entries, or scenario recommendations.
+- Keep the `中小企业` business scenario, but route unmatched workflows to the customization form rather than an ERP product.
+- Every real public file must have a direct download action. The three product demo ZIPs are public; the verified client and release-support files currently exist only for `bleed`. Do not label a demo ZIP as a client installer.
+
 Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.

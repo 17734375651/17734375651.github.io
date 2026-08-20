@@ -17,10 +17,10 @@ export const SITE = {
     "中小企业",
     "其他重复流程"
   ],
-  "productClaim": "三款正式软件可分别购买、独立使用；ERP 作为重点新品持续完善。",
+  "productClaim": "三款正式软件可分别购买、独立使用；每款产品均提供可直接下载的脱敏展示包。",
   "licenseClaim": "正式软件按年授权；客户端内查看体验、购买和离线激活状态。",
   "trialRibbon": "每台电脑首次免费体验 1 小时",
-  "trialScope": "一小时体验适用于三款正式软件；方寸有序 ERP 当前为预约体验。",
+  "trialScope": "一小时体验适用于三款正式软件；公开文件可在产品页或下载资料页直接获取。",
   "privacyClaims": [
     "本地优先运行",
     "客户资料不上传官网",
@@ -35,7 +35,6 @@ export const SITE = {
     "查看下载与价格",
     "查看实际操作演示",
     "体验模拟演示",
-    "预约体验",
     "填写需求",
     "查看详情"
   ],
@@ -84,7 +83,7 @@ export const TRUST_POINTS = [
   { label: '本地优先运行', detail: '客户资料不上传官网' },
   { label: '可复核输出', detail: '输入、处理、输出链路清楚' },
   { label: '离线授权', detail: '正式软件按年授权' },
-  { label: '体验边界透明', detail: '下载验收中与预约体验分开呈现' },
+  { label: '下载边界透明', detail: '客户端、展示包与校验文件分开呈现' },
 ];
 
 export const SEO_CANONICAL_RULES = {
@@ -99,7 +98,7 @@ export const SEO_ROUTES = [
     "kind": "home",
     "status": 200,
     "title": "方寸有序工作室｜降本增效软件与个性化定制",
-    "description": "标签印刷排版、CMYK 胀色裁切、PDF 配印、本地 ERP 与个性化软件定制。微信/电话：17734375651。",
+    "description": "标签印刷排版、CMYK 胀色裁切、PDF 配印与个性化软件定制。微信/电话：17734375651。",
     "canonical": "https://17734375651.github.io/",
     "og": {
       "title": "方寸有序工作室｜降本增效软件与个性化定制",
@@ -111,7 +110,7 @@ export const SEO_ROUTES = [
     "coreStaticBody": [
       "为图文店、印刷店、中小企业提供能够真正落地的效率软件，也承接按业务流程开发的个性化工具。",
       "把重复核算、反复整理与逐页核对，转成可执行、可复核的软件流程。",
-      "四条产品线：标签印刷排版计划、方寸有序胀色裁切、方寸 PDF 配印助手、方寸有序 ERP。三款软件已公开价格：胀色裁切提供已验证下载，标签排版与 PDF 配印下载入口仍在验收；ERP 预约体验。"
+      "三款正式软件：标签印刷排版计划、方寸有序胀色裁切、方寸 PDF 配印助手。胀色裁切提供已验证客户端；三款产品的脱敏展示包均可直接下载。"
     ],
     "verifiedFacts": {
       "audience": [
@@ -122,8 +121,7 @@ export const SEO_ROUTES = [
       "products": [
         "标签印刷排版计划",
         "方寸有序胀色裁切",
-        "方寸 PDF 配印助手",
-        "方寸有序 ERP"
+        "方寸 PDF 配印助手"
       ],
       "contact": "电话 17734375651（微信同号）",
       "trustStatements": [
@@ -141,7 +139,7 @@ export const SEO_ROUTES = [
     "productId": "label",
     "status": 200,
     "title": "标签印刷排版计划｜方寸有序",
-    "description": "标签印刷排版计划：把多品种、不同数量的标签订单整理成可执行、可复核的排版计划。年授权 199 元，下载入口验收中。",
+    "description": "标签印刷排版计划：把多品种、不同数量的标签订单整理成可执行、可复核的排版计划。年授权 199 元，脱敏展示包可下载。",
     "canonical": "https://17734375651.github.io/products/label/",
     "og": {
       "title": "标签印刷排版计划｜方寸有序",
@@ -155,10 +153,10 @@ export const SEO_ROUTES = [
       "输入资料：Excel 数量表、标签尺寸与版面容量、冗余与成本参数。",
       "处理：读取同尺寸、多内容标签数量表，给出版面、纸张、机器与余量建议。",
       "输出：Word 排版说明、Excel 计算明细、可复核成本与余量。",
-      "年授权 199 元；下载入口验收中；每台电脑首次免费体验 1 小时。"
+      "年授权 199 元；脱敏展示包可下载；每台电脑首次免费体验 1 小时。"
     ],
     "verifiedFacts": {
-      "status": "正式销售 · 下载验收中",
+      "status": "正式销售 · 展示包可下载",
       "price": "199 元/年",
       "trial": "每台电脑首次免费体验 1 小时",
       "inputs": [
@@ -230,7 +228,7 @@ export const SEO_ROUTES = [
     "productId": "pdf",
     "status": 200,
     "title": "方寸 PDF 配印助手｜逐页可追溯的 PDF 配印任务",
-    "description": "方寸 PDF 配印助手：把 Excel、CSV 或文字页数要求转换成可追溯的 PDF 配印任务。年授权 599 元，下载入口验收中。",
+    "description": "方寸 PDF 配印助手：把 Excel、CSV 或文字页数要求转换成可追溯的 PDF 配印任务。年授权 599 元，脱敏展示包可下载。",
     "canonical": "https://17734375651.github.io/products/pdf/",
     "og": {
       "title": "方寸 PDF 配印助手｜逐页可追溯的 PDF 配印任务",
@@ -244,10 +242,10 @@ export const SEO_ROUTES = [
       "输入资料：Excel / CSV、文字页数要求、原始 PDF。",
       "处理：解析每页目标份数与冲突规则，生成规范任务表并按要求加工 PDF。",
       "输出：规范化任务 Excel、加工后 PDF、逐页审计 Excel。",
-      "年授权 599 元；下载入口验收中；每台电脑首次免费体验 1 小时。"
+      "年授权 599 元；脱敏展示包可下载；每台电脑首次免费体验 1 小时。"
     ],
     "verifiedFacts": {
-      "status": "正式销售 · 下载验收中",
+      "status": "正式销售 · 展示包可下载",
       "price": "599 元/年",
       "trial": "每台电脑首次免费体验 1 小时",
       "inputs": [
@@ -266,49 +264,6 @@ export const SEO_ROUTES = [
         "逐页记录处理结果，便于复核追踪"
       ],
       "boundary": "该产品只包含 PDF 配印能力，不含其他产品入口；官网不接收客户文件上传。"
-    }
-  },
-  {
-    "path": "/products/erp/",
-    "kind": "product",
-    "productId": "erp",
-    "status": 200,
-    "title": "方寸有序 ERP｜本地订单、库存与权限工作台",
-    "description": "方寸有序 ERP：面向小型经营团队的本地业务工作台，让订单、库存与权限流转更清楚。重点新品，完善中，预约体验。",
-    "canonical": "https://17734375651.github.io/products/erp/",
-    "og": {
-      "title": "方寸有序 ERP｜本地订单、库存与权限工作台",
-      "description": "面向小型经营团队的本地业务工作台，让订单、库存与权限流转更清楚。",
-      "type": "product",
-      "url": "https://17734375651.github.io/products/erp/"
-    },
-    "h1": "方寸有序 ERP",
-    "coreStaticBody": [
-      "面向小型经营团队的本地业务工作台，让订单、库存与权限流转更清楚。",
-      "当前状态：重点新品 · 完善中 · 预约体验；当前不提供公开安装包或正式价格。",
-      "输入资料：商品与客户资料、采购销售单据、角色与审批规则。",
-      "输出：待办工作台、库存事件、按角色可见的经营视图。"
-    ],
-    "verifiedFacts": {
-      "status": "重点新品 · 完善中 · 预约体验",
-      "price": null,
-      "trial": "预约体验，不提供公开安装包",
-      "inputs": [
-        "商品与客户资料",
-        "采购销售单据",
-        "角色与审批规则"
-      ],
-      "outputs": [
-        "待办工作台",
-        "库存事件",
-        "按角色可见的经营视图"
-      ],
-      "features": [
-        "本地优先的商品、客户与供应商资料",
-        "采购、销售、库存与待办流程衔接",
-        "按角色控制字段、审批与可见范围"
-      ],
-      "boundary": "当前只展示已完成方向，不承诺未完成模块，不公开下载或价格。"
     }
   },
   {
@@ -354,22 +309,22 @@ export const SEO_ROUTES = [
     "kind": "not-found",
     "status": 404,
     "title": "页面未找到｜方寸有序",
-    "description": "这个页面还没有建立。返回产品中心，查看三款正式软件和正在完善的 ERP。",
+    "description": "这个页面还没有建立。返回产品中心，查看三款正式软件或描述你的业务流程。",
     "canonical": null,
     "og": {
       "title": "页面未找到｜方寸有序",
-      "description": "这个页面还没有建立。返回产品中心，查看三款正式软件和正在完善的 ERP。",
+      "description": "这个页面还没有建立。返回产品中心，查看三款正式软件或描述你的业务流程。",
       "type": "website",
       "url": null
     },
     "h1": "这个页面还没有建立。",
     "coreStaticBody": [
       "这个页面还没有建立。",
-      "返回产品中心，查看三款正式软件和正在完善的 ERP。"
+      "返回产品中心，查看三款正式软件或描述你的业务流程。"
     ],
     "verifiedFacts": {
       "clientFallbackText": "这个页面还没有建立。",
-      "clientFallbackDescription": "返回产品中心，查看三款正式软件和正在完善的 ERP。",
+      "clientFallbackDescription": "返回产品中心，查看三款正式软件或描述你的业务流程。",
       "expectedResponse": 404
     },
     "canonicalPolicy": "omit-self-canonical; emit noindex and do not include in sitemap"

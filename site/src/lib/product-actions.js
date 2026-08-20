@@ -1,16 +1,9 @@
 const ACTIONS = {
-  available: { label: '下载客户端', href: '#download' },
-  validation: { label: '查看价格与发布状态', href: '#availability' },
+  available: { label: '下载客户端', href: '#downloads' },
+  validation: { label: '下载展示包', href: '#downloads' },
 }
 
-export function getProductAction(status, productId) {
-  if (status === 'appointment') {
-    return {
-      label: '预约体验',
-      href: `/custom/requirements/?product=${encodeURIComponent(productId ?? '')}`,
-    }
-  }
-
+export function getProductAction(status) {
   if (ACTIONS[status]) return { ...ACTIONS[status] }
   throw new Error(`Unknown product status: ${status}`)
 }

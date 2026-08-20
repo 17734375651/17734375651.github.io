@@ -30,7 +30,7 @@ import {
 
 import { CONTENT_CATEGORIES, CONTENT_STATUS_LABELS } from './data/public-content.js'
 import { LEGAL_BY_ROUTE } from './data/legal.js'
-import { PRODUCTS, PRODUCT_STATUS_DESCRIPTIONS } from './data/products.js'
+import { PRODUCTS, PRODUCT_STATUS_DESCRIPTIONS, getProductPublicFiles } from './data/products.js'
 import { NAV_ITEMS, SITE, TRUST_POINTS } from './data/site.js'
 import { SOLUTIONS } from './data/public-solutions.js'
 import { getProductAction } from './lib/product-actions.js'
@@ -302,7 +302,7 @@ function ProductCard({ product, featured = false }) {
 }
 
 function ProductsSection({ showHeading = true }) {
-  return <section className="section products-section" id="products" aria-labelledby="products-title"><div className="container">{showHeading && <div className="section-heading split-heading"><div><p className="section-kicker">PRODUCT CENTER</p><h2 id="products-title">产品中心</h2></div><p>三款正式软件可分别购买、独立使用；ERP 作为重点新品持续完善。每款产品都明确展示输入、处理、输出与发布状态。</p></div>}<div className="products-grid">{PRODUCTS.map((product) => <ProductCard key={product.id} product={product} featured={product.id === 'bleed'} />)}</div><div className="products-footnote"><ShieldCheck size={19} weight="duotone" aria-hidden="true" /><span>不把下载验收中或预约体验写成公开安装包；详情页展示每款产品的真实边界。</span><a href="/products/">查看产品总览 <ArrowUpRight size={15} aria-hidden="true" /></a></div></div></section>
+  return <section className="section products-section" id="products" aria-labelledby="products-title"><div className="container">{showHeading && <div className="section-heading split-heading"><div><p className="section-kicker">PRODUCT CENTER</p><h2 id="products-title">产品中心</h2></div><p>三款正式软件可分别购买、独立使用。每款产品都明确展示输入、处理、输出，以及可直接下载的公开文件。</p></div>}<div className="products-grid">{PRODUCTS.map((product) => <ProductCard key={product.id} product={product} featured={product.id === 'bleed'} />)}</div><div className="products-footnote"><ShieldCheck size={19} weight="duotone" aria-hidden="true" /><span>三款脱敏展示包均可直接下载；客户端与发布校验文件按真实发布记录展示。</span><a href="/downloads/">查看全部下载 <ArrowUpRight size={15} aria-hidden="true" /></a></div></div></section>
 }
 
 function TrustSection() {
@@ -312,8 +312,10 @@ function TrustSection() {
 function ContentCard({ item }) {
   const product = item.relatedProduct ? PRODUCTS_BY_ID[item.relatedProduct] : null
   const cta = item.CTA ?? {}
-  const isVerifiedDownload = item.contentMode === 'verified-download' && item.relatedProduct === 'bleed'
-  return <article className="content-card"><div className="content-card-meta"><span className={`content-status content-status-${item.status}`}>{CONTENT_STATUS_LABELS[item.status] ?? item.status}</span><span>{product?.shortName ?? '内容中心'}</span></div><h3>{item.title}</h3><p>{item.summary}</p><div className="content-card-actions">{isVerifiedDownload ? <a className="text-link" href={product?.download.publicLink} target="_blank" rel="noreferrer"><DownloadSimple size={17} aria-hidden="true" />{cta.primary ?? '下载客户端'}</a> : <a className="text-link" href={cta.primaryHref ?? product?.route ?? '/products/'}>{cta.primary ?? '查看详情'}<ArrowUpRight size={16} aria-hidden="true" /></a>}<a className="text-link muted" href={cta.secondaryHref ?? product?.route ?? '/products/'}>{cta.secondary ?? '查看产品'}<CaretRight size={16} aria-hidden="true" /></a></div></article>
+  const isDirectDownload = item.contentMode === 'direct-download'
+  const downloadHref = cta.primaryHref ?? product?.download.publicLink ?? ''
+  const downloadExternal = /^https?:\/\//.test(downloadHref)
+  return <article className="content-card"><div className="content-card-meta"><span className={`content-status content-status-${item.status}`}>{CONTENT_STATUS_LABELS[item.status] ?? item.status}</span><span>{product?.shortName ?? '内容中心'}</span></div><h3>{item.title}</h3><p>{item.summary}</p><div className="content-card-actions">{isDirectDownload ? <a className="text-link" href={downloadHref} target={downloadExternal ? '_blank' : undefined} rel={downloadExternal ? 'noreferrer' : undefined} download={downloadExternal ? undefined : item.downloadFilename}><DownloadSimple size={17} aria-hidden="true" />{cta.primary ?? '下载文件'}</a> : <a className="text-link" href={cta.primaryHref ?? product?.route ?? '/products/'}>{cta.primary ?? '查看详情'}<ArrowUpRight size={16} aria-hidden="true" /></a>}<a className="text-link muted" href={cta.secondaryHref ?? product?.route ?? '/products/'}>{cta.secondary ?? '查看产品'}<CaretRight size={16} aria-hidden="true" /></a></div></article>
 }
 
 function ContentSection() {
@@ -322,7 +324,7 @@ function ContentSection() {
 }
 
 function PricingSection() {
-  return <section className="section pricing-section" id="pricing" aria-labelledby="pricing-title"><div className="container"><div className="section-heading centered"><p className="section-kicker">PRICING & ACCESS</p><h2 id="pricing-title">服务与价格</h2><p>价格、下载状态与体验范围分开说明，不把预约或验收中状态提前承诺。</p></div><div className="pricing-grid">{PRODUCTS.slice(0, 3).map((product) => { const action = getProductAction(product.status.effectiveStatus, product.id); return <article key={product.id} className={`pricing-card ${product.id === 'bleed' ? 'pricing-card-featured' : ''}`}><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><h3>{product.shortName}</h3><strong className="price-display">{product.price.display}</strong><span className="price-term">365 天年度授权</span><ul>{product.workflow.output.map((output) => <li key={output}><Check size={17} weight="bold" aria-hidden="true" />{output}</li>)}</ul><a className="text-link" href={`${pathForProduct(product.id)}${action.href}`}>{action.label}<ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article> })}<article className="pricing-card pricing-card-custom"><span className="status-badge status-custom">按需求沟通</span><h3>个性化软件定制</h3><strong className="price-display">¥499 <small>起</small></strong><span className="price-term">定制设计及首个可用版本</span><ul><li><Check size={17} weight="bold" aria-hidden="true" />先梳理流程与资料</li><li><Check size={17} weight="bold" aria-hidden="true" />生成可复核需求摘要</li><li><Check size={17} weight="bold" aria-hidden="true" />正式版年费按复杂度报价</li></ul><a className="text-link" href="/custom/requirements/">描述你的需求 <ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article></div><p className="pricing-note"><Clock size={18} weight="duotone" aria-hidden="true" />一小时体验适用于三款正式软件；方寸有序 ERP 当前为预约体验。</p></div></section>
+  return <section className="section pricing-section" id="pricing" aria-labelledby="pricing-title"><div className="container"><div className="section-heading centered"><p className="section-kicker">PRICING & ACCESS</p><h2 id="pricing-title">服务与价格</h2><p>价格、客户端状态与公开文件分开说明；所有现有脱敏展示包均可直接下载。</p></div><div className="pricing-grid">{PRODUCTS.map((product) => { const action = getProductAction(product.status.effectiveStatus, product.id); return <article key={product.id} className={`pricing-card ${product.id === 'bleed' ? 'pricing-card-featured' : ''}`}><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><h3>{product.shortName}</h3><strong className="price-display">{product.price.display}</strong><span className="price-term">365 天年度授权</span><ul>{product.workflow.output.map((output) => <li key={output}><Check size={17} weight="bold" aria-hidden="true" />{output}</li>)}</ul><a className="text-link" href={`${pathForProduct(product.id)}${action.href}`}>{action.label}<ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article> })}<article className="pricing-card pricing-card-custom"><span className="status-badge status-custom">按需求沟通</span><h3>个性化软件定制</h3><strong className="price-display">¥499 <small>起</small></strong><span className="price-term">定制设计及首个可用版本</span><ul><li><Check size={17} weight="bold" aria-hidden="true" />先梳理流程与资料</li><li><Check size={17} weight="bold" aria-hidden="true" />生成可复核需求摘要</li><li><Check size={17} weight="bold" aria-hidden="true" />正式版年费按复杂度报价</li></ul><a className="text-link" href="/custom/requirements/">描述你的需求 <ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article></div><p className="pricing-note"><Clock size={18} weight="duotone" aria-hidden="true" />一小时体验适用于三款正式软件；公开文件可在产品页或下载资料页直接获取。</p></div></section>
 }
 
 function HomeCTA() {
@@ -348,11 +350,55 @@ function WorkflowSection({ product }) {
   return <section className="section workflow-section" id="workflow" aria-labelledby="workflow-title"><div className="container"><div className="section-heading split-heading"><div><p className="section-kicker">INPUT · PROCESS · OUTPUT</p><h2 id="workflow-title">一条可复核的工作流</h2></div><p>{product.capabilityBoundary}</p></div><div className="workflow-grid"><div className="workflow-card"><div className="workflow-card-head"><span className="workflow-number">01</span><h3>输入资料</h3></div><ul className="icon-list">{product.workflow.input.map((item) => <li key={item}>{IconForInput(item)}<span>{item}</span></li>)}</ul></div><div className="workflow-connector" aria-hidden="true"><ArrowRight size={27} weight="bold" /></div><div className="workflow-card"><div className="workflow-card-head"><span className="workflow-number">02</span><h3>关键处理</h3></div><ul className="bullet-list">{product.workflow.process.map((item) => <li key={item}>{item}</li>)}</ul></div><div className="workflow-connector" aria-hidden="true"><ArrowRight size={27} weight="bold" /></div><div className="workflow-card workflow-card-output"><div className="workflow-card-head"><span className="workflow-number">03</span><h3>可复核输出</h3></div><ul className="icon-list">{product.workflow.output.map((item) => <li key={item}><CheckCircle size={19} weight="duotone" aria-hidden="true" /><span>{item}</span></li>)}</ul></div></div></div></section>
 }
 
+function DownloadFileRow({ file }) {
+  const external = file.external || /^https?:\/\//.test(file.path)
+  return (
+    <a
+      className="download-file-row"
+      href={file.path}
+      target={external ? '_blank' : undefined}
+      rel={external ? 'noreferrer' : undefined}
+      download={external ? undefined : file.filename}
+    >
+      <span><strong>{file.title}</strong><small>{file.filename} · {file.format ?? '文件'} · {file.displaySize}</small></span>
+      <DownloadSimple size={19} weight="bold" aria-hidden="true" />
+    </a>
+  )
+}
+
 function AvailabilityPanel({ product }) {
   const action = getProductAction(product.status.effectiveStatus, product.id)
   const available = product.status.effectiveStatus === 'available'
-  const appointment = product.status.effectiveStatus === 'appointment'
-  return <section className="section availability-section" id="availability" aria-labelledby="availability-title"><div className="container"><div className="availability-panel"><div className="availability-copy"><p className="section-kicker">当前状态</p><h2 id="availability-title">下载与价格</h2><p>{PRODUCT_STATUS_DESCRIPTIONS[product.status.effectiveStatus]}</p><div className="availability-price">{product.price.public ? <><strong>{product.price.display}</strong><span>年度授权 · {product.price.termDays} 天</span></> : <><strong>预约体验</strong><span>公开安装包与正式价格未开放</span></>}</div>{product.trial.state === 'first-device-one-hour' && <p className="trial-note"><Clock size={18} weight="duotone" aria-hidden="true" />{product.trial.display}</p>}<LinkButton href={action.href}>{action.label}</LinkButton></div><div className={`download-panel ${available ? 'download-panel-verified' : ''}`} id={available ? 'download' : undefined}><div className="download-panel-head"><span className="download-state-dot" /><span>{product.cta.downloadPanel}</span></div>{available ? <><div className="download-spec-grid"><div><small>版本</small><strong>{product.download.version}</strong></div><div><small>运行时</small><strong>{product.download.platform}</strong></div><div><small>文件大小</small><strong>{product.download.displaySize}</strong></div><div><small>核验</small><strong>已核验</strong></div></div><div className="checksum"><small>SHA-256</small><code>{product.download.sha256}</code></div><a className="download-link" href={product.download.publicLink} target="_blank" rel="noreferrer"><DownloadSimple size={19} weight="bold" aria-hidden="true" />{product.cta.downloadButton}<ArrowUpRight size={17} aria-hidden="true" /></a><p className="download-note">下载前核对版本、平台、大小与 SHA-256；授权可联系 17734375651（微信同号）。</p></> : <><div className="release-candidate"><Wrench size={28} weight="duotone" aria-hidden="true" /><div><strong>{appointment ? '预约体验' : '发布确认中'}</strong><p>{product.download.panelText}</p></div></div><p className="download-note">{appointment ? '请联系 17734375651（微信同号），确认已完成方向和适用流程。' : '安装包完成发布确认后，再开放下载入口。'}</p></>}</div></div></div></section>
+  const publicFiles = getProductPublicFiles(product)
+  const primaryClient = publicFiles.find((file) => file.kind === 'client')
+  const supportingFiles = publicFiles.filter((file) => file.kind !== 'client')
+
+  return (
+    <section className="section availability-section" id="availability" aria-labelledby="availability-title">
+      <div className="container">
+        <div className="availability-panel">
+          <div className="availability-copy">
+            <p className="section-kicker">当前状态</p>
+            <h2 id="availability-title">下载与价格</h2>
+            <p>{PRODUCT_STATUS_DESCRIPTIONS[product.status.effectiveStatus]}</p>
+            <div className="availability-price"><strong>{product.price.display}</strong><span>年度授权 · {product.price.termDays} 天</span></div>
+            {product.trial.state === 'first-device-one-hour' && <p className="trial-note"><Clock size={18} weight="duotone" aria-hidden="true" />{product.trial.display}</p>}
+            <LinkButton href={action.href}>{action.label}</LinkButton>
+          </div>
+          <div className={`download-panel ${publicFiles.length ? 'download-panel-verified' : ''}`} id="downloads">
+            <div className="download-panel-head"><span className="download-state-dot" /><span>{product.cta.downloadPanel}</span></div>
+            {available && primaryClient ? <>
+              <div className="download-spec-grid"><div><small>版本</small><strong>{product.download.version}</strong></div><div><small>运行时</small><strong>{product.download.platform}</strong></div><div><small>文件大小</small><strong>{product.download.displaySize}</strong></div><div><small>核验</small><strong>已核验</strong></div></div>
+              <div className="checksum"><small>SHA-256</small><code>{product.download.sha256}</code></div>
+              <a className="download-link" href={primaryClient.path} target="_blank" rel="noreferrer"><DownloadSimple size={19} weight="bold" aria-hidden="true" />{primaryClient.buttonLabel}<ArrowUpRight size={17} aria-hidden="true" /></a>
+            </> : <div className="release-candidate"><Wrench size={28} weight="duotone" aria-hidden="true" /><div><strong>客户端发布确认中</strong><p>{product.download.panelText}</p></div></div>}
+            {supportingFiles.length > 0 && <div className="download-file-list" aria-label={`${product.name} 可下载文件`}><h3>可下载文件</h3>{supportingFiles.map((file) => <DownloadFileRow key={file.path} file={file} />)}</div>}
+            <p className="download-note">{available ? '客户端、展示包与校验资料均来自当前公开发布记录；下载前可逐项核对。' : '脱敏展示包可直接下载；客户端完成发布确认后再补充版本与校验记录。'}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }
 
 function ProductMedia({ product }) {
@@ -411,7 +457,7 @@ function RelatedContent({ productId }) {
 }
 
 function ProductsIndexPage() {
-  return <PageShell><main className="light-page"><section className="page-intro"><div className="container"><Breadcrumbs items={[{ label: '产品中心' }]} /><p className="section-kicker">PRODUCT CENTER</p><h1>产品中心</h1><p>三款正式软件可分别购买、独立使用；方寸有序 ERP 作为重点新品持续完善。</p></div></section><ProductsSection showHeading={false} /><TrustSection /><HomeCTA /></main></PageShell>
+  return <PageShell><main className="light-page"><section className="page-intro"><div className="container"><Breadcrumbs items={[{ label: '产品中心' }]} /><p className="section-kicker">PRODUCT CENTER</p><h1>产品中心</h1><p>三款正式软件可分别购买、独立使用；每款产品的公开文件均提供直接下载入口。</p></div></section><ProductsSection showHeading={false} /><TrustSection /><HomeCTA /></main></PageShell>
 }
 
 function SolutionsPage() {

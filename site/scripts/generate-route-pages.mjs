@@ -2,7 +2,7 @@ import { mkdir, writeFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
-import { PRODUCTS } from '../src/data/products.js'
+import { PRODUCTS, getProductPublicFiles } from '../src/data/products.js'
 import { SEO_ROUTES, SITE } from '../src/data/site.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -13,7 +13,6 @@ const PRODUCT_SURFACE_PATHS = new Set([
   '/products/label/',
   '/products/bleed/',
   '/products/pdf/',
-  '/products/erp/',
   '/solutions/',
   '/custom/requirements/',
 ])
@@ -23,7 +22,7 @@ const SYNTHETIC_ROUTES = [
     path: '/products/',
     kind: 'product-index',
     title: '产品中心｜方寸有序工作室',
-    description: '查看标签印刷排版、CMYK 胀色裁切、PDF 配印和本地 ERP 四条产品线，以及各自准确的价格、体验和发布状态。',
+    description: '查看标签印刷排版、CMYK 胀色裁切和 PDF 配印三款正式软件，以及各自准确的价格、体验和公开下载文件。',
     h1: '把重复工作，交给清楚可靠的软件流程',
   },
   {
@@ -53,9 +52,9 @@ const SYNTHETIC_ROUTES = [
     path: '/downloads/',
     kind: 'content-index',
     category: 'downloads',
-    title: '下载与发布状态｜方寸有序工作室',
-    description: '集中查看四条产品线的公开下载、验收中与预约体验状态；只有已完成公开验证的软件提供直接下载入口。',
-    h1: '下载与发布状态',
+    title: '文件下载｜客户端、脱敏展示包与校验资料｜方寸有序工作室',
+    description: '集中下载三款产品的脱敏展示包，以及方寸有序胀色裁切客户端、发布清单、发布记录与 SHA-256 校验文件。',
+    h1: '公开文件下载',
   },
   {
     path: '/legal/privacy/',
@@ -70,7 +69,7 @@ const SYNTHETIC_ROUTES = [
     kind: 'legal',
     legalId: 'service-license',
     title: '软件服务与授权边界｜方寸有序工作室',
-    description: '查看三款正式软件、ERP 预约体验、个性化定制、年度授权以及各产品下载状态的当前公开边界。',
+    description: '查看三款正式软件、个性化定制、年度授权以及客户端、展示包与校验文件的当前公开边界。',
     h1: '软件服务与授权边界',
   },
 ]
@@ -157,6 +156,17 @@ function staticProductCards() {
   }).join('\n')
 }
 
+function staticDownloadLinks() {
+  return PRODUCTS.flatMap((product) => getProductPublicFiles(product).map((file) => ({ product, file })))
+    .map(({ product, file }) => `<article class="download-card">
+          <span>${escapeHtml(product.shortName)}</span>
+          <h3>${escapeHtml(file.title)}</h3>
+          <p>${escapeHtml(file.filename)} · ${escapeHtml(file.displaySize)}</p>
+          <a href="${escapeHtml(file.path)}"${file.external ? ' target="_blank" rel="noreferrer"' : ` download="${escapeHtml(file.filename)}"`}>${escapeHtml(file.buttonLabel ?? '下载文件')}</a>
+        </article>`)
+    .join('\n')
+}
+
 function staticNavigation(route) {
   const homeFragments = route.path === '/'
     ? '<a href="#pricing">服务与价格</a><a href="#contact">联系我们</a>'
@@ -167,12 +177,11 @@ function staticNavigation(route) {
           <a href="/products/label/">标签排版</a>
           <a href="/products/bleed/">胀色裁切</a>
           <a href="/products/pdf/">PDF 配印</a>
-          <a href="/products/erp/">ERP</a>
           <a href="/solutions/">行业方案</a>
           <a href="/custom/requirements/">描述你的需求</a>
           <a href="/updates/">产品更新</a>
           <a href="/guides/">使用指南</a>
-          <a href="/downloads/">下载状态</a>
+          <a href="/downloads/">文件下载</a>
           <a href="/legal/privacy/">隐私说明</a>
           <a href="/legal/service/">服务与授权</a>
           ${homeFragments}
@@ -247,6 +256,9 @@ export function buildRouteHtml(route) {
   const homeSections = route.path === '/'
     ? '<section id="pricing"><h2>服务与价格</h2></section><footer id="contact">电话 17734375651（微信同号）</footer>'
     : ''
+  const downloadSection = route.path === '/downloads/'
+    ? `<section aria-labelledby="static-downloads-heading"><h2 id="static-downloads-heading">公开文件下载</h2>${staticDownloadLinks()}</section>`
+    : ''
   const structuredData = structuredDataForRoute(route)
 
   return `<!doctype html>
@@ -269,13 +281,14 @@ export function buildRouteHtml(route) {
         <h1>${escapeHtml(route.h1)}</h1>
         ${paragraphs}
         ${productCards}
+        ${downloadSection}
         ${homeSections}
       </main>
     </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
-`
+`.replace(/[ \t]+$/gm, '')
 }
 
 export function buildSitemapXml(routes = collectRouteDefinitions()) {

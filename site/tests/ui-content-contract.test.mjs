@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 import { PRODUCTS, PRODUCT_STATUS } from '../src/data/products.js'
 import { SITE, SEO_ROUTES, TRUST_POINTS } from '../src/data/site.js'
-import { SOLUTIONS } from '../src/data/solutions.js'
+import { SOLUTIONS } from '../src/data/public-solutions.js'
 import {
   buildRequirementSummary,
   getRequirementCompletion,
@@ -138,9 +138,9 @@ test('requirements expose four required semantics and build only a local summary
   assert.doesNotMatch(app, /\b(?:fetch|axios|XMLHttpRequest|sendBeacon)\s*\(/i)
 })
 
-test('four products render their verified status through a data-driven UI path', async () => {
+test('three products render their verified status through a data-driven UI path', async () => {
   const app = await readSource(appPath)
-  const expectedIds = ['label', 'bleed', 'pdf', 'erp']
+  const expectedIds = ['label', 'bleed', 'pdf']
   assert.deepEqual(PRODUCTS.map((product) => product.id), expectedIds)
   for (const product of PRODUCTS) {
     assert.ok(PRODUCT_STATUS[product.status.effectiveStatus], `missing status vocabulary for ${product.id}`)
@@ -152,6 +152,20 @@ test('four products render their verified status through a data-driven UI path',
   assert.match(app, /(?:product|item|currentProduct)\s*\.\s*name/)
 })
 
+test('ERP is absent from every public runtime source and route manifest', async () => {
+  const publicFiles = [
+    appPath,
+    path.join(srcRoot, 'data', 'products.js'),
+    path.join(srcRoot, 'data', 'public-content.js'),
+    path.join(srcRoot, 'data', 'public-solutions.js'),
+    path.join(srcRoot, 'data', 'site.js'),
+    path.join(srcRoot, 'data', 'legal.js'),
+    path.join(root, 'scripts', 'generate-route-pages.mjs'),
+  ]
+  const publicSource = (await Promise.all(publicFiles.map((file) => readSource(file)))).join('\n')
+  assert.doesNotMatch(publicSource, /\bERP\b|\/products\/erp\//i)
+})
+
 test('interactive UI exposes mobile-menu and industry-tab semantics', async () => {
   const app = await readSource(appPath)
   assert.match(app, /aria-expanded\s*=/)
@@ -159,10 +173,10 @@ test('interactive UI exposes mobile-menu and industry-tab semantics', async () =
   assert.match(app, /aria-selected\s*=/)
 })
 
-test('product media exposes four local videos and distinguishes the redacted actual operation recording', async () => {
+test('product media exposes three local videos and distinguishes the redacted actual operation recording', async () => {
   const app = await readSource(appPath)
   const mediaProducts = PRODUCTS.filter((product) => product.media.video)
-  assert.equal(mediaProducts.length, 4)
+  assert.equal(mediaProducts.length, 3)
   for (const product of mediaProducts) {
     assert.ok(product.media.poster, `${product.id} needs a poster`)
   }
