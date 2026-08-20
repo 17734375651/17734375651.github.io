@@ -1,0 +1,57 @@
+
+> site@0.0.0 test
+> node --test tests/build-contract.test.mjs tests/demo-package-contract.test.mjs tests/media-contract.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/route-pages.test.mjs tests/sanitized-video-build-contract.test.mjs tests/ui-content-contract.test.mjs
+
+✔ package scripts generate static routes before serving and building (3.814ms)
+✔ vite multi-page input includes the key static route documents (169.9379ms)
+✔ label demo package has an explicit synthetic provenance and integrity ledger (7.8982ms)
+✔ pdf demo package has an explicit synthetic provenance and integrity ledger (5.3499ms)
+✔ every declared local product media path exists in the public tree (5.4747ms)
+✔ the bleed operation recording uses sanitized demo data and is silent (0.3125ms)
+✔ every finished product exposes a synthetic or sanitized demo materials package (0.9044ms)
+✔ the product media surface renders attachment metadata as a download action (3.8888ms)
+✔ every declared demo attachment exists in the public download tree (0.8143ms)
+✔ available products lead to the verified download section (1.2321ms)
+✔ validation products explain price and release status instead of promising a download (0.1413ms)
+✔ appointment products lead to the prefilled requirements route (0.1042ms)
+✔ unknown product status fails closed (0.956ms)
+✔ public runtime data excludes internal audit language (0.862ms)
+✔ public content surfaces render publishable entries only (4.1917ms)
+✔ browser imports a public-only content projection (1.4667ms)
+✔ browser imports a public-only industry-solution projection (1.1647ms)
+✔ customer-facing copy uses bounded workflow language (0.7445ms)
+✔ generated static shell uses the same customer-facing contact wording (0.667ms)
+✔ publish destination must be the repository docs directory (1.0038ms)
+✔ publishPages replaces stale output and keeps the generated route tree (25.1492ms)
+✔ getRequirementCompletion reports the four required fields (1.1601ms)
+✔ buildRequirementSummary emits a structured local-only summary when complete (0.2129ms)
+✔ buildRequirementSummary returns an empty string until all required fields exist (0.0701ms)
+✔ normalizePrefill accepts known scenarios and ignores unknown values (0.8491ms)
+✔ route definitions cover the mature-site information architecture (0.9097ms)
+✔ indexable routes have unique metadata and absolute canonicals (0.4435ms)
+✔ routeToOutputFile maps directory routes and the custom 404 file (0.1147ms)
+✔ generated HTML contains static route content and real navigation links (0.449ms)
+✔ product surfaces keep truthful product cards and crawlable mature-site links without JavaScript (0.2221ms)
+✔ sitemap and robots expose indexable canonicals but exclude the 404 page (0.2043ms)
+✔ primary navigation uses crawlable destination routes (0.0937ms)
+✔ home metadata leads with the selected workflow value proposition (0.1347ms)
+✔ product pages expose factual software structured data without ratings or customer claims (0.3645ms)
+✔ route generation stages robots and sitemap for Vite public output (21.319ms)
+✔ the current operation-video build preserves clear frames, removes the taskbar, idle sections and audio (3.6642ms)
+✔ App uses mature routes and does not regress to the old studio label (4.4242ms)
+✔ hero and third industry solution retain audience and input-process-output copy (1.0662ms)
+✔ hero workflow asset is wired and source CSS contains no gradient fills (2.3255ms)
+✔ requirements expose four required semantics and build only a local summary (1.5861ms)
+✔ four products render their verified status through a data-driven UI path (0.7618ms)
+✔ interactive UI exposes mobile-menu and industry-tab semantics (0.5575ms)
+✔ product media exposes four local videos and distinguishes the redacted actual operation recording (0.9566ms)
+✔ App does not hard-code unsupported customer or outcome metrics (0.7355ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 44
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 232.272
+exit_status=0

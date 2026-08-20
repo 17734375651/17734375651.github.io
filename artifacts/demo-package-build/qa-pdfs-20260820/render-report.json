@@ -1,0 +1,26 @@
+[
+  {
+    "file": "输入PDF素材\\SYNTH-PDF-A.pdf",
+    "pages": 4
+  },
+  {
+    "file": "输入PDF素材\\SYNTH-PDF-B.pdf",
+    "pages": 3
+  },
+  {
+    "file": "输入PDF素材\\SYNTH-PDF-C.pdf",
+    "pages": 2
+  },
+  {
+    "file": "输出示例\\加工后PDF\\SYNTH-PDF-A_配印后.pdf",
+    "pages": 6
+  },
+  {
+    "file": "输出示例\\加工后PDF\\SYNTH-PDF-B_配印后.pdf",
+    "pages": 5
+  },
+  {
+    "file": "输出示例\\加工后PDF\\SYNTH-PDF-C_配印后.pdf",
+    "pages": 5
+  }
+]

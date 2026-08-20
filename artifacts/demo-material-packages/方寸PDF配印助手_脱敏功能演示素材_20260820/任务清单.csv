@@ -1,0 +1,10 @@
+﻿源PDF,虚构文档标题,源页码,目标份数,规则说明,数据性质
+SYNTH-PDF-A.pdf,虚构说明书 A,1,2,封面重复 2 份,SYNTHETIC DEMO
+SYNTH-PDF-A.pdf,虚构说明书 A,2,1,目录保留 1 份,SYNTHETIC DEMO
+SYNTH-PDF-A.pdf,虚构说明书 A,3,3,参数页重复 3 份,SYNTHETIC DEMO
+SYNTH-PDF-A.pdf,虚构说明书 A,4,0,空白页忽略,SYNTHETIC DEMO
+SYNTH-PDF-B.pdf,虚构手册 B,1,1,封面保留 1 份,SYNTHETIC DEMO
+SYNTH-PDF-B.pdf,虚构手册 B,2,2,步骤页重复 2 份,SYNTHETIC DEMO
+SYNTH-PDF-B.pdf,虚构手册 B,3,2,检查页重复 2 份,SYNTHETIC DEMO
+SYNTH-PDF-C.pdf,虚构卡片 C,1,4,正面重复 4 份,SYNTHETIC DEMO
+SYNTH-PDF-C.pdf,虚构卡片 C,2,1,背面保留 1 份,SYNTHETIC DEMO

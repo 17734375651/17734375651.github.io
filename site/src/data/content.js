@@ -330,7 +330,7 @@ export const CONTENT_CATEGORIES = [
             "role": "产品能力说明唯一事实源"
           },
           {
-            "source": "bleed-operation-sanitized.mp4",
+            "source": "bleed-operation-sanitized-no-taskbar.mp4",
             "anchor": "actual-operation-redacted; synthetic demo data; audio removed; clear operation frames",
             "role": "实际操作演示资产；仅用于展示输入、排版调整与导出复检流程"
           },

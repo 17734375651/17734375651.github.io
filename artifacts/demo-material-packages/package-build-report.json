@@ -1,0 +1,20 @@
+{
+  "label": {
+    "productId": "label",
+    "root": "artifacts/demo-material-packages/方寸标签排版_脱敏功能演示素材_20260820",
+    "zip": "site/public/assets/downloads/label-redacted-demo-materials-20260820.zip",
+    "zipBytes": 234527,
+    "zipSha256": "8166150C4E796172428284CB03F3D899141DF0864D30898208DC8CB371284C57",
+    "fileCount": 13,
+    "checksumEntries": 12
+  },
+  "pdf": {
+    "productId": "pdf",
+    "root": "artifacts/demo-material-packages/方寸PDF配印助手_脱敏功能演示素材_20260820",
+    "zip": "site/public/assets/downloads/pdf-redacted-demo-materials-20260820.zip",
+    "zipBytes": 414171,
+    "zipSha256": "A387A27EBA09C413E5C6544A54B4B82DDACAE5AF639D657D93ADFCED5E31CE4B",
+    "fileCount": 19,
+    "checksumEntries": 18
+  }
+}

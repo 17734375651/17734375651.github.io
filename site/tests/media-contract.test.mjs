@@ -28,12 +28,19 @@ test('the bleed operation recording uses sanitized demo data and is silent', () 
   assert.equal(bleed.media.redactionMethod, 'synthetic-demo-data')
   assert.equal(bleed.media.silent, true)
   assert.equal(bleed.media.sourceBuild, '1.2.11')
-  assert.equal(bleed.media.video, '/assets/media/bleed-operation-sanitized.mp4')
-  assert.equal(bleed.media.poster, '/assets/media/bleed-operation-sanitized-poster.webp')
+  assert.equal(bleed.media.video, '/assets/media/bleed-operation-sanitized-no-taskbar.mp4')
+  assert.equal(bleed.media.poster, '/assets/media/bleed-operation-sanitized-no-taskbar-poster.webp')
 })
 
-test('only bleed exposes the redacted demo materials download contract', () => {
+test('every finished product exposes a synthetic or sanitized demo materials package', () => {
+  const label = PRODUCTS.find((product) => product.id === 'label')
   const bleed = PRODUCTS.find((product) => product.id === 'bleed')
+  const pdf = PRODUCTS.find((product) => product.id === 'pdf')
+
+  assert.equal(label.media.attachments?.[0]?.filename, 'label-redacted-demo-materials-20260820.zip')
+  assert.equal(label.media.attachments?.[0]?.provenance, 'synthetic-demo-package')
+  assert.equal(label.media.attachments?.[0]?.softwareExecutionClaim, false)
+
   assert.deepEqual(bleed.media.attachments, [
     {
       title: '脱敏功能演示素材包',
@@ -50,10 +57,14 @@ test('only bleed exposes the redacted demo materials download contract', () => {
     },
   ])
 
-  const otherProductsWithAttachments = PRODUCTS
-    .filter((product) => product.id !== 'bleed' && product.media.attachments?.length)
+  assert.equal(pdf.media.attachments?.[0]?.filename, 'pdf-redacted-demo-materials-20260820.zip')
+  assert.equal(pdf.media.attachments?.[0]?.provenance, 'synthetic-demo-package')
+  assert.equal(pdf.media.attachments?.[0]?.softwareExecutionClaim, false)
+
+  const productsWithAttachments = PRODUCTS
+    .filter((product) => product.media.attachments?.length)
     .map((product) => product.id)
-  assert.deepEqual(otherProductsWithAttachments, [])
+  assert.deepEqual(productsWithAttachments, ['label', 'bleed', 'pdf'])
 })
 
 test('the product media surface renders attachment metadata as a download action', async () => {

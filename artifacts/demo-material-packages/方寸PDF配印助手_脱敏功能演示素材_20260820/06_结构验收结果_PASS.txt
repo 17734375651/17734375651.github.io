@@ -1,0 +1,13 @@
+方寸 PDF 配印助手｜合成脱敏展示包结构验收
+RESULT=PASS
+
+- 源 PDF：3/3 可读取
+- 源页：9/9 包含 SYNTHETIC DEMO 标识
+- 加工后 PDF：3/3 可读取
+- 目标/实际输出页数：16/16
+- 0 份规则：1/1 已忽略
+- XLSX：2/2 可读取并包含逐页任务或审计结构
+- PNG：3/3 可读取
+- realCustomerData=false
+- softwareExecutionClaim=false
+- SHA256SUMS 覆盖除自身外全部文件

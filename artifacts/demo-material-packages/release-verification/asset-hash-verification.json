@@ -1,0 +1,44 @@
+{
+  "baselineCommit": "599c3860f005717a7b6e2b686809f01184e2b891",
+  "sourceRecording": {
+    "path": "outside-repository/raw-recording",
+    "bytes": 196076302,
+    "sha256": "074C94856991771CD53D291706EF54E384883C4C619B2B8877D891A8B47E6F23",
+    "preservedOutsideRepository": true
+  },
+  "assets": [
+    {
+      "source": "site\\public\\assets\\downloads\\label-redacted-demo-materials-20260820.zip",
+      "docs": "docs\\assets\\downloads\\label-redacted-demo-materials-20260820.zip",
+      "sourceSha256": "8166150C4E796172428284CB03F3D899141DF0864D30898208DC8CB371284C57",
+      "docsSha256": "8166150C4E796172428284CB03F3D899141DF0864D30898208DC8CB371284C57",
+      "match": true,
+      "bytes": 234527
+    },
+    {
+      "source": "site\\public\\assets\\downloads\\pdf-redacted-demo-materials-20260820.zip",
+      "docs": "docs\\assets\\downloads\\pdf-redacted-demo-materials-20260820.zip",
+      "sourceSha256": "A387A27EBA09C413E5C6544A54B4B82DDACAE5AF639D657D93ADFCED5E31CE4B",
+      "docsSha256": "A387A27EBA09C413E5C6544A54B4B82DDACAE5AF639D657D93ADFCED5E31CE4B",
+      "match": true,
+      "bytes": 414171
+    },
+    {
+      "source": "site\\public\\assets\\media\\bleed-operation-sanitized-no-taskbar.mp4",
+      "docs": "docs\\assets\\media\\bleed-operation-sanitized-no-taskbar.mp4",
+      "sourceSha256": "E27F0A128DE49DA92EA0F2327B0FB84B8698863ADFCEBE5162A394EE2C7FCF45",
+      "docsSha256": "E27F0A128DE49DA92EA0F2327B0FB84B8698863ADFCEBE5162A394EE2C7FCF45",
+      "match": true,
+      "bytes": 18578361
+    },
+    {
+      "source": "site\\public\\assets\\media\\bleed-operation-sanitized-no-taskbar-poster.webp",
+      "docs": "docs\\assets\\media\\bleed-operation-sanitized-no-taskbar-poster.webp",
+      "sourceSha256": "92782ECB218F7ABEEC13324551F5320DA34FBC50F8A4B7EDE55F3A17C1CE1C98",
+      "docsSha256": "92782ECB218F7ABEEC13324551F5320DA34FBC50F8A4B7EDE55F3A17C1CE1C98",
+      "match": true,
+      "bytes": 170046
+    }
+  ],
+  "oldDocsAssetsAbsent": true
+}

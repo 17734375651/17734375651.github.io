@@ -1,0 +1,5 @@
+command=git show 599c3860f005717a7b6e2b686809f01184e2b891:site/src/data/products.js | Select-String attachment/video fields
+      "video": "/assets/media/bleed-operation-sanitized.mp4",
+      "poster": "/assets/media/bleed-operation-sanitized-poster.webp",
+      "attachments": [
+exit_status=0

@@ -1,0 +1,32 @@
+{
+  "result": "PASS",
+  "baseUrl": "http://localhost:4173",
+  "label": {
+    "route": "/products/label/",
+    "attachment": "label-redacted-demo-materials-20260820.zip",
+    "downloadAttribute": "label-redacted-demo-materials-20260820.zip",
+    "visibleFileCount": 13,
+    "visibleSize": "229 KB"
+  },
+  "pdf": {
+    "route": "/products/pdf/",
+    "attachment": "pdf-redacted-demo-materials-20260820.zip",
+    "downloadAttribute": "pdf-redacted-demo-materials-20260820.zip",
+    "visibleFileCount": 19,
+    "visibleSize": "404 KB"
+  },
+  "bleed": {
+    "route": "/products/bleed/",
+    "video": "bleed-operation-sanitized-no-taskbar.mp4",
+    "poster": "bleed-operation-sanitized-no-taskbar-poster.webp",
+    "controls": true,
+    "readyState": 4,
+    "durationSeconds": 88,
+    "videoWidth": 1920,
+    "videoHeight": 1080,
+    "visualTaskbarCheck": "PASS",
+    "visualNote": "The taskbar is absent from the encoded frame; no page CSS or player masking is used."
+  },
+  "consoleErrors": 0,
+  "exit_status": 0
+}

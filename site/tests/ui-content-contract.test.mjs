@@ -171,7 +171,7 @@ test('product media exposes four local videos and distinguishes the redacted act
   assert.equal(bleed.media.redacted, true)
   assert.equal(bleed.media.silent, true)
   assert.equal(bleed.media.redactionMethod, 'synthetic-demo-data')
-  assert.match(bleed.media.video, /bleed-operation-sanitized\.mp4$/)
+  assert.match(bleed.media.video, /bleed-operation-sanitized-no-taskbar\.mp4$/)
 
   assert.match(app, /<video\b/i)
   assert.match(app, /\bcontrols\b/)

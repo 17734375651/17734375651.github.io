@@ -1,0 +1,17 @@
+{
+    "programs": [
+
+    ],
+    "stream_groups": [
+
+    ],
+    "streams": [
+        {
+            "codec_name": "webp",
+            "width": 1920,
+            "height": 1080,
+            "pix_fmt": "yuv420p"
+        }
+    ]
+}
+exit_status=0

@@ -1,0 +1,12 @@
+方寸标签排版｜合成脱敏展示包结构验收
+RESULT=PASS
+
+- 24/24 虚构订单带 DEMO / SYN 标识
+- 3/3 尺寸组汇总完整
+- 需求总量：30,275
+- XLSX：2/2 可读取并包含公式化复核列
+- DOCX：1/1 包含真实性边界与执行步骤
+- PNG：2/2 可读取
+- realCustomerData=false
+- softwareExecutionClaim=false
+- SHA256SUMS 覆盖除自身外全部文件

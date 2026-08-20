@@ -48,7 +48,24 @@ export const PRODUCTS = [
       "video": "/assets/media/label-demo.mp4",
       "poster": "/assets/media/label-poster.webp",
       "declared": true,
-      "fallback": null
+      "fallback": null,
+      "attachments": [
+        {
+          "title": "合成脱敏功能演示素材包",
+          "description": "含 24 条虚构订单、排版计划、Word / Excel 输出结构与完整性报告",
+          "filename": "label-redacted-demo-materials-20260820.zip",
+          "path": "/assets/downloads/label-redacted-demo-materials-20260820.zip",
+          "format": "ZIP",
+          "bytes": 234527,
+          "displaySize": "229 KB",
+          "fileCount": 13,
+          "sha256": "8166150C4E796172428284CB03F3D899141DF0864D30898208DC8CB371284C57",
+          "notice": "公开合成演示数据 · 全部虚构",
+          "buttonLabel": "下载标签排版脱敏展示包",
+          "provenance": "synthetic-demo-package",
+          "softwareExecutionClaim": false
+        }
+      ]
     },
     "workflow": {
       "input": [
@@ -126,8 +143,8 @@ export const PRODUCTS = [
       "localArchiveNote": "安装包由公开下载页提供，下载前可核对版本、大小与 SHA-256。"
     },
     "media": {
-      "video": "/assets/media/bleed-operation-sanitized.mp4",
-      "poster": "/assets/media/bleed-operation-sanitized-poster.webp",
+      "video": "/assets/media/bleed-operation-sanitized-no-taskbar.mp4",
+      "poster": "/assets/media/bleed-operation-sanitized-no-taskbar-poster.webp",
       "declared": true,
       "mode": "actual-operation-redacted",
       "redacted": true,
@@ -225,7 +242,24 @@ export const PRODUCTS = [
       "video": "/assets/media/pdf-demo.mp4",
       "poster": "/assets/media/pdf-poster.webp",
       "declared": true,
-      "fallback": null
+      "fallback": null,
+      "attachments": [
+        {
+          "title": "合成脱敏功能演示素材包",
+          "description": "含虚构逐页任务、源 PDF、加工后结构样例、逐页审计表与完整性报告",
+          "filename": "pdf-redacted-demo-materials-20260820.zip",
+          "path": "/assets/downloads/pdf-redacted-demo-materials-20260820.zip",
+          "format": "ZIP",
+          "bytes": 414171,
+          "displaySize": "404 KB",
+          "fileCount": 19,
+          "sha256": "A387A27EBA09C413E5C6544A54B4B82DDACAE5AF639D657D93ADFCED5E31CE4B",
+          "notice": "公开合成演示数据 · 全部虚构",
+          "buttonLabel": "下载 PDF 配印脱敏展示包",
+          "provenance": "synthetic-demo-package",
+          "softwareExecutionClaim": false
+        }
+      ]
     },
     "workflow": {
       "input": [

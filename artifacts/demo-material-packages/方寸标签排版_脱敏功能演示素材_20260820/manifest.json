@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "title": "方寸标签排版脱敏功能演示素材",
+  "productId": "label",
+  "generatedOn": "2026-08-20",
+  "provenance": "synthetic-demo-package",
+  "realCustomerData": false,
+  "softwareExecutionClaim": false,
+  "rules": {
+    "publicSyntheticData": true,
+    "customerIdentifiers": false,
+    "contactDetails": false,
+    "commercialClaims": false,
+    "softwareExecutionEvidence": false
+  },
+  "files": [
+    {
+      "path": "01_方寸标签排版_复杂脱敏演示订单.xlsx",
+      "bytes": 8696,
+      "sha256": "BE03AE254A7274EC76F9F19ADEC6D44692B31B4DDF885E6A0AAF2F70B1982DD5"
+    },
+    {
+      "path": "02_使用步骤与预期结果.txt",
+      "bytes": 1372,
+      "sha256": "1BAF38C097343A58DAF8390204FDEAA8DA45155628B6EC8E8D0DC6E2799CC739"
+    },
+    {
+      "path": "03_订单与排版计划预览.png",
+      "bytes": 60123,
+      "sha256": "595A522DCF802519620505D49474F284425F68395CBA35DCFB4427DEFE5BA55F"
+    },
+    {
+      "path": "04_输出结构总览.png",
+      "bytes": 127293,
+      "sha256": "31F1794A57AB18C441761FEC78A02AD528FB2CAA8C90420D5794984FC889F877"
+    },
+    {
+      "path": "05_结构验收结果_PASS.txt",
+      "bytes": 396,
+      "sha256": "AC03555FD84D2A4348A8C6C99C63EC1ADFCC10A0DB45543187DB7DD7A2A4F208"
+    },
+    {
+      "path": "QA/validation-report.json",
+      "bytes": 349,
+      "sha256": "207E8F024913AA9D5D0DB26376E7A164E9AE1CEF9FAEA513632B14FD6036CE69"
+    },
+    {
+      "path": "QA/validation-report.txt",
+      "bytes": 349,
+      "sha256": "207E8F024913AA9D5D0DB26376E7A164E9AE1CEF9FAEA513632B14FD6036CE69"
+    },
+    {
+      "path": "README_生成清单.md",
+      "bytes": 1098,
+      "sha256": "27D41435182E4AD823A23E3CAE10B583CC54440002DB1A4E504F31BDDD25CD5B"
+    },
+    {
+      "path": "订单清单.csv",
+      "bytes": 2443,
+      "sha256": "3BD6429105F0DA677E0C0AA4C7701A18CA4A0FE992999187371C76FD9B0C1E55"
+    },
+    {
+      "path": "输出示例/排版计算明细_演示.xlsx",
+      "bytes": 12252,
+      "sha256": "2999F295E8D526BBBCAD28F70FD3685E5A2B87C2544888EE0CC31504FCA62569"
+    },
+    {
+      "path": "输出示例/标签排版说明_演示.docx",
+      "bytes": 40029,
+      "sha256": "1D7D6361CF62B4DD7128A5D85FEA44D3CC469F8CC0EFE2055DFC46ADFF618635"
+    }
+  ]
+}

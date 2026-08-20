@@ -32,3 +32,7 @@ site/node_modules/
 site/dist/
 site/.vite/
 site/design-qa-captures/
+
+# Local Python build caches.
+__pycache__/
+*.pyc
