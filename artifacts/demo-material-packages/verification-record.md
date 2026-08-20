@@ -79,7 +79,12 @@
 
 ## 线上发布
 
-推送 GitHub Pages 后，将在 `release-verification/live-verification.json` 记录线上页面、附件、视频响应、哈希和 Pages 构建状态。
+线上终验记录：`release-verification/live-verification.json`。
+
+- GitHub Pages 构建 `1162821611` 已以提交 `ecfa38416e7d8e91148158e08eb3972bdefd0b1c` 完成，状态 `built`。
+- 标签、PDF、胀色三个产品页均返回 HTTP 200，页面 DOM 显示正确附件或新视频路径。
+- 两个 ZIP、视频、海报均返回 HTTP 200；线上字节数与本地一致，4/4 SHA-256 完全匹配。
+- 线上视频 `readyState=4`、时长 88 s、1920×1080，控制条可用，控制台错误为 0。
 
 ## 回滚运行方式
 
