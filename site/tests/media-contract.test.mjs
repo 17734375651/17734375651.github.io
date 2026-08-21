@@ -1,12 +1,35 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
+import { createHash } from 'node:crypto'
 import { access, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { PRODUCTS, getProductPublicFiles } from '../src/data/products.js'
+import { SITE } from '../src/data/site.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
+
+test('every product card uses the preserved shortcut software icon', async () => {
+  assert.deepEqual(SITE.softwareIcon, {
+    image: '/assets/brand/fangcun-software-icon.png',
+    original: '/assets/brand/fangcun-software-icon.ico',
+  })
+  const image = await readFile(path.join(root, 'public', SITE.softwareIcon.image.replace(/^\//, '')))
+  const original = await readFile(path.join(root, 'public', SITE.softwareIcon.original.replace(/^\//, '')))
+  assert.equal(image.subarray(1, 4).toString('ascii'), 'PNG')
+  assert.equal(image.readUInt32BE(16), 256)
+  assert.equal(image.readUInt32BE(20), 256)
+  assert.equal(createHash('sha256').update(image).digest('hex').toUpperCase(), '3C64E055FA2C62E3C6B71FB2B14EF46AEAB65964FE8506CF0DAF7025ADF47158')
+  assert.equal(createHash('sha256').update(original).digest('hex').toUpperCase(), '3B46E760F1CA74F3D5DD179C5570D4F1FEF957864A95D846F03D6F0EE03C8125')
+
+  const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
+  const generator = await readFile(path.join(root, 'scripts', 'generate-route-pages.mjs'), 'utf8')
+  assert.match(app, /<img src=\{SITE\.softwareIcon\.image\} alt="" width="64" height="64" \/>/)
+  assert.doesNotMatch(app, /\bGearSix\b/)
+  assert.match(generator, /class="product-card-icon-image"/)
+  assert.match(generator, /SITE\.softwareIcon\.image/)
+})
 
 test('every declared local product media path exists in the public tree', async () => {
   for (const product of PRODUCTS) {

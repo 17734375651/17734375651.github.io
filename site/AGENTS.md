@@ -19,4 +19,9 @@ When implementing from a selected generated mock, treat that image as the source
 - Keep the `中小企业` business scenario, but route unmatched workflows to the customization form rather than an ERP product.
 - Every real public file must have a direct download action. As of 2026-08-21, `label`, `bleed`, and `pdf` each have verified public client releases, release-support files, and a separate demo ZIP. `label` and `pdf` expose Windows 10/11 x64 and Windows 7 x64 clients; their activation generators remain private and must never be published. Do not label a demo ZIP as a client installer.
 
+## Product icon decision
+
+- User confirmed on 2026-08-21 that every public software product card must use the icon from the `方寸有序胀色裁切.lnk` shortcut. Preserve the shortcut-referenced ICO byte-for-byte at `public/assets/brand/fangcun-software-icon.ico`, and use its embedded 256 × 256 PNG layer for web rendering.
+- This shared software icon replaces only product-card software marks. Keep the site brand mark, favicon, seal, workflow icons, file-type icons, and functional controls unchanged.
+
 Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.

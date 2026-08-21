@@ -15,7 +15,6 @@ import {
   FileText,
   FileXls,
   FlowArrow,
-  GearSix,
   Key,
   LockKey,
   List,
@@ -298,7 +297,7 @@ function ProductCard({ product, featured = false }) {
   const action = getProductAction(product.status.effectiveStatus, product.id)
   const actionHref = product.status.effectiveStatus === 'appointment' ? action.href : `${pathForProduct(product.id)}${action.href}`
   const productHasTrial = product.trial.state === 'first-device-one-hour'
-  return <article className={`product-card ${featured ? 'product-card-featured' : ''}`}><a className="product-card-detail-link" href={pathForProduct(product.id)} aria-label={`查看${product.name}详情`} /><div className="product-card-topline"><span className="product-eyebrow">{product.eyebrow}</span><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span></div><div className="product-card-icon"><GearSix size={26} weight="duotone" aria-hidden="true" /></div><h3>{product.name}</h3><p className="product-statement">{product.statement}</p><div className="product-outcome"><CheckCircle size={18} weight="duotone" aria-hidden="true" />{product.outcome}</div><div className="product-card-footer"><div><strong>{product.price.public ? product.price.display : '预约体验'}</strong><small>{productHasTrial ? product.trial.display : product.status.effectiveStatus === 'appointment' ? '公开安装包与正式价格未开放' : '下载状态以发布记录为准'}</small></div><LinkButton href={actionHref} variant={featured ? 'primary' : 'outline'}>{action.label}</LinkButton></div></article>
+  return <article className={`product-card ${featured ? 'product-card-featured' : ''}`}><a className="product-card-detail-link" href={pathForProduct(product.id)} aria-label={`查看${product.name}详情`} /><div className="product-card-topline"><span className="product-eyebrow">{product.eyebrow}</span><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span></div><div className="product-card-icon"><img src={SITE.softwareIcon.image} alt="" width="64" height="64" /></div><h3>{product.name}</h3><p className="product-statement">{product.statement}</p><div className="product-outcome"><CheckCircle size={18} weight="duotone" aria-hidden="true" />{product.outcome}</div><div className="product-card-footer"><div><strong>{product.price.public ? product.price.display : '预约体验'}</strong><small>{productHasTrial ? product.trial.display : product.status.effectiveStatus === 'appointment' ? '公开安装包与正式价格未开放' : '下载状态以发布记录为准'}</small></div><LinkButton href={actionHref} variant={featured ? 'primary' : 'outline'}>{action.label}</LinkButton></div></article>
 }
 
 function ProductsSection({ showHeading = true }) {

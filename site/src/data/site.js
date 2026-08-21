@@ -9,6 +9,10 @@ export const SITE = {
   "fullName": "方寸有序工作室",
   "englishName": "FANGCUN YOUXU STUDIO",
   "publicUrl": "https://17734375651.github.io/",
+  "softwareIcon": {
+    "image": "/assets/brand/fangcun-software-icon.png",
+    "original": "/assets/brand/fangcun-software-icon.ico"
+  },
   "contact": "电话 17734375651（微信同号）",
   "phone": "17734375651",
   "audiences": [

@@ -71,6 +71,8 @@ test('product surfaces keep truthful product cards and crawlable mature-site lin
   const html = buildRouteHtml(home)
   assert.equal((html.match(/class="product-card"/g) ?? []).length, 3)
   assert.equal((html.match(/class="product-card-detail-link"/g) ?? []).length, 3)
+  assert.equal((html.match(/class="product-card-icon-image"/g) ?? []).length, 3)
+  assert.equal((html.match(/src="\/assets\/brand\/fangcun-software-icon\.png"/g) ?? []).length, 3)
   for (const product of PRODUCTS) {
     assert.match(html, new RegExp(`class="product-card-detail-link" href="${product.route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`))
   }

@@ -149,6 +149,7 @@ function staticProductCards() {
     return `<article class="product-card">
           <a class="product-card-detail-link" href="${escapeHtml(product.route)}" aria-label="查看${escapeHtml(product.name)}详情">
             <span class="status-pill">${escapeHtml(product.status.label)}</span>
+            <img class="product-card-icon-image" src="${escapeHtml(SITE.softwareIcon.image)}" alt="" width="64" height="64" />
             <h3>${escapeHtml(product.name)}</h3>
             <p>${escapeHtml(product.statement)}</p>
             <div class="card-metric">${escapeHtml(metric)}</div>
