@@ -52,8 +52,8 @@ const SYNTHETIC_ROUTES = [
     path: '/downloads/',
     kind: 'content-index',
     category: 'downloads',
-    title: '文件下载｜客户端、脱敏展示包与校验资料｜方寸有序工作室',
-    description: '集中下载三款产品的脱敏展示包，以及方寸有序胀色裁切客户端、发布清单、发布记录与 SHA-256 校验文件。',
+    title: '文件下载｜客户端与校验资料｜方寸有序工作室',
+    description: '集中下载三款正式软件客户端、公开发布清单、发布记录与 SHA-256 校验文件。',
     h1: '公开文件下载',
   },
   {
@@ -69,7 +69,7 @@ const SYNTHETIC_ROUTES = [
     kind: 'legal',
     legalId: 'service-license',
     title: '软件服务与授权边界｜方寸有序工作室',
-    description: '查看三款正式软件、个性化定制、年度授权以及客户端、展示包与校验文件的当前公开边界。',
+    description: '查看三款正式软件、个性化定制、年度授权以及客户端与校验文件的当前公开边界。',
     h1: '软件服务与授权边界',
   },
 ]

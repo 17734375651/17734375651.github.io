@@ -55,68 +55,61 @@ test('the bleed operation recording uses sanitized demo data and is silent', () 
   assert.equal(bleed.media.poster, '/assets/media/bleed-operation-sanitized-no-taskbar-poster.webp')
 })
 
-test('every finished product exposes a synthetic or sanitized demo materials package', () => {
+test('the label product uses the trimmed actual-operation recording with synthetic data', () => {
   const label = PRODUCTS.find((product) => product.id === 'label')
-  const bleed = PRODUCTS.find((product) => product.id === 'bleed')
-  const pdf = PRODUCTS.find((product) => product.id === 'pdf')
-
-  assert.equal(label.media.attachments?.[0]?.filename, 'label-redacted-demo-materials-20260820.zip')
-  assert.equal(label.media.attachments?.[0]?.provenance, 'synthetic-demo-package')
-  assert.equal(label.media.attachments?.[0]?.softwareExecutionClaim, false)
-
-  assert.deepEqual(bleed.media.attachments, [
-    {
-      title: '脱敏功能演示素材包',
-      description: '含复杂演示订单、单页 PDF、实际排版示例与自动验收记录',
-      filename: 'bleed-redacted-demo-materials-20260814.zip',
-      path: '/assets/downloads/bleed-redacted-demo-materials-20260814.zip',
-      format: 'ZIP',
-      bytes: 98141990,
-      displaySize: '93.6 MB',
-      fileCount: 152,
-      sha256: '7740F2C032FDFCE313B6333FF83D8048591982B470FADCFF877C370B97A235B6',
-      notice: '公开演示数据 · 已脱敏',
-      buttonLabel: '下载脱敏功能演示素材包',
-    },
-  ])
-
-  assert.equal(pdf.media.attachments?.[0]?.filename, 'pdf-redacted-demo-materials-20260820.zip')
-  assert.equal(pdf.media.attachments?.[0]?.provenance, 'synthetic-demo-package')
-  assert.equal(pdf.media.attachments?.[0]?.softwareExecutionClaim, false)
-
-  const productsWithAttachments = PRODUCTS
-    .filter((product) => product.media.attachments?.length)
-    .map((product) => product.id)
-  assert.deepEqual(productsWithAttachments, ['label', 'bleed', 'pdf'])
+  assert.equal(label.media.declared, true)
+  assert.equal(label.media.mode, 'actual-operation-redacted')
+  assert.equal(label.media.redacted, true)
+  assert.equal(label.media.redactionMethod, 'synthetic-demo-data')
+  assert.equal(label.media.silent, true)
+  assert.equal(label.media.sourceBuild, '2026-08-21 操作录屏')
+  assert.equal(label.media.video, '/assets/media/label-operation-synthetic-no-taskbar.mp4')
+  assert.equal(label.media.poster, '/assets/media/label-operation-synthetic-no-taskbar-poster.webp')
 })
 
-test('the product media surface renders attachment metadata as a download action', async () => {
-  const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
-  assert.match(app, /product\.media\.attachments/)
-  assert.match(app, /className="media-attachments"/)
-  assert.match(app, /media-attachment-download/)
-  assert.match(app, /download=\{attachment\.filename\}/)
-  assert.match(app, /attachment\.displaySize/)
-  assert.match(app, /公开演示数据下载/)
-})
-
-test('every declared demo attachment exists in the public download tree', async () => {
+test('conversation-generated demo packages and attachment hooks are absent', async () => {
   for (const product of PRODUCTS) {
-    for (const attachment of product.media.attachments ?? []) {
-      await assert.doesNotReject(
-        access(path.join(root, 'public', attachment.path.replace(/^\//, ''))),
-        `${product.id} attachment is missing: ${attachment.path}`,
+    assert.equal('attachments' in product.media, false, `${product.id} must not expose deleted attachments`)
+  }
+
+  const deletedFiles = [
+    'label-redacted-demo-materials-20260820.zip',
+    'bleed-redacted-demo-materials-20260814.zip',
+    'pdf-redacted-demo-materials-20260820.zip',
+  ]
+  const repoRoot = path.resolve(root, '..')
+  for (const filename of deletedFiles) {
+    for (const tree of [
+      path.join(root, 'public', 'assets', 'downloads'),
+      path.join(repoRoot, 'docs', 'assets', 'downloads'),
+    ]) {
+      await assert.rejects(
+        access(path.join(tree, filename)),
+        `${filename} must remain deleted from ${tree}`,
       )
     }
   }
+
+  const sourceFiles = [
+    path.join(root, 'src', 'App.jsx'),
+    path.join(root, 'src', 'styles.css'),
+    path.join(root, 'src', 'data', 'products.js'),
+    path.join(root, 'src', 'data', 'public-content.js'),
+    path.join(root, 'src', 'data', 'site.js'),
+    path.join(root, 'src', 'data', 'legal.js'),
+    path.join(root, 'scripts', 'generate-route-pages.mjs'),
+  ]
+  const source = (await Promise.all(sourceFiles.map((file) => readFile(file, 'utf8')))).join('\n')
+  assert.doesNotMatch(source, /redacted-demo-materials|synthetic-demo-package|demo-materials|脱敏展示包/)
+  assert.doesNotMatch(source, /product\.media\.attachments|media-attachments|media-attachment/)
 })
 
 test('every retained product exposes direct public files without substituting a demo package for a client', async () => {
   const filesByProduct = Object.fromEntries(PRODUCTS.map((product) => [product.id, getProductPublicFiles(product)]))
   assert.deepEqual(Object.fromEntries(Object.entries(filesByProduct).map(([id, files]) => [id, files.length])), {
-    label: 6,
-    bleed: 5,
-    pdf: 6,
+    label: 5,
+    bleed: 4,
+    pdf: 5,
   })
   for (const product of PRODUCTS) {
     const files = filesByProduct[product.id]
@@ -125,7 +118,7 @@ test('every retained product exposes direct public files without substituting a 
       files.filter((file) => file.kind === 'release-record').map((file) => file.filename),
       ['public-manifest.json', 'release-record.json', 'SHA256SUMS.txt'],
     )
-    assert.equal(files.filter((file) => file.kind === 'demo-materials').length, 1)
+    assert.equal(files.filter((file) => file.kind === 'demo-materials').length, 0)
     assert.equal(product.status.effectiveStatus, 'available')
     assert.equal(product.status.downloadable, true)
     assert.equal(product.download.verification, 'verified')

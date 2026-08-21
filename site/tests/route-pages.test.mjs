@@ -94,9 +94,6 @@ test('downloads page exposes every real public file without JavaScript', () => {
     'fangcun-bleed-cutting-1.2.11-win-x86-public.zip',
     'fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip',
     'fangcun-pdf-print-assistant-20260821-win7-x64-public.zip',
-    'label-redacted-demo-materials-20260820.zip',
-    'bleed-redacted-demo-materials-20260814.zip',
-    'pdf-redacted-demo-materials-20260820.zip',
     'public-manifest.json',
     'release-record.json',
     'SHA256SUMS.txt',
@@ -105,7 +102,8 @@ test('downloads page exposes every real public file without JavaScript', () => {
   }
   const downloadItems = CONTENT_CATEGORIES.find((category) => category.id === 'downloads').items
   assert.equal((html.match(/class="download-card"/g) ?? []).length, downloadItems.length)
-  assert.equal(downloadItems.length, 17)
+  assert.equal(downloadItems.length, 14)
+  assert.doesNotMatch(html, /redacted-demo-materials|脱敏展示包/)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
 })
 

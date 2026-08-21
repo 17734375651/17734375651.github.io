@@ -11,9 +11,9 @@ test('available products lead to the verified download section', () => {
   })
 })
 
-test('validation products lead to their real demo package downloads', () => {
+test('validation products lead to the factual release-progress section', () => {
   assert.deepEqual(getProductAction('validation'), {
-    label: '下载展示包',
+    label: '查看发布进度',
     href: '#downloads',
   })
 })

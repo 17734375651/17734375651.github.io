@@ -301,7 +301,7 @@ function ProductCard({ product, featured = false }) {
 }
 
 function ProductsSection({ showHeading = true }) {
-  return <section className="section products-section" id="products" aria-labelledby="products-title"><div className="container">{showHeading && <div className="section-heading split-heading"><div><p className="section-kicker">PRODUCT CENTER</p><h2 id="products-title">产品中心</h2></div><p>三款正式软件可分别购买、独立使用。每款产品都明确展示输入、处理、输出，以及可直接下载的公开文件。</p></div>}<div className="products-grid">{PRODUCTS.map((product) => <ProductCard key={product.id} product={product} featured={product.id === 'bleed'} />)}</div><div className="products-footnote"><ShieldCheck size={19} weight="duotone" aria-hidden="true" /><span>三款客户端、脱敏展示包与发布校验文件均可直接下载，并按真实发布记录展示。</span><a href="/downloads/">查看全部下载 <ArrowUpRight size={15} aria-hidden="true" /></a></div></div></section>
+  return <section className="section products-section" id="products" aria-labelledby="products-title"><div className="container">{showHeading && <div className="section-heading split-heading"><div><p className="section-kicker">PRODUCT CENTER</p><h2 id="products-title">产品中心</h2></div><p>三款正式软件可分别购买、独立使用。每款产品都明确展示输入、处理、输出，以及可直接下载的公开文件。</p></div>}<div className="products-grid">{PRODUCTS.map((product) => <ProductCard key={product.id} product={product} featured={product.id === 'bleed'} />)}</div><div className="products-footnote"><ShieldCheck size={19} weight="duotone" aria-hidden="true" /><span>三款客户端与发布校验文件均可直接下载，并按真实发布记录展示。</span><a href="/downloads/">查看全部下载 <ArrowUpRight size={15} aria-hidden="true" /></a></div></div></section>
 }
 
 function TrustSection() {
@@ -393,7 +393,7 @@ function AvailabilityPanel({ product }) {
               {product.download.digitalSignature === 'NotSigned' && <p className="download-note">当前客户端未进行数字签名；请从本页公开链接下载并核对 SHA-256，完整解压后启动。</p>}
             </> : <div className="release-candidate"><Wrench size={28} weight="duotone" aria-hidden="true" /><div><strong>客户端发布确认中</strong><p>{product.download.panelText}</p></div></div>}
             {supportingFiles.length > 0 && <div className="download-file-list" aria-label={`${product.name} 可下载文件`}><h3>可下载文件</h3>{supportingFiles.map((file) => <DownloadFileRow key={file.path} file={file} />)}</div>}
-            <p className="download-note">{available ? '客户端、展示包与校验资料均来自当前公开发布记录；下载前可逐项核对。' : '脱敏展示包可直接下载；客户端完成发布确认后再补充版本与校验记录。'}</p>
+            <p className="download-note">{available ? '客户端与校验资料均来自当前公开发布记录；下载前可逐项核对。' : '客户端完成发布确认后再补充版本与校验记录。'}</p>
           </div>
         </div>
       </div>
@@ -403,18 +403,28 @@ function AvailabilityPanel({ product }) {
 
 function ProductMedia({ product }) {
   if (!product.media.poster && !product.media.video) return null
-  const actualOperation = product.media.mode === 'actual-operation-redacted'
-  const kicker = actualOperation ? 'ACTUAL WORKFLOW' : 'SIMULATED DEMO'
-  const title = actualOperation ? '查看实际操作演示' : '体验模拟演示'
-  const description = actualOperation
-    ? '录制自 1.2.11 实际操作流程，演示订单、条码与品牌均为虚构数据；画面未使用马赛克，可清晰查看输入、排版、导出与复检细节。'
-    : '演示使用筛选后的示例参数，仅用于说明输入、处理和输出的关系，不代表客户项目结果。'
-  const label = actualOperation ? '实际操作 · 脱敏演示数据' : '模拟演示'
-  const accessibilityLabel = actualOperation ? `${product.name} 实际操作演示（虚构演示数据）` : `${product.name} 模拟演示`
-  const caption = actualOperation
-    ? '真实录屏已去除无内容音轨；脱敏方式为替换演示数据，不对操作画面打码。'
-    : '模拟演示可用，产品短片与下载状态按页面记录为准。'
-  const attachments = product.media.attachments ?? []
+  const media = product.media
+  const actualOperation = media.mode === 'actual-operation-redacted' || media.mode === 'actual-operation'
+  const kicker = media.operationKicker || (actualOperation ? 'ACTUAL WORKFLOW' : 'SIMULATED DEMO')
+  const title = media.operationTitle || (actualOperation ? '查看实际操作演示' : '体验模拟演示')
+  const sourceNote = media.sourceBuild ? `录制来源：${media.sourceBuild}。` : ''
+  const redactionNote = media.redacted
+    ? media.redactionMethod === 'synthetic-demo-data'
+      ? '脱敏方式为替换演示数据'
+      : media.redactionMethod
+        ? `脱敏方式：${media.redactionMethod}`
+        : '内容已脱敏'
+    : ''
+  const description = media.operationDescription || (actualOperation
+    ? `${sourceNote}基于实际操作流程，${media.redacted ? '演示数据已替换为虚构示例' : '用于展示输入、处理、导出与复核细节'}。`
+    : '演示使用筛选后的示例参数，仅用于说明输入、处理和输出的关系，不代表客户项目结果。')
+  const label = media.operationLabel || (actualOperation ? '实际操作 · 脱敏演示数据' : '模拟演示')
+  const accessibilityLabel = actualOperation
+    ? `${product.name} 实际操作演示${media.redacted ? '（已脱敏）' : ''}`
+    : `${product.name} 模拟演示`
+  const caption = media.operationCaption || (actualOperation
+    ? ['基于实际操作录屏', media.silent ? '已去除音轨' : '保留原音轨', redactionNote].filter(Boolean).join('；') + '。'
+    : '模拟演示可用，产品短片与下载状态按页面记录为准。')
   return (
     <section className="section media-section" aria-labelledby="media-title">
       <div className="container media-layout">
@@ -429,17 +439,6 @@ function ProductMedia({ product }) {
             {product.media.video ? <video controls preload="metadata" playsInline poster={mediaPath(product.media.poster)} src={mediaPath(product.media.video)} aria-label={accessibilityLabel} /> : <img src={mediaPath(product.media.poster)} alt={accessibilityLabel} />}
             <div className="media-frame-caption"><PlayCircle size={19} weight="duotone" aria-hidden="true" />{caption}</div>
           </div>
-          {attachments.length > 0 && <div className="media-attachments" aria-label="公开演示数据下载">
-            {attachments.map((attachment) => <article className="media-attachment" key={attachment.path}>
-              <div className="media-attachment-copy">
-                <p className="media-attachment-notice"><ShieldCheck size={16} weight="duotone" aria-hidden="true" />{attachment.notice}</p>
-                <h3>{attachment.title}</h3>
-                <p>{attachment.description}</p>
-                <small>{attachment.filename} · {attachment.format} · {attachment.displaySize} · {attachment.fileCount} 个文件</small>
-              </div>
-              <a className="download-link media-attachment-download" href={attachment.path} download={attachment.filename} aria-label={`${attachment.buttonLabel}（${attachment.format}）`}><DownloadSimple size={19} weight="bold" aria-hidden="true" />{attachment.buttonLabel}</a>
-            </article>)}
-          </div>}
         </div>
       </div>
     </section>

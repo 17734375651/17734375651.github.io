@@ -179,7 +179,7 @@ test('interactive UI exposes mobile-menu and industry-tab semantics', async () =
   assert.match(app, /aria-selected\s*=/)
 })
 
-test('product media exposes three local videos and distinguishes the redacted actual operation recording', async () => {
+test('product media exposes three local videos and distinguishes both redacted actual-operation recordings', async () => {
   const app = await readSource(appPath)
   const mediaProducts = PRODUCTS.filter((product) => product.media.video)
   assert.equal(mediaProducts.length, 3)
@@ -187,6 +187,14 @@ test('product media exposes three local videos and distinguishes the redacted ac
     assert.ok(product.media.poster, `${product.id} needs a poster`)
   }
   const bleed = PRODUCTS.find((product) => product.id === 'bleed')
+  const label = PRODUCTS.find((product) => product.id === 'label')
+  for (const product of [label, bleed]) {
+    assert.equal(product.media.mode, 'actual-operation-redacted')
+    assert.equal(product.media.redacted, true)
+    assert.equal(product.media.silent, true)
+    assert.equal(product.media.redactionMethod, 'synthetic-demo-data')
+  }
+  assert.match(label.media.video, /label-operation-synthetic-no-taskbar\.mp4$/)
   assert.equal(bleed.media.mode, 'actual-operation-redacted')
   assert.equal(bleed.media.redacted, true)
   assert.equal(bleed.media.silent, true)

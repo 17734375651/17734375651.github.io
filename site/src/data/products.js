@@ -2,8 +2,7 @@
  * Product truth for the Fangcun Youxu site.
  *
  * Values are deliberately limited to facts present in audited release
- * packages. Client downloads and demo packages remain separate public files,
- * and every client is tied to a verified release record.
+ * packages. Every public client is tied to a verified release record.
  */
 export const PRODUCTS = [
   {
@@ -95,27 +94,18 @@ export const PRODUCTS = [
       ]
     },
     "media": {
-      "video": "/assets/media/label-demo.mp4",
-      "poster": "/assets/media/label-poster.webp",
+      "video": "/assets/media/label-operation-synthetic-no-taskbar.mp4",
+      "poster": "/assets/media/label-operation-synthetic-no-taskbar-poster.webp",
       "declared": true,
-      "fallback": null,
-      "attachments": [
-        {
-          "title": "合成脱敏功能演示素材包",
-          "description": "含 24 条虚构订单、排版计划、Word / Excel 输出结构与完整性报告",
-          "filename": "label-redacted-demo-materials-20260820.zip",
-          "path": "/assets/downloads/label-redacted-demo-materials-20260820.zip",
-          "format": "ZIP",
-          "bytes": 234527,
-          "displaySize": "229 KB",
-          "fileCount": 13,
-          "sha256": "8166150C4E796172428284CB03F3D899141DF0864D30898208DC8CB371284C57",
-          "notice": "公开合成演示数据 · 全部虚构",
-          "buttonLabel": "下载标签排版脱敏展示包",
-          "provenance": "synthetic-demo-package",
-          "softwareExecutionClaim": false
-        }
-      ]
+      "mode": "actual-operation-redacted",
+      "redacted": true,
+      "redactionMethod": "synthetic-demo-data",
+      "silent": true,
+      "sourceBuild": "2026-08-21 操作录屏",
+      "operationLabel": "实际操作 · 虚构演示数据",
+      "operationDescription": "基于实际操作录屏，使用虚构订单与样品数据，清晰展示参数录入、排版计算、结果导出与复核。",
+      "operationCaption": "已去除无内容音轨和无关桌面片段；脱敏方式为替换演示数据，不对操作画面打码。",
+      "fallback": "实际操作视频暂不可用；产品信息、下载与价格仍可正常查看。"
     },
     "workflow": {
       "input": [
@@ -139,12 +129,12 @@ export const PRODUCTS = [
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
-      "productHeroSecondary": "体验模拟演示",
+      "productHeroSecondary": "查看实际操作演示",
       "downloadPanel": "已核验下载 / Windows x64 / SHA-256",
       "downloadButton": "下载 Windows 10/11 x64 客户端 · 40.4 MiB",
       "recommended": {
         "primary": "下载客户端",
-        "secondary": "体验模拟演示",
+        "secondary": "查看实际操作演示",
         "nextStep": "下载对应系统版本，核对 SHA-256 后联系微信/电话 17734375651 获取产品授权"
       }
     }
@@ -232,22 +222,10 @@ export const PRODUCTS = [
       "redactionMethod": "synthetic-demo-data",
       "silent": true,
       "sourceBuild": "1.2.11",
-      "fallback": "实际操作视频暂不可用；产品信息、下载与价格仍可正常查看。",
-      "attachments": [
-        {
-          "title": "脱敏功能演示素材包",
-          "description": "含复杂演示订单、单页 PDF、实际排版示例与自动验收记录",
-          "filename": "bleed-redacted-demo-materials-20260814.zip",
-          "path": "/assets/downloads/bleed-redacted-demo-materials-20260814.zip",
-          "format": "ZIP",
-          "bytes": 98141990,
-          "displaySize": "93.6 MB",
-          "fileCount": 152,
-          "sha256": "7740F2C032FDFCE313B6333FF83D8048591982B470FADCFF877C370B97A235B6",
-          "notice": "公开演示数据 · 已脱敏",
-          "buttonLabel": "下载脱敏功能演示素材包"
-        }
-      ]
+      "operationLabel": "实际操作 · 虚构演示数据",
+      "operationDescription": "录制自 1.2.11 实际操作流程，使用虚构订单、条码与品牌数据，清晰展示输入、排版、导出与复检。",
+      "operationCaption": "已去除无内容音轨和无关桌面片段；脱敏方式为替换演示数据，不对操作画面打码。",
+      "fallback": "实际操作视频暂不可用；产品信息、下载与价格仍可正常查看。"
     },
     "workflow": {
       "input": [
@@ -373,24 +351,7 @@ export const PRODUCTS = [
       "video": "/assets/media/pdf-demo.mp4",
       "poster": "/assets/media/pdf-poster.webp",
       "declared": true,
-      "fallback": null,
-      "attachments": [
-        {
-          "title": "合成脱敏功能演示素材包",
-          "description": "含虚构逐页任务、源 PDF、加工后结构样例、逐页审计表与完整性报告",
-          "filename": "pdf-redacted-demo-materials-20260820.zip",
-          "path": "/assets/downloads/pdf-redacted-demo-materials-20260820.zip",
-          "format": "ZIP",
-          "bytes": 414171,
-          "displaySize": "404 KB",
-          "fileCount": 19,
-          "sha256": "A387A27EBA09C413E5C6544A54B4B82DDACAE5AF639D657D93ADFCED5E31CE4B",
-          "notice": "公开合成演示数据 · 全部虚构",
-          "buttonLabel": "下载 PDF 配印脱敏展示包",
-          "provenance": "synthetic-demo-package",
-          "softwareExecutionClaim": false
-        }
-      ]
+      "fallback": null
     },
     "workflow": {
       "input": [
@@ -430,12 +391,12 @@ export const PRODUCTS_BY_ID = Object.fromEntries(PRODUCTS.map((product) => [prod
 
 export const PRODUCT_STATUS = Object.freeze({
   available: '正式销售 · 已验证下载',
-  validation: '正式销售 · 展示包可下载',
+  validation: '正式销售 · 客户端发布确认中',
 });
 
 export const PRODUCT_STATUS_DESCRIPTIONS = Object.freeze({
-  available: '客户端、脱敏展示包与发布校验文件均可直接下载。',
-  validation: '脱敏展示包可直接下载；客户端仍在完成发布确认。',
+  available: '客户端与发布校验文件均可直接下载。',
+  validation: '客户端仍在完成发布确认；公开文件以页面记录为准。',
 });
 
 export const products = PRODUCTS;
@@ -484,9 +445,6 @@ export function getProductPublicFiles(product) {
   }
   for (const file of product.download?.supportFiles ?? []) {
     files.push({ ...file, kind: 'release-record', external: true });
-  }
-  for (const attachment of product.media?.attachments ?? []) {
-    files.push({ ...attachment, kind: 'demo-materials', external: false });
   }
   return files;
 }

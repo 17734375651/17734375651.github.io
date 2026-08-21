@@ -1,6 +1,6 @@
 const ACTIONS = {
   available: { label: '下载客户端', href: '#downloads' },
-  validation: { label: '下载展示包', href: '#downloads' },
+  validation: { label: '查看发布进度', href: '#downloads' },
 }
 
 export function getProductAction(status) {

@@ -1,5 +1,0 @@
-rollback_mode=dry-run
-baseline=599c3860f005717a7b6e2b686809f01184e2b891
-scope=label/pdf demo packages, product attachment wiring, taskbar-free bleed video, generated Pages docs, tests and QA artifacts
-next=powershell -NoProfile -File scripts/rollback-demo-packages-and-taskbar-video.ps1 -Apply
-exit_status=0
