@@ -140,6 +140,7 @@ test('requirements expose four required semantics and build only a local summary
 
 test('three products render their verified status through a data-driven UI path', async () => {
   const app = await readSource(appPath)
+  const css = await readSource(path.join(srcRoot, 'styles.css'))
   const expectedIds = ['label', 'bleed', 'pdf']
   assert.deepEqual(PRODUCTS.map((product) => product.id), expectedIds)
   for (const product of PRODUCTS) {
@@ -150,6 +151,11 @@ test('three products render their verified status through a data-driven UI path'
   assert.match(app, /(?:PRODUCTS|products)\.map\s*\(/)
   assert.match(app, /(?:product|item|currentProduct)\s*\.\s*status\s*\.\s*(?:label|effectiveStatus)/)
   assert.match(app, /(?:product|item|currentProduct)\s*\.\s*name/)
+  assert.match(app, /className="product-card-detail-link"/)
+  assert.match(app, /href=\{pathForProduct\(product\.id\)\}/)
+  assert.match(app, /aria-label=\{`查看\$\{product\.name\}详情`\}/)
+  assert.match(css, /\.product-card-detail-link\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0;/)
+  assert.match(css, /\.product-card-footer \.button\s*\{[^}]*z-index:\s*2;/)
 })
 
 test('ERP is absent from every public runtime source and route manifest', async () => {

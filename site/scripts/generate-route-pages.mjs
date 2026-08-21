@@ -147,11 +147,13 @@ function staticProductCards() {
       ? product.price.display
       : '预约 体验'
     return `<article class="product-card">
-          <span class="status-pill">${escapeHtml(product.status.label)}</span>
-          <h3>${escapeHtml(product.name)}</h3>
-          <p>${escapeHtml(product.statement)}</p>
-          <div class="card-metric">${escapeHtml(metric)}</div>
-          <a href="${escapeHtml(product.route)}">查看产品详情</a>
+          <a class="product-card-detail-link" href="${escapeHtml(product.route)}" aria-label="查看${escapeHtml(product.name)}详情">
+            <span class="status-pill">${escapeHtml(product.status.label)}</span>
+            <h3>${escapeHtml(product.name)}</h3>
+            <p>${escapeHtml(product.statement)}</p>
+            <div class="card-metric">${escapeHtml(metric)}</div>
+            <span>查看产品详情</span>
+          </a>
         </article>`
   }).join('\n')
 }

@@ -14,6 +14,7 @@ import {
 } from '../scripts/generate-route-pages.mjs'
 import { NAV_ITEMS } from '../src/data/site.js'
 import { CONTENT_CATEGORIES } from '../src/data/public-content.js'
+import { PRODUCTS } from '../src/data/products.js'
 
 test('route definitions cover the mature-site information architecture', () => {
   const routes = collectRouteDefinitions()
@@ -69,6 +70,10 @@ test('product surfaces keep truthful product cards and crawlable mature-site lin
   const home = collectRouteDefinitions().find((item) => item.path === '/')
   const html = buildRouteHtml(home)
   assert.equal((html.match(/class="product-card"/g) ?? []).length, 3)
+  assert.equal((html.match(/class="product-card-detail-link"/g) ?? []).length, 3)
+  for (const product of PRODUCTS) {
+    assert.match(html, new RegExp(`class="product-card-detail-link" href="${product.route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`))
+  }
   assert.equal((html.match(/正式销售 · 已验证下载/g) ?? []).length, 3)
   assert.doesNotMatch(html, /正式销售 · 展示包可下载/)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)

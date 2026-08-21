@@ -165,8 +165,10 @@ img, video { display: block; max-width: 100%; }
 /* cards and sections */
 .products-section { background: #f0ede5; }
 .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-.product-card { min-width: 0; display: flex; flex-direction: column; padding: 22px 20px 20px; border: 1px solid #ddd9cf; border-radius: 8px; background: #fff; transition: transform .2s ease, box-shadow .2s ease; }
+.product-card { position: relative; min-width: 0; display: flex; flex-direction: column; padding: 22px 20px 20px; border: 1px solid #ddd9cf; border-radius: 8px; background: #fff; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
 .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.product-card-detail-link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
+.product-card-detail-link:focus-visible { outline-color: var(--gold); }
 .product-card-featured { color: #f7f3e8; border-color: #252b29; background: var(--ink); }
 .product-card-topline { display: flex; flex-direction: column; gap: 12px; min-height: 61px; }
 .product-card .product-eyebrow { margin: 0; color: var(--gold-deep); font-size: 10px; letter-spacing: .13em; }
@@ -190,7 +192,7 @@ img, video { display: block; max-width: 100%; }
 .product-card-footer strong { color: inherit; font-size: 18px; line-height: 1.2; }
 .product-card-footer small { max-width: 125px; color: #7a8382; font-size: 11px; line-height: 1.45; }
 .product-card-featured .product-card-footer small { color: #a4aca7; }
-.product-card-footer .button { min-height: 44px; padding-inline: 12px; gap: 7px; white-space: nowrap; }
+.product-card-footer .button { position: relative; z-index: 2; min-height: 44px; padding-inline: 12px; gap: 7px; white-space: nowrap; }
 .product-card:not(.product-card-featured) .button-outline { color: var(--ink); border-color: #cfcac0; }
 .product-card:not(.product-card-featured) .button-outline:hover { color: #17140e; border-color: var(--gold); }
 .products-footnote { display: flex; align-items: center; gap: 10px; margin-top: 23px; color: #697172; font-size: 12px; line-height: 1.5; }
