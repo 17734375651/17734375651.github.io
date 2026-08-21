@@ -13,6 +13,7 @@ import {
   routeToOutputFile,
 } from '../scripts/generate-route-pages.mjs'
 import { NAV_ITEMS } from '../src/data/site.js'
+import { CONTENT_CATEGORIES } from '../src/data/public-content.js'
 
 test('route definitions cover the mature-site information architecture', () => {
   const routes = collectRouteDefinitions()
@@ -68,8 +69,8 @@ test('product surfaces keep truthful product cards and crawlable mature-site lin
   const home = collectRouteDefinitions().find((item) => item.path === '/')
   const html = buildRouteHtml(home)
   assert.equal((html.match(/class="product-card"/g) ?? []).length, 3)
-  assert.match(html, /正式销售 · 已验证下载/)
-  assert.match(html, /正式销售 · 展示包可下载/)
+  assert.equal((html.match(/正式销售 · 已验证下载/g) ?? []).length, 3)
+  assert.doesNotMatch(html, /正式销售 · 展示包可下载/)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
   assert.match(html, /href="\/updates\/"/)
   assert.match(html, /href="\/guides\/"/)
@@ -81,7 +82,11 @@ test('downloads page exposes every real public file without JavaScript', () => {
   const route = collectRouteDefinitions().find((item) => item.path === '/downloads/')
   const html = buildRouteHtml(route)
   for (const filename of [
+    'fangcun-label-imposition-20260821-win10-11-x64-public.zip',
+    'fangcun-label-imposition-20260821-win7-x64-public.zip',
     'fangcun-bleed-cutting-1.2.11-win-x86-public.zip',
+    'fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip',
+    'fangcun-pdf-print-assistant-20260821-win7-x64-public.zip',
     'label-redacted-demo-materials-20260820.zip',
     'bleed-redacted-demo-materials-20260814.zip',
     'pdf-redacted-demo-materials-20260820.zip',
@@ -91,7 +96,9 @@ test('downloads page exposes every real public file without JavaScript', () => {
   ]) {
     assert.match(html, new RegExp(filename.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
   }
-  assert.equal((html.match(/class="download-card"/g) ?? []).length, 7)
+  const downloadItems = CONTENT_CATEGORIES.find((category) => category.id === 'downloads').items
+  assert.equal((html.match(/class="download-card"/g) ?? []).length, downloadItems.length)
+  assert.equal(downloadItems.length, 17)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
 })
 

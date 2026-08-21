@@ -1,0 +1,67 @@
+{
+  "schema": 2,
+  "productId": "pdf",
+  "productName": "方寸 PDF 配印助手",
+  "releaseTag": "fangcun-pdf-20260821",
+  "releaseDate": "2026-08-21",
+  "generatedUtc": "2026-08-21T12:17:56.345410+00:00",
+  "packages": [
+    {
+      "filename": "fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip",
+      "sourceFilename": "PDF配印_Win10_11_发布包_20260821.zip",
+      "platform": "Windows 10/11 x64",
+      "runtime": "Python 3.12",
+      "primary": true,
+      "bytes": 42393229,
+      "sha256": "6C3CDA6D87774168841B016D681FBD0CD9A4749973570631612A481872A1778A",
+      "contents": [
+        {
+          "path": "config.yaml",
+          "bytes": 921,
+          "sha256": "C9436710EDE4FE78AA6836B96408661CA24A2CE0C6A968EE76E9471116540F91"
+        },
+        {
+          "path": "PDF配印软件_Win10_11.exe",
+          "bytes": 42847943,
+          "sha256": "2B8136DBB18D562474AE08E40F25F9A18BD686B9DC528E81ECA609C7035FAE3F"
+        },
+        {
+          "path": "使用说明.txt",
+          "bytes": 692,
+          "sha256": "D86AE0CCC8263F3F9E9251A54DA373195BEFBC54E75C67EEBD9B4E82F8101024"
+        }
+      ]
+    },
+    {
+      "filename": "fangcun-pdf-print-assistant-20260821-win7-x64-public.zip",
+      "sourceFilename": "PDF配印_Win7_发布包_20260821.zip",
+      "platform": "Windows 7 x64",
+      "runtime": "Python 3.8.10",
+      "primary": false,
+      "bytes": 37613265,
+      "sha256": "792E2B5D0875C079FD872A0EDD815860AD965082A2AF0436C13955A0A50E417B",
+      "contents": [
+        {
+          "path": "config.yaml",
+          "bytes": 921,
+          "sha256": "C9436710EDE4FE78AA6836B96408661CA24A2CE0C6A968EE76E9471116540F91"
+        },
+        {
+          "path": "PDF配印软件_Win7.exe",
+          "bytes": 38075129,
+          "sha256": "51BB5AD91592716D5ED0B46FBE69CA4BC4D14A36DB22BAFA9A574808CF7312ED"
+        },
+        {
+          "path": "使用说明.txt",
+          "bytes": 678,
+          "sha256": "CC0B1ACA83D2796F82670BB3501C9C0E71E7E2CB156D9684B96DE8B330123ABC"
+        }
+      ]
+    }
+  ],
+  "publicPackageBoundary": {
+    "containsClientExecutable": true,
+    "containsActivationGenerator": false,
+    "activationManagementFilesExcluded": true
+  }
+}

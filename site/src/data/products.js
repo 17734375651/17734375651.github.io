@@ -1,9 +1,9 @@
 /**
  * Product truth for the Fangcun Youxu site.
  *
- * Values are deliberately limited to facts present in the audited product
- * matrix. Validation products expose their real demo packages while client
- * installers remain tied to verified release records.
+ * Values are deliberately limited to facts present in audited release
+ * packages. Client downloads and demo packages remain separate public files,
+ * and every client is tied to a verified release record.
  */
 export const PRODUCTS = [
   {
@@ -23,10 +23,10 @@ export const PRODUCTS = [
     },
     "status": {
       "sourceStatus": "正式销售",
-      "downloadable": false,
-      "effectiveStatus": "validation",
-      "label": "正式销售 · 展示包可下载",
-      "reason": "脱敏展示包已开放下载；客户端仍在完成发布确认。"
+      "downloadable": true,
+      "effectiveStatus": "available",
+      "label": "正式销售 · 已验证下载",
+      "reason": "Windows 10/11 与 Windows 7 x64 公开包的文件大小、架构和 SHA-256 已完成核对。"
     },
     "trial": {
       "minutes": 60,
@@ -35,14 +35,64 @@ export const PRODUCTS = [
       "source": "公开体验规则"
     },
     "download": {
-      "state": "validation",
-      "publicLink": null,
-      "version": null,
-      "verification": null,
-      "sha256": null,
-      "reason": "当前尚无可公开核对的客户端版本、文件大小与 SHA-256 记录。",
-      "panelText": "客户端发布确认中｜脱敏展示包已开放直接下载。",
-      "localArchivePresent": false
+      "state": "available",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/fangcun-label-imposition-20260821-win10-11-x64-public.zip",
+      "filename": "fangcun-label-imposition-20260821-win10-11-x64-public.zip",
+      "platform": "Windows 10/11 x64",
+      "version": "2026.08.21",
+      "date": "2026-08-21",
+      "verification": "verified",
+      "bytes": 42393335,
+      "displaySize": "40.4 MiB",
+      "sha256": "0e87aa66a85cf5e92c6a9dca7aad41d4594ce0d0f4905eff7ef238a8526a9db6",
+      "sha256UppercaseInChecksum": "0E87AA66A85CF5E92C6A9DCA7AAD41D4594CE0D0F4905EFF7EF238A8526A9DB6",
+      "sha256CaseInsensitiveMatch": true,
+      "releaseRecordPackage": "fangcun-label-imposition-20260821-win10-11-x64-public.zip",
+      "digitalSignature": "NotSigned",
+      "localArchivePresent": false,
+      "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压，并保持 EXE 与 config.yaml 在同一目录。",
+      "variants": [
+        {
+          "title": "Windows 7 x64 客户端",
+          "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/fangcun-label-imposition-20260821-win7-x64-public.zip",
+          "filename": "fangcun-label-imposition-20260821-win7-x64-public.zip",
+          "platform": "Windows 7 x64",
+          "runtime": "Python 3.8.10",
+          "bytes": 37613323,
+          "displaySize": "35.9 MiB",
+          "sha256": "638f563c6d1b7aeb696eb8466b7cb4e1bbff533ab69e798df07b36d989d31884",
+          "buttonLabel": "下载 Windows 7 x64 客户端"
+        }
+      ],
+      "supportFiles": [
+        {
+          "title": "公开发布清单",
+          "filename": "public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/public-manifest.json",
+          "format": "JSON",
+          "bytes": 2286,
+          "displaySize": "2.2 KiB",
+          "buttonLabel": "下载公开发布清单"
+        },
+        {
+          "title": "发布记录",
+          "filename": "release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/release-record.json",
+          "format": "JSON",
+          "bytes": 1387,
+          "displaySize": "1.4 KiB",
+          "buttonLabel": "下载发布记录"
+        },
+        {
+          "title": "SHA-256 校验文件",
+          "filename": "SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/SHA256SUMS.txt",
+          "format": "TXT",
+          "bytes": 246,
+          "displaySize": "246 B",
+          "buttonLabel": "下载 SHA-256 校验文件"
+        }
+      ]
     },
     "media": {
       "video": "/assets/media/label-demo.mp4",
@@ -84,17 +134,18 @@ export const PRODUCTS = [
         "可复核成本与余量"
       ]
     },
-    "capabilityBoundary": "官网只展示近似示例，不公开拼版算法、完整成本公式或真实订单。",
+    "capabilityBoundary": "客户端在本地处理订单；首次启动进入授权激活界面。官网不接收客户文件，也不公开真实订单。",
     "cta": {
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "体验模拟演示",
-      "downloadPanel": "脱敏展示包可下载 / 客户端发布确认中",
+      "downloadPanel": "已核验下载 / Windows x64 / SHA-256",
+      "downloadButton": "下载 Windows 10/11 x64 客户端 · 40.4 MiB",
       "recommended": {
-        "primary": "下载展示包",
+        "primary": "下载客户端",
         "secondary": "体验模拟演示",
-        "nextStep": "联系微信/电话 17734375651 了解购买与发布状态"
+        "nextStep": "下载对应系统版本，核对 SHA-256 后联系微信/电话 17734375651 获取产品授权"
       }
     }
   },
@@ -247,10 +298,10 @@ export const PRODUCTS = [
     },
     "status": {
       "sourceStatus": "正式销售",
-      "downloadable": false,
-      "effectiveStatus": "validation",
-      "label": "正式销售 · 展示包可下载",
-      "reason": "脱敏展示包已开放下载；客户端仍在完成发布确认。"
+      "downloadable": true,
+      "effectiveStatus": "available",
+      "label": "正式销售 · 已验证下载",
+      "reason": "Windows 10/11 与 Windows 7 x64 公开包的文件大小、架构和 SHA-256 已完成核对。"
     },
     "trial": {
       "minutes": 60,
@@ -259,14 +310,64 @@ export const PRODUCTS = [
       "source": "公开体验规则"
     },
     "download": {
-      "state": "validation",
-      "publicLink": null,
-      "version": null,
-      "verification": null,
-      "sha256": null,
-      "reason": "当前尚无可公开核对的客户端版本、文件大小与 SHA-256 记录。",
-      "panelText": "客户端发布确认中｜脱敏展示包已开放直接下载。",
-      "localArchivePresent": false
+      "state": "available",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip",
+      "filename": "fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip",
+      "platform": "Windows 10/11 x64",
+      "version": "2026.08.21",
+      "date": "2026-08-21",
+      "verification": "verified",
+      "bytes": 42393229,
+      "displaySize": "40.4 MiB",
+      "sha256": "6c3cda6d87774168841b016d681fbd0cd9a4749973570631612a481872a1778a",
+      "sha256UppercaseInChecksum": "6C3CDA6D87774168841B016D681FBD0CD9A4749973570631612A481872A1778A",
+      "sha256CaseInsensitiveMatch": true,
+      "releaseRecordPackage": "fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip",
+      "digitalSignature": "NotSigned",
+      "localArchivePresent": false,
+      "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压，并保持 EXE 与 config.yaml 在同一目录。",
+      "variants": [
+        {
+          "title": "Windows 7 x64 客户端",
+          "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/fangcun-pdf-print-assistant-20260821-win7-x64-public.zip",
+          "filename": "fangcun-pdf-print-assistant-20260821-win7-x64-public.zip",
+          "platform": "Windows 7 x64",
+          "runtime": "Python 3.8.10",
+          "bytes": 37613265,
+          "displaySize": "35.9 MiB",
+          "sha256": "792e2b5d0875c079fd872a0edd815860ad965082a2af0436c13955a0a50e417b",
+          "buttonLabel": "下载 Windows 7 x64 客户端"
+        }
+      ],
+      "supportFiles": [
+        {
+          "title": "公开发布清单",
+          "filename": "public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/public-manifest.json",
+          "format": "JSON",
+          "bytes": 2275,
+          "displaySize": "2.2 KiB",
+          "buttonLabel": "下载公开发布清单"
+        },
+        {
+          "title": "发布记录",
+          "filename": "release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/release-record.json",
+          "format": "JSON",
+          "bytes": 1381,
+          "displaySize": "1.3 KiB",
+          "buttonLabel": "下载发布记录"
+        },
+        {
+          "title": "SHA-256 校验文件",
+          "filename": "SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/SHA256SUMS.txt",
+          "format": "TXT",
+          "bytes": 252,
+          "displaySize": "252 B",
+          "buttonLabel": "下载 SHA-256 校验文件"
+        }
+      ]
     },
     "media": {
       "video": "/assets/media/pdf-demo.mp4",
@@ -308,17 +409,18 @@ export const PRODUCTS = [
         "逐页审计 Excel"
       ]
     },
-    "capabilityBoundary": "该产品只包含 PDF 配印能力，不含其他产品入口；官网不接收客户文件上传。",
+    "capabilityBoundary": "客户端在本地完成 PDF 配印；首次启动进入授权激活界面。官网不接收客户文件上传。",
     "cta": {
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "体验模拟演示",
-      "downloadPanel": "脱敏展示包可下载 / 客户端发布确认中",
+      "downloadPanel": "已核验下载 / Windows x64 / SHA-256",
+      "downloadButton": "下载 Windows 10/11 x64 客户端 · 40.4 MiB",
       "recommended": {
-        "primary": "下载展示包",
+        "primary": "下载客户端",
         "secondary": "体验模拟演示",
-        "nextStep": "联系微信/电话 17734375651 了解购买与发布状态"
+        "nextStep": "下载对应系统版本，核对 SHA-256 后联系微信/电话 17734375651 获取产品授权"
       }
     }
   }
@@ -364,6 +466,19 @@ export function getProductPublicFiles(product) {
       format: 'ZIP',
       displaySize: product.download.displaySize,
       buttonLabel: product.cta.downloadButton ?? '下载客户端',
+      external: true,
+    });
+  }
+  for (const variant of product.download?.variants ?? []) {
+    files.push({
+      kind: 'client-variant',
+      title: `${product.name} ${variant.platform} 客户端`,
+      description: `${variant.platform} · ${variant.displaySize}`,
+      filename: variant.filename,
+      path: variant.publicLink,
+      format: 'ZIP',
+      displaySize: variant.displaySize,
+      buttonLabel: variant.buttonLabel ?? `下载 ${variant.platform} 客户端`,
       external: true,
     });
   }

@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "productId": "label",
+  "productName": "标签印刷排版计划",
+  "releaseTag": "fangcun-label-20260821",
+  "releaseName": "标签印刷排版计划 2026-08-21 Windows 客户端",
+  "releaseDate": "2026-08-21",
+  "versionLabel": "2026-08-21 发布包",
+  "versionSource": "发布包文件名日期；客户端 PE 版本资源为空",
+  "packages": [
+    {
+      "filename": "fangcun-label-imposition-20260821-win10-11-x64-public.zip",
+      "sourceFilename": "标签排版_Win10_11_发布包_20260821.zip",
+      "platform": "Windows 10/11 x64",
+      "runtime": "Python 3.12",
+      "primary": true,
+      "bytes": 42393335,
+      "sha256": "0E87AA66A85CF5E92C6A9DCA7AAD41D4594CE0D0F4905EFF7EF238A8526A9DB6"
+    },
+    {
+      "filename": "fangcun-label-imposition-20260821-win7-x64-public.zip",
+      "sourceFilename": "标签排版_Win7_发布包_20260821.zip",
+      "platform": "Windows 7 x64",
+      "runtime": "Python 3.8.10",
+      "primary": false,
+      "bytes": 37613323,
+      "sha256": "638F563C6D1B7AEB696EB8466B7CB4E1BBFF533AB69E798DF07B36D989D31884"
+    }
+  ],
+  "verification": {
+    "zipIntegrity": "PASS",
+    "peArchitecture": "x64",
+    "startupToActivationWindow": "PASS",
+    "digitalSignature": "NotSigned",
+    "sourcePackageCopy": "BYTE_AND_SHA256_MATCH",
+    "customerSpecificDataScan": "PASS"
+  }
+}

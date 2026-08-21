@@ -1,0 +1,67 @@
+{
+  "schema": 2,
+  "productId": "label",
+  "productName": "标签印刷排版计划",
+  "releaseTag": "fangcun-label-20260821",
+  "releaseDate": "2026-08-21",
+  "generatedUtc": "2026-08-21T12:17:56.345410+00:00",
+  "packages": [
+    {
+      "filename": "fangcun-label-imposition-20260821-win10-11-x64-public.zip",
+      "sourceFilename": "标签排版_Win10_11_发布包_20260821.zip",
+      "platform": "Windows 10/11 x64",
+      "runtime": "Python 3.12",
+      "primary": true,
+      "bytes": 42393335,
+      "sha256": "0E87AA66A85CF5E92C6A9DCA7AAD41D4594CE0D0F4905EFF7EF238A8526A9DB6",
+      "contents": [
+        {
+          "path": "config.yaml",
+          "bytes": 921,
+          "sha256": "C9436710EDE4FE78AA6836B96408661CA24A2CE0C6A968EE76E9471116540F91"
+        },
+        {
+          "path": "使用说明.txt",
+          "bytes": 701,
+          "sha256": "153A65322DA652BC13B53103A71C2839C8AD2397928862FA2DF2697E358342A5"
+        },
+        {
+          "path": "标签排版软件_Win10_11.exe",
+          "bytes": 42847766,
+          "sha256": "11F27E5906402DA4CC4A68EF6FD912A2CE377DA205424C967EB0CFA17B3F2146"
+        }
+      ]
+    },
+    {
+      "filename": "fangcun-label-imposition-20260821-win7-x64-public.zip",
+      "sourceFilename": "标签排版_Win7_发布包_20260821.zip",
+      "platform": "Windows 7 x64",
+      "runtime": "Python 3.8.10",
+      "primary": false,
+      "bytes": 37613323,
+      "sha256": "638F563C6D1B7AEB696EB8466B7CB4E1BBFF533AB69E798DF07B36D989D31884",
+      "contents": [
+        {
+          "path": "config.yaml",
+          "bytes": 921,
+          "sha256": "C9436710EDE4FE78AA6836B96408661CA24A2CE0C6A968EE76E9471116540F91"
+        },
+        {
+          "path": "使用说明.txt",
+          "bytes": 687,
+          "sha256": "2238018F8208470AC0032F7DDA2F521E673373D1152D6F24931D5959BA99863D"
+        },
+        {
+          "path": "标签排版软件_Win7.exe",
+          "bytes": 38075143,
+          "sha256": "025D20A1FB235F096BBB60CF472F31845631D7541DB47299F9249033648451C1"
+        }
+      ]
+    }
+  ],
+  "publicPackageBoundary": {
+    "containsClientExecutable": true,
+    "containsActivationGenerator": false,
+    "activationManagementFilesExcluded": true
+  }
+}

@@ -91,17 +91,38 @@ test('every declared demo attachment exists in the public download tree', async 
 test('every retained product exposes direct public files without substituting a demo package for a client', async () => {
   const filesByProduct = Object.fromEntries(PRODUCTS.map((product) => [product.id, getProductPublicFiles(product)]))
   assert.deepEqual(Object.fromEntries(Object.entries(filesByProduct).map(([id, files]) => [id, files.length])), {
-    label: 1,
+    label: 6,
     bleed: 5,
-    pdf: 1,
+    pdf: 6,
   })
-  assert.deepEqual(filesByProduct.label.map((file) => file.kind), ['demo-materials'])
-  assert.deepEqual(filesByProduct.pdf.map((file) => file.kind), ['demo-materials'])
-  assert.equal(filesByProduct.bleed.filter((file) => file.kind === 'client').length, 1)
-  assert.deepEqual(
-    filesByProduct.bleed.filter((file) => file.kind === 'release-record').map((file) => file.filename),
-    ['public-manifest.json', 'release-record.json', 'SHA256SUMS.txt'],
-  )
+  for (const product of PRODUCTS) {
+    const files = filesByProduct[product.id]
+    assert.equal(files.filter((file) => file.kind === 'client').length, 1)
+    assert.deepEqual(
+      files.filter((file) => file.kind === 'release-record').map((file) => file.filename),
+      ['public-manifest.json', 'release-record.json', 'SHA256SUMS.txt'],
+    )
+    assert.equal(files.filter((file) => file.kind === 'demo-materials').length, 1)
+    assert.equal(product.status.effectiveStatus, 'available')
+    assert.equal(product.status.downloadable, true)
+    assert.equal(product.download.verification, 'verified')
+    assert.match(product.download.version, /^\d+\.\d+\.\d+$/)
+    assert.match(product.download.date, /^\d{4}-\d{2}-\d{2}$/)
+    assert.equal(Number.isInteger(product.download.bytes) && product.download.bytes > 0, true)
+    assert.match(product.download.sha256, /^[a-f0-9]{64}$/)
+    assert.equal(product.download.sha256.toUpperCase(), product.download.sha256UppercaseInChecksum)
+    assert.equal(product.download.publicLink.endsWith(`/${product.download.filename}`), true)
+  }
+  assert.equal(filesByProduct.label.filter((file) => file.kind === 'client-variant').length, 1)
+  assert.equal(filesByProduct.pdf.filter((file) => file.kind === 'client-variant').length, 1)
+  assert.equal(filesByProduct.bleed.filter((file) => file.kind === 'client-variant').length, 0)
+  for (const product of PRODUCTS.filter((item) => item.download.variants?.length)) {
+    for (const variant of product.download.variants) {
+      assert.match(variant.sha256, /^[a-f0-9]{64}$/)
+      assert.equal(variant.publicLink.endsWith(`/${variant.filename}`), true)
+      assert.match(variant.platform, /Windows 7 x64/)
+    }
+  }
   for (const files of Object.values(filesByProduct)) {
     for (const file of files.filter((entry) => !entry.external)) {
       await access(path.join(root, 'public', file.path.replace(/^\//, '')))

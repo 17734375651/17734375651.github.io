@@ -1,0 +1,38 @@
+{
+  "schema": 2,
+  "productId": "pdf",
+  "productName": "方寸 PDF 配印助手",
+  "releaseTag": "fangcun-pdf-20260821",
+  "releaseName": "方寸 PDF 配印助手 2026-08-21 Windows 客户端",
+  "releaseDate": "2026-08-21",
+  "versionLabel": "2026-08-21 发布包",
+  "versionSource": "发布包文件名日期；客户端 PE 版本资源为空",
+  "packages": [
+    {
+      "filename": "fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip",
+      "sourceFilename": "PDF配印_Win10_11_发布包_20260821.zip",
+      "platform": "Windows 10/11 x64",
+      "runtime": "Python 3.12",
+      "primary": true,
+      "bytes": 42393229,
+      "sha256": "6C3CDA6D87774168841B016D681FBD0CD9A4749973570631612A481872A1778A"
+    },
+    {
+      "filename": "fangcun-pdf-print-assistant-20260821-win7-x64-public.zip",
+      "sourceFilename": "PDF配印_Win7_发布包_20260821.zip",
+      "platform": "Windows 7 x64",
+      "runtime": "Python 3.8.10",
+      "primary": false,
+      "bytes": 37613265,
+      "sha256": "792E2B5D0875C079FD872A0EDD815860AD965082A2AF0436C13955A0A50E417B"
+    }
+  ],
+  "verification": {
+    "zipIntegrity": "PASS",
+    "peArchitecture": "x64",
+    "startupToActivationWindow": "PASS",
+    "digitalSignature": "NotSigned",
+    "sourcePackageCopy": "BYTE_AND_SHA256_MATCH",
+    "customerSpecificDataScan": "PASS"
+  }
+}
