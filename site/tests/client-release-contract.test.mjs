@@ -94,6 +94,7 @@ test('multisize bleed release record matches the independent 0.9.0 Windows x64 c
   assert.equal(manifest.publicPackageBoundary.privatePathScan, 'PASS')
   assert.equal(manifest.publicPackageBoundary.debugPathMap, '/_/fangcun-multisize-bleed-cut')
   assert.equal(manifest.publicPackageBoundary.sourcePackageProvenance, 'SANITIZED_PUBLIC_REBUILD_FROM_VERIFIED_SOURCE')
+  assert.equal(manifest.publicPackageBoundary.readmeShortcutExample, 'POWERSHELL_PARSE_PASS')
 
   assert.equal(record.releaseTag, releaseTag)
   assert.equal(record.versionLabel, '0.9.0')
@@ -106,6 +107,7 @@ test('multisize bleed release record matches the independent 0.9.0 Windows x64 c
   assert.equal(record.verification.debugPathMap, '/_/fangcun-multisize-bleed-cut')
   assert.equal(record.verification.internalManifest, 'PASS')
   assert.equal(record.verification.sanitizedRuntimeSmokes, 'PASS')
+  assert.equal(record.verification.readmeShortcutExample, 'POWERSHELL_PARSE_PASS')
   assert.equal(record.packages.length, 1)
 
   const packageRecord = record.packages[0]

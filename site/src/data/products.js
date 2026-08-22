@@ -295,10 +295,10 @@ export const PRODUCTS = [
       "version": "0.9.0",
       "date": "2026-08-22",
       "verification": "verified",
-      "bytes": 70716210,
+      "bytes": 70716244,
       "displaySize": "67.4 MiB",
-      "sha256": "ebde59fc1fc1e8e13cb60ef3c86a1a504045e2e2eb1d28fd3b755bf27a1e8e23",
-      "sha256UppercaseInChecksum": "EBDE59FC1FC1E8E13CB60EF3C86A1A504045E2E2EB1D28FD3B755BF27A1E8E23",
+      "sha256": "22647b9b5a9022fce60623e85fdedb73928b81f3e30cee5be9d9052ddb13ce67",
+      "sha256UppercaseInChecksum": "22647B9B5A9022FCE60623E85FDEDB73928B81F3E30CEE5BE9D9052DDB13CE67",
       "sha256CaseInsensitiveMatch": true,
       "releaseRecordPackage": "fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
       "digitalSignature": "NotSigned",
@@ -311,8 +311,8 @@ export const PRODUCTS = [
           "filename": "public-manifest.json",
           "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/public-manifest.json",
           "format": "JSON",
-          "bytes": 62406,
-          "displaySize": "60.9 KiB",
+          "bytes": 62460,
+          "displaySize": "61.0 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
@@ -320,7 +320,7 @@ export const PRODUCTS = [
           "filename": "release-record.json",
           "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/release-record.json",
           "format": "JSON",
-          "bytes": 1192,
+          "bytes": 1246,
           "displaySize": "1.2 KiB",
           "buttonLabel": "下载发布记录"
         },

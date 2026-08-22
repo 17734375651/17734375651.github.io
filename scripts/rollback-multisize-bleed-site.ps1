@@ -11,6 +11,7 @@ param(
 $ErrorActionPreference = 'Stop'
 $BaselineCommit = '736035cede985436a023d633f6c0ded40d71240b'
 $InitialReleaseCommit = 'aa7394eebe8de88d27ac4f025397d3fbbd717ff3'
+$PreviousCorrectionCommit = 'c0674a3e9742142c4a5e2679eb6b85777032425a'
 $ReleaseTag = 'fangcun-multisize-0.9.0'
 $Repository = '17734375651/17734375651.github.io'
 
@@ -46,8 +47,8 @@ Invoke-Git merge-base '--is-ancestor' $BaselineCommit $TargetCommit | Out-Null
 
 $parentLine = Get-GitFirstLine rev-list '--parents' '-n' '1' $TargetCommit
 $commitAndParents = @($parentLine -split '\s+' | Where-Object { $_ })
-if ($TargetCommit -eq $InitialReleaseCommit -or $commitAndParents.Count -ne 2 -or $commitAndParents[1] -ne $InitialReleaseCommit) {
-    throw "Rollback target must be the single corrective child of $InitialReleaseCommit."
+if ($TargetCommit -in @($InitialReleaseCommit, $PreviousCorrectionCommit) -or $commitAndParents.Count -ne 2 -or $commitAndParents[1] -ne $PreviousCorrectionCommit) {
+    throw "Rollback target must be the final corrective child of $PreviousCorrectionCommit."
 }
 
 $originUrl = Get-GitFirstLine remote get-url origin
@@ -84,7 +85,7 @@ $correctionRequired = @(
 $correctionAllowed = @(
     'docs/404.html',
     'docs/assets/main-CC2Qy1_h.js',
-    'docs/assets/main-Dg2edJKj.js',
+    'docs/assets/main-CUWwPdCy.js',
     'docs/custom/requirements/index.html',
     'docs/downloads/index.html',
     'docs/guides/index.html',
