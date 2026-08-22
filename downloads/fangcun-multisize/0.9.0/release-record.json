@@ -1,0 +1,30 @@
+{
+  "schema": 2,
+  "productId": "multisize-bleed",
+  "productName": "方寸有序多尺寸胀色裁切",
+  "releaseTag": "fangcun-multisize-0.9.0",
+  "releaseName": "方寸有序多尺寸胀色裁切 0.9.0 Windows x64",
+  "releaseDate": "2026-08-22",
+  "versionLabel": "0.9.0",
+  "versionSource": "独立产品发布版本",
+  "packages": [
+    {
+      "filename": "fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
+      "sourceFilename": "方寸有序多尺寸胀色裁切-0.9.0-win-x64.zip",
+      "platform": "Windows x64",
+      "runtime": ".NET 9 self-contained",
+      "primary": true,
+      "bytes": 72677417,
+      "sha256": "AFA7C919950B4FA81244C2D24C7C14AE70C44EB02D9E62523FB2122CA0224512"
+    }
+  ],
+  "verification": {
+    "zipIntegrity": "PASS",
+    "peArchitecture": "x64",
+    "startupToActivationWindow": "PASS",
+    "digitalSignature": "NotSigned",
+    "sourcePackageCopy": "BYTE_AND_SHA256_MATCH",
+    "customerSpecificDataScan": "PASS",
+    "privateKeyExcluded": "PASS"
+  }
+}

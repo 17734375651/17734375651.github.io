@@ -25,6 +25,7 @@ test('vite multi-page input includes the key static route documents', async () =
     'index.html',
     'products/index.html',
     'products/bleed/index.html',
+    'products/multisize-bleed/index.html',
     'solutions/index.html',
     'custom/requirements/index.html',
     'legal/privacy/index.html',

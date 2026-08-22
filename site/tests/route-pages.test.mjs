@@ -24,6 +24,7 @@ test('route definitions cover the mature-site information architecture', () => {
     '/products/',
     '/products/label/',
     '/products/bleed/',
+    '/products/multisize-bleed/',
     '/products/pdf/',
     '/solutions/',
     '/custom/requirements/',
@@ -52,6 +53,7 @@ test('indexable routes have unique metadata and absolute canonicals', () => {
 test('routeToOutputFile maps directory routes and the custom 404 file', () => {
   assert.equal(routeToOutputFile('/'), 'index.html')
   assert.equal(routeToOutputFile('/products/bleed/'), 'products/bleed/index.html')
+  assert.equal(routeToOutputFile('/products/multisize-bleed/'), 'products/multisize-bleed/index.html')
   assert.equal(routeToOutputFile('/404.html'), '404.html')
 })
 
@@ -61,6 +63,9 @@ test('generated HTML contains static route content and real navigation links', (
   assert.match(html, /<title>方寸有序胀色裁切/)
   assert.match(html, /rel="canonical" href="https:\/\/17734375651\.github\.io\/products\/bleed\/"/)
   assert.match(html, /<h1>方寸有序胀色裁切<\/h1>/)
+  assert.match(html, /方寸有序多尺寸胀色裁切/)
+  assert.match(html, /¥799 \/ 年/)
+  assert.match(html, /¥1499 \/ 年/)
   assert.match(html, /href="\/products\/"/)
   assert.match(html, /href="\/custom\/requirements\/"/)
   assert.doesNotMatch(html, /小工厂/)
@@ -69,14 +74,16 @@ test('generated HTML contains static route content and real navigation links', (
 test('product surfaces keep truthful product cards and crawlable mature-site links without JavaScript', () => {
   const home = collectRouteDefinitions().find((item) => item.path === '/')
   const html = buildRouteHtml(home)
-  assert.equal((html.match(/class="product-card"/g) ?? []).length, 3)
-  assert.equal((html.match(/class="product-card-detail-link"/g) ?? []).length, 3)
-  assert.equal((html.match(/class="product-card-icon-image"/g) ?? []).length, 3)
-  assert.equal((html.match(/src="\/assets\/brand\/fangcun-software-icon\.png"/g) ?? []).length, 3)
+  assert.equal((html.match(/class="product-card"/g) ?? []).length, 4)
+  assert.equal((html.match(/class="product-card-detail-link"/g) ?? []).length, 4)
+  assert.equal((html.match(/class="product-card-icon-image"/g) ?? []).length, 4)
+  assert.equal((html.match(/src="\/assets\/brand\/fangcun-software-icon\.png"/g) ?? []).length, 4)
   for (const product of PRODUCTS) {
     assert.match(html, new RegExp(`class="product-card-detail-link" href="${product.route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`))
   }
-  assert.equal((html.match(/正式销售 · 已验证下载/g) ?? []).length, 3)
+  assert.equal((html.match(/正式销售 · 已验证下载/g) ?? []).length, 4)
+  assert.match(html, /方寸有序多尺寸胀色裁切/)
+  assert.match(html, /¥1499 \/ 年/)
   assert.doesNotMatch(html, /正式销售 · 展示包可下载/)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
   assert.match(html, /href="\/updates\/"/)
@@ -92,6 +99,7 @@ test('downloads page exposes every real public file without JavaScript', () => {
     'fangcun-label-imposition-20260821-win10-11-x64-public.zip',
     'fangcun-label-imposition-20260821-win7-x64-public.zip',
     'fangcun-bleed-cutting-1.2.11-win-x86-public.zip',
+    'fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip',
     'fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip',
     'fangcun-pdf-print-assistant-20260821-win7-x64-public.zip',
     'public-manifest.json',
@@ -102,7 +110,7 @@ test('downloads page exposes every real public file without JavaScript', () => {
   }
   const downloadItems = CONTENT_CATEGORIES.find((category) => category.id === 'downloads').items
   assert.equal((html.match(/class="download-card"/g) ?? []).length, downloadItems.length)
-  assert.equal(downloadItems.length, 14)
+  assert.equal(downloadItems.length, 18)
   assert.doesNotMatch(html, /redacted-demo-materials|脱敏展示包/)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
 })
@@ -112,6 +120,7 @@ test('sitemap and robots expose indexable canonicals but exclude the 404 page', 
   const sitemap = buildSitemapXml(routes)
   const robots = buildRobotsTxt()
   assert.match(sitemap, /https:\/\/17734375651\.github\.io\/products\/bleed\//)
+  assert.match(sitemap, /https:\/\/17734375651\.github\.io\/products\/multisize-bleed\//)
   assert.match(sitemap, /https:\/\/17734375651\.github\.io\/legal\/privacy\//)
   assert.doesNotMatch(sitemap, /404\.html/)
   assert.match(robots, /Sitemap: https:\/\/17734375651\.github\.io\/sitemap\.xml/)
@@ -138,6 +147,14 @@ test('product pages expose factual software structured data without ratings or c
   assert.match(html, /"name":"方寸有序胀色裁切"/)
   assert.match(html, /"price":"799"/)
   assert.doesNotMatch(html, /aggregateRating|reviewCount|customer/i)
+
+  const multisizePage = collectRouteDefinitions().find((route) => route.path === '/products/multisize-bleed/')
+  const multisizeHtml = buildRouteHtml(multisizePage)
+  assert.match(multisizeHtml, /"name":"方寸有序多尺寸胀色裁切"/)
+  assert.match(multisizeHtml, /"price":"1499"/)
+  assert.match(multisizeHtml, /在大幅 PDF 中自动识别并提取单张标签/)
+  assert.match(multisizeHtml, /多尺寸标签进行胀色裁切排版/)
+  assert.doesNotMatch(multisizeHtml, /aggregateRating|reviewCount|customer/i)
 })
 
 test('route generation stages robots and sitemap for Vite public output', async () => {

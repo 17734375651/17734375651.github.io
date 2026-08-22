@@ -68,3 +68,46 @@ test('label and PDF release records match both public Windows client variants', 
     }
   }
 })
+
+test('multisize bleed release record matches the independent 0.9.0 Windows x64 client', async () => {
+  const product = PRODUCTS_BY_ID['multisize-bleed']
+  const releaseTag = 'fangcun-multisize-0.9.0'
+  const recordRoot = path.join(repoRoot, 'downloads', 'fangcun-multisize', '0.9.0')
+  const [manifest, record, sums] = await Promise.all([
+    readFile(path.join(recordRoot, 'public-manifest.json'), 'utf8').then(JSON.parse),
+    readFile(path.join(recordRoot, 'release-record.json'), 'utf8').then(JSON.parse),
+    readFile(path.join(recordRoot, 'SHA256SUMS.txt'), 'utf8'),
+  ])
+
+  assert.equal(manifest.productId, 'multisize-bleed')
+  assert.equal(manifest.releaseTag, releaseTag)
+  assert.equal(manifest.packages.length, 1)
+  assert.equal(manifest.packages[0].contents.length, 313)
+  assert.deepEqual(manifest.verifiedCapabilities, [
+    '在大幅 PDF 中自动识别并提取单张标签',
+    '对多尺寸标签进行胀色裁切排版',
+  ])
+  assert.equal(manifest.publicPackageBoundary.containsActivationGenerator, false)
+  assert.equal(manifest.publicPackageBoundary.containsPrivateKey, false)
+  assert.equal(manifest.publicPackageBoundary.containsCustomerLicense, false)
+
+  assert.equal(record.releaseTag, releaseTag)
+  assert.equal(record.versionLabel, '0.9.0')
+  assert.equal(record.verification.zipIntegrity, 'PASS')
+  assert.equal(record.verification.peArchitecture, 'x64')
+  assert.equal(record.verification.startupToActivationWindow, 'PASS')
+  assert.equal(record.verification.digitalSignature, 'NotSigned')
+  assert.equal(record.packages.length, 1)
+
+  const packageRecord = record.packages[0]
+  assert.equal(packageRecord.filename, product.download.filename)
+  assert.equal(packageRecord.bytes, product.download.bytes)
+  assert.equal(packageRecord.sha256.toLowerCase(), product.download.sha256)
+  assert.equal(product.download.publicLink, `https://github.com/17734375651/17734375651.github.io/releases/download/${releaseTag}/${packageRecord.filename}`)
+  assert.match(sums, new RegExp(`${packageRecord.sha256}\\s+${packageRecord.filename}`))
+
+  for (const supportFile of product.download.supportFiles) {
+    assert.equal((await stat(path.join(recordRoot, supportFile.filename))).size, supportFile.bytes)
+    assert.equal(supportFile.path, `https://github.com/17734375651/17734375651.github.io/releases/download/${releaseTag}/${supportFile.filename}`)
+  }
+})

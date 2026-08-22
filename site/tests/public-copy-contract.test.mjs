@@ -49,7 +49,7 @@ test('customer-facing copy uses bounded workflow language', async () => {
   const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
   assert.doesNotMatch(app, /开箱即用|每一次交付都更清晰|RELEASE STATUS/)
   assert.match(app, /把输入、处理与输出梳理成可复核流程/)
-  assert.match(app, /一小时体验适用于三款正式软件/)
+  assert.match(app, /一小时体验适用于四款正式软件/)
 })
 
 test('generated static shell uses the same customer-facing contact wording', async () => {

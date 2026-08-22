@@ -301,7 +301,7 @@ function ProductCard({ product, featured = false }) {
 }
 
 function ProductsSection({ showHeading = true }) {
-  return <section className="section products-section" id="products" aria-labelledby="products-title"><div className="container">{showHeading && <div className="section-heading split-heading"><div><p className="section-kicker">PRODUCT CENTER</p><h2 id="products-title">产品中心</h2></div><p>三款正式软件可分别购买、独立使用。每款产品都明确展示输入、处理、输出，以及可直接下载的公开文件。</p></div>}<div className="products-grid">{PRODUCTS.map((product) => <ProductCard key={product.id} product={product} featured={product.id === 'bleed'} />)}</div><div className="products-footnote"><ShieldCheck size={19} weight="duotone" aria-hidden="true" /><span>三款客户端与发布校验文件均可直接下载，并按真实发布记录展示。</span><a href="/downloads/">查看全部下载 <ArrowUpRight size={15} aria-hidden="true" /></a></div></div></section>
+  return <section className="section products-section" id="products" aria-labelledby="products-title"><div className="container">{showHeading && <div className="section-heading split-heading"><div><p className="section-kicker">PRODUCT CENTER</p><h2 id="products-title">产品中心</h2></div><p>四款正式软件可分别购买、独立使用。每款产品都明确展示输入、处理、输出，以及可直接下载的公开文件。</p></div>}<div className="products-grid">{PRODUCTS.map((product) => <ProductCard key={product.id} product={product} featured={product.id === 'bleed' || product.id === 'multisize-bleed'} />)}</div><div className="products-footnote"><ShieldCheck size={19} weight="duotone" aria-hidden="true" /><span>四款客户端与发布校验文件均可直接下载，并按真实发布记录展示。</span><a href="/downloads/">查看全部下载 <ArrowUpRight size={15} aria-hidden="true" /></a></div></div></section>
 }
 
 function TrustSection() {
@@ -323,7 +323,7 @@ function ContentSection() {
 }
 
 function PricingSection() {
-  return <section className="section pricing-section" id="pricing" aria-labelledby="pricing-title"><div className="container"><div className="section-heading centered"><p className="section-kicker">PRICING & ACCESS</p><h2 id="pricing-title">服务与价格</h2><p>价格、客户端与公开文件分开说明；三款 Windows 客户端均可直接下载。</p></div><div className="pricing-grid">{PRODUCTS.map((product) => { const action = getProductAction(product.status.effectiveStatus, product.id); return <article key={product.id} className={`pricing-card ${product.id === 'bleed' ? 'pricing-card-featured' : ''}`}><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><h3>{product.shortName}</h3><strong className="price-display">{product.price.display}</strong><span className="price-term">365 天年度授权</span><ul>{product.workflow.output.map((output) => <li key={output}><Check size={17} weight="bold" aria-hidden="true" />{output}</li>)}</ul><a className="text-link" href={`${pathForProduct(product.id)}${action.href}`}>{action.label}<ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article> })}<article className="pricing-card pricing-card-custom"><span className="status-badge status-custom">按需求沟通</span><h3>个性化软件定制</h3><strong className="price-display">¥499 <small>起</small></strong><span className="price-term">定制设计及首个可用版本</span><ul><li><Check size={17} weight="bold" aria-hidden="true" />先梳理流程与资料</li><li><Check size={17} weight="bold" aria-hidden="true" />生成可复核需求摘要</li><li><Check size={17} weight="bold" aria-hidden="true" />正式版年费按复杂度报价</li></ul><a className="text-link" href="/custom/requirements/">描述你的需求 <ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article></div><p className="pricing-note"><Clock size={18} weight="duotone" aria-hidden="true" />一小时体验适用于三款正式软件；公开文件可在产品页或下载资料页直接获取。</p></div></section>
+  return <section className="section pricing-section" id="pricing" aria-labelledby="pricing-title"><div className="container"><div className="section-heading centered"><p className="section-kicker">PRICING & ACCESS</p><h2 id="pricing-title">服务与价格</h2><p>价格、客户端与公开文件分开说明；四款 Windows 客户端均可直接下载。</p></div><div className="pricing-grid">{PRODUCTS.map((product) => { const action = getProductAction(product.status.effectiveStatus, product.id); return <article key={product.id} className={`pricing-card ${product.id === 'bleed' || product.id === 'multisize-bleed' ? 'pricing-card-featured' : ''}`}><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><h3>{product.shortName}</h3><strong className="price-display">{product.price.display}</strong><span className="price-term">365 天年度授权</span><ul>{product.workflow.output.map((output) => <li key={output}><Check size={17} weight="bold" aria-hidden="true" />{output}</li>)}</ul><a className="text-link" href={`${pathForProduct(product.id)}${action.href}`}>{action.label}<ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article> })}<article className="pricing-card pricing-card-custom"><span className="status-badge status-custom">按需求沟通</span><h3>个性化软件定制</h3><strong className="price-display">¥499 <small>起</small></strong><span className="price-term">定制设计及首个可用版本</span><ul><li><Check size={17} weight="bold" aria-hidden="true" />先梳理流程与资料</li><li><Check size={17} weight="bold" aria-hidden="true" />生成可复核需求摘要</li><li><Check size={17} weight="bold" aria-hidden="true" />正式版年费按复杂度报价</li></ul><a className="text-link" href="/custom/requirements/">描述你的需求 <ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article></div><p className="pricing-note"><Clock size={18} weight="duotone" aria-hidden="true" />一小时体验适用于四款正式软件；公开文件可在产品页或下载资料页直接获取。</p></div></section>
 }
 
 function HomeCTA() {
@@ -445,8 +445,19 @@ function ProductMedia({ product }) {
   )
 }
 
+function BleedSeriesSection({ product }) {
+  const companionId = product.id === 'bleed'
+    ? 'multisize-bleed'
+    : product.id === 'multisize-bleed'
+      ? 'bleed'
+      : null
+  const companion = companionId ? PRODUCTS_BY_ID[companionId] : null
+  if (!companion) return null
+  return <section className="section product-series-section" aria-labelledby="product-series-title"><div className="container"><div className="section-heading split-heading"><div><p className="section-kicker">INDEPENDENT PRODUCT LINE</p><h2 id="product-series-title">同系列独立产品</h2></div><p>两款产品使用独立名称、版本、下载与年度授权，互不覆盖；可按实际文件类型和排版需求选择。</p></div><div className="products-grid product-series-grid"><ProductCard product={companion} featured /></div></div></section>
+}
+
 function ProductPage({ product }) {
-  return <PageShell darkHeader><main><DetailHero product={product} /><WorkflowSection product={product} /><ProductMedia product={product} /><AvailabilityPanel product={product} /><section className="section boundary-section"><div className="container boundary-card"><ShieldCheck size={28} weight="duotone" aria-hidden="true" /><div><p className="section-kicker">BOUNDARY</p><h2>公开能力与边界</h2><p>{product.capabilityBoundary}</p></div><LinkButton href="/custom/requirements/" variant="text">描述定制需求 <ArrowUpRight size={16} aria-hidden="true" /></LinkButton></div></section><RelatedContent productId={product.id} /></main></PageShell>
+  return <PageShell darkHeader><main><DetailHero product={product} /><BleedSeriesSection product={product} /><WorkflowSection product={product} /><ProductMedia product={product} /><AvailabilityPanel product={product} /><section className="section boundary-section"><div className="container boundary-card"><ShieldCheck size={28} weight="duotone" aria-hidden="true" /><div><p className="section-kicker">BOUNDARY</p><h2>公开能力与边界</h2><p>{product.capabilityBoundary}</p></div><LinkButton href="/custom/requirements/" variant="text">描述定制需求 <ArrowUpRight size={16} aria-hidden="true" /></LinkButton></div></section><RelatedContent productId={product.id} /></main></PageShell>
 }
 
 function RelatedContent({ productId }) {
@@ -456,7 +467,7 @@ function RelatedContent({ productId }) {
 }
 
 function ProductsIndexPage() {
-  return <PageShell><main className="light-page"><section className="page-intro"><div className="container"><Breadcrumbs items={[{ label: '产品中心' }]} /><p className="section-kicker">PRODUCT CENTER</p><h1>产品中心</h1><p>三款正式软件可分别购买、独立使用；每款产品的公开文件均提供直接下载入口。</p></div></section><ProductsSection showHeading={false} /><TrustSection /><HomeCTA /></main></PageShell>
+  return <PageShell><main className="light-page"><section className="page-intro"><div className="container"><Breadcrumbs items={[{ label: '产品中心' }]} /><p className="section-kicker">PRODUCT CENTER</p><h1>产品中心</h1><p>四款正式软件可分别购买、独立使用；每款产品的公开文件均提供直接下载入口。</p></div></section><ProductsSection showHeading={false} /><TrustSection /><HomeCTA /></main></PageShell>
 }
 
 function SolutionsPage() {

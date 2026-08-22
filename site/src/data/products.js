@@ -260,6 +260,121 @@ export const PRODUCTS = [
     }
   },
   {
+    "id": "multisize-bleed",
+    "route": "/products/multisize-bleed/",
+    "name": "方寸有序多尺寸胀色裁切",
+    "shortName": "多尺寸胀色裁切",
+    "eyebrow": "MULTI-SIZE BLEED & CUT",
+    "statement": "在大幅 PDF 中自动识别并提取单张标签，再对多尺寸标签进行胀色裁切排版。",
+    "outcome": "从大图识别到多尺寸生产排版",
+    "price": {
+      "amountCny": 1499,
+      "display": "¥1499 / 年",
+      "termDays": 365,
+      "sourceUnit": "元/年",
+      "public": true
+    },
+    "status": {
+      "sourceStatus": "正式销售",
+      "downloadable": true,
+      "effectiveStatus": "available",
+      "label": "正式销售 · 已验证下载",
+      "reason": "Windows x64 公开包的版本、文件大小、架构与 SHA-256 已完成核对。"
+    },
+    "trial": {
+      "minutes": 60,
+      "display": "每台电脑首次免费体验 1 小时",
+      "state": "first-device-one-hour",
+      "source": "公开体验规则"
+    },
+    "download": {
+      "state": "available",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
+      "filename": "fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
+      "platform": "Windows x64",
+      "version": "0.9.0",
+      "date": "2026-08-22",
+      "verification": "verified",
+      "bytes": 72677417,
+      "displaySize": "69.3 MiB",
+      "sha256": "afa7c919950b4fa81244c2d24c7c14ae70c44eb02d9e62523fb2122ca0224512",
+      "sha256UppercaseInChecksum": "AFA7C919950B4FA81244C2D24C7C14AE70C44EB02D9E62523FB2122CA0224512",
+      "sha256CaseInsensitiveMatch": true,
+      "releaseRecordPackage": "fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
+      "digitalSignature": "NotSigned",
+      "localArchivePresent": false,
+      "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
+      "variants": [],
+      "supportFiles": [
+        {
+          "title": "公开发布清单",
+          "filename": "public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/public-manifest.json",
+          "format": "JSON",
+          "bytes": 63799,
+          "displaySize": "62.3 KiB",
+          "buttonLabel": "下载公开发布清单"
+        },
+        {
+          "title": "发布记录",
+          "filename": "release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/release-record.json",
+          "format": "JSON",
+          "bytes": 1031,
+          "displaySize": "1.0 KiB",
+          "buttonLabel": "下载发布记录"
+        },
+        {
+          "title": "SHA-256 校验文件",
+          "filename": "SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/SHA256SUMS.txt",
+          "format": "TXT",
+          "bytes": 119,
+          "displaySize": "119 B",
+          "buttonLabel": "下载 SHA-256 校验文件"
+        }
+      ]
+    },
+    "media": {
+      "video": null,
+      "poster": null,
+      "declared": false,
+      "mode": "not-published",
+      "fallback": "当前页面先公开产品能力、价格与已验证下载；操作演示将在完成公开素材核验后补充。"
+    },
+    "workflow": {
+      "input": [
+        "大幅/大图单页 PDF 或已分割单页 PDF",
+        "Excel .xls / .xlsx 订单",
+        "版面与胀色裁切参数"
+      ],
+      "process": [
+        "自动识别大图中的独立标签区域，并批量提取单张标签 PDF",
+        "按多尺寸标签统一规划版面，完成胀色与有效区外裁切标输出",
+        "自动比较大机器、小机器及混用版面，并汇总各版打印份数"
+      ],
+      "output": [
+        "单张标签 PDF",
+        "多尺寸胀色裁切排版 PDF",
+        "打印份数与复核报告"
+      ]
+    },
+    "capabilityBoundary": "方寸有序多尺寸胀色裁切是独立产品，使用独立版本与下载；大图识别、单张提取和多尺寸排版均在本地完成。",
+    "cta": {
+      "homeCard": "查看产品详情",
+      "pricingCard": "查看详情",
+      "productHeroPrimary": "查看下载与价格",
+      "productHeroSecondary": "查看工作流",
+      "downloadPanel": "已核验下载 / 多尺寸胀色裁切 0.9.0 / SHA-256",
+      "downloadButton": "下载 Windows x64 客户端 · 69.3 MiB",
+      "recommended": {
+        "primary": "下载客户端",
+        "secondary": "查看工作流",
+        "nextStep": "下载 0.9.0 Windows x64 客户端，核对 SHA-256 后联系微信/电话 17734375651 完成授权"
+      }
+    }
+  },
+  {
     "id": "pdf",
     "route": "/products/pdf/",
     "name": "方寸 PDF 配印助手",

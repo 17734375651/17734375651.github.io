@@ -39,6 +39,8 @@ test('buildRequirementSummary returns an empty string until all required fields 
 test('normalizePrefill accepts known scenarios and ignores unknown values', () => {
   const known = normalizePrefill(new URLSearchParams('scenario=printing-shop&product=bleed'))
   assert.deepEqual(known, { scenario: 'printing-shop', product: 'bleed' })
+  const multisize = normalizePrefill(new URLSearchParams('product=multisize-bleed'))
+  assert.deepEqual(multisize, { scenario: null, product: 'multisize-bleed' })
 
   const unknown = normalizePrefill(new URLSearchParams('scenario=made-up&product=secret'))
   assert.deepEqual(unknown, { scenario: null, product: null })

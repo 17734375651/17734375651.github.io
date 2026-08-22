@@ -138,10 +138,10 @@ test('requirements expose four required semantics and build only a local summary
   assert.doesNotMatch(app, /\b(?:fetch|axios|XMLHttpRequest|sendBeacon)\s*\(/i)
 })
 
-test('three products render their verified status through a data-driven UI path', async () => {
+test('four products render their verified status through a data-driven UI path', async () => {
   const app = await readSource(appPath)
   const css = await readSource(path.join(srcRoot, 'styles.css'))
-  const expectedIds = ['label', 'bleed', 'pdf']
+  const expectedIds = ['label', 'bleed', 'multisize-bleed', 'pdf']
   assert.deepEqual(PRODUCTS.map((product) => product.id), expectedIds)
   for (const product of PRODUCTS) {
     assert.ok(PRODUCT_STATUS[product.status.effectiveStatus], `missing status vocabulary for ${product.id}`)
@@ -156,6 +156,12 @@ test('three products render their verified status through a data-driven UI path'
   assert.match(app, /aria-label=\{`查看\$\{product\.name\}详情`\}/)
   assert.match(css, /\.product-card-detail-link\s*\{[^}]*position:\s*absolute;[^}]*inset:\s*0;/)
   assert.match(css, /\.product-card-footer \.button\s*\{[^}]*z-index:\s*2;/)
+
+  const multisize = PRODUCTS.find((product) => product.id === 'multisize-bleed')
+  assert.equal(multisize.price.amountCny, 1499)
+  assert.match(multisize.statement, /大幅 PDF.*识别.*提取单张标签/)
+  assert.match(multisize.workflow.process.join(' '), /多尺寸标签.*胀色.*裁切/)
+  assert.match(app, /同系列独立产品/)
 })
 
 test('ERP is absent from every public runtime source and route manifest', async () => {
@@ -179,7 +185,7 @@ test('interactive UI exposes mobile-menu and industry-tab semantics', async () =
   assert.match(app, /aria-selected\s*=/)
 })
 
-test('product media exposes three local videos and distinguishes both redacted actual-operation recordings', async () => {
+test('product media preserves three local videos and the new product keeps media unpublished', async () => {
   const app = await readSource(appPath)
   const mediaProducts = PRODUCTS.filter((product) => product.media.video)
   assert.equal(mediaProducts.length, 3)
@@ -200,6 +206,10 @@ test('product media exposes three local videos and distinguishes both redacted a
   assert.equal(bleed.media.silent, true)
   assert.equal(bleed.media.redactionMethod, 'synthetic-demo-data')
   assert.match(bleed.media.video, /bleed-operation-sanitized-no-taskbar\.mp4$/)
+  const multisize = PRODUCTS.find((product) => product.id === 'multisize-bleed')
+  assert.equal(multisize.media.declared, false)
+  assert.equal(multisize.media.video, null)
+  assert.equal(multisize.media.poster, null)
 
   assert.match(app, /<video\b/i)
   assert.match(app, /\bcontrols\b/)

@@ -21,10 +21,10 @@ export const SITE = {
     "中小企业",
     "其他重复流程"
   ],
-  "productClaim": "三款正式软件可分别购买、独立使用；客户端与发布校验文件均可直接下载。",
+  "productClaim": "四款正式软件可分别购买、独立使用；客户端与发布校验文件均可直接下载。",
   "licenseClaim": "正式软件按年授权；客户端内查看体验、购买和离线激活状态。",
   "trialRibbon": "每台电脑首次免费体验 1 小时",
-  "trialScope": "一小时体验适用于三款正式软件；公开文件可在产品页或下载资料页直接获取。",
+  "trialScope": "一小时体验适用于四款正式软件；公开文件可在产品页或下载资料页直接获取。",
   "privacyClaims": [
     "本地优先运行",
     "客户资料不上传官网",
@@ -102,7 +102,7 @@ export const SEO_ROUTES = [
     "kind": "home",
     "status": 200,
     "title": "方寸有序工作室｜降本增效软件与个性化定制",
-    "description": "标签印刷排版、CMYK 胀色裁切、PDF 配印与个性化软件定制。微信/电话：17734375651。",
+    "description": "标签印刷排版、CMYK 胀色裁切、大图标签提取、多尺寸标签排版、PDF 配印与个性化软件定制。微信/电话：17734375651。",
     "canonical": "https://17734375651.github.io/",
     "og": {
       "title": "方寸有序工作室｜降本增效软件与个性化定制",
@@ -114,7 +114,7 @@ export const SEO_ROUTES = [
     "coreStaticBody": [
       "为图文店、印刷店、中小企业提供能够真正落地的效率软件，也承接按业务流程开发的个性化工具。",
       "把重复核算、反复整理与逐页核对，转成可执行、可复核的软件流程。",
-      "三款正式软件：标签印刷排版计划、方寸有序胀色裁切、方寸 PDF 配印助手。三款客户端与发布校验文件均可直接下载。"
+      "四款正式软件：标签印刷排版计划、方寸有序胀色裁切、方寸有序多尺寸胀色裁切、方寸 PDF 配印助手。四款客户端与发布校验文件均可直接下载。"
     ],
     "verifiedFacts": {
       "audience": [
@@ -125,6 +125,7 @@ export const SEO_ROUTES = [
       "products": [
         "标签印刷排版计划",
         "方寸有序胀色裁切",
+        "方寸有序多尺寸胀色裁切",
         "方寸 PDF 配印助手"
       ],
       "contact": "电话 17734375651（微信同号）",
@@ -228,6 +229,52 @@ export const SEO_ROUTES = [
     }
   },
   {
+    "path": "/products/multisize-bleed/",
+    "kind": "product",
+    "productId": "multisize-bleed",
+    "status": 200,
+    "title": "方寸有序多尺寸胀色裁切｜大图标签提取与多尺寸排版",
+    "description": "方寸有序多尺寸胀色裁切：在大幅 PDF 中自动识别并提取单张标签，再对多尺寸标签进行胀色裁切排版。年授权 1499 元。",
+    "canonical": "https://17734375651.github.io/products/multisize-bleed/",
+    "og": {
+      "title": "方寸有序多尺寸胀色裁切｜大图标签提取与多尺寸排版",
+      "description": "自动识别大图中的独立标签并批量提取单张 PDF，随后完成多尺寸标签胀色裁切排版。",
+      "type": "product",
+      "url": "https://17734375651.github.io/products/multisize-bleed/"
+    },
+    "h1": "方寸有序多尺寸胀色裁切",
+    "coreStaticBody": [
+      "在大幅 PDF 中自动识别并提取单张标签，再对多尺寸标签进行胀色裁切排版。",
+      "大图识别与单张提取：自动识别大幅 PDF 中的独立标签区域，批量提取为可直接排版的单张 PDF。",
+      "多尺寸胀色裁切排版：支持不同尺寸标签统一规划，完成胀色、外置裁切标与可复核的排版输出。",
+      "输入资料：大幅/大图单页 PDF 或已分割单页 PDF、Excel 订单、版面与胀色裁切参数。",
+      "输出：单张标签 PDF、多尺寸胀色裁切排版 PDF、打印份数与复核报告。",
+      "年授权 1499 元；Windows x64 客户端可下载；每台电脑首次免费体验 1 小时。"
+    ],
+    "verifiedFacts": {
+      "status": "正式销售 · 已验证下载",
+      "price": "1499 元/年",
+      "trial": "每台电脑首次免费体验 1 小时",
+      "inputs": [
+        "大幅/大图单页 PDF 或已分割单页 PDF",
+        "Excel .xls / .xlsx 订单",
+        "版面与胀色裁切参数"
+      ],
+      "outputs": [
+        "单张标签 PDF",
+        "多尺寸胀色裁切排版 PDF",
+        "打印份数与复核报告"
+      ],
+      "features": [
+        "在大图 PDF 中自动识别并提取单张标签",
+        "对多尺寸标签进行胀色裁切排版",
+        "自动比较大机器、小机器及混用版面"
+      ],
+      "boundary": "本产品使用独立名称、版本、下载与年度授权；所有 PDF 处理均在本地完成。",
+      "releaseEvidence": "fangcun-multisize-0.9.0 Release 提供 Windows x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
+    }
+  },
+  {
     "path": "/products/pdf/",
     "kind": "product",
     "productId": "pdf",
@@ -289,7 +336,7 @@ export const SEO_ROUTES = [
     "coreStaticBody": [
       "填写业务类型、目前最耗时的工作环节、可提供的资料与期望的交付结果；规则、预算、时间可补充填写。",
       "页面仅在当前页面生成可复制的微信需求摘要，内容不上传、不保存；复制后请在微信中粘贴发送。",
-      "定制设计及首个可用版本 499 元起；正式版年费根据功能复杂度报价。三款正式软件的体验规则见各产品页；定制项目按需求沟通。"
+      "定制设计及首个可用版本 499 元起；正式版年费根据功能复杂度报价。四款正式软件的体验规则见各产品页；定制项目按需求沟通。"
     ],
     "verifiedFacts": {
       "requiredFields": [
@@ -315,22 +362,22 @@ export const SEO_ROUTES = [
     "kind": "not-found",
     "status": 404,
     "title": "页面未找到｜方寸有序",
-    "description": "这个页面还没有建立。返回产品中心，查看三款正式软件或描述你的业务流程。",
+    "description": "这个页面还没有建立。返回产品中心，查看四款正式软件或描述你的业务流程。",
     "canonical": null,
     "og": {
       "title": "页面未找到｜方寸有序",
-      "description": "这个页面还没有建立。返回产品中心，查看三款正式软件或描述你的业务流程。",
+      "description": "这个页面还没有建立。返回产品中心，查看四款正式软件或描述你的业务流程。",
       "type": "website",
       "url": null
     },
     "h1": "这个页面还没有建立。",
     "coreStaticBody": [
       "这个页面还没有建立。",
-      "返回产品中心，查看三款正式软件或描述你的业务流程。"
+      "返回产品中心，查看四款正式软件或描述你的业务流程。"
     ],
     "verifiedFacts": {
       "clientFallbackText": "这个页面还没有建立。",
-      "clientFallbackDescription": "返回产品中心，查看三款正式软件或描述你的业务流程。",
+      "clientFallbackDescription": "返回产品中心，查看四款正式软件或描述你的业务流程。",
       "expectedResponse": 404
     },
     "canonicalPolicy": "omit-self-canonical; emit noindex and do not include in sitemap"

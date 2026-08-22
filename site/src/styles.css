@@ -164,7 +164,7 @@ img, video { display: block; max-width: 100%; }
 
 /* cards and sections */
 .products-section { background: #f0ede5; }
-.products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+.products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
 .product-card { position: relative; min-width: 0; display: flex; flex-direction: column; padding: 22px 20px 20px; border: 1px solid #ddd9cf; border-radius: 8px; background: #fff; cursor: pointer; transition: transform .2s ease, box-shadow .2s ease; }
 .product-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
 .product-card-detail-link { position: absolute; inset: 0; z-index: 1; border-radius: inherit; }
@@ -222,7 +222,7 @@ img, video { display: block; max-width: 100%; }
 .text-link:hover { color: var(--ink); }
 .text-link.muted { color: #7b8382; font-weight: 600; }
 .pricing-section { background: var(--paper); }
-.pricing-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 15px; }
 .pricing-card { min-width: 0; display: flex; flex-direction: column; min-height: 390px; padding: 24px 22px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
 .pricing-card-featured { color: #f5f2e9; border-color: #252a28; background: var(--ink); }
 .pricing-card h3 { margin: 28px 0 10px; font-size: 21px; letter-spacing: -.04em; }
@@ -279,6 +279,9 @@ img, video { display: block; max-width: 100%; }
 .detail-art-fallback { display: grid; justify-items: center; gap: 14px; padding: 40px; color: var(--gold); text-align: center; }
 .detail-art-fallback span { color: #f3efe3; font-size: 18px; font-weight: 750; }
 .detail-art-fallback small { max-width: 270px; color: #aeb5af; font-size: 12px; line-height: 1.6; }
+.product-series-section { padding-top: 54px; padding-bottom: 54px; background: #f0ede5; }
+.product-series-section .section-heading { margin-bottom: 24px; }
+.product-series-grid { max-width: 680px; grid-template-columns: minmax(0, 1fr); }
 .workflow-section { background: var(--paper); }
 .workflow-grid { display: grid; grid-template-columns: minmax(0, 1fr) 42px minmax(0, 1.25fr) 42px minmax(0, 1fr); gap: 18px; align-items: stretch; }
 .workflow-card { padding: 26px 23px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
