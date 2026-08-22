@@ -14,8 +14,8 @@
       "platform": "Windows x64",
       "runtime": ".NET 9 self-contained",
       "primary": true,
-      "bytes": 72677417,
-      "sha256": "AFA7C919950B4FA81244C2D24C7C14AE70C44EB02D9E62523FB2122CA0224512"
+      "bytes": 70716210,
+      "sha256": "EBDE59FC1FC1E8E13CB60EF3C86A1A504045E2E2EB1D28FD3B755BF27A1E8E23"
     }
   ],
   "verification": {
@@ -23,8 +23,12 @@
     "peArchitecture": "x64",
     "startupToActivationWindow": "PASS",
     "digitalSignature": "NotSigned",
-    "sourcePackageCopy": "BYTE_AND_SHA256_MATCH",
     "customerSpecificDataScan": "PASS",
-    "privateKeyExcluded": "PASS"
+    "privateKeyExcluded": "PASS",
+    "sourcePackageProvenance": "SANITIZED_PUBLIC_REBUILD_FROM_VERIFIED_SOURCE",
+    "localAbsolutePathScan": "PASS",
+    "debugPathMap": "/_/fangcun-multisize-bleed-cut",
+    "internalManifest": "PASS",
+    "sanitizedRuntimeSmokes": "PASS"
   }
 }

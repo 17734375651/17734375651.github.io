@@ -10,6 +10,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $BaselineCommit = '736035cede985436a023d633f6c0ded40d71240b'
+$InitialReleaseCommit = 'aa7394eebe8de88d27ac4f025397d3fbbd717ff3'
 $ReleaseTag = 'fangcun-multisize-0.9.0'
 $Repository = '17734375651/17734375651.github.io'
 
@@ -45,8 +46,8 @@ Invoke-Git merge-base '--is-ancestor' $BaselineCommit $TargetCommit | Out-Null
 
 $parentLine = Get-GitFirstLine rev-list '--parents' '-n' '1' $TargetCommit
 $commitAndParents = @($parentLine -split '\s+' | Where-Object { $_ })
-if ($commitAndParents.Count -ne 2 -or $commitAndParents[1] -ne $BaselineCommit) {
-    throw "Rollback target must be the single direct child of baseline $BaselineCommit."
+if ($TargetCommit -eq $InitialReleaseCommit -or $commitAndParents.Count -ne 2 -or $commitAndParents[1] -ne $InitialReleaseCommit) {
+    throw "Rollback target must be the single corrective child of $InitialReleaseCommit."
 }
 
 $originUrl = Get-GitFirstLine remote get-url origin
@@ -56,8 +57,8 @@ if ($originUrl -notmatch 'github\.com[:/]17734375651/17734375651\.github\.io(?:\
 Invoke-Git cat-file '-e' "${TargetCommit}:docs/index.html" | Out-Null
 Invoke-Git cat-file '-e' "${TargetCommit}:docs/.nojekyll" | Out-Null
 
-$changed = Invoke-Git diff '--name-only' $BaselineCommit $TargetCommit
-$required = @(
+$baselineChanged = @(Invoke-Git diff '--name-only' $BaselineCommit $TargetCommit)
+$baselineRequired = @(
     'site/src/data/products.js',
     'site/src/data/site.js',
     'site/src/data/public-content.js',
@@ -65,17 +66,63 @@ $required = @(
     'docs/products/multisize-bleed/index.html',
     'downloads/fangcun-multisize/0.9.0/public-manifest.json'
 )
-foreach ($path in $required) {
-    if ($changed -notcontains $path) {
+foreach ($path in $baselineRequired) {
+    if ($baselineChanged -notcontains $path) {
         throw "Rollback target does not contain expected path: $path"
     }
+}
+
+$correctionChanged = @(Invoke-Git diff '--name-only' $InitialReleaseCommit $TargetCommit)
+$correctionRequired = @(
+    'downloads/fangcun-multisize/0.9.0/public-manifest.json',
+    'downloads/fangcun-multisize/0.9.0/release-record.json',
+    'downloads/fangcun-multisize/0.9.0/SHA256SUMS.txt',
+    'site/src/data/products.js',
+    'site/src/data/public-content.js',
+    'site/tests/client-release-contract.test.mjs'
+)
+$correctionAllowed = @(
+    'docs/404.html',
+    'docs/assets/main-CC2Qy1_h.js',
+    'docs/assets/main-Dg2edJKj.js',
+    'docs/custom/requirements/index.html',
+    'docs/downloads/index.html',
+    'docs/guides/index.html',
+    'docs/index.html',
+    'docs/legal/privacy/index.html',
+    'docs/legal/service/index.html',
+    'docs/products/bleed/index.html',
+    'docs/products/index.html',
+    'docs/products/label/index.html',
+    'docs/products/multisize-bleed/index.html',
+    'docs/products/pdf/index.html',
+    'docs/solutions/index.html',
+    'docs/updates/index.html',
+    'downloads/fangcun-multisize/0.9.0/SHA256SUMS.txt',
+    'downloads/fangcun-multisize/0.9.0/public-manifest.json',
+    'downloads/fangcun-multisize/0.9.0/release-record.json',
+    'scripts/rollback-multisize-bleed-site.ps1',
+    'site/downloads/index.html',
+    'site/src/data/products.js',
+    'site/src/data/public-content.js',
+    'site/tests/client-release-contract.test.mjs'
+)
+foreach ($path in $correctionRequired) {
+    if ($correctionChanged -notcontains $path) {
+        throw "Corrective commit does not contain expected path: $path"
+    }
+}
+$unexpectedCorrectionPaths = @($correctionChanged | Where-Object { $_ -notin $correctionAllowed })
+if ($unexpectedCorrectionPaths.Count -ne 0) {
+    throw "Corrective commit contains unexpected paths: $($unexpectedCorrectionPaths -join ', ')"
 }
 
 Write-Output "ROLLBACK_MODE=$Mode"
 Write-Output "BASELINE_COMMIT=$BaselineCommit"
 Write-Output "TARGET_COMMIT=$TargetCommit"
 Write-Output 'TARGET_PAGES_SOURCE=main:/docs'
-Write-Output "EXPECTED_PATHS=$($required.Count)"
+Write-Output "BASELINE_EXPECTED_PATHS=$($baselineRequired.Count)"
+Write-Output "CORRECTION_PATHS=$($correctionChanged.Count)"
 
 if ($Mode -eq 'Check') {
     Write-Output 'ROLLBACK_CHECK=PASS'
@@ -92,24 +139,23 @@ if ($head -ne $TargetCommit) {
 }
 
 try {
-    Invoke-Git revert '--no-commit' $TargetCommit | Out-Null
+    Invoke-Git restore '--source' $BaselineCommit '--staged' '--worktree' '--' '.' | Out-Null
     $stagedTree = Get-GitFirstLine write-tree
     $baselineTree = Get-GitFirstLine rev-parse "$BaselineCommit^{tree}"
     if ($stagedTree -ne $baselineTree) {
         throw "Prepared rollback tree mismatch: expected $baselineTree, actual $stagedTree"
     }
-    Invoke-Git commit '-m' 'Revert "Add multi-size bleed-cut product"' | Out-Null
+    Invoke-Git commit '-m' 'Revert multi-size bleed-cut site release' | Out-Null
+    $revertedHead = Get-GitFirstLine rev-parse 'HEAD'
+    $revertedTree = Get-GitFirstLine rev-parse 'HEAD^{tree}'
+    $baselineTree = Get-GitFirstLine rev-parse "$BaselineCommit^{tree}"
+    if ($revertedTree -ne $baselineTree) {
+        throw "Reverted tree mismatch: expected $baselineTree, actual $revertedTree"
+    }
 }
 catch {
-    & git -C $RepositoryRoot revert '--abort' 2>$null
     & git -C $RepositoryRoot reset '--hard' $TargetCommit | Out-Null
     throw
-}
-$revertedHead = Get-GitFirstLine rev-parse 'HEAD'
-$revertedTree = Get-GitFirstLine rev-parse 'HEAD^{tree}'
-$baselineTree = Get-GitFirstLine rev-parse "$BaselineCommit^{tree}"
-if ($revertedTree -ne $baselineTree) {
-    throw "Reverted tree mismatch: expected $baselineTree, actual $revertedTree"
 }
 
 if ($Push) {
@@ -122,8 +168,8 @@ if ($Push) {
 }
 if ($RemoveRelease) {
     $tagCommit = (& gh api "repos/$Repository/commits/$ReleaseTag" --jq '.sha' 2>&1 | Select-Object -First 1).ToString().Trim()
-    if ($LASTEXITCODE -ne 0 -or $tagCommit -ne $TargetCommit) {
-        throw "Release tag $ReleaseTag does not resolve to target commit $TargetCommit."
+    if ($LASTEXITCODE -ne 0 -or $tagCommit -ne $InitialReleaseCommit) {
+        throw "Release tag $ReleaseTag does not resolve to initial release commit $InitialReleaseCommit."
     }
     & gh release delete $ReleaseTag --repo $Repository --yes --cleanup-tag
     if ($LASTEXITCODE -ne 0) {

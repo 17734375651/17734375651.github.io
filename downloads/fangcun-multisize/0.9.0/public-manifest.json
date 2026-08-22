@@ -4,7 +4,7 @@
   "productName": "方寸有序多尺寸胀色裁切",
   "releaseTag": "fangcun-multisize-0.9.0",
   "releaseDate": "2026-08-22",
-  "generatedUtc": "2026-08-22T00:50:23.8082616Z",
+  "generatedUtc": "2026-08-22T01:29:33.296735Z",
   "packages": [
     {
       "filename": "fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
@@ -12,13 +12,13 @@
       "platform": "Windows x64",
       "runtime": ".NET 9 self-contained",
       "primary": true,
-      "bytes": 72677417,
-      "sha256": "AFA7C919950B4FA81244C2D24C7C14AE70C44EB02D9E62523FB2122CA0224512",
+      "bytes": 70716210,
+      "sha256": "EBDE59FC1FC1E8E13CB60EF3C86A1A504045E2E2EB1D28FD3B755BF27A1E8E23",
       "contents": [
         {
           "relativePath": ".fangcun-multisize-release.json",
-          "bytes": 1041,
-          "sha256": "D10DF39B9DF2C398787AC7C7329C5D70E04C4C7EC9403E28EC8349C20BD714E6"
+          "bytes": 1007,
+          "sha256": "A7EBA30DF3D71CB2351A5AAB317EB2DFF5284B1D0C9E993E13CCFEAEE0002E94"
         },
         {
           "relativePath": "方寸有序多尺寸胀色裁切.deps.json",
@@ -28,7 +28,7 @@
         {
           "relativePath": "方寸有序多尺寸胀色裁切.dll",
           "bytes": 378880,
-          "sha256": "6ED253DF4D101582CF33409ED23D4F79C2CF23CDC09FE30A6A68B68F2B09A9FE"
+          "sha256": "6D1FC635251734F5EFBE991CAD9566A23BD4D6BA572E2D10C806987921553E33"
         },
         {
           "relativePath": "方寸有序多尺寸胀色裁切.exe",
@@ -163,7 +163,7 @@
         {
           "relativePath": "FangCun.MultiSizeBleedCut.Core.dll",
           "bytes": 11100160,
-          "sha256": "BBEC6DE032B2D7A37464B4E5C43ECBE1D937040F77350AF4A6EE910E98DE60D8"
+          "sha256": "E66B42627FDE7484C3247FFFF3B2A63CE636D178180E548C7E83C6361991EF21"
         },
         {
           "relativePath": "fr\\Microsoft.VisualBasic.Forms.resources.dll",
@@ -467,8 +467,8 @@
         },
         {
           "relativePath": "README.md",
-          "bytes": 12044,
-          "sha256": "BD2FE2F2C6D69AD11B814E7A8542EFF9FE89D22D789737B1FEE5144ACD11ABDD"
+          "bytes": 12043,
+          "sha256": "5B94CF1C28EA6766A656184FFBBF9FADDB43A701BB077472D10AD9AA9A61802A"
         },
         {
           "relativePath": "rollback-v0.9.0.ps1",
@@ -1592,6 +1592,10 @@
     "containsActivationGenerator": false,
     "containsPrivateKey": false,
     "containsCustomerLicense": false,
-    "activationManagementFilesExcluded": true
+    "activationManagementFilesExcluded": true,
+    "containsLocalAbsolutePath": false,
+    "debugPathMap": "/_/fangcun-multisize-bleed-cut",
+    "privatePathScan": "PASS",
+    "sourcePackageProvenance": "SANITIZED_PUBLIC_REBUILD_FROM_VERIFIED_SOURCE"
   }
 }

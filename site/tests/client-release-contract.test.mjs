@@ -90,6 +90,10 @@ test('multisize bleed release record matches the independent 0.9.0 Windows x64 c
   assert.equal(manifest.publicPackageBoundary.containsActivationGenerator, false)
   assert.equal(manifest.publicPackageBoundary.containsPrivateKey, false)
   assert.equal(manifest.publicPackageBoundary.containsCustomerLicense, false)
+  assert.equal(manifest.publicPackageBoundary.containsLocalAbsolutePath, false)
+  assert.equal(manifest.publicPackageBoundary.privatePathScan, 'PASS')
+  assert.equal(manifest.publicPackageBoundary.debugPathMap, '/_/fangcun-multisize-bleed-cut')
+  assert.equal(manifest.publicPackageBoundary.sourcePackageProvenance, 'SANITIZED_PUBLIC_REBUILD_FROM_VERIFIED_SOURCE')
 
   assert.equal(record.releaseTag, releaseTag)
   assert.equal(record.versionLabel, '0.9.0')
@@ -97,6 +101,11 @@ test('multisize bleed release record matches the independent 0.9.0 Windows x64 c
   assert.equal(record.verification.peArchitecture, 'x64')
   assert.equal(record.verification.startupToActivationWindow, 'PASS')
   assert.equal(record.verification.digitalSignature, 'NotSigned')
+  assert.equal(record.verification.sourcePackageProvenance, 'SANITIZED_PUBLIC_REBUILD_FROM_VERIFIED_SOURCE')
+  assert.equal(record.verification.localAbsolutePathScan, 'PASS')
+  assert.equal(record.verification.debugPathMap, '/_/fangcun-multisize-bleed-cut')
+  assert.equal(record.verification.internalManifest, 'PASS')
+  assert.equal(record.verification.sanitizedRuntimeSmokes, 'PASS')
   assert.equal(record.packages.length, 1)
 
   const packageRecord = record.packages[0]

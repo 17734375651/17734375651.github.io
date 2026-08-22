@@ -181,7 +181,7 @@ export const CONTENT_CATEGORIES = [
       {
         slug: 'downloads/multisize-bleed-0-9-0-win-x64',
         title: '方寸有序多尺寸胀色裁切 0.9.0｜Windows x64 客户端',
-        summary: '0.9.0 Windows x64 公开包，文件约 69.3 MiB；下载后可按产品页记录核对 SHA-256。',
+        summary: '0.9.0 Windows x64 公开包，文件约 67.4 MiB；下载后可按产品页记录核对 SHA-256。',
         status: 'publishable',
         relatedProduct: 'multisize-bleed',
         contentMode: 'direct-download',

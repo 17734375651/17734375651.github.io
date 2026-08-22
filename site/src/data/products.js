@@ -295,10 +295,10 @@ export const PRODUCTS = [
       "version": "0.9.0",
       "date": "2026-08-22",
       "verification": "verified",
-      "bytes": 72677417,
-      "displaySize": "69.3 MiB",
-      "sha256": "afa7c919950b4fa81244c2d24c7c14ae70c44eb02d9e62523fb2122ca0224512",
-      "sha256UppercaseInChecksum": "AFA7C919950B4FA81244C2D24C7C14AE70C44EB02D9E62523FB2122CA0224512",
+      "bytes": 70716210,
+      "displaySize": "67.4 MiB",
+      "sha256": "ebde59fc1fc1e8e13cb60ef3c86a1a504045e2e2eb1d28fd3b755bf27a1e8e23",
+      "sha256UppercaseInChecksum": "EBDE59FC1FC1E8E13CB60EF3C86A1A504045E2E2EB1D28FD3B755BF27A1E8E23",
       "sha256CaseInsensitiveMatch": true,
       "releaseRecordPackage": "fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
       "digitalSignature": "NotSigned",
@@ -311,8 +311,8 @@ export const PRODUCTS = [
           "filename": "public-manifest.json",
           "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/public-manifest.json",
           "format": "JSON",
-          "bytes": 63799,
-          "displaySize": "62.3 KiB",
+          "bytes": 62406,
+          "displaySize": "60.9 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
@@ -320,8 +320,8 @@ export const PRODUCTS = [
           "filename": "release-record.json",
           "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/release-record.json",
           "format": "JSON",
-          "bytes": 1031,
-          "displaySize": "1.0 KiB",
+          "bytes": 1192,
+          "displaySize": "1.2 KiB",
           "buttonLabel": "下载发布记录"
         },
         {
@@ -366,7 +366,7 @@ export const PRODUCTS = [
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "查看工作流",
       "downloadPanel": "已核验下载 / 多尺寸胀色裁切 0.9.0 / SHA-256",
-      "downloadButton": "下载 Windows x64 客户端 · 69.3 MiB",
+      "downloadButton": "下载 Windows x64 客户端 · 67.4 MiB",
       "recommended": {
         "primary": "下载客户端",
         "secondary": "查看工作流",
