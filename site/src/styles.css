@@ -56,6 +56,8 @@ img, video { display: block; max-width: 100%; }
 .header-inner { width: calc(100% - 56px); max-width: 1500px; min-height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .brand { display: inline-flex; align-items: center; gap: 13px; min-height: 44px; flex: none; }
 .brand-mark { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; color: var(--gold); border: 1px solid currentColor; font-family: "STKaiti", "KaiTi", serif; font-size: 23px; font-weight: 800; }
+.brand-mark-software { overflow: hidden; border-radius: var(--software-icon-radius); }
+.brand-mark-software img { width: 100%; height: 100%; border-radius: inherit; object-fit: contain; }
 .brand-copy { display: grid; gap: 3px; }
 .brand-copy strong { font-size: 19px; font-weight: 800; letter-spacing: .12em; line-height: 1; }
 .brand-copy small { color: #7c8485; font-size: 10px; letter-spacing: .14em; line-height: 1; }

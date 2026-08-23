@@ -121,7 +121,7 @@ function Header({ dark = false }) {
     <header className={`site-header ${dark ? 'site-header-dark' : ''}`}>
       <div className="container header-inner">
         <a className="brand" href="/" aria-label="方寸有序首页" onClick={() => closeMenu()}>
-          <span className="brand-mark">方</span>
+          <span className="brand-mark brand-mark-software" aria-hidden="true"><img src={SITE.softwareIcon.image} alt="" width="54" height="54" /></span>
           <span className="brand-copy"><strong>方寸有序</strong><small>效率软件 · 有序经营</small></span>
         </a>
         <nav className="desktop-nav" aria-label="主导航">

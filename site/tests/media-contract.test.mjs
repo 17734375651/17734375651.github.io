@@ -31,6 +31,33 @@ test('every product card uses the preserved shortcut software icon', async () =>
   assert.match(generator, /SITE\.softwareIcon\.image/)
 })
 
+test('the site header uses the shortcut software icon without changing the footer mark', async () => {
+  const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
+  const styles = await readFile(path.join(root, 'src', 'styles.css'), 'utf8')
+  const headerSource = app.slice(app.indexOf('function Header'), app.indexOf('function Footer'))
+
+  assert.match(
+    headerSource,
+    /<span className="brand-mark brand-mark-software" aria-hidden="true"><img src=\{SITE\.softwareIcon\.image\} alt="" width="54" height="54" \/><\/span>/,
+  )
+  assert.doesNotMatch(
+    headerSource,
+    /<span className="brand-mark">方<\/span>/,
+  )
+  assert.match(
+    app,
+    /className="footer-brand"[^]*?<span className="brand-mark">方<\/span>/,
+  )
+  assert.match(
+    styles,
+    /\.brand-mark-software\s*\{[^}]*overflow:\s*hidden;[^}]*border-radius:\s*var\(--software-icon-radius\);/s,
+  )
+  assert.match(
+    styles,
+    /\.brand-mark-software img\s*\{[^}]*width:\s*100%;[^}]*height:\s*100%;[^}]*border-radius:\s*inherit;[^}]*object-fit:\s*contain;/s,
+  )
+})
+
 test('every rendered software icon uses the approved Xiaomi-style rounded-square frame', async () => {
   const styles = await readFile(path.join(root, 'src', 'styles.css'), 'utf8')
   const generator = await readFile(path.join(root, 'scripts', 'generate-route-pages.mjs'), 'utf8')
