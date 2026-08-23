@@ -31,6 +31,24 @@ test('every product card uses the preserved shortcut software icon', async () =>
   assert.match(generator, /SITE\.softwareIcon\.image/)
 })
 
+test('every rendered software icon uses the approved Xiaomi-style rounded-square frame', async () => {
+  const styles = await readFile(path.join(root, 'src', 'styles.css'), 'utf8')
+  const generator = await readFile(path.join(root, 'scripts', 'generate-route-pages.mjs'), 'utf8')
+
+  assert.match(styles, /--software-icon-radius:\s*26%/)
+  assert.match(
+    styles,
+    /\.product-card-icon\s*\{[^}]*overflow:\s*hidden;[^}]*border:\s*1px solid #d3ba7e;[^}]*border-radius:\s*var\(--software-icon-radius\);/s,
+  )
+  assert.match(
+    styles,
+    /\.product-card-icon-image\s*\{[^}]*border:\s*1px solid #d3ba7e;[^}]*border-radius:\s*var\(--software-icon-radius\);[^}]*object-fit:\s*contain;/s,
+  )
+  assert.match(styles, /\.product-card-icon img\s*\{[^}]*border-radius:\s*inherit;/s)
+  assert.doesNotMatch(styles, /\.product-card-icon[^}]*border-radius:\s*50%/s)
+  assert.match(generator, /class="product-card-icon-image"/)
+})
+
 test('every declared local product media path exists in the public tree', async () => {
   for (const product of PRODUCTS) {
     for (const [kind, value] of Object.entries(product.media)) {

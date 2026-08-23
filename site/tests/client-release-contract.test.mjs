@@ -118,7 +118,9 @@ test('multisize bleed release record matches the independent 0.9.0 Windows x64 c
   assert.match(sums, new RegExp(`${packageRecord.sha256}\\s+${packageRecord.filename}`))
 
   for (const supportFile of product.download.supportFiles) {
-    assert.equal((await stat(path.join(recordRoot, supportFile.filename))).size, supportFile.bytes)
+    const localText = await readFile(path.join(recordRoot, supportFile.filename), 'utf8')
+    const releaseBytes = Buffer.byteLength(localText.replace(/\r\n/g, '\n'), 'utf8')
+    assert.equal(releaseBytes, supportFile.bytes)
     assert.equal(supportFile.path, `https://github.com/17734375651/17734375651.github.io/releases/download/${releaseTag}/${supportFile.filename}`)
   }
 })

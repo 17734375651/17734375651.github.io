@@ -24,6 +24,7 @@ When implementing from a selected generated mock, treat that image as the source
 
 - User confirmed on 2026-08-21 that every public software product card must use the icon from the `方寸有序胀色裁切.lnk` shortcut. Preserve the shortcut-referenced ICO byte-for-byte at `public/assets/brand/fangcun-software-icon.ico`, and use its embedded 256 × 256 PNG layer for web rendering.
 - This shared software icon replaces only product-card software marks. Keep the site brand mark, favicon, seal, workflow icons, file-type icons, and functional controls unchanged.
+- User confirmed on 2026-08-24 that every rendered software product icon uses a Xiaomi-inspired rounded-square presentation. Apply a `26%` display-layer corner radius to both runtime and static product-card icons while preserving the PNG and ICO bytes; do not turn the icon into a circle or round unrelated brand and functional marks.
 
 ## Product media decision
 
