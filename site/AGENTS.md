@@ -23,9 +23,9 @@ When implementing from a selected generated mock, treat that image as the source
 ## Product icon decision
 
 - User confirmed on 2026-08-21 that every public software product card must use the icon from the `方寸有序胀色裁切.lnk` shortcut. Preserve the shortcut-referenced ICO byte-for-byte at `public/assets/brand/fangcun-software-icon.ico`, and use its embedded 256 × 256 PNG layer for web rendering.
-- This shared software icon replaces product-card software marks and, from 2026-08-24, the site header brand mark. Keep the footer brand mark, favicon, seal, workflow icons, file-type icons, and functional controls unchanged.
+- This shared software icon replaces product-card software marks and, from 2026-08-24, both the site header and footer brand marks. Keep the favicon, seal, workflow icons, file-type icons, and functional controls unchanged.
 - User confirmed on 2026-08-24 that every rendered software product icon uses a Xiaomi-inspired rounded-square presentation. Apply a `26%` display-layer corner radius to both runtime and static product-card icons while preserving the PNG and ICO bytes; do not turn the icon into a circle or round unrelated brand and functional marks.
-- The header software icon retains the existing responsive brand-mark sizes (`54px` on the desktop home page, `42px` on ordinary desktop headers and the mobile home page, and `39px` on narrow non-home pages) and uses the same `26%` display-layer radius without changing the source asset bytes.
+- Header and footer software icons retain the existing responsive brand-mark sizes (`54px` within the desktop home page, `42px` on ordinary desktop pages and the mobile home page, and `39px` on narrow non-home pages) and use the same `26%` display-layer radius without changing the source asset bytes.
 
 ## Product media decision
 

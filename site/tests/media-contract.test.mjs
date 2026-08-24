@@ -31,10 +31,11 @@ test('every product card uses the preserved shortcut software icon', async () =>
   assert.match(generator, /SITE\.softwareIcon\.image/)
 })
 
-test('the site header uses the shortcut software icon without changing the footer mark', async () => {
+test('the site header and footer use the shortcut software icon', async () => {
   const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
   const styles = await readFile(path.join(root, 'src', 'styles.css'), 'utf8')
   const headerSource = app.slice(app.indexOf('function Header'), app.indexOf('function Footer'))
+  const footerSource = app.slice(app.indexOf('function Footer'), app.indexOf('function Hero'))
 
   assert.match(
     headerSource,
@@ -45,8 +46,12 @@ test('the site header uses the shortcut software icon without changing the foote
     /<span className="brand-mark">方<\/span>/,
   )
   assert.match(
-    app,
-    /className="footer-brand"[^]*?<span className="brand-mark">方<\/span>/,
+    footerSource,
+    /className="footer-brand"[^]*?<span className="brand-mark brand-mark-software" aria-hidden="true"><img src=\{SITE\.softwareIcon\.image\} alt="" width="42" height="42" \/><\/span>/,
+  )
+  assert.doesNotMatch(
+    footerSource,
+    /<span className="brand-mark">方<\/span>/,
   )
   assert.match(
     styles,

@@ -149,7 +149,7 @@ function Footer() {
   return (
     <footer className="site-footer" id="contact">
       <div className="container footer-grid">
-        <div className="footer-brand"><a className="brand" href="/" aria-label="返回方寸有序首页"><span className="brand-mark">方</span><span className="brand-copy"><strong>方寸有序</strong><small>FANGCUN YOUXU STUDIO</small></span></a><p>把重复核算、反复整理与逐页核对，转成可执行、可复核的软件流程。</p><a className="contact-link" href="tel:17734375651"><Phone size={18} aria-hidden="true" />电话 17734375651（微信同号）</a></div>
+        <div className="footer-brand"><a className="brand" href="/" aria-label="返回方寸有序首页"><span className="brand-mark brand-mark-software" aria-hidden="true"><img src={SITE.softwareIcon.image} alt="" width="42" height="42" /></span><span className="brand-copy"><strong>方寸有序</strong><small>FANGCUN YOUXU STUDIO</small></span></a><p>把重复核算、反复整理与逐页核对，转成可执行、可复核的软件流程。</p><a className="contact-link" href="tel:17734375651"><Phone size={18} aria-hidden="true" />电话 17734375651（微信同号）</a></div>
         <div className="footer-column"><h2>产品中心</h2>{PRODUCTS.map((product) => <a key={product.id} href={pathForProduct(product.id)}>{product.name}</a>)}</div>
         <div className="footer-column"><h2>内容中心</h2><a href="/updates/">产品更新</a><a href="/guides/">能力说明</a><a href="/downloads/">下载资料</a><a href="/solutions/">行业方案</a></div>
         <div className="footer-column"><h2>服务与边界</h2><a href="/custom/requirements/">个性化定制</a><a href="/legal/privacy/">数据处理与隐私</a><a href="/legal/service/">软件服务与授权</a><a href="/#contact">联系我们</a></div>
