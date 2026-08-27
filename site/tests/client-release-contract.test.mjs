@@ -14,6 +14,46 @@ const releases = [
   { productId: 'pdf', directory: 'fangcun-pdf', tag: 'fangcun-pdf-20260821' },
 ]
 
+const newReleaseContracts = [
+  {
+    productId: 'packing',
+    directory: 'fangcun-packing',
+    version: '3.0.0',
+    releaseTag: 'fangcun-packing-3.0.0',
+    packages: [
+      {
+        filename: 'fangcun-packing-calculator-3.0.0-win-x64-public.zip',
+        platform: 'Windows 10/11 x64',
+        bytes: 65479402,
+        sha256: '9a9bd04f8bff9ebc7df40b44d359e073611848f2dceb15a4f4da31f7bbf0b3f1',
+        primary: true,
+      },
+    ],
+  },
+  {
+    productId: 'accounting',
+    directory: 'fangcun-accounting',
+    version: '0.5.0',
+    releaseTag: 'fangcun-accounting-0.5.0',
+    packages: [
+      {
+        filename: 'fangcun-accounting-0.5.0-win10-11-x64-public.zip',
+        platform: 'Windows 10/11 x64',
+        bytes: 9687285,
+        sha256: '7c90c3b0caec427dc7bcd0453c07e88298ead0d6df69086adb856a78dce7aa5e',
+        primary: true,
+      },
+      {
+        filename: 'fangcun-accounting-0.5.0-win7-x64-public.zip',
+        platform: 'Windows 7 x64',
+        bytes: 9687281,
+        sha256: 'b4338f9cc9beeaa08aa4364c2810d8e4e88ea91f3f185f9d6fc4db94e363e9d6',
+        primary: false,
+      },
+    ],
+  },
+]
+
 test('label and PDF release records match both public Windows client variants', async () => {
   for (const release of releases) {
     const product = PRODUCTS_BY_ID[release.productId]
@@ -122,5 +162,75 @@ test('multisize bleed release record matches the independent 0.9.0 Windows x64 c
     const releaseBytes = Buffer.byteLength(localText.replace(/\r\n/g, '\n'), 'utf8')
     assert.equal(releaseBytes, supportFile.bytes)
     assert.equal(supportFile.path, `https://github.com/17734375651/17734375651.github.io/releases/download/${releaseTag}/${supportFile.filename}`)
+  }
+})
+
+test('packing and accounting release records match the approved local release contracts', async () => {
+  for (const release of newReleaseContracts) {
+    const recordRoot = path.join(repoRoot, 'downloads', release.directory, release.version)
+    const [manifest, record, sums] = await Promise.all([
+      readFile(path.join(recordRoot, 'public-manifest.json'), 'utf8').then(JSON.parse),
+      readFile(path.join(recordRoot, 'release-record.json'), 'utf8').then(JSON.parse),
+      readFile(path.join(recordRoot, 'SHA256SUMS.txt'), 'utf8'),
+    ])
+    const product = PRODUCTS_BY_ID[release.productId]
+
+    assert.ok(product, `missing product ${release.productId}`)
+    assert.equal(manifest.schema, 2)
+    assert.equal(manifest.productId, release.productId)
+    assert.equal(manifest.releaseTag, release.releaseTag)
+    assert.equal(manifest.packages.length, release.packages.length)
+    assert.equal(manifest.publicPackageBoundary.containsActivationGenerator, false)
+
+    assert.equal(record.schema, 2)
+    assert.equal(record.productId, release.productId)
+    assert.equal(record.releaseTag, release.releaseTag)
+    assert.equal(record.versionLabel, release.version)
+    assert.equal(record.packages.length, release.packages.length)
+    assert.equal(record.verification.zipIntegrity, 'PASS')
+    assert.equal(record.verification.peArchitecture, 'x64')
+    assert.equal(record.verification.startupToActivationWindow, 'PASS')
+    assert.equal(record.verification.digitalSignature, 'NotSigned')
+
+    const websitePackages = [
+      {
+        filename: product.download.filename,
+        platform: product.download.platform,
+        bytes: product.download.bytes,
+        sha256: product.download.sha256,
+        primary: true,
+      },
+      ...(product.download.variants ?? []).map((variant) => ({
+        filename: variant.filename,
+        platform: variant.platform,
+        bytes: variant.bytes,
+        sha256: variant.sha256,
+        primary: false,
+      })),
+    ]
+    assert.deepEqual(websitePackages, release.packages)
+
+    for (const expectedPackage of release.packages) {
+      const manifestPackage = manifest.packages.find((item) => item.filename === expectedPackage.filename)
+      const recordPackage = record.packages.find((item) => item.filename === expectedPackage.filename)
+      assert.ok(manifestPackage, `missing manifest package ${expectedPackage.filename}`)
+      assert.ok(recordPackage, `missing release package ${expectedPackage.filename}`)
+      for (const packageRecord of [manifestPackage, recordPackage]) {
+        assert.equal(packageRecord.platform, expectedPackage.platform)
+        assert.equal(packageRecord.bytes, expectedPackage.bytes)
+        assert.equal(packageRecord.sha256.toLowerCase(), expectedPackage.sha256)
+        assert.equal(packageRecord.primary, expectedPackage.primary)
+      }
+      assert.match(sums, new RegExp(`${expectedPackage.sha256}\\s+${expectedPackage.filename}`, 'i'))
+    }
+
+    for (const supportFile of product.download.supportFiles) {
+      const localPath = path.join(recordRoot, supportFile.filename)
+      assert.equal((await stat(localPath)).size, supportFile.bytes)
+      assert.equal(
+        supportFile.path,
+        `https://github.com/17734375651/17734375651.github.io/releases/download/${release.releaseTag}/${supportFile.filename}`,
+      )
+    }
   }
 })

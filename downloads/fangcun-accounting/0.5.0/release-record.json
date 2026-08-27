@@ -1,0 +1,41 @@
+{
+  "schema": 2,
+  "productId": "accounting",
+  "productName": "方寸有序记账软件",
+  "releaseTag": "fangcun-accounting-0.5.0",
+  "releaseName": "方寸有序记账软件 0.5.0 Windows 客户端",
+  "releaseDate": "2026-08-27",
+  "versionLabel": "0.5.0",
+  "versionSource": "客户端发布包文件名与已核验版本记录",
+  "packages": [
+    {
+      "filename": "fangcun-accounting-0.5.0-win10-11-x64-public.zip",
+      "sourceFilename": "方寸有序记账软件-v0.5.0-Windows10-11-x64.zip",
+      "platform": "Windows 10/11 x64",
+      "runtime": "Python 3.12 bundled runtime",
+      "primary": true,
+      "bytes": 9687285,
+      "sha256": "7C90C3B0CAEC427DC7BCD0453C07E88298EAD0D6DF69086ADB856A78DCE7AA5E"
+    },
+    {
+      "filename": "fangcun-accounting-0.5.0-win7-x64-public.zip",
+      "sourceFilename": "方寸有序记账软件-v0.5.0-Windows7-x64.zip",
+      "platform": "Windows 7 x64",
+      "runtime": "Python 3.8 bundled runtime",
+      "primary": false,
+      "bytes": 9687281,
+      "sha256": "B4338F9CC9BEEAA08AA4364C2810D8E4E88EA91F3F185F9D6FC4DB94E363E9D6"
+    }
+  ],
+  "verification": {
+    "zipIntegrity": "PASS",
+    "peArchitecture": "x64",
+    "startupToActivationWindow": "PASS",
+    "digitalSignature": "NotSigned",
+    "sourcePackageCopy": "BYTE_AND_SHA256_MATCH",
+    "customerSpecificDataScan": "PASS",
+    "privateKeyExcluded": "PASS",
+    "activationGeneratorExcluded": "PASS",
+    "localAbsolutePathScan": "PASS"
+  }
+}

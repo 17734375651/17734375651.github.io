@@ -19,7 +19,14 @@ test('validation products lead to the factual release-progress section', () => {
 })
 
 test('all retained products expose a verified client action', () => {
-  assert.deepEqual(PRODUCTS.map((product) => product.id), ['label', 'bleed', 'multisize-bleed', 'pdf'])
+  assert.deepEqual(PRODUCTS.map((product) => product.id), [
+    'label',
+    'bleed',
+    'multisize-bleed',
+    'pdf',
+    'packing',
+    'accounting',
+  ])
   for (const product of PRODUCTS) {
     assert.equal(product.status.effectiveStatus, 'available')
     assert.equal(product.status.downloadable, true)

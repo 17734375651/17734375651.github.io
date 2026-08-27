@@ -161,6 +161,8 @@ test('every retained product exposes direct public files without substituting a 
     bleed: 4,
     'multisize-bleed': 4,
     pdf: 5,
+    packing: 4,
+    accounting: 5,
   })
   for (const product of PRODUCTS) {
     const files = filesByProduct[product.id]
@@ -184,6 +186,8 @@ test('every retained product exposes direct public files without substituting a 
   assert.equal(filesByProduct.pdf.filter((file) => file.kind === 'client-variant').length, 1)
   assert.equal(filesByProduct.bleed.filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct['multisize-bleed'].filter((file) => file.kind === 'client-variant').length, 0)
+  assert.equal(filesByProduct.packing.filter((file) => file.kind === 'client-variant').length, 0)
+  assert.equal(filesByProduct.accounting.filter((file) => file.kind === 'client-variant').length, 1)
   for (const product of PRODUCTS.filter((item) => item.download.variants?.length)) {
     for (const variant of product.download.variants) {
       assert.match(variant.sha256, /^[a-f0-9]{64}$/)
@@ -195,6 +199,17 @@ test('every retained product exposes direct public files without substituting a 
     for (const file of files.filter((entry) => !entry.external)) {
       await access(path.join(root, 'public', file.path.replace(/^\//, '')))
     }
+  }
+})
+
+test('packing and accounting product media remain explicitly unpublished', () => {
+  for (const productId of ['packing', 'accounting']) {
+    const product = PRODUCTS.find((item) => item.id === productId)
+    assert.ok(product, `missing product ${productId}`)
+    assert.equal(product.media.declared, false)
+    assert.equal(product.media.mode, 'not-published')
+    assert.equal(product.media.video, null)
+    assert.equal(product.media.poster, null)
   }
 })
 

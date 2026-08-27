@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 import { LEGAL_PAGES } from '../src/data/legal.js'
 import { PRODUCTS } from '../src/data/products.js'
+import { SOLUTIONS } from '../src/data/public-solutions.js'
 import { SITE } from '../src/data/site.js'
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -49,11 +50,26 @@ test('customer-facing copy uses bounded workflow language', async () => {
   const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
   assert.doesNotMatch(app, /开箱即用|每一次交付都更清晰|RELEASE STATUS/)
   assert.match(app, /把输入、处理与输出梳理成可复核流程/)
-  assert.match(app, /一小时体验适用于四款正式软件/)
+  assert.match(app, /一小时体验适用于四款印前工具/)
+  assert.match(app, /打包计算器与记账软件按各自年度授权说明/)
 })
 
 test('generated static shell uses the same customer-facing contact wording', async () => {
   const generator = await readFile(path.join(root, 'scripts', 'generate-route-pages.mjs'), 'utf8')
   assert.doesNotMatch(generator, /微信 \/ 电话/)
   assert.match(generator, /电话 17734375651（微信同号）/)
+})
+
+test('SME solution links the packing and accounting products to the confirmed business workflow', () => {
+  const solution = SOLUTIONS.find((item) => item.id === 'small-and-medium-enterprise')
+  assert.ok(solution, 'the SME solution is required')
+  const relatedIds = solution.relatedProducts.map((product) => product.productId)
+  assert.equal(relatedIds.includes('packing'), true)
+  assert.equal(relatedIds.includes('accounting'), true)
+
+  const publicCopy = JSON.stringify(solution)
+  for (const term of ['销售', '进货', '财务', '商品', '箱型', '快递计费']) {
+    assert.match(publicCopy, new RegExp(term), `SME solution copy must mention ${term}`)
+  }
+  assert.doesNotMatch(publicCopy, /\bERP\b|\/products\/erp\//i)
 })

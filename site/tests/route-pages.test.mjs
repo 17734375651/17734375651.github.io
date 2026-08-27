@@ -26,6 +26,8 @@ test('route definitions cover the mature-site information architecture', () => {
     '/products/bleed/',
     '/products/multisize-bleed/',
     '/products/pdf/',
+    '/products/packing/',
+    '/products/accounting/',
     '/solutions/',
     '/custom/requirements/',
     '/updates/',
@@ -54,6 +56,8 @@ test('routeToOutputFile maps directory routes and the custom 404 file', () => {
   assert.equal(routeToOutputFile('/'), 'index.html')
   assert.equal(routeToOutputFile('/products/bleed/'), 'products/bleed/index.html')
   assert.equal(routeToOutputFile('/products/multisize-bleed/'), 'products/multisize-bleed/index.html')
+  assert.equal(routeToOutputFile('/products/packing/'), 'products/packing/index.html')
+  assert.equal(routeToOutputFile('/products/accounting/'), 'products/accounting/index.html')
   assert.equal(routeToOutputFile('/404.html'), '404.html')
 })
 
@@ -71,17 +75,33 @@ test('generated HTML contains static route content and real navigation links', (
   assert.doesNotMatch(html, /小工厂/)
 })
 
+test('new product routes render their approved names, prices, and canonical links', () => {
+  const expected = [
+    { id: 'packing', name: '方寸打包计算器', price: '¥499 / 年' },
+    { id: 'accounting', name: '方寸有序记账软件', price: '¥999 / 账号 / 年' },
+  ]
+  for (const product of expected) {
+    const route = collectRouteDefinitions().find((item) => item.path === `/products/${product.id}/`)
+    assert.ok(route, `missing route /products/${product.id}/`)
+    const html = buildRouteHtml(route)
+    assert.match(html, new RegExp(`<title>${product.name}`))
+    assert.match(html, new RegExp(`rel="canonical" href="https://17734375651\\.github\\.io/products/${product.id}/"`))
+    assert.match(html, new RegExp(`<h1>${product.name}</h1>`))
+    assert.match(html, new RegExp(product.price.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
+  }
+})
+
 test('product surfaces keep truthful product cards and crawlable mature-site links without JavaScript', () => {
   const home = collectRouteDefinitions().find((item) => item.path === '/')
   const html = buildRouteHtml(home)
-  assert.equal((html.match(/class="product-card"/g) ?? []).length, 4)
-  assert.equal((html.match(/class="product-card-detail-link"/g) ?? []).length, 4)
-  assert.equal((html.match(/class="product-card-icon-image"/g) ?? []).length, 4)
-  assert.equal((html.match(/src="\/assets\/brand\/fangcun-software-icon\.png"/g) ?? []).length, 4)
+  assert.equal((html.match(/class="product-card"/g) ?? []).length, 6)
+  assert.equal((html.match(/class="product-card-detail-link"/g) ?? []).length, 6)
+  assert.equal((html.match(/class="product-card-icon-image"/g) ?? []).length, 6)
+  assert.equal((html.match(/src="\/assets\/brand\/fangcun-software-icon\.png"/g) ?? []).length, 6)
   for (const product of PRODUCTS) {
     assert.match(html, new RegExp(`class="product-card-detail-link" href="${product.route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`))
   }
-  assert.equal((html.match(/正式销售 · 已验证下载/g) ?? []).length, 4)
+  assert.equal((html.match(/正式销售 · 已验证下载/g) ?? []).length, 6)
   assert.match(html, /方寸有序多尺寸胀色裁切/)
   assert.match(html, /¥1499 \/ 年/)
   assert.doesNotMatch(html, /正式销售 · 展示包可下载/)
@@ -102,6 +122,9 @@ test('downloads page exposes every real public file without JavaScript', () => {
     'fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip',
     'fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip',
     'fangcun-pdf-print-assistant-20260821-win7-x64-public.zip',
+    'fangcun-packing-calculator-3.0.0-win-x64-public.zip',
+    'fangcun-accounting-0.5.0-win10-11-x64-public.zip',
+    'fangcun-accounting-0.5.0-win7-x64-public.zip',
     'public-manifest.json',
     'release-record.json',
     'SHA256SUMS.txt',
@@ -110,7 +133,7 @@ test('downloads page exposes every real public file without JavaScript', () => {
   }
   const downloadItems = CONTENT_CATEGORIES.find((category) => category.id === 'downloads').items
   assert.equal((html.match(/class="download-card"/g) ?? []).length, downloadItems.length)
-  assert.equal(downloadItems.length, 18)
+  assert.equal(downloadItems.length, 27)
   assert.doesNotMatch(html, /redacted-demo-materials|脱敏展示包/)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
 })

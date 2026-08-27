@@ -499,6 +499,248 @@ export const PRODUCTS = [
         "nextStep": "下载对应系统版本，核对 SHA-256 后联系微信/电话 17734375651 获取产品授权"
       }
     }
+  },
+  {
+    "id": "packing",
+    "route": "/products/packing/",
+    "name": "方寸打包计算器",
+    "shortName": "打包计算",
+    "eyebrow": "PACKING CALCULATOR",
+    "statement": "把商品尺寸、数量、箱型与快递计费规则，整理成可复核的装箱与运费方案。",
+    "outcome": "比较装箱方案与快递成本",
+    "price": {
+      "amountCny": 499,
+      "display": "¥499 / 年",
+      "termDays": 365,
+      "sourceUnit": "元/年",
+      "public": true
+    },
+    "status": {
+      "sourceStatus": "正式销售",
+      "downloadable": true,
+      "effectiveStatus": "available",
+      "label": "正式销售 · 已验证下载",
+      "reason": "Windows 10/11 x64 公开包的版本、文件大小、架构与 SHA-256 已完成核对。"
+    },
+    "trial": {
+      "minutes": 0,
+      "display": "Windows 客户端 · 年度授权",
+      "state": "annual-license",
+      "source": "公开授权说明"
+    },
+    "download": {
+      "state": "available",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.0.0/fangcun-packing-calculator-3.0.0-win-x64-public.zip",
+      "filename": "fangcun-packing-calculator-3.0.0-win-x64-public.zip",
+      "platform": "Windows 10/11 x64",
+      "version": "3.0.0",
+      "date": "2026-08-27",
+      "verification": "verified",
+      "bytes": 65479402,
+      "displaySize": "62.4 MiB",
+      "sha256": "9a9bd04f8bff9ebc7df40b44d359e073611848f2dceb15a4f4da31f7bbf0b3f1",
+      "sha256UppercaseInChecksum": "9A9BD04F8BFF9EBC7DF40B44D359E073611848F2DCEB15A4F4DA31F7BBF0B3F1",
+      "sha256CaseInsensitiveMatch": true,
+      "releaseRecordPackage": "fangcun-packing-calculator-3.0.0-win-x64-public.zip",
+      "digitalSignature": "NotSigned",
+      "localArchivePresent": false,
+      "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
+      "variants": [],
+      "supportFiles": [
+        {
+          "title": "公开发布清单",
+          "filename": "public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.0.0/public-manifest.json",
+          "format": "JSON",
+          "bytes": 2303,
+          "displaySize": "2.2 KiB",
+          "buttonLabel": "下载公开发布清单"
+        },
+        {
+          "title": "发布记录",
+          "filename": "release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.0.0/release-record.json",
+          "format": "JSON",
+          "bytes": 1076,
+          "displaySize": "1.1 KiB",
+          "buttonLabel": "下载发布记录"
+        },
+        {
+          "title": "SHA-256 校验文件",
+          "filename": "SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.0.0/SHA256SUMS.txt",
+          "format": "TXT",
+          "bytes": 118,
+          "displaySize": "118 B",
+          "buttonLabel": "下载 SHA-256 校验文件"
+        }
+      ]
+    },
+    "media": {
+      "video": null,
+      "poster": null,
+      "declared": false,
+      "mode": "not-published",
+      "fallback": "当前页面先公开产品能力、价格与已验证下载；操作演示将在完成公开素材核验后补充。"
+    },
+    "workflow": {
+      "input": [
+        "商品信息 Excel / 手工资料",
+        "箱型与快递计费价卡",
+        "目的地与订单数量"
+      ],
+      "process": [
+        "比较启用的箱型与快递价卡",
+        "按重量、体积与尺寸评估方案",
+        "输出最低、次低、第三与均衡方案"
+      ],
+      "output": [
+        "装箱方案与快递成本明细",
+        "方案比较结果",
+        "Excel 模板与可复核导出"
+      ]
+    },
+    "capabilityBoundary": "客户端在本地完成打包与运费计算；数据不上传官网，授权按 Windows 机器离线规则执行。",
+    "cta": {
+      "homeCard": "查看产品详情",
+      "pricingCard": "查看详情",
+      "productHeroPrimary": "查看下载与价格",
+      "productHeroSecondary": "查看工作流",
+      "downloadPanel": "已核验下载 / 打包计算器 3.0.0 / SHA-256",
+      "downloadButton": "下载 Windows 10/11 x64 客户端 · 62.4 MiB",
+      "recommended": {
+        "primary": "下载客户端",
+        "secondary": "查看工作流",
+        "nextStep": "下载 3.0.0 Windows x64 客户端，核对 SHA-256 后按产品授权说明完成授权"
+      }
+    }
+  },
+  {
+    "id": "accounting",
+    "route": "/products/accounting/",
+    "name": "方寸有序记账软件",
+    "shortName": "记账软件",
+    "eyebrow": "ACCOUNTING WORKFLOW",
+    "statement": "把进货、销售、收付款与财务报表，整理成同一企业账套中可追溯的记账流程。",
+    "outcome": "串联进销、结算与财务报表",
+    "price": {
+      "amountCny": 999,
+      "display": "¥999 / 账号 / 年",
+      "termDays": 365,
+      "sourceUnit": "元/账号/年",
+      "public": true
+    },
+    "status": {
+      "sourceStatus": "正式销售",
+      "downloadable": true,
+      "effectiveStatus": "available",
+      "label": "正式销售 · 已验证下载",
+      "reason": "Windows 10/11 与 Windows 7 x64 公开包的版本、文件大小、架构与 SHA-256 已完成核对。"
+    },
+    "trial": {
+      "minutes": 0,
+      "display": "按账号年度授权 · 一个账号对应一个企业账套主体",
+      "state": "annual-account-license",
+      "source": "公开授权说明"
+    },
+    "download": {
+      "state": "available",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/fangcun-accounting-0.5.0-win10-11-x64-public.zip",
+      "filename": "fangcun-accounting-0.5.0-win10-11-x64-public.zip",
+      "platform": "Windows 10/11 x64",
+      "version": "0.5.0",
+      "date": "2026-08-27",
+      "verification": "verified",
+      "bytes": 9687285,
+      "displaySize": "9.2 MiB",
+      "sha256": "7c90c3b0caec427dc7bcd0453c07e88298ead0d6df69086adb856a78dce7aa5e",
+      "sha256UppercaseInChecksum": "7C90C3B0CAEC427DC7BCD0453C07E88298EAD0D6DF69086ADB856A78DCE7AA5E",
+      "sha256CaseInsensitiveMatch": true,
+      "releaseRecordPackage": "fangcun-accounting-0.5.0-win10-11-x64-public.zip",
+      "digitalSignature": "NotSigned",
+      "localArchivePresent": false,
+      "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
+      "variants": [
+        {
+          "title": "Windows 7 x64 客户端",
+          "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/fangcun-accounting-0.5.0-win7-x64-public.zip",
+          "filename": "fangcun-accounting-0.5.0-win7-x64-public.zip",
+          "platform": "Windows 7 x64",
+          "runtime": "Python 3.8 bundled runtime",
+          "bytes": 9687281,
+          "displaySize": "9.2 MiB",
+          "sha256": "b4338f9cc9beeaa08aa4364c2810d8e4e88ea91f3f185f9d6fc4db94e363e9d6",
+          "buttonLabel": "下载 Windows 7 x64 客户端"
+        }
+      ],
+      "supportFiles": [
+        {
+          "title": "公开发布清单",
+          "filename": "public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/public-manifest.json",
+          "format": "JSON",
+          "bytes": 398828,
+          "displaySize": "389.5 KiB",
+          "buttonLabel": "下载公开发布清单"
+        },
+        {
+          "title": "发布记录",
+          "filename": "release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/release-record.json",
+          "format": "JSON",
+          "bytes": 1468,
+          "displaySize": "1.4 KiB",
+          "buttonLabel": "下载发布记录"
+        },
+        {
+          "title": "SHA-256 校验文件",
+          "filename": "SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/SHA256SUMS.txt",
+          "format": "TXT",
+          "bytes": 226,
+          "displaySize": "226 B",
+          "buttonLabel": "下载 SHA-256 校验文件"
+        }
+      ]
+    },
+    "media": {
+      "video": null,
+      "poster": null,
+      "declared": false,
+      "mode": "not-published",
+      "fallback": "当前页面先公开产品能力、价格与已验证下载；操作演示将在完成公开素材核验后补充。"
+    },
+    "workflow": {
+      "input": [
+        "客户、供应商与商品资料",
+        "进货、销售与收付款记录",
+        "期初余额与报表要求"
+      ],
+      "process": [
+        "登记进货与销售，关联往来对象和商品",
+        "记录收付款并跟踪应收应付账龄",
+        "生成账簿、报表与审计记录"
+      ],
+      "output": [
+        "应收应付与账龄",
+        "总账、试算平衡与利润表/资产负债表",
+        "可追溯凭证与导出报表"
+      ]
+    },
+    "capabilityBoundary": "一个账号对应一个企业账套主体；支持同一账号在多台设备使用，数据按该账号的账套边界管理。",
+    "cta": {
+      "homeCard": "查看产品详情",
+      "pricingCard": "查看详情",
+      "productHeroPrimary": "查看下载与价格",
+      "productHeroSecondary": "查看工作流",
+      "downloadPanel": "已核验下载 / 记账软件 0.5.0 / SHA-256",
+      "downloadButton": "下载 Windows 10/11 x64 客户端 · 9.2 MiB",
+      "recommended": {
+        "primary": "下载客户端",
+        "secondary": "查看工作流",
+        "nextStep": "下载 0.5.0 对应系统客户端，核对 SHA-256 后按账号年度授权说明完成授权"
+      }
+    }
   }
 ];
 

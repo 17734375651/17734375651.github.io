@@ -1,0 +1,32 @@
+{
+  "schema": 2,
+  "productId": "packing",
+  "productName": "方寸打包计算器",
+  "releaseTag": "fangcun-packing-3.0.0",
+  "releaseName": "方寸打包计算器 3.0.0 Windows 客户端",
+  "releaseDate": "2026-08-27",
+  "versionLabel": "3.0.0",
+  "versionSource": "客户端发布包文件名与已核验版本记录",
+  "packages": [
+    {
+      "filename": "fangcun-packing-calculator-3.0.0-win-x64-public.zip",
+      "sourceFilename": "方寸打包计算器-v3.0.0-win-x64.zip",
+      "platform": "Windows 10/11 x64",
+      "runtime": ".NET self-contained x64",
+      "primary": true,
+      "bytes": 65479402,
+      "sha256": "9A9BD04F8BFF9EBC7DF40B44D359E073611848F2DCEB15A4F4DA31F7BBF0B3F1"
+    }
+  ],
+  "verification": {
+    "zipIntegrity": "PASS",
+    "peArchitecture": "x64",
+    "startupToActivationWindow": "PASS",
+    "digitalSignature": "NotSigned",
+    "sourcePackageCopy": "BYTE_AND_SHA256_MATCH",
+    "customerSpecificDataScan": "PASS",
+    "privateKeyExcluded": "PASS",
+    "activationGeneratorExcluded": "PASS",
+    "localAbsolutePathScan": "PASS"
+  }
+}

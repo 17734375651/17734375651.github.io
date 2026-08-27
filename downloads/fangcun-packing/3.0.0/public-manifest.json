@@ -1,0 +1,67 @@
+{
+  "schema": 2,
+  "productId": "packing",
+  "productName": "方寸打包计算器",
+  "releaseTag": "fangcun-packing-3.0.0",
+  "releaseDate": "2026-08-27",
+  "generatedUtc": "2026-08-27T00:00:00Z",
+  "packages": [
+    {
+      "filename": "fangcun-packing-calculator-3.0.0-win-x64-public.zip",
+      "sourceFilename": "方寸打包计算器-v3.0.0-win-x64.zip",
+      "platform": "Windows 10/11 x64",
+      "runtime": ".NET self-contained x64",
+      "primary": true,
+      "bytes": 65479402,
+      "sha256": "9A9BD04F8BFF9EBC7DF40B44D359E073611848F2DCEB15A4F4DA31F7BBF0B3F1",
+      "contents": [
+        {
+          "path": "README.md",
+          "bytes": 2781,
+          "sha256": "F88B35F1061FD7E4EAA38C594992B8838F2BB5E18C4A1C349C33EAFD7ACC763E"
+        },
+        {
+          "path": "方寸打包计算器.exe",
+          "bytes": 148789317,
+          "sha256": "0768BB1C360E505B5D024207225469961E11ACE2259A73818E00E87375B79348"
+        },
+        {
+          "path": "docs/Excel模板说明-v3.md",
+          "bytes": 1386,
+          "sha256": "C067A7B882E5CBACD61D2CA0838D34CB402F12D8A91489A8EFDD5E3B54579F7C"
+        },
+        {
+          "path": "docs/离线激活操作-v3.md",
+          "bytes": 1066,
+          "sha256": "C5A3DA41A9D4F0CCDB3A6E638FFA449AA49636376BEAEDC2A227660839B24DF6"
+        },
+        {
+          "path": "templates/商品信息模板-v3.xlsx",
+          "bytes": 2054,
+          "sha256": "CFCF7D6E1A86EEFB01E5A8290D15A47AE507EFC3D76DB2D6B7F272731706F165"
+        },
+        {
+          "path": "templates/快递信息模板-v3.xlsx",
+          "bytes": 4272,
+          "sha256": "16402056BD719E77CFA6DE6A97546D44A14B4A9B4CA943D29CB7EC6B7E90B188"
+        }
+      ]
+    }
+  ],
+  "verifiedCapabilities": [
+    "按商品尺寸、数量与箱型比较装箱方案",
+    "按快递计费规则核算重量、体积与运费",
+    "导出可复核的方案与计算明细"
+  ],
+  "publicPackageBoundary": {
+    "containsClientExecutable": true,
+    "containsActivationGenerator": false,
+    "containsPrivateKey": false,
+    "containsCustomerLicense": false,
+    "activationManagementFilesExcluded": true,
+    "containsLocalAbsolutePath": false,
+    "privatePathScan": "PASS",
+    "customerSpecificDataScan": "PASS",
+    "sourcePackageCopy": "BYTE_AND_SHA256_MATCH"
+  }
+}

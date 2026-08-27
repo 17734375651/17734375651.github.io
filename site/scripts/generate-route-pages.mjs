@@ -10,10 +10,7 @@ const SITE_ORIGIN = SITE.publicUrl
 const PRODUCT_SURFACE_PATHS = new Set([
   '/',
   '/products/',
-  '/products/label/',
-  '/products/bleed/',
-  '/products/multisize-bleed/',
-  '/products/pdf/',
+  ...PRODUCTS.map((product) => product.route),
   '/solutions/',
   '/custom/requirements/',
 ])
@@ -23,7 +20,7 @@ const SYNTHETIC_ROUTES = [
     path: '/products/',
     kind: 'product-index',
     title: '产品中心｜方寸有序工作室',
-    description: '查看标签印刷排版、CMYK 胀色裁切、大图标签提取与多尺寸胀色裁切排版、PDF 配印四款正式软件，以及各自准确的价格、体验和公开下载文件。',
+    description: '查看标签排版、胀色裁切、多尺寸胀色裁切、PDF 配印、打包计算与记账六款正式软件，以及各自准确的价格、授权和公开下载文件。',
     h1: '把重复工作，交给清楚可靠的软件流程',
   },
   {
@@ -54,7 +51,7 @@ const SYNTHETIC_ROUTES = [
     kind: 'content-index',
     category: 'downloads',
     title: '文件下载｜客户端与校验资料｜方寸有序工作室',
-    description: '集中下载四款正式软件客户端、公开发布清单、发布记录与 SHA-256 校验文件。',
+    description: '集中下载六款正式软件客户端、公开发布清单、发布记录与 SHA-256 校验文件。',
     h1: '公开文件下载',
   },
   {
@@ -70,7 +67,7 @@ const SYNTHETIC_ROUTES = [
     kind: 'legal',
     legalId: 'service-license',
     title: '软件服务与授权边界｜方寸有序工作室',
-    description: '查看四款正式软件、个性化定制、年度授权以及客户端与校验文件的当前公开边界。',
+    description: '查看六款正式软件、个性化定制、年度授权以及客户端与校验文件的当前公开边界。',
     h1: '软件服务与授权边界',
   },
 ]
@@ -178,10 +175,7 @@ function staticNavigation(route) {
   return `<nav aria-label="主要导航">
           <a href="/">首页</a>
           <a href="/products/">产品中心</a>
-          <a href="/products/label/">标签排版</a>
-          <a href="/products/bleed/">胀色裁切</a>
-          <a href="/products/multisize-bleed/">多尺寸胀色裁切</a>
-          <a href="/products/pdf/">PDF 配印</a>
+          ${PRODUCTS.map((product) => `<a href="${escapeHtml(product.route)}">${escapeHtml(product.shortName)}</a>`).join('\n          ')}
           <a href="/solutions/">行业方案</a>
           <a href="/custom/requirements/">描述你的需求</a>
           <a href="/updates/">产品更新</a>

@@ -138,10 +138,10 @@ test('requirements expose four required semantics and build only a local summary
   assert.doesNotMatch(app, /\b(?:fetch|axios|XMLHttpRequest|sendBeacon)\s*\(/i)
 })
 
-test('four products render their verified status through a data-driven UI path', async () => {
+test('six products render their verified status through a data-driven UI path', async () => {
   const app = await readSource(appPath)
   const css = await readSource(path.join(srcRoot, 'styles.css'))
-  const expectedIds = ['label', 'bleed', 'multisize-bleed', 'pdf']
+  const expectedIds = ['label', 'bleed', 'multisize-bleed', 'pdf', 'packing', 'accounting']
   assert.deepEqual(PRODUCTS.map((product) => product.id), expectedIds)
   for (const product of PRODUCTS) {
     assert.ok(PRODUCT_STATUS[product.status.effectiveStatus], `missing status vocabulary for ${product.id}`)
@@ -162,6 +162,38 @@ test('four products render their verified status through a data-driven UI path',
   assert.match(multisize.statement, /大幅 PDF.*识别.*提取单张标签/)
   assert.match(multisize.workflow.process.join(' '), /多尺寸标签.*胀色.*裁切/)
   assert.match(app, /同系列独立产品/)
+})
+
+test('packing and accounting metadata preserve the approved price and client records', () => {
+  const packing = PRODUCTS.find((product) => product.id === 'packing')
+  const accounting = PRODUCTS.find((product) => product.id === 'accounting')
+  assert.ok(packing, 'packing product is required')
+  assert.ok(accounting, 'accounting product is required')
+
+  assert.equal(packing.name, '方寸打包计算器')
+  assert.equal(packing.price.amountCny, 499)
+  assert.equal(packing.price.display, '¥499 / 年')
+  assert.equal(packing.download.version, '3.0.0')
+  assert.equal(packing.download.platform, 'Windows 10/11 x64')
+  assert.equal(packing.download.filename, 'fangcun-packing-calculator-3.0.0-win-x64-public.zip')
+  assert.equal(packing.download.bytes, 65479402)
+  assert.equal(packing.download.sha256, '9a9bd04f8bff9ebc7df40b44d359e073611848f2dceb15a4f4da31f7bbf0b3f1')
+
+  assert.equal(accounting.name, '方寸有序记账软件')
+  assert.equal(accounting.price.amountCny, 999)
+  assert.equal(accounting.price.display, '¥999 / 账号 / 年')
+  assert.match(JSON.stringify(accounting), /一个账号对应一个企业账套主体/)
+  assert.equal(accounting.download.version, '0.5.0')
+  assert.equal(accounting.download.platform, 'Windows 10/11 x64')
+  assert.equal(accounting.download.filename, 'fangcun-accounting-0.5.0-win10-11-x64-public.zip')
+  assert.equal(accounting.download.bytes, 9687285)
+  assert.equal(accounting.download.sha256, '7c90c3b0caec427dc7bcd0453c07e88298ead0d6df69086adb856a78dce7aa5e')
+
+  assert.equal(accounting.download.variants.length, 1)
+  assert.equal(accounting.download.variants[0].platform, 'Windows 7 x64')
+  assert.equal(accounting.download.variants[0].filename, 'fangcun-accounting-0.5.0-win7-x64-public.zip')
+  assert.equal(accounting.download.variants[0].bytes, 9687281)
+  assert.equal(accounting.download.variants[0].sha256, 'b4338f9cc9beeaa08aa4364c2810d8e4e88ea91f3f185f9d6fc4db94e363e9d6')
 })
 
 test('ERP is absent from every public runtime source and route manifest', async () => {
