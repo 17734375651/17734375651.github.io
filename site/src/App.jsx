@@ -33,6 +33,7 @@ import { PRODUCTS, PRODUCT_STATUS_DESCRIPTIONS, getProductPublicFiles } from './
 import { NAV_ITEMS, SITE, TRUST_POINTS } from './data/site.js'
 import { SOLUTIONS } from './data/public-solutions.js'
 import { getProductAction } from './lib/product-actions.js'
+import { getActiveNavHref } from './lib/navigation.js'
 import {
   buildRequirementSummary,
   getRequirementCompletion,
@@ -101,6 +102,7 @@ function Header({ dark = false }) {
   const [open, setOpen] = useState(false)
   const menuButtonRef = useRef(null)
   const closeButtonRef = useRef(null)
+  const activeNavHref = getActiveNavHref(window.location.pathname, window.location.hash)
 
   const closeMenu = (focusTrigger = false) => {
     setOpen(false)
@@ -125,7 +127,7 @@ function Header({ dark = false }) {
           <span className="brand-copy"><strong>方寸有序</strong><small>效率软件 · 有序经营</small></span>
         </a>
         <nav className="desktop-nav" aria-label="主导航">
-          {NAV_ITEMS.map((item) => <a key={item.href} href={item.href}>{item.label}</a>)}
+          {NAV_ITEMS.map((item) => <a key={item.href} className={item.href === activeNavHref ? 'is-current' : undefined} href={item.href} aria-current={item.href === activeNavHref ? 'page' : undefined}>{item.label}</a>)}
         </nav>
         <div className="header-actions">
           <LinkButton href="/products/" variant="small">查看成品软件</LinkButton>
@@ -137,7 +139,7 @@ function Header({ dark = false }) {
       <div className={`mobile-navigation ${open ? 'is-open' : ''}`} id="mobile-navigation" aria-hidden={!open}>
         <div className="container mobile-navigation-inner">
           <div className="mobile-navigation-head"><span>导航</span><button ref={closeButtonRef} className="icon-button" type="button" aria-label="关闭菜单" tabIndex={open ? 0 : -1} onClick={() => closeMenu(true)}><X size={22} weight="bold" aria-hidden="true" /></button></div>
-          <nav aria-label="移动端主导航">{NAV_ITEMS.map((item) => <a key={item.href} href={item.href} onClick={() => closeMenu()} tabIndex={open ? 0 : -1}>{item.label}<ArrowUpRight size={18} aria-hidden="true" /></a>)}</nav>
+          <nav aria-label="移动端主导航">{NAV_ITEMS.map((item) => <a key={item.href} className={item.href === activeNavHref ? 'is-current' : undefined} href={item.href} aria-current={item.href === activeNavHref ? 'page' : undefined} onClick={() => closeMenu()} tabIndex={open ? 0 : -1}>{item.label}<ArrowUpRight size={18} aria-hidden="true" /></a>)}</nav>
           <LinkButton href="/custom/requirements/" onClick={() => closeMenu()} tabIndex={open ? 0 : -1}>描述你的需求</LinkButton>
         </div>
       </div>

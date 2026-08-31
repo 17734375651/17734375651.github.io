@@ -8,7 +8,7 @@
     "build": "node scripts/generate-route-pages.mjs && vite build && node scripts/prepare-sites-build.mjs",
     "preview": "vite preview",
     "publish:pages": "npm run build && node scripts/publish-pages.mjs",
-    "test": "node --test tests/build-contract.test.mjs tests/client-release-contract.test.mjs tests/media-contract.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/route-pages.test.mjs tests/sanitized-video-build-contract.test.mjs tests/ui-content-contract.test.mjs",
+    "test": "node --test tests/build-contract.test.mjs tests/client-release-contract.test.mjs tests/media-contract.test.mjs tests/navigation.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/route-pages.test.mjs tests/sanitized-video-build-contract.test.mjs tests/ui-content-contract.test.mjs",
     "test:sites": "node --test tests/sites-worker.test.mjs"
   },
   "dependencies": {
