@@ -192,7 +192,7 @@ export const CONTENT_CATEGORIES = [
       {
         slug: 'downloads/label-20260821-win10-11-x64',
         title: '标签印刷排版计划｜Windows 10/11 x64 客户端',
-        summary: '2026-08-21 发布包，文件约 40.4 MiB；首次启动进入授权激活界面，下载后可核对 SHA-256。',
+        summary: '2026-08-21 发布包，文件约 40.4 MiB；首次启动在本机初始化离线试用，下载后可核对 SHA-256。',
         status: 'publishable',
         relatedProduct: 'label',
         contentMode: 'direct-download',
@@ -207,7 +207,7 @@ export const CONTENT_CATEGORIES = [
       {
         slug: 'downloads/label-20260821-win7-x64',
         title: '标签印刷排版计划｜Windows 7 x64 客户端',
-        summary: '2026-08-21 发布包，文件约 35.9 MiB；首次启动进入授权激活界面，下载后可核对 SHA-256。',
+        summary: '2026-08-21 发布包，文件约 35.9 MiB；首次启动在本机初始化离线试用，下载后可核对 SHA-256。',
         status: 'publishable',
         relatedProduct: 'label',
         contentMode: 'direct-download',
@@ -252,7 +252,7 @@ export const CONTENT_CATEGORIES = [
       {
         slug: 'downloads/pdf-20260821-win10-11-x64',
         title: '方寸 PDF 配印助手｜Windows 10/11 x64 客户端',
-        summary: '2026-08-21 发布包，文件约 40.4 MiB；首次启动进入授权激活界面，下载后可核对 SHA-256。',
+        summary: '2026-08-21 发布包，文件约 40.4 MiB；首次启动在本机初始化离线试用，下载后可核对 SHA-256。',
         status: 'publishable',
         relatedProduct: 'pdf',
         contentMode: 'direct-download',
@@ -267,7 +267,7 @@ export const CONTENT_CATEGORIES = [
       {
         slug: 'downloads/pdf-20260821-win7-x64',
         title: '方寸 PDF 配印助手｜Windows 7 x64 客户端',
-        summary: '2026-08-21 发布包，文件约 35.9 MiB；首次启动进入授权激活界面，下载后可核对 SHA-256。',
+        summary: '2026-08-21 发布包，文件约 35.9 MiB；首次启动在本机初始化离线试用，下载后可核对 SHA-256。',
         status: 'publishable',
         relatedProduct: 'pdf',
         contentMode: 'direct-download',

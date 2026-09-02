@@ -28,10 +28,11 @@ export const PRODUCTS = [
       "reason": "Windows 10/11 与 Windows 7 x64 公开包的文件大小、架构和 SHA-256 已完成核对。"
     },
     "trial": {
-      "minutes": 60,
-      "display": "每台电脑首次免费体验 1 小时",
-      "state": "first-device-one-hour",
-      "source": "公开体验规则"
+      "days": 30,
+      "minutes": 43200,
+      "display": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "state": "first-machine-thirty-day-offline",
+      "source": "纯离线体验规则"
     },
     "download": {
       "state": "available",
@@ -124,7 +125,7 @@ export const PRODUCTS = [
         "可复核成本与余量"
       ]
     },
-    "capabilityBoundary": "客户端在本地处理订单；首次启动进入授权激活界面。官网不接收客户文件，也不公开真实订单。",
+    "capabilityBoundary": "客户端在本地处理订单；首次启动在本机初始化离线试用，正式授权文件离线导入。官网不接收客户文件，也不公开真实订单。",
     "cta": {
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
@@ -162,10 +163,11 @@ export const PRODUCTS = [
       "reason": "Windows x86 公开包的版本、文件大小与 SHA-256 已完成核对。"
     },
     "trial": {
-      "minutes": 60,
-      "display": "每台电脑首次免费体验 1 小时",
-      "state": "first-device-one-hour",
-      "source": "公开体验规则"
+      "days": 30,
+      "minutes": 43200,
+      "display": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "state": "first-machine-thirty-day-offline",
+      "source": "纯离线体验规则"
     },
     "download": {
       "state": "available",
@@ -244,7 +246,7 @@ export const PRODUCTS = [
         "可继续调整的项目文件"
       ]
     },
-    "capabilityBoundary": "官网提供已核验的公开版客户端；核心处理在本地完成，客户资料不会上传官网。",
+    "capabilityBoundary": "官网提供已核验的公开版客户端；核心处理与 30 天试用状态都在本机完成，正式授权文件离线导入，客户资料不会上传官网。",
     "cta": {
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
@@ -282,10 +284,11 @@ export const PRODUCTS = [
       "reason": "Windows x64 公开包的版本、文件大小、架构与 SHA-256 已完成核对。"
     },
     "trial": {
-      "minutes": 60,
-      "display": "每台电脑首次免费体验 1 小时",
-      "state": "first-device-one-hour",
-      "source": "公开体验规则"
+      "days": 30,
+      "minutes": 43200,
+      "display": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "state": "first-machine-thirty-day-offline",
+      "source": "纯离线体验规则"
     },
     "download": {
       "state": "available",
@@ -359,7 +362,7 @@ export const PRODUCTS = [
         "打印份数与复核报告"
       ]
     },
-    "capabilityBoundary": "方寸有序多尺寸胀色裁切是独立产品，使用独立版本与下载；大图识别、单张提取和多尺寸排版均在本地完成。",
+    "capabilityBoundary": "方寸有序多尺寸胀色裁切是独立产品，使用独立版本、离线试用与年度授权；大图识别、单张提取和多尺寸排版均在本地完成。",
     "cta": {
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
@@ -397,10 +400,11 @@ export const PRODUCTS = [
       "reason": "Windows 10/11 与 Windows 7 x64 公开包的文件大小、架构和 SHA-256 已完成核对。"
     },
     "trial": {
-      "minutes": 60,
-      "display": "每台电脑首次免费体验 1 小时",
-      "state": "first-device-one-hour",
-      "source": "公开体验规则"
+      "days": 30,
+      "minutes": 43200,
+      "display": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "state": "first-machine-thirty-day-offline",
+      "source": "纯离线体验规则"
     },
     "download": {
       "state": "available",
@@ -485,7 +489,7 @@ export const PRODUCTS = [
         "逐页审计 Excel"
       ]
     },
-    "capabilityBoundary": "客户端在本地完成 PDF 配印；首次启动进入授权激活界面。官网不接收客户文件上传。",
+    "capabilityBoundary": "客户端在本地完成 PDF 配印；首次启动在本机初始化离线试用，正式授权文件离线导入。官网不接收客户文件上传。",
     "cta": {
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
@@ -523,10 +527,11 @@ export const PRODUCTS = [
       "reason": "Windows 10/11 x64 公开包的版本、文件大小、架构与 SHA-256 已完成核对。"
     },
     "trial": {
-      "minutes": 0,
-      "display": "Windows 客户端 · 年度授权",
-      "state": "annual-license",
-      "source": "公开授权说明"
+      "days": 30,
+      "minutes": 43200,
+      "display": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "state": "first-machine-thirty-day-offline",
+      "source": "纯离线体验规则"
     },
     "download": {
       "state": "available",
@@ -600,7 +605,7 @@ export const PRODUCTS = [
         "Excel 模板与可复核导出"
       ]
     },
-    "capabilityBoundary": "客户端在本地完成打包与运费计算；数据不上传官网，授权按 Windows 机器离线规则执行。",
+    "capabilityBoundary": "客户端在本地完成打包与运费计算；试用与正式授权都不依赖网络，数据不上传官网。",
     "cta": {
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",
@@ -638,10 +643,11 @@ export const PRODUCTS = [
       "reason": "Windows 10/11 与 Windows 7 x64 公开包的版本、文件大小、架构与 SHA-256 已完成核对。"
     },
     "trial": {
-      "minutes": 0,
-      "display": "按账号年度授权 · 一个账号对应一个企业账套主体",
-      "state": "annual-account-license",
-      "source": "公开授权说明"
+      "days": 30,
+      "minutes": 43200,
+      "display": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "state": "first-machine-thirty-day-offline",
+      "source": "纯离线体验规则"
     },
     "download": {
       "state": "available",
@@ -727,7 +733,7 @@ export const PRODUCTS = [
         "可追溯凭证与导出报表"
       ]
     },
-    "capabilityBoundary": "一个账号对应一个企业账套主体；支持同一账号在多台设备使用，数据按该账号的账套边界管理。",
+    "capabilityBoundary": "一个账号对应一个企业账套主体；离线授权按账号、机器码与年度期限导入，授权判定与可选数据同步相互独立。",
     "cta": {
       "homeCard": "查看产品详情",
       "pricingCard": "查看详情",

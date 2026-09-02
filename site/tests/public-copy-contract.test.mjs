@@ -50,8 +50,27 @@ test('customer-facing copy uses bounded workflow language', async () => {
   const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
   assert.doesNotMatch(app, /开箱即用|每一次交付都更清晰|RELEASE STATUS/)
   assert.match(app, /把输入、处理与输出梳理成可复核流程/)
-  assert.match(app, /一小时体验适用于四款印前工具/)
-  assert.match(app, /打包计算器与记账软件按各自年度授权说明/)
+  assert.match(app, /首次启动无需申请，按本机受保护时间自动体验 30 天/)
+  assert.match(app, /每台设备每款产品一次/)
+})
+
+test('all six Windows products publish the same pure-offline 30-day trial contract', () => {
+  assert.equal(PRODUCTS.length, 6)
+  for (const product of PRODUCTS) {
+    assert.deepEqual(product.trial, {
+      days: 30,
+      minutes: 43_200,
+      display: '首次启动无需申请，按本机受保护时间自动体验 30 天',
+      state: 'first-machine-thirty-day-offline',
+      source: '纯离线体验规则',
+    })
+  }
+
+  const publicCopy = JSON.stringify({ products: PRODUCTS, site: SITE, legal: LEGAL_PAGES })
+  assert.match(publicCopy, /正式授权后可完全离线使用/)
+  assert.match(publicCopy, /正常应用重装不重置试用/)
+  assert.match(publicCopy, /首次初始化可能出现一次 Windows UAC 系统确认/)
+  assert.doesNotMatch(publicCopy, /首次启动联网一次|自动向服务器领取试用|一小时体验|1 小时|按各自年度授权说明/)
 })
 
 test('generated static shell uses the same customer-facing contact wording', async () => {
