@@ -25,7 +25,7 @@ export const PRODUCTS = [
       "downloadable": true,
       "effectiveStatus": "available",
       "label": "正式销售 · 已验证下载",
-      "reason": "Windows 10/11 与 Windows 7 x64 公开包的文件大小、架构和 SHA-256 已完成核对。"
+      "reason": "Windows 10/11 x64 公开包的文件大小、架构和 SHA-256 已完成核对。"
     },
     "trial": {
       "days": 30,
@@ -36,60 +36,48 @@ export const PRODUCTS = [
     },
     "download": {
       "state": "available",
-      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/fangcun-label-imposition-20260821-win10-11-x64-public.zip",
-      "filename": "fangcun-label-imposition-20260821-win10-11-x64-public.zip",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-1.1.0/fangcun-label-imposition-1.1.0-win-x64-public.zip",
+      "filename": "fangcun-label-imposition-1.1.0-win-x64-public.zip",
       "platform": "Windows 10/11 x64",
-      "version": "2026.08.21",
-      "date": "2026-08-21",
+      "version": "1.1.0",
+      "date": "2026-09-03",
       "verification": "verified",
-      "bytes": 42393335,
-      "displaySize": "40.4 MiB",
-      "sha256": "0e87aa66a85cf5e92c6a9dca7aad41d4594ce0d0f4905eff7ef238a8526a9db6",
-      "sha256UppercaseInChecksum": "0E87AA66A85CF5E92C6A9DCA7AAD41D4594CE0D0F4905EFF7EF238A8526A9DB6",
+      "bytes": 99319466,
+      "displaySize": "94.7 MiB",
+      "sha256": "0b2eb6a9b7499718881467e907c898527b1c24bfb7a3164e0a988f14b1c090c7",
+      "sha256UppercaseInChecksum": "0B2EB6A9B7499718881467E907C898527B1C24BFB7A3164E0A988F14B1C090C7",
       "sha256CaseInsensitiveMatch": true,
-      "releaseRecordPackage": "fangcun-label-imposition-20260821-win10-11-x64-public.zip",
+      "releaseRecordPackage": "fangcun-label-imposition-1.1.0-win-x64-public.zip",
       "digitalSignature": "NotSigned",
       "localArchivePresent": false,
       "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压，并保持 EXE 与 config.yaml 在同一目录。",
-      "variants": [
-        {
-          "title": "Windows 7 x64 客户端",
-          "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/fangcun-label-imposition-20260821-win7-x64-public.zip",
-          "filename": "fangcun-label-imposition-20260821-win7-x64-public.zip",
-          "platform": "Windows 7 x64",
-          "runtime": "Python 3.8.10",
-          "bytes": 37613323,
-          "displaySize": "35.9 MiB",
-          "sha256": "638f563c6d1b7aeb696eb8466b7cb4e1bbff533ab69e798df07b36d989d31884",
-          "buttonLabel": "下载 Windows 7 x64 客户端"
-        }
-      ],
+      "variants": [],
       "supportFiles": [
         {
           "title": "公开发布清单",
           "filename": "public-manifest.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-1.1.0/public-manifest.json",
           "format": "JSON",
-          "bytes": 2286,
-          "displaySize": "2.2 KiB",
+          "bytes": 240100,
+          "displaySize": "234.5 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
           "title": "发布记录",
           "filename": "release-record.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-1.1.0/release-record.json",
           "format": "JSON",
-          "bytes": 1387,
-          "displaySize": "1.4 KiB",
+          "bytes": 1099,
+          "displaySize": "1.1 KiB",
           "buttonLabel": "下载发布记录"
         },
         {
           "title": "SHA-256 校验文件",
           "filename": "SHA256SUMS.txt",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-20260821/SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-label-1.1.0/SHA256SUMS.txt",
           "format": "TXT",
-          "bytes": 246,
-          "displaySize": "246 B",
+          "bytes": 292,
+          "displaySize": "292 B",
           "buttonLabel": "下载 SHA-256 校验文件"
         }
       ]
@@ -132,7 +120,7 @@ export const PRODUCTS = [
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "查看实际操作演示",
       "downloadPanel": "已核验下载 / Windows x64 / SHA-256",
-      "downloadButton": "下载 Windows 10/11 x64 客户端 · 40.4 MiB",
+      "downloadButton": "下载 Windows 10/11 x64 客户端 · 94.7 MiB",
       "recommended": {
         "primary": "下载客户端",
         "secondary": "查看实际操作演示",
@@ -160,7 +148,7 @@ export const PRODUCTS = [
       "downloadable": true,
       "effectiveStatus": "available",
       "label": "正式销售 · 已验证下载",
-      "reason": "Windows x86 公开包的版本、文件大小与 SHA-256 已完成核对。"
+      "reason": "Windows 10/11（x86 客户端，兼容 x86/x64）的版本、文件大小、架构与 SHA-256 已完成核对。"
     },
     "trial": {
       "days": 30,
@@ -171,46 +159,47 @@ export const PRODUCTS = [
     },
     "download": {
       "state": "available",
-      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.11/fangcun-bleed-cutting-1.2.11-win-x86-public.zip",
-      "filename": "fangcun-bleed-cutting-1.2.11-win-x86-public.zip",
-      "platform": "win-x86",
-      "version": "1.2.11",
-      "date": "2026-08-17",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.12/fangcun-bleed-1.2.12-win-x86-public.zip",
+      "filename": "fangcun-bleed-1.2.12-win-x86-public.zip",
+      "platform": "Windows 10/11（x86 客户端，兼容 x86/x64）",
+      "version": "1.2.12",
+      "date": "2026-09-03",
       "verification": "verified",
-      "bytes": 67741703,
-      "displaySize": "64.6 MB",
-      "sha256": "6b213c32a0d2c124d3364b21b4f8d9c6c5f4f16323aae01a130eac34c4fbec54",
-      "sha256UppercaseInChecksum": "6B213C32A0D2C124D3364B21B4F8D9C6C5F4F16323AAE01A130EAC34C4FBEC54",
+      "bytes": 129301675,
+      "displaySize": "123.3 MiB",
+      "sha256": "c6db32beb25bf8f0e987b67f6dcd9dda8ed34706093bfe3ae4fbf0c8c0839f33",
+      "sha256UppercaseInChecksum": "C6DB32BEB25BF8F0E987B67F6DCD9DDA8ED34706093BFE3AE4FBF0C8C0839F33",
       "sha256CaseInsensitiveMatch": true,
-      "releaseRecordPackage": "方寸有序胀色裁切-1.2.11-win-x86-官网公开包.zip",
+      "releaseRecordPackage": "fangcun-bleed-1.2.12-win-x86-public.zip",
+      "digitalSignature": "NotSigned",
       "localArchivePresent": false,
       "localArchiveNote": "安装包由公开下载页提供，下载前可核对版本、大小与 SHA-256。",
       "supportFiles": [
         {
           "title": "公开发布清单",
           "filename": "public-manifest.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.11/public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.12/public-manifest.json",
           "format": "JSON",
-          "bytes": 86348,
-          "displaySize": "84.3 KB",
+          "bytes": 78418,
+          "displaySize": "76.6 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
           "title": "发布记录",
           "filename": "release-record.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.11/release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.12/release-record.json",
           "format": "JSON",
-          "bytes": 244,
-          "displaySize": "244 B",
+          "bytes": 2747,
+          "displaySize": "2.7 KiB",
           "buttonLabel": "下载发布记录"
         },
         {
           "title": "SHA-256 校验文件",
           "filename": "SHA256SUMS.txt",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.11/SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-bleed-1.2.12/SHA256SUMS.txt",
           "format": "TXT",
-          "bytes": 130,
-          "displaySize": "130 B",
+          "bytes": 279,
+          "displaySize": "279 B",
           "buttonLabel": "下载 SHA-256 校验文件"
         }
       ]
@@ -252,12 +241,12 @@ export const PRODUCTS = [
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "查看实际操作演示",
-      "downloadPanel": "已核验下载 / 方寸有序胀色裁切 / SHA-256",
-      "downloadButton": "Windows 32 / 64 位 · x86 兼容版 · 64.6 MB",
+      "downloadPanel": "已核验下载 / 方寸有序胀色裁切 1.2.12 / SHA-256",
+      "downloadButton": "下载 Windows 10/11 客户端（x86，兼容 x86/x64） · 123.3 MiB",
       "recommended": {
         "primary": "下载客户端",
         "secondary": "查看实际操作演示",
-        "nextStep": "核对版本 1.2.11 与 SHA-256 后联系微信/电话 17734375651 完成授权"
+        "nextStep": "核对版本 1.2.12 与 SHA-256 后联系微信/电话 17734375651 完成授权"
       }
     }
   },
@@ -292,18 +281,18 @@ export const PRODUCTS = [
     },
     "download": {
       "state": "available",
-      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
-      "filename": "fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.10.0/fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip",
+      "filename": "fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip",
       "platform": "Windows x64",
-      "version": "0.9.0",
-      "date": "2026-08-22",
+      "version": "0.10.0",
+      "date": "2026-09-03",
       "verification": "verified",
-      "bytes": 70716244,
-      "displaySize": "67.4 MiB",
-      "sha256": "22647b9b5a9022fce60623e85fdedb73928b81f3e30cee5be9d9052ddb13ce67",
-      "sha256UppercaseInChecksum": "22647B9B5A9022FCE60623E85FDEDB73928B81F3E30CEE5BE9D9052DDB13CE67",
+      "bytes": 137218738,
+      "displaySize": "130.9 MiB",
+      "sha256": "61e8c8a3377ccc9bacb9ebef3b7391f469bed03e338a541b5723057374e69a83",
+      "sha256UppercaseInChecksum": "61E8C8A3377CCC9BACB9EBEF3B7391F469BED03E338A541B5723057374E69A83",
       "sha256CaseInsensitiveMatch": true,
-      "releaseRecordPackage": "fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip",
+      "releaseRecordPackage": "fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip",
       "digitalSignature": "NotSigned",
       "localArchivePresent": false,
       "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
@@ -312,28 +301,28 @@ export const PRODUCTS = [
         {
           "title": "公开发布清单",
           "filename": "public-manifest.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.10.0/public-manifest.json",
           "format": "JSON",
-          "bytes": 62460,
-          "displaySize": "61.0 KiB",
+          "bytes": 78637,
+          "displaySize": "76.8 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
           "title": "发布记录",
           "filename": "release-record.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.10.0/release-record.json",
           "format": "JSON",
-          "bytes": 1246,
-          "displaySize": "1.2 KiB",
+          "bytes": 2841,
+          "displaySize": "2.8 KiB",
           "buttonLabel": "下载发布记录"
         },
         {
           "title": "SHA-256 校验文件",
           "filename": "SHA256SUMS.txt",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.9.0/SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-multisize-0.10.0/SHA256SUMS.txt",
           "format": "TXT",
-          "bytes": 119,
-          "displaySize": "119 B",
+          "bytes": 293,
+          "displaySize": "293 B",
           "buttonLabel": "下载 SHA-256 校验文件"
         }
       ]
@@ -368,12 +357,12 @@ export const PRODUCTS = [
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "查看工作流",
-      "downloadPanel": "已核验下载 / 多尺寸胀色裁切 0.9.0 / SHA-256",
-      "downloadButton": "下载 Windows x64 客户端 · 67.4 MiB",
+      "downloadPanel": "已核验下载 / 多尺寸胀色裁切 0.10.0 / SHA-256",
+      "downloadButton": "下载 Windows x64 客户端 · 130.9 MiB",
       "recommended": {
         "primary": "下载客户端",
         "secondary": "查看工作流",
-        "nextStep": "下载 0.9.0 Windows x64 客户端，核对 SHA-256 后联系微信/电话 17734375651 完成授权"
+        "nextStep": "下载 0.10.0 Windows x64 客户端，核对 SHA-256 后联系微信/电话 17734375651 完成授权"
       }
     }
   },
@@ -397,7 +386,7 @@ export const PRODUCTS = [
       "downloadable": true,
       "effectiveStatus": "available",
       "label": "正式销售 · 已验证下载",
-      "reason": "Windows 10/11 与 Windows 7 x64 公开包的文件大小、架构和 SHA-256 已完成核对。"
+      "reason": "Windows 10/11 x64 公开包的文件大小、架构和 SHA-256 已完成核对。"
     },
     "trial": {
       "days": 30,
@@ -408,60 +397,48 @@ export const PRODUCTS = [
     },
     "download": {
       "state": "available",
-      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip",
-      "filename": "fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-1.1.0/fangcun-pdf-print-assistant-1.1.0-win-x64-public.zip",
+      "filename": "fangcun-pdf-print-assistant-1.1.0-win-x64-public.zip",
       "platform": "Windows 10/11 x64",
-      "version": "2026.08.21",
-      "date": "2026-08-21",
+      "version": "1.1.0",
+      "date": "2026-09-03",
       "verification": "verified",
-      "bytes": 42393229,
-      "displaySize": "40.4 MiB",
-      "sha256": "6c3cda6d87774168841b016d681fbd0cd9a4749973570631612a481872a1778a",
-      "sha256UppercaseInChecksum": "6C3CDA6D87774168841B016D681FBD0CD9A4749973570631612A481872A1778A",
+      "bytes": 101889079,
+      "displaySize": "97.2 MiB",
+      "sha256": "921927f54bfc856e5b6eaec1ee199f27659514223bce8305ca3d859aafa5015c",
+      "sha256UppercaseInChecksum": "921927F54BFC856E5B6EAEC1EE199F27659514223BCE8305CA3D859AAFA5015C",
       "sha256CaseInsensitiveMatch": true,
-      "releaseRecordPackage": "fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip",
+      "releaseRecordPackage": "fangcun-pdf-print-assistant-1.1.0-win-x64-public.zip",
       "digitalSignature": "NotSigned",
       "localArchivePresent": false,
       "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压，并保持 EXE 与 config.yaml 在同一目录。",
-      "variants": [
-        {
-          "title": "Windows 7 x64 客户端",
-          "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/fangcun-pdf-print-assistant-20260821-win7-x64-public.zip",
-          "filename": "fangcun-pdf-print-assistant-20260821-win7-x64-public.zip",
-          "platform": "Windows 7 x64",
-          "runtime": "Python 3.8.10",
-          "bytes": 37613265,
-          "displaySize": "35.9 MiB",
-          "sha256": "792e2b5d0875c079fd872a0edd815860ad965082a2af0436c13955a0a50e417b",
-          "buttonLabel": "下载 Windows 7 x64 客户端"
-        }
-      ],
+      "variants": [],
       "supportFiles": [
         {
           "title": "公开发布清单",
           "filename": "public-manifest.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-1.1.0/public-manifest.json",
           "format": "JSON",
-          "bytes": 2275,
-          "displaySize": "2.2 KiB",
+          "bytes": 372644,
+          "displaySize": "363.9 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
           "title": "发布记录",
           "filename": "release-record.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-1.1.0/release-record.json",
           "format": "JSON",
-          "bytes": 1381,
-          "displaySize": "1.3 KiB",
+          "bytes": 1097,
+          "displaySize": "1.1 KiB",
           "buttonLabel": "下载发布记录"
         },
         {
           "title": "SHA-256 校验文件",
           "filename": "SHA256SUMS.txt",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-20260821/SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-pdf-1.1.0/SHA256SUMS.txt",
           "format": "TXT",
-          "bytes": 252,
-          "displaySize": "252 B",
+          "bytes": 292,
+          "displaySize": "292 B",
           "buttonLabel": "下载 SHA-256 校验文件"
         }
       ]
@@ -496,7 +473,7 @@ export const PRODUCTS = [
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "体验模拟演示",
       "downloadPanel": "已核验下载 / Windows x64 / SHA-256",
-      "downloadButton": "下载 Windows 10/11 x64 客户端 · 40.4 MiB",
+      "downloadButton": "下载 Windows 10/11 x64 客户端 · 97.2 MiB",
       "recommended": {
         "primary": "下载客户端",
         "secondary": "体验模拟演示",
@@ -535,18 +512,18 @@ export const PRODUCTS = [
     },
     "download": {
       "state": "available",
-      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.0.0/fangcun-packing-calculator-3.0.0-win-x64-public.zip",
-      "filename": "fangcun-packing-calculator-3.0.0-win-x64-public.zip",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.1.0/fangcun-packing-calculator-3.1.0-win-x64-public.zip",
+      "filename": "fangcun-packing-calculator-3.1.0-win-x64-public.zip",
       "platform": "Windows 10/11 x64",
-      "version": "3.0.0",
-      "date": "2026-08-27",
+      "version": "3.1.0",
+      "date": "2026-09-03",
       "verification": "verified",
-      "bytes": 65479402,
-      "displaySize": "62.4 MiB",
-      "sha256": "9a9bd04f8bff9ebc7df40b44d359e073611848f2dceb15a4f4da31f7bbf0b3f1",
-      "sha256UppercaseInChecksum": "9A9BD04F8BFF9EBC7DF40B44D359E073611848F2DCEB15A4F4DA31F7BBF0B3F1",
+      "bytes": 130207020,
+      "displaySize": "124.2 MiB",
+      "sha256": "eed20084797c06d6063837040b25522e63fe2f16d1e1080e5f57d83208726d0d",
+      "sha256UppercaseInChecksum": "EED20084797C06D6063837040B25522E63FE2F16D1E1080E5F57D83208726D0D",
       "sha256CaseInsensitiveMatch": true,
-      "releaseRecordPackage": "fangcun-packing-calculator-3.0.0-win-x64-public.zip",
+      "releaseRecordPackage": "fangcun-packing-calculator-3.1.0-win-x64-public.zip",
       "digitalSignature": "NotSigned",
       "localArchivePresent": false,
       "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
@@ -555,28 +532,28 @@ export const PRODUCTS = [
         {
           "title": "公开发布清单",
           "filename": "public-manifest.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.0.0/public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.1.0/public-manifest.json",
           "format": "JSON",
-          "bytes": 2303,
-          "displaySize": "2.2 KiB",
+          "bytes": 2700,
+      "displaySize": "2.6 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
           "title": "发布记录",
           "filename": "release-record.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.0.0/release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.1.0/release-record.json",
           "format": "JSON",
-          "bytes": 1076,
+          "bytes": 1124,
           "displaySize": "1.1 KiB",
           "buttonLabel": "下载发布记录"
         },
         {
           "title": "SHA-256 校验文件",
           "filename": "SHA256SUMS.txt",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.0.0/SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-packing-3.1.0/SHA256SUMS.txt",
           "format": "TXT",
-          "bytes": 118,
-          "displaySize": "118 B",
+          "bytes": 294,
+          "displaySize": "294 B",
           "buttonLabel": "下载 SHA-256 校验文件"
         }
       ]
@@ -611,12 +588,12 @@ export const PRODUCTS = [
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "查看工作流",
-      "downloadPanel": "已核验下载 / 打包计算器 3.0.0 / SHA-256",
-      "downloadButton": "下载 Windows 10/11 x64 客户端 · 62.4 MiB",
+      "downloadPanel": "已核验下载 / 打包计算器 3.1.0 / SHA-256",
+      "downloadButton": "下载 Windows 10/11 x64 客户端 · 124.2 MiB",
       "recommended": {
         "primary": "下载客户端",
         "secondary": "查看工作流",
-        "nextStep": "下载 3.0.0 Windows x64 客户端，核对 SHA-256 后按产品授权说明完成授权"
+        "nextStep": "下载 3.1.0 Windows x64 客户端，核对 SHA-256 后按产品授权说明完成授权"
       }
     }
   },
@@ -640,7 +617,7 @@ export const PRODUCTS = [
       "downloadable": true,
       "effectiveStatus": "available",
       "label": "正式销售 · 已验证下载",
-      "reason": "Windows 10/11 与 Windows 7 x64 公开包的版本、文件大小、架构与 SHA-256 已完成核对。"
+      "reason": "Windows 10/11 x64 公开包的版本、文件大小、架构与 SHA-256 已完成核对。"
     },
     "trial": {
       "days": 30,
@@ -651,60 +628,48 @@ export const PRODUCTS = [
     },
     "download": {
       "state": "available",
-      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/fangcun-accounting-0.5.0-win10-11-x64-public.zip",
-      "filename": "fangcun-accounting-0.5.0-win10-11-x64-public.zip",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.8.0/fangcun-accounting-0.8.0-win-x64-public.zip",
+      "filename": "fangcun-accounting-0.8.0-win-x64-public.zip",
       "platform": "Windows 10/11 x64",
-      "version": "0.5.0",
-      "date": "2026-08-27",
+      "version": "0.8.0",
+      "date": "2026-09-03",
       "verification": "verified",
-      "bytes": 9687285,
-      "displaySize": "9.2 MiB",
-      "sha256": "7c90c3b0caec427dc7bcd0453c07e88298ead0d6df69086adb856a78dce7aa5e",
-      "sha256UppercaseInChecksum": "7C90C3B0CAEC427DC7BCD0453C07E88298EAD0D6DF69086ADB856A78DCE7AA5E",
+      "bytes": 92510616,
+      "displaySize": "88.2 MiB",
+      "sha256": "bdf5e898eb08bd4e34dde9b071471bb02bf9b184099ba70c5313e80b058f0da9",
+      "sha256UppercaseInChecksum": "BDF5E898EB08BD4E34DDE9B071471BB02BF9B184099BA70C5313E80B058F0DA9",
       "sha256CaseInsensitiveMatch": true,
-      "releaseRecordPackage": "fangcun-accounting-0.5.0-win10-11-x64-public.zip",
+      "releaseRecordPackage": "fangcun-accounting-0.8.0-win-x64-public.zip",
       "digitalSignature": "NotSigned",
       "localArchivePresent": false,
       "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
-      "variants": [
-        {
-          "title": "Windows 7 x64 客户端",
-          "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/fangcun-accounting-0.5.0-win7-x64-public.zip",
-          "filename": "fangcun-accounting-0.5.0-win7-x64-public.zip",
-          "platform": "Windows 7 x64",
-          "runtime": "Python 3.8 bundled runtime",
-          "bytes": 9687281,
-          "displaySize": "9.2 MiB",
-          "sha256": "b4338f9cc9beeaa08aa4364c2810d8e4e88ea91f3f185f9d6fc4db94e363e9d6",
-          "buttonLabel": "下载 Windows 7 x64 客户端"
-        }
-      ],
+      "variants": [],
       "supportFiles": [
         {
           "title": "公开发布清单",
           "filename": "public-manifest.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.8.0/public-manifest.json",
           "format": "JSON",
-          "bytes": 398828,
-          "displaySize": "389.5 KiB",
+          "bytes": 58863,
+          "displaySize": "57.5 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
           "title": "发布记录",
           "filename": "release-record.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.8.0/release-record.json",
           "format": "JSON",
-          "bytes": 1468,
-          "displaySize": "1.4 KiB",
+          "bytes": 1257,
+          "displaySize": "1.2 KiB",
           "buttonLabel": "下载发布记录"
         },
         {
           "title": "SHA-256 校验文件",
           "filename": "SHA256SUMS.txt",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.5.0/SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-accounting-0.8.0/SHA256SUMS.txt",
           "format": "TXT",
-          "bytes": 226,
-          "displaySize": "226 B",
+          "bytes": 286,
+          "displaySize": "286 B",
           "buttonLabel": "下载 SHA-256 校验文件"
         }
       ]
@@ -739,12 +704,12 @@ export const PRODUCTS = [
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与价格",
       "productHeroSecondary": "查看工作流",
-      "downloadPanel": "已核验下载 / 记账软件 0.5.0 / SHA-256",
-      "downloadButton": "下载 Windows 10/11 x64 客户端 · 9.2 MiB",
+      "downloadPanel": "已核验下载 / 记账软件 0.8.0 / SHA-256",
+      "downloadButton": "下载 Windows 10/11 x64 客户端 · 88.2 MiB",
       "recommended": {
         "primary": "下载客户端",
         "secondary": "查看工作流",
-        "nextStep": "下载 0.5.0 对应系统客户端，核对 SHA-256 后按账号年度授权说明完成授权"
+        "nextStep": "下载 0.8.0 对应系统客户端，核对 SHA-256 后按账号年度授权说明完成授权"
       }
     }
   }

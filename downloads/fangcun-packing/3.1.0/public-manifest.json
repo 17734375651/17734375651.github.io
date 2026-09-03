@@ -1,0 +1,85 @@
+{
+  "schema": "fangcun-offline-public-manifest/v1",
+  "catalog_id": "packing",
+  "product_id": "fangcun-packing-windows-v3",
+  "protocol": "FCL2",
+  "app_version": "3.1.0",
+  "platform": "windows-x64",
+  "trial": {
+    "duration_days": 30,
+    "scope": "machine_and_product",
+    "network_required": false
+  },
+  "paid": {
+    "annual_price": "¥499/年",
+    "offline_after_import": true
+  },
+  "keys": [
+    {
+      "key_id": "packing-offline-paid-ed25519-2026-09",
+      "purpose": "paid",
+      "algorithm": "Ed25519",
+      "status": "CURRENT",
+      "public_key_b64url": "FOIfH_V18PteVm3SU4daivzPzFJb5LA-2bIhq5-vlTs",
+      "public_key_sha256": "BC1FE1FDEE1AF1EBAE004E70D64CDD91315834D4316A35F96557C98799113147"
+    },
+    {
+      "key_id": "packing-offline-recovery-ed25519-2026-09",
+      "purpose": "recovery",
+      "algorithm": "Ed25519",
+      "status": "CURRENT",
+      "public_key_b64url": "j1W8cKpdvNjbjKD7GcIJc6iNfuGIuAYjhzSz7q9rl1I",
+      "public_key_sha256": "75BC3DF578A854958F6075323BC9CF04BAB24A224A3070C71444790E0EA77C1F"
+    }
+  ],
+  "package_files": [
+    {
+      "name": "FangCunOfflineRecovery.exe",
+      "bytes": 76004577,
+      "sha256": "46C5EB982E91B25E1DDF1444D6D1F6EC2CA3920F405050A76EAD9F4A669A0F4F",
+      "role": "recovery-helper"
+    },
+    {
+      "name": "FangCunOfflineTrialInit.exe",
+      "bytes": 76000487,
+      "sha256": "E9D44CFA8954234C93991C3021C2B194B9D3148DDE5EC0FC0835DBA10FFB0C30",
+      "role": "trial-init-helper"
+    },
+    {
+      "name": "README-纯离线授权.txt",
+      "bytes": 642,
+      "sha256": "56B0085C88E66FEE66C69C330C565AADE3A3FE8DFDA1086B2179310393CA8831",
+      "role": "documentation"
+    },
+    {
+      "name": "README.md",
+      "bytes": 3043,
+      "sha256": "ABEE890BE0A97258FABCB288E526130CA806E7349CD66ECC4BA7BC3C11AD06F2",
+      "role": "documentation"
+    },
+    {
+      "name": "docs/Excel模板说明-v3.md",
+      "bytes": 1386,
+      "sha256": "C067A7B882E5CBACD61D2CA0838D34CB402F12D8A91489A8EFDD5E3B54579F7C",
+      "role": "documentation"
+    },
+    {
+      "name": "docs/离线激活操作-v3.md",
+      "bytes": 1300,
+      "sha256": "B5FD8C8551AF82E3EF65287ADC65FA0EDC24F51665B8715A9B9CDF820016AF83",
+      "role": "documentation"
+    },
+    {
+      "name": "public_keys.json",
+      "bytes": 177,
+      "sha256": "532618B6C6C4514B0DB9CF8EE3B52AD31D1A941FC69FC90A9C54DBCB06F179FA",
+      "role": "public-license-keyring"
+    },
+    {
+      "name": "方寸打包计算器.exe",
+      "bytes": 149203616,
+      "sha256": "19C18F3DB0725C360E6610F3CE560001E43FE62BFD12CCA51384EC67AA7D8B98",
+      "role": "client"
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+# Release evidence must retain the exact bytes used by SHA256SUMS and the
+# public downloads; Windows checkout must not rewrite its line endings.
+downloads/fangcun-label/1.1.0/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+downloads/fangcun-bleed/1.2.12/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+downloads/fangcun-multisize/0.10.0/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+downloads/fangcun-pdf/1.1.0/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+downloads/fangcun-packing/3.1.0/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+downloads/fangcun-accounting/0.8.0/* -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

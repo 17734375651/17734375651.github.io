@@ -116,15 +116,12 @@ test('downloads page exposes every real public file without JavaScript', () => {
   const route = collectRouteDefinitions().find((item) => item.path === '/downloads/')
   const html = buildRouteHtml(route)
   for (const filename of [
-    'fangcun-label-imposition-20260821-win10-11-x64-public.zip',
-    'fangcun-label-imposition-20260821-win7-x64-public.zip',
-    'fangcun-bleed-cutting-1.2.11-win-x86-public.zip',
-    'fangcun-multisize-bleed-cut-0.9.0-win-x64-public.zip',
-    'fangcun-pdf-print-assistant-20260821-win10-11-x64-public.zip',
-    'fangcun-pdf-print-assistant-20260821-win7-x64-public.zip',
-    'fangcun-packing-calculator-3.0.0-win-x64-public.zip',
-    'fangcun-accounting-0.5.0-win10-11-x64-public.zip',
-    'fangcun-accounting-0.5.0-win7-x64-public.zip',
+    'fangcun-label-imposition-1.1.0-win-x64-public.zip',
+    'fangcun-bleed-1.2.12-win-x86-public.zip',
+    'fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip',
+    'fangcun-pdf-print-assistant-1.1.0-win-x64-public.zip',
+    'fangcun-packing-calculator-3.1.0-win-x64-public.zip',
+    'fangcun-accounting-0.8.0-win-x64-public.zip',
     'public-manifest.json',
     'release-record.json',
     'SHA256SUMS.txt',
@@ -133,7 +130,7 @@ test('downloads page exposes every real public file without JavaScript', () => {
   }
   const downloadItems = CONTENT_CATEGORIES.find((category) => category.id === 'downloads').items
   assert.equal((html.match(/class="download-card"/g) ?? []).length, downloadItems.length)
-  assert.equal(downloadItems.length, 27)
+  assert.equal(downloadItems.length, 24)
   assert.doesNotMatch(html, /redacted-demo-materials|脱敏展示包/)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
 })

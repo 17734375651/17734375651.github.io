@@ -1,0 +1,36 @@
+{
+  "schema": "fangcun-offline-release-record/v1",
+  "tag": "fangcun-pdf-1.1.0",
+  "catalog_id": "pdf",
+  "product_id": "pdf",
+  "app_version": "1.1.0",
+  "platform": "windows-x64",
+  "package_filename": "fangcun-pdf-print-assistant-1.1.0-win-x64-public.zip",
+  "package_bytes": 101889079,
+  "package_sha256": "921927F54BFC856E5B6EAEC1EE199F27659514223BCE8305CA3D859AAFA5015C",
+  "archive": {
+    "zip_test": "PASS",
+    "file_count": 1707,
+    "required_helpers": [
+      "FangCunOfflineTrialInit.exe",
+      "FangCunOfflineRecovery.exe"
+    ]
+  },
+  "helper_sources": {
+    "FangCunOfflineTrialInit.exe": {
+      "bytes": 76000487,
+      "sha256": "E9D44CFA8954234C93991C3021C2B194B9D3148DDE5EC0FC0835DBA10FFB0C30"
+    },
+    "FangCunOfflineRecovery.exe": {
+      "bytes": 76004577,
+      "sha256": "46C5EB982E91B25E1DDF1444D6D1F6EC2CA3920F405050A76EAD9F4A669A0F4F"
+    }
+  },
+  "license_material": "public_keys_only",
+  "trial": {
+    "duration_days": 30,
+    "network_required": false,
+    "scope": "machine_and_product"
+  },
+  "rollback": "rollback.ps1"
+}

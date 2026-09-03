@@ -383,7 +383,7 @@ function AvailabilityPanel({ product }) {
             <h2 id="availability-title">下载与价格</h2>
             <p>{PRODUCT_STATUS_DESCRIPTIONS[product.status.effectiveStatus]}</p>
             <div className="availability-price"><strong>{product.price.display}</strong><span>{product.price.sourceUnit === '元/账号/年' ? '账号年度授权 · 一个账号对应一个企业账套主体' : `年度授权 · ${product.price.termDays} 天`}</span></div>
-            {product.trial?.display && <p className="trial-note"><Clock size={18} weight="duotone" aria-hidden="true" />{product.trial.display}</p>}
+            {product.trial?.display && <p className="trial-note"><Clock size={18} weight="duotone" aria-hidden="true" />{product.trial.display}；首次初始化可能出现一次 Windows UAC 系统确认，这是本机初始化，不代表申请试用或联网激活。</p>}
             <LinkButton href={action.href}>{action.label}</LinkButton>
           </div>
           <div className={`download-panel ${publicFiles.length ? 'download-panel-verified' : ''}`} id="downloads">
@@ -392,7 +392,7 @@ function AvailabilityPanel({ product }) {
               <div className="download-spec-grid"><div><small>版本</small><strong>{product.download.version}</strong></div><div><small>运行时</small><strong>{product.download.platform}</strong></div><div><small>文件大小</small><strong>{product.download.displaySize}</strong></div><div><small>核验</small><strong>已核验</strong></div></div>
               <div className="checksum"><small>SHA-256</small><code>{product.download.sha256}</code></div>
               <a className="download-link" href={primaryClient.path} target="_blank" rel="noreferrer"><DownloadSimple size={19} weight="bold" aria-hidden="true" />{primaryClient.buttonLabel}<ArrowUpRight size={17} aria-hidden="true" /></a>
-              {product.download.digitalSignature === 'NotSigned' && <p className="download-note">当前客户端未进行数字签名；请从本页公开链接下载并核对 SHA-256，完整解压后启动。</p>}
+              {product.download.digitalSignature === 'NotSigned' && <p className="download-note">当前客户端未进行数字签名；请从本页公开链接下载并核对 SHA-256，完整解压后启动。首次初始化可能出现一次 Windows UAC 系统确认，这是本机初始化，不代表申请试用或联网激活。</p>}
             </> : <div className="release-candidate"><Wrench size={28} weight="duotone" aria-hidden="true" /><div><strong>客户端发布确认中</strong><p>{product.download.panelText}</p></div></div>}
             {supportingFiles.length > 0 && <div className="download-file-list" aria-label={`${product.name} 可下载文件`}><h3>可下载文件</h3>{supportingFiles.map((file) => <DownloadFileRow key={file.path} file={file} />)}</div>}
             <p className="download-note">{available ? '客户端与校验资料均来自当前公开发布记录；下载前可逐项核对。' : '客户端完成发布确认后再补充版本与校验记录。'}</p>

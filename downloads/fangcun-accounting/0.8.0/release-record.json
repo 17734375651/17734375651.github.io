@@ -1,0 +1,44 @@
+{
+  "schema": "fangcun-offline-release-record/v1",
+  "tag": "fangcun-accounting-0.8.0",
+  "catalog_id": "accounting",
+  "product_id": "fangcun-accounting",
+  "app_version": "0.8.0",
+  "platform": "windows-x64",
+  "package_filename": "fangcun-accounting-0.8.0-win-x64-public.zip",
+  "package_bytes": 92510616,
+  "package_sha256": "BDF5E898EB08BD4E34DDE9B071471BB02BF9B184099BA70C5313E80B058F0DA9",
+  "archive": {
+    "zip_test": "PASS",
+    "file_count": 269,
+    "required_helpers": [
+      "FangCunOfflineTrialInit.exe",
+      "FangCunOfflineRecovery.exe"
+    ]
+  },
+  "helpers": [
+    {
+      "fileName": "FangCunOfflineTrialInit.exe",
+      "bytes": 76000487,
+      "sha256": "E9D44CFA8954234C93991C3021C2B194B9D3148DDE5EC0FC0835DBA10FFB0C30",
+      "peMachine": "0x8664"
+    },
+    {
+      "fileName": "FangCunOfflineRecovery.exe",
+      "bytes": 76004577,
+      "sha256": "46C5EB982E91B25E1DDF1444D6D1F6EC2CA3920F405050A76EAD9F4A669A0F4F",
+      "peMachine": "0x8664"
+    }
+  ],
+  "license_material": "public_keys_only",
+  "trial": {
+    "duration_days": 30,
+    "network_required": false,
+    "scope": "machine_and_product"
+  },
+  "optional_sync": {
+    "enabled_by_default": false,
+    "required_for_trial": false
+  },
+  "rollback": "rollback.ps1"
+}

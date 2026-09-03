@@ -1,0 +1,79 @@
+{
+  "schema": "fangcun-release-record-v1",
+  "generatedUtc": "2026-09-03T09:25:06.390Z",
+  "catalogId": "bleed",
+  "productId": "LabelLayout",
+  "version": "1.2.12",
+  "platform": "windows-x86",
+  "runtimeIdentifier": "win-x86",
+  "architecture": "x86",
+  "suggestedTag": "fangcun-bleed-1.2.12",
+  "tagCreated": false,
+  "clientZip": {
+    "fileName": "fangcun-bleed-1.2.12-win-x86-public.zip",
+    "bytes": 129301675,
+    "sha256": "C6DB32BEB25BF8F0E987B67F6DCD9DDA8ED34706093BFE3AE4FBF0C8C0839F33"
+  },
+  "publicManifest": "public-manifest.json",
+  "helpers": [
+    {
+      "role": "trial-init-helper",
+      "fileName": "FangCunOfflineTrialInit.exe",
+      "bytes": 70573287,
+      "sha256": "3B3149C12CED17795DA1FE881EC7397FAA59588AAACB8812298224F664C09A91",
+      "peMachine": "0x014C",
+      "architecture": "x86"
+    },
+    {
+      "role": "recovery-helper",
+      "fileName": "FangCunOfflineRecovery.exe",
+      "bytes": 70577377,
+      "sha256": "48FA16C84F72E08098D02828F5432BC38CD21190A9654D5C92B60EAD105CFAEC",
+      "peMachine": "0x014C",
+      "architecture": "x86"
+    }
+  ],
+  "commands": [
+    "dotnet publish products/bleed/src/LabelLayout.App/LabelLayout.App.csproj -c Release -r win-x86 --self-contained true --no-restore -m:1 -nr:false -p:BuildProjectReferences=true -p:UseSharedCompilation=false -p:PublishSingleFile=false -p:DebugType=None -p:DebugSymbols=false -p:Deterministic=true -p:ContinuousIntegrationBuild=true -p:PathMap=<suite-root>=/_/fangcun-source -o <release-output> => exit 0",
+    "public staging audit => PASS; no debug symbols/private material"
+  ],
+  "build": {
+    "configuration": "Release",
+    "working_directory": "<suite-root>",
+    "publish_output": "<release-output>",
+    "publish_exit": 0,
+    "deterministic": true,
+    "debug_symbols": false
+  },
+  "archive": {
+    "file_count": 309,
+    "zip_test": "PASS",
+    "required_helpers": [
+      "FangCunOfflineTrialInit.exe",
+      "FangCunOfflineRecovery.exe"
+    ]
+  },
+  "observedResults": {
+    "qpdfExeInClient": true,
+    "publish": "exit 0"
+  },
+  "security": {
+    "publicKeyOnly": true,
+    "privateKeyDirectoryAccessed": false,
+    "testKeyEmbedded": false,
+    "packageSecretScan": "PASS"
+  },
+  "rollback": "rollback.ps1",
+  "publication": "not published",
+  "releaseArtifacts": {
+    "package": "fangcun-bleed-1.2.12-win-x86-public.zip",
+    "publicManifest": "public-manifest.json",
+    "releaseRecord": "release-record.json",
+    "sha256sums": "SHA256SUMS.txt"
+  },
+  "notes": [
+    "Generated from a completed publish staging directory.",
+    "Public record paths are sanitized with verification/release_path_hygiene.py.",
+    "No source, product business logic, final six-package release, commit, or tag operation was run."
+  ]
+}

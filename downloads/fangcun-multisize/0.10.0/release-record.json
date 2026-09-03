@@ -1,0 +1,79 @@
+{
+  "schema": "fangcun-release-record-v1",
+  "generatedUtc": "2026-09-03T09:25:48.430Z",
+  "catalogId": "multisize-bleed",
+  "productId": "FangCun.MultiSizeBleedCut",
+  "version": "0.10.0",
+  "platform": "windows-x64",
+  "runtimeIdentifier": "win-x64",
+  "architecture": "x64",
+  "suggestedTag": "fangcun-multisize-0.10.0",
+  "tagCreated": false,
+  "clientZip": {
+    "fileName": "fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip",
+    "bytes": 137218738,
+    "sha256": "61E8C8A3377CCC9BACB9EBEF3B7391F469BED03E338A541B5723057374E69A83"
+  },
+  "publicManifest": "public-manifest.json",
+  "helpers": [
+    {
+      "role": "trial-init-helper",
+      "fileName": "FangCunOfflineTrialInit.exe",
+      "bytes": 76000487,
+      "sha256": "E9D44CFA8954234C93991C3021C2B194B9D3148DDE5EC0FC0835DBA10FFB0C30",
+      "peMachine": "0x8664",
+      "architecture": "x64"
+    },
+    {
+      "role": "recovery-helper",
+      "fileName": "FangCunOfflineRecovery.exe",
+      "bytes": 76004577,
+      "sha256": "46C5EB982E91B25E1DDF1444D6D1F6EC2CA3920F405050A76EAD9F4A669A0F4F",
+      "peMachine": "0x8664",
+      "architecture": "x64"
+    }
+  ],
+  "commands": [
+    "dotnet publish products/multisize-bleed/src/FangCun.MultiSizeBleedCut.App/FangCun.MultiSizeBleedCut.App.csproj -c Release -r win-x64 --self-contained true --no-restore -m:1 -nr:false -p:BuildProjectReferences=true -p:UseSharedCompilation=false -p:PublishSingleFile=false -p:DebugType=None -p:DebugSymbols=false -p:Deterministic=true -p:ContinuousIntegrationBuild=true -p:PathMap=<suite-root>=/_/fangcun-source -o <release-output> => exit 0",
+    "public staging audit => PASS; no debug symbols/private material"
+  ],
+  "build": {
+    "configuration": "Release",
+    "working_directory": "<suite-root>",
+    "publish_output": "<release-output>",
+    "publish_exit": 0,
+    "deterministic": true,
+    "debug_symbols": false
+  },
+  "archive": {
+    "file_count": 309,
+    "zip_test": "PASS",
+    "required_helpers": [
+      "FangCunOfflineTrialInit.exe",
+      "FangCunOfflineRecovery.exe"
+    ]
+  },
+  "observedResults": {
+    "qpdfExeInClient": true,
+    "publish": "exit 0"
+  },
+  "security": {
+    "publicKeyOnly": true,
+    "privateKeyDirectoryAccessed": false,
+    "testKeyEmbedded": false,
+    "packageSecretScan": "PASS"
+  },
+  "rollback": "rollback.ps1",
+  "publication": "not published",
+  "releaseArtifacts": {
+    "package": "fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip",
+    "publicManifest": "public-manifest.json",
+    "releaseRecord": "release-record.json",
+    "sha256sums": "SHA256SUMS.txt"
+  },
+  "notes": [
+    "Generated from a completed publish staging directory.",
+    "Public record paths are sanitized with verification/release_path_hygiene.py.",
+    "No source, product business logic, final six-package release, commit, or tag operation was run."
+  ]
+}

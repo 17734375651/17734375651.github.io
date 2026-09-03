@@ -161,7 +161,7 @@ export const SEO_ROUTES = [
       "输入资料：Excel 数量表、标签尺寸与版面容量、冗余与成本参数。",
       "处理：读取同尺寸、多内容标签数量表，给出版面、纸张、机器与余量建议。",
       "输出：Word 排版说明、Excel 计算明细、可复核成本与余量。",
-      "年授权 199 元；Windows 10/11 与 Windows 7 x64 客户端可下载；首次启动无需申请，可离线体验 30 天。"
+      "年授权 199 元；Windows 10/11 x64 客户端可下载；首次启动无需申请，可离线体验 30 天。"
     ],
     "verifiedFacts": {
       "status": "正式销售 · 已验证下载",
@@ -183,7 +183,7 @@ export const SEO_ROUTES = [
         "导出员工可执行、负责人可复核的文件"
       ],
       "boundary": "官网提供已核验的 Windows x64 客户端；试用在本机初始化，正式授权文件离线导入，客户资料不上传官网。",
-      "releaseEvidence": "fangcun-label-20260821 Release 提供两个客户端、公开清单、发布记录与 SHA-256 校验文件。"
+      "releaseEvidence": "fangcun-label-1.1.0 Release 提供 Windows 10/11 x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
     }
   },
   {
@@ -192,7 +192,7 @@ export const SEO_ROUTES = [
     "productId": "bleed",
     "status": 200,
     "title": "方寸有序胀色裁切｜CMYK 胀色与印前复检",
-    "description": "方寸有序胀色裁切：读取 Excel 订单与 PDF，自动完成胀色、裁切、拼版与印前复检。年授权 799 元，提供已验证 Windows x86 下载。",
+    "description": "方寸有序胀色裁切：读取 Excel 订单与 PDF，自动完成胀色、裁切、拼版与印前复检。年授权 799 元，提供已验证 Windows 10/11（x86 客户端，兼容 x86/x64）下载。",
     "canonical": "https://17734375651.github.io/products/bleed/",
     "og": {
       "title": "方寸有序胀色裁切｜CMYK 胀色与印前复检",
@@ -228,7 +228,7 @@ export const SEO_ROUTES = [
         "生成 CMYK 胀色、外置裁切标记及复检报告"
       ],
       "boundary": "官网提供已核验的公开版客户端；核心处理在本地完成，客户资料不会上传官网。",
-      "releaseEvidence": "downloads/fangcun/1.2.11/public-manifest.json and release-record.json are present in the export."
+      "releaseEvidence": "fangcun-bleed-1.2.12 Release 提供 Windows 10/11（x86 客户端，兼容 x86/x64）、公开清单、发布记录与 SHA-256 校验文件。"
     }
   },
   {
@@ -274,7 +274,7 @@ export const SEO_ROUTES = [
         "自动比较大机器、小机器及混用版面"
       ],
       "boundary": "本产品使用独立名称、版本、下载与年度授权；所有 PDF 处理均在本地完成。",
-      "releaseEvidence": "fangcun-multisize-0.9.0 Release 提供 Windows x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
+      "releaseEvidence": "fangcun-multisize-0.10.0 Release 提供 Windows x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
     }
   },
   {
@@ -297,7 +297,7 @@ export const SEO_ROUTES = [
       "输入资料：Excel / CSV、文字页数要求、原始 PDF。",
       "处理：解析每页目标份数与冲突规则，生成规范任务表并按要求加工 PDF。",
       "输出：规范化任务 Excel、加工后 PDF、逐页审计 Excel。",
-      "年授权 599 元；Windows 10/11 与 Windows 7 x64 客户端可下载；首次启动无需申请，可离线体验 30 天。"
+      "年授权 599 元；Windows 10/11 x64 客户端可下载；首次启动无需申请，可离线体验 30 天。"
     ],
     "verifiedFacts": {
       "status": "正式销售 · 已验证下载",
@@ -319,7 +319,7 @@ export const SEO_ROUTES = [
         "逐页记录处理结果，便于复核追踪"
       ],
       "boundary": "官网提供已核验的 Windows x64 客户端；试用在本机初始化，正式授权文件离线导入，官网不接收客户文件上传。",
-      "releaseEvidence": "fangcun-pdf-20260821 Release 提供两个客户端、公开清单、发布记录与 SHA-256 校验文件。"
+      "releaseEvidence": "fangcun-pdf-1.1.0 Release 提供 Windows 10/11 x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
     }
   },
   {
@@ -364,7 +364,7 @@ export const SEO_ROUTES = [
         "导出可复核的方案与费用明细"
       ],
       "boundary": "官网提供已核验的 Windows 10/11 x64 客户端；业务资料和试用状态均在本机处理，正式授权文件离线导入。",
-      "releaseEvidence": "fangcun-packing-3.0.0 Release 提供 Windows 10/11 x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
+      "releaseEvidence": "fangcun-packing-3.1.0 Release 提供 Windows 10/11 x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
     }
   },
   {
@@ -387,7 +387,7 @@ export const SEO_ROUTES = [
       "输入资料：客户、供应商、商品服务资料，以及进货、销售和收付款记录。",
       "处理：登记业务单据，跟踪应收应付与账龄，生成凭证、报表和审计记录。",
       "输出：明细账、试算平衡、利润表、资产负债表、对账与复核明细。",
-      "¥999 / 账号 / 年；Windows 10/11 与 Windows 7 x64 客户端可下载；首次启动无需申请，可离线体验 30 天；一个账号对应一个企业账套主体。"
+      "¥999 / 账号 / 年；Windows 10/11 x64 客户端可下载；首次启动无需申请，可离线体验 30 天；一个账号对应一个企业账套主体。"
     ],
     "verifiedFacts": {
       "status": "正式销售 · 已验证下载",
@@ -410,7 +410,7 @@ export const SEO_ROUTES = [
         "保留来源、复核与审计轨迹"
       ],
       "boundary": "按账号年度离线授权；一个账号对应一个企业账套主体。试用在本机初始化，授权判定与可选数据同步相互独立。",
-      "releaseEvidence": "fangcun-accounting-0.5.0 Release 提供 Windows 10/11 x64、Windows 7 x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
+      "releaseEvidence": "fangcun-accounting-0.8.0 Release 提供 Windows 10/11 x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
     }
   },
   {

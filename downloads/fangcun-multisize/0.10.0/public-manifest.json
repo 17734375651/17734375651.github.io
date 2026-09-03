@@ -1,0 +1,2368 @@
+{
+  "schema": "fangcun-public-release-v1",
+  "generatedUtc": "2026-09-03T09:25:48.430Z",
+  "catalogId": "multisize-bleed",
+  "productId": "FangCun.MultiSizeBleedCut",
+  "displayName": "方寸有序多尺寸胀色裁切",
+  "version": "0.10.0",
+  "platform": "windows-x64",
+  "runtimeIdentifier": "win-x64",
+  "architecture": "x64",
+  "clientZip": {
+    "fileName": "fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip",
+    "bytes": 137218738,
+    "sha256": "61E8C8A3377CCC9BACB9EBEF3B7391F469BED03E338A541B5723057374E69A83"
+  },
+  "license": {
+    "scheme": "pure-offline-machine-bound",
+    "signatureAlgorithm": "Ed25519",
+    "trustRoot": "compiled-in-production-public-key-ring",
+    "sidecarTrusted": false,
+    "missingKeyBehavior": "fail-closed",
+    "wrongProductBehavior": "fail-closed",
+    "tamperedTokenBehavior": "fail-closed",
+    "paidFile": "annual-signed-paid-license",
+    "offlineAfterActivation": true,
+    "trialDays": 30,
+    "trialStart": "first-successful-elevated-helper-init-per-machine",
+    "reinstallResetsTrial": false,
+    "businessDataReadBeforeGate": false
+  },
+  "publicKeySource": "contracts/production-public-keys-v1.json",
+  "publicKeys": {
+    "recovery": {
+      "id": "multisize-offline-recovery-ed25519-2026-09",
+      "sha256": "7686A5689D6E9560B7C94D819E78B8A62B8781ABFA55E663F92268548C336988",
+      "key": "Qn6Ai0KblgLWeVCv7Qr2qHnLwaM34bZK6ZmLWwElGDE",
+      "encoding": "base64url"
+    },
+    "paid": {
+      "id": "multisize-offline-paid-ed25519-2026-09",
+      "sha256": "FA989253E7FE6CBE1F53583A18907099B1F299088C966BC31879D3740B296054",
+      "key": "6sPBBaQREocvCqlT-qaCIH8NHu29s3LtVXlKdFgdTn8",
+      "encoding": "base64url"
+    }
+  },
+  "compiledKeyFingerprints": [
+    "FA989253E7FE6CBE1F53583A18907099B1F299088C966BC31879D3740B296054",
+    "7686A5689D6E9560B7C94D819E78B8A62B8781ABFA55E663F92268548C336988"
+  ],
+  "clientFiles": [
+    {
+      "role": "client",
+      "fileName": "方寸有序多尺寸胀色裁切.exe",
+      "bytes": 291840,
+      "sha256": "A08C6520088FDF93FE8EB41CB80CCE0DBDA3C5442D2175C71A7AF89DE4CEFBBD",
+      "peMachine": "0x8664",
+      "architecture": "x64"
+    },
+    {
+      "role": "trial-init-helper",
+      "fileName": "FangCunOfflineTrialInit.exe",
+      "bytes": 76000487,
+      "sha256": "E9D44CFA8954234C93991C3021C2B194B9D3148DDE5EC0FC0835DBA10FFB0C30",
+      "peMachine": "0x8664",
+      "architecture": "x64"
+    },
+    {
+      "role": "recovery-helper",
+      "fileName": "FangCunOfflineRecovery.exe",
+      "bytes": 76004577,
+      "sha256": "46C5EB982E91B25E1DDF1444D6D1F6EC2CA3920F405050A76EAD9F4A669A0F4F",
+      "peMachine": "0x8664",
+      "architecture": "x64"
+    }
+  ],
+  "build": {
+    "publishExit": 0,
+    "offlineSuite": "6 total; 6 passed",
+    "configuration": "Release",
+    "fullSuite": "62 total; 62 passed",
+    "qpdfExePresent": true,
+    "deterministic": true,
+    "debugSymbols": false,
+    "publishOutput": "<release-output>"
+  },
+  "security": {
+    "packageSecretScan": "PASS",
+    "publicKeyOnly": true,
+    "privateKeyDirectoryAccessed": false,
+    "testKeyEmbedded": false,
+    "privateKeyGenerated": false
+  },
+  "suggestedTag": "fangcun-multisize-0.10.0",
+  "tagCreated": false,
+  "packageSecretScanEvidence": "0 private/test-key markers in implementation and release payload",
+  "rollbackVerification": {
+    "status": "PASS",
+    "whatIfExit": 0,
+    "actualExit": 0,
+    "whatIfNoMutation": true,
+    "actualRestored": true,
+    "existingInstallFilesPreserved": true,
+    "verifiedOn": "isolated temporary install/backup directories",
+    "command": "powershell -NoProfile -ExecutionPolicy Bypass -File Rollback-Task6Release.ps1 -InstallRoot <isolated-install> -BackupRoot <isolated-backup> -WhatIf; repeat without -WhatIf"
+  },
+  "releaseArtifacts": {
+    "publicManifest": "public-manifest.json",
+    "releaseRecord": "release-record.json",
+    "sha256Sums": "SHA256SUMS.txt",
+    "rollbackScript": "Rollback-Task6Release.ps1"
+  },
+  "bundledTools": {
+    "qpdfVersion": "12.3.2",
+    "qpdfArchitecture": "x86",
+    "x64WindowsCompatibility": true,
+    "files": [
+      {
+        "role": "pdf-engine-license",
+        "fileName": "tools/qpdf/LICENSE.html",
+        "bytes": 6644,
+        "sha256": "D9C0F00A8E0DF2CA3D3A93FE147C12F222F3EE00D1081824CF3F0697C5FE0405",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-runtime",
+        "fileName": "tools/qpdf/concrt140.dll",
+        "bytes": 259688,
+        "sha256": "A2B04C69868B08A600518EBBAD1661D38DE4DD0E0A8E638C22D4641D410E50B1",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-tool",
+        "fileName": "tools/qpdf/fix-qdf.exe",
+        "bytes": 96256,
+        "sha256": "432FC5F21D2A2D0F8EF88148A588FC69A184ECE54FD1091B6D1BB926C6D5EDE1",
+        "architecture": "x86"
+      },
+      {
+        "role": "pdf-engine-runtime",
+        "fileName": "tools/qpdf/msvcp140.dll",
+        "bytes": 447616,
+        "sha256": "97E71A3C697FB1AB3AF777DB39009E4602525E8C3AFF0837ECC7031CBA188165",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-runtime",
+        "fileName": "tools/qpdf/msvcp140_1.dll",
+        "bytes": 33896,
+        "sha256": "01A58552686D0C6B9FD67A7AC81169FC0013AEDF59A8EFDC611F94907489A31C",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-runtime",
+        "fileName": "tools/qpdf/msvcp140_2.dll",
+        "bytes": 294992,
+        "sha256": "2A5365E03CC6E78B408DFCA81537F3734BF3D7CF9CC13AE33204DFBC641DBE43",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-runtime",
+        "fileName": "tools/qpdf/msvcp140_atomic_wait.dll",
+        "bytes": 47240,
+        "sha256": "C4A2BAE74E008A5BB2445F9078C14DF9DCB03267248DFA64E7D04CDC8AF5208E",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-runtime",
+        "fileName": "tools/qpdf/msvcp140_codecvt_ids.dll",
+        "bytes": 30824,
+        "sha256": "A5CBECFD9B8892EC9A60E30FEF7EF2158032C6D91EFDFBACA87C082BCD48BFA9",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-tool",
+        "fileName": "tools/qpdf/qpdf.exe",
+        "bytes": 17408,
+        "sha256": "E102ABE236920B1D3CEC9AF87DE1DA6895B87733CDE0BFA6055BDF5CD4B6C343",
+        "architecture": "x86"
+      },
+      {
+        "role": "pdf-engine-runtime",
+        "fileName": "tools/qpdf/qpdf30.dll",
+        "bytes": 5061632,
+        "sha256": "8E807243AE76FFCC2BCC413EFBFB3983784FC28D61C6B24F524DD579DCD09F39",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-runtime",
+        "fileName": "tools/qpdf/vcruntime140.dll",
+        "bytes": 91216,
+        "sha256": "A9D7732A3C3DE09F0601A7FA2555093DCB49F08E2FC62A86091461F0F38393ED",
+        "architecture": "n/a"
+      },
+      {
+        "role": "pdf-engine-tool",
+        "fileName": "tools/qpdf/zlib-flate.exe",
+        "bytes": 18944,
+        "sha256": "0A015516707B5383B2537A52E6A2249EB166BAC586FEB45C2175401DEEA32AF1",
+        "architecture": "x86"
+      }
+    ]
+  },
+  "fullWorkflowVerification": {
+    "releaseSuite": "62 total; 62 passed",
+    "qpdfVersion": "12.3.2",
+    "qpdfExePresent": true,
+    "offlineTests": "6/6 passed",
+    "status": "PASS"
+  },
+  "package_files": [
+    {
+      "name": "Accessibility.dll",
+      "bytes": 20816,
+      "sha256": "A3A9C9E7D728136EE02A9E7C44D3FD521DDCB14794B560BF093AD73C64916925",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Assets/FangCunMultiSize.png",
+      "bytes": 2776,
+      "sha256": "A4215330518BF2BDF9D1E8E2505BA5022D31270CD7F6A1322C41DB97A127817E",
+      "role": "application"
+    },
+    {
+      "name": "BouncyCastle.Cryptography.dll",
+      "bytes": 4924576,
+      "sha256": "E5EEAF6D263C493619982FD3638E6135077311D08C961E1FE128F9107D29EBC6",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ExcelDataReader.dll",
+      "bytes": 209408,
+      "sha256": "6A9AD35CC806ED39AC7CD5C83BA470D980F2D665CBF6E7EC413189F04898E84D",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "FangCun.MultiSizeBleedCut.Core.dll",
+      "bytes": 11105280,
+      "sha256": "173B768A0A9FD84E31F4427884A71147948F99662BA8537F1EE4C4F80834FD54",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "FangCun.OfflineLicensing.Windows.dll",
+      "bytes": 47616,
+      "sha256": "705DEFEA71AE0765D1B185F7FBCAAE096BDFCCE644DCF4C8D331CF33AFA89160",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "FangCun.OfflineLicensing.dll",
+      "bytes": 120320,
+      "sha256": "12F3B391F9A2B83A8F54EC53B513889F9563ED2DED91D2EFF43B7CB182DA953A",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "FangCunOfflineRecovery.exe",
+      "bytes": 76004577,
+      "sha256": "46C5EB982E91B25E1DDF1444D6D1F6EC2CA3920F405050A76EAD9F4A669A0F4F",
+      "role": "recovery-helper",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "FangCunOfflineTrialInit.exe",
+      "bytes": 76000487,
+      "sha256": "E9D44CFA8954234C93991C3021C2B194B9D3148DDE5EC0FC0835DBA10FFB0C30",
+      "role": "trial-init-helper",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "Microsoft.CSharp.dll",
+      "bytes": 993064,
+      "sha256": "D06B78109AE1BCF1FB1D3CB7B97E625D93C6FC53E4981FFDCBB84591DDAA68F3",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "Microsoft.DiaSymReader.Native.amd64.dll",
+      "bytes": 2195504,
+      "sha256": "315A61C47C41B8D4C815F4274BB6584C1D24B4640C7EEDC354ED5B03A9A1361E",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+      "bytes": 63768,
+      "sha256": "67FA4325000DB017DC0C35829B416F024F042D24EFB868BCF17A895EE6500A93",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Microsoft.Extensions.DependencyInjection.dll",
+      "bytes": 92952,
+      "sha256": "158761CE778E799949F3A3060C461B1055BB35F1F5A65EFF0E42397849F09ECD",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Microsoft.Extensions.Logging.Abstractions.dll",
+      "bytes": 65320,
+      "sha256": "45C22524218541717E4A0ADE36847C1CDA4921F5945B4975A1C78DDFE023D0B1",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Microsoft.Extensions.Logging.dll",
+      "bytes": 50976,
+      "sha256": "B2CFBA2E05EE89A91E9BC9CF112468A5F4FA05D1A77EA81C131EA656F3D133C2",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Microsoft.Extensions.Options.dll",
+      "bytes": 64776,
+      "sha256": "5E01894CBC0661BACB8CA8F485A40D5EE4E02F28FEF58007668A0276431B4693",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Microsoft.Extensions.Primitives.dll",
+      "bytes": 43680,
+      "sha256": "446FF16E903E7479558816E213A3ADEE9A1C1ADAD65A56D853801B10933E29D7",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Microsoft.VisualBasic.Core.dll",
+      "bytes": 1255248,
+      "sha256": "547026FB59615200A28E424A876336D1DF7A6C1304B6D519E1628DA10443DB00",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "Microsoft.VisualBasic.Forms.dll",
+      "bytes": 247592,
+      "sha256": "1A9E6E4927F2C32145FA31D4973D8845C1B090E58647157792483C5357C43C3A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "Microsoft.VisualBasic.dll",
+      "bytes": 18768,
+      "sha256": "350A065D1F131A09F719F2CF121A7B35B061A1E640AC2FABDACB648051D97FFF",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Microsoft.Win32.Primitives.dll",
+      "bytes": 15144,
+      "sha256": "078C91EF9D5FE030BFF151123921F8536795F0A853662FC3B7ABB3382C2C36A4",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "Microsoft.Win32.Registry.AccessControl.dll",
+      "bytes": 34600,
+      "sha256": "D77BFDB94A9B3B58747ABC55EA511EB9E540C3CD1B61AED5856E98EEE9FCD7AF",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "Microsoft.Win32.Registry.dll",
+      "bytes": 120616,
+      "sha256": "09887DE98FF84AE93922B37E63968302196112DAAA6626C8F593C542F3900E2A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "Microsoft.Win32.SystemEvents.dll",
+      "bytes": 104232,
+      "sha256": "A3B282E5770A62743BE0F47F46201587C822C61B8376F2B092D19865A30175C3",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "PDFtoImage.dll",
+      "bytes": 96096,
+      "sha256": "6C4C47F3A6100363E83F10DCD52A21D6267A88A0761D64538FBDA58BD39B7CA8",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.BarCodes.dll",
+      "bytes": 35840,
+      "sha256": "00576638751CEFCFDBBF3AFE834F7ADB4F693F6B5286450E53913A8E25CDF4AA",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.Charting.dll",
+      "bytes": 88064,
+      "sha256": "362EABCCC243FAC69E054D4D4F33B0359EA48A00C36F19C0BC026CD27B9B6172",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.Cryptography.dll",
+      "bytes": 15360,
+      "sha256": "B3423C331D4FB20AAE104E79AC194C12488B2FE08588BE72F3F8B8838D2662DF",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.Quality.dll",
+      "bytes": 40448,
+      "sha256": "A5B7D1FCD56334B93510925AB62BAD7F365F747FF3F28D1AB17243119328773C",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.Shared.dll",
+      "bytes": 23040,
+      "sha256": "3ABD6F1E452C42B523A2EBC03B08DFC59C02D84E98033B3AAAE7735B460C3137",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.Snippets.dll",
+      "bytes": 154624,
+      "sha256": "85954255A58913FF476F822E03D5A6208B7C8450D24D098F586D605DB7FAA3F3",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.System.dll",
+      "bytes": 7680,
+      "sha256": "2265192D746B94AE8C46434AC971382FD613BCDF7114365D66EE61641BDC00A2",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.WPFonts.dll",
+      "bytes": 421376,
+      "sha256": "C947A77B1D66FDE3DBA54669ED6994E058E78440191353DCB19084E97793D86D",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "PdfSharp.dll",
+      "bytes": 793600,
+      "sha256": "474CC5F29FD534A8A8DD73F87B361F8487FE8E3C96416A56F2987F6047BC94FD",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "SkiaSharp.dll",
+      "bytes": 526176,
+      "sha256": "B1B2F317D17D5C99AB37CF993B89A0A502E6C7F61EFB6D55C4F8636698B519BF",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.AppContext.dll",
+      "bytes": 15144,
+      "sha256": "B67FC39D3B8CAC86EEFE21EADA5D54032737B41D96A152BFFF71BED9EAA41D40",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Buffers.dll",
+      "bytes": 15184,
+      "sha256": "FCACADF2456A0E1B08BF88A97E3C0B8BCB6D9B92683A4441B0C5F7AC5A7FA13C",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.CodeDom.dll",
+      "bytes": 489256,
+      "sha256": "8D390AC0D78FC4D65850081BBF814B8DA7B7129B22866D19E70E1BB462EB278A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Collections.Concurrent.dll",
+      "bytes": 292688,
+      "sha256": "24470574FEB950A5AAD54E18B3BA28821220BAE09F7B62BA365F69AA07AE6D3A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Collections.Immutable.dll",
+      "bytes": 902952,
+      "sha256": "000626CE457E07F84D1A72F5006C3AE9376BB28D5277C14EFC8CE417BB5E9CA3",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Collections.NonGeneric.dll",
+      "bytes": 108368,
+      "sha256": "F544837B1E525C9A0F4A37ECE3E128F304C0AB10E89DF2A2A025610FCDC3825F",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Collections.Specialized.dll",
+      "bytes": 104272,
+      "sha256": "A3C2C9A8B29A05E9B113B7E6C87AC24EE9B2EB7E8FE4116EA820355C74788A2A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Collections.dll",
+      "bytes": 333648,
+      "sha256": "B250E9844B15ADB9C677A68E09E5F48B954E89DD02272515D6D861A009FA5783",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.ComponentModel.Annotations.dll",
+      "bytes": 198440,
+      "sha256": "830E877DF269BF06B144938E6553034C042A48C4736B62F017D4E5D31987B75A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.ComponentModel.DataAnnotations.dll",
+      "bytes": 16680,
+      "sha256": "62C69E394EC34081EEFA5B2C40F08ACDCD9963F3F40402EC1E538B39160F12D3",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.ComponentModel.EventBasedAsync.dll",
+      "bytes": 46928,
+      "sha256": "39C67720C974FD668C9F56468435DA4EA2997929781CBC276251DF54D83BCEE7",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.ComponentModel.Primitives.dll",
+      "bytes": 79696,
+      "sha256": "9683D9BCDA8F9710E822407ED03EDAFED81201A0D994F450A67A90B8822EA725",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.ComponentModel.TypeConverter.dll",
+      "bytes": 771920,
+      "sha256": "5CBAAAF95C41171BC0EED0EFC1AE5797CFF70C6A223E90E6F3CAEA3844E08337",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.ComponentModel.dll",
+      "bytes": 30504,
+      "sha256": "F449549A9422D79EEF3ECE44209CE8E89BFD3ADC584CE82E3C631641435DD354",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Configuration.ConfigurationManager.dll",
+      "bytes": 1070888,
+      "sha256": "5E839EB715CAAD562A67D222C46643F671AE0558604200148CC756084A29DB00",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Configuration.dll",
+      "bytes": 19280,
+      "sha256": "BEE41B84D27F73D39118E418AD12AE2CC1B5CBEBB586028EDEB90F7E6E131A0C",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Console.dll",
+      "bytes": 173864,
+      "sha256": "D429BEC3AF86523DE28A2E7BB043244FC280AAD8A51B48E2EBB4A8C493239DFE",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Core.dll",
+      "bytes": 23376,
+      "sha256": "00033D7F4B5F1E293EE304E47C998406C148F99AB4A07D1298E59F1242FCC143",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Data.Common.dll",
+      "bytes": 2848552,
+      "sha256": "C47A785F11689D274ABA45BEB1649F485A7911F8A16E7B541066DC44312F920A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Data.DataSetExtensions.dll",
+      "bytes": 15696,
+      "sha256": "2A267FE69C78C772BF1AC697A94417F70A31CF932403B25CED4E9DD5882C6694",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Data.dll",
+      "bytes": 24912,
+      "sha256": "BCE185A44E2756B4287282B7C4DEBD991390A319AB4ECCFF75D658D9296B4E44",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Design.dll",
+      "bytes": 22824,
+      "sha256": "EF6406C7EB5A9F0D799116221430BAB33663EBD80EE2AD6DD150E7F958B1C556",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Diagnostics.Contracts.dll",
+      "bytes": 16168,
+      "sha256": "CA2F4CE20F92B2038C2294A1DDDDB9E923560C31C9B40F8F75F9B1D0BEDBAB35",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Diagnostics.Debug.dll",
+      "bytes": 15696,
+      "sha256": "00FB603A8A87BEDB3E1D6C9EF2890A1493D4BC852A01A24D9A541226D98FBD8C",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Diagnostics.DiagnosticSource.dll",
+      "bytes": 452392,
+      "sha256": "6FA3B30626DCAA380F84E0F8C3A9998B7A69DDA4E25496DE6A21CF0B779846BC",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Diagnostics.EventLog.Messages.dll",
+      "bytes": 800592,
+      "sha256": "60C5CB9A48D65C696DEBA40FE27FCFBEEEF7729438B6C545D724C0E18E94D771",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Diagnostics.EventLog.dll",
+      "bytes": 382760,
+      "sha256": "98C2C272F92BD2E2376D273E2D4B3D8DE4983FCEBC708F26772A6C5ACF3F31DC",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Diagnostics.FileVersionInfo.dll",
+      "bytes": 46888,
+      "sha256": "A6BA3783EB71D6D0250A60CCD41E78790DA6531D29BC89A17415DE9ECD4F84FA",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Diagnostics.PerformanceCounter.dll",
+      "bytes": 313128,
+      "sha256": "18C43D16962BAAD6B4DE7258F74D0692379C2BC70E3085C69B31CAE1F7216442",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Diagnostics.Process.dll",
+      "bytes": 337704,
+      "sha256": "9A42890FCAE1CF84775C4A1CD71E9417E6504B7A05D8323EBAD221AE7C0AFF3B",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Diagnostics.StackTrace.dll",
+      "bytes": 46888,
+      "sha256": "26162F0584701CA7BF82B439E79085E76B34981D3B1D4C4506EEB3D5D654F7F8",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Diagnostics.TextWriterTraceListener.dll",
+      "bytes": 67368,
+      "sha256": "AD3AED23A0B98F37A576CEB0718B391ECBDB6128013686611BD9324A7F9EDAA0",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Diagnostics.Tools.dll",
+      "bytes": 15144,
+      "sha256": "1B98AE689BDD655857F85F95F037AE06D8708E85B05013EDBC569D46526CB07F",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Diagnostics.TraceSource.dll",
+      "bytes": 145192,
+      "sha256": "D20719A8C83A167EC3A8E1039325C716774C5228FD25C14559BDB75E5542D060",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Diagnostics.Tracing.dll",
+      "bytes": 16208,
+      "sha256": "479898AB9E7FD22D9719AEB1E6D7834F0FB2A312F11215CF84F942E58B524569",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.DirectoryServices.dll",
+      "bytes": 1034024,
+      "sha256": "8902505C67269106A8790C80738F483A95E25ACC5590DC2E70EBCA9F82C3DD3B",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Drawing.Common.dll",
+      "bytes": 1197864,
+      "sha256": "DF7D2570F973CAECB91D86D7BB52CE8E548A81B184ED682102C29F3BE653D45C",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Drawing.Design.dll",
+      "bytes": 15656,
+      "sha256": "CE6881214E7A615D022E07EB46E7D369712A7884C76B85174E827172482532BB",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Drawing.Primitives.dll",
+      "bytes": 137040,
+      "sha256": "41D7B56DA259C4487FEE57B2CFBBBAE39F48CAE51EE15BF5B4FDCA1C925301C3",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Drawing.dll",
+      "bytes": 20776,
+      "sha256": "B8452DE3A32F200A6E6E55BD1184D3F52537095419C528699BE8F5FC680E8D8F",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Dynamic.Runtime.dll",
+      "bytes": 16168,
+      "sha256": "FC3476CF54D62B57F57D0381DEE434AE01FE68C9BE5817173E1DBC786A64B50F",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Formats.Asn1.dll",
+      "bytes": 239400,
+      "sha256": "C238701DF5B5FD39884050819E372D098788ABA26F833BDB10CA417F49CB070D",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Formats.Nrbf.dll",
+      "bytes": 137000,
+      "sha256": "B540E486C7107A52D048180BED4CCA566B1BAF1A3A8E8273EE8D73E17877DB95",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Formats.Tar.dll",
+      "bytes": 276264,
+      "sha256": "BEE5102DD483964DA9A4E8189D69C77062DD35CBEBCB4B118DDD679E405D56E9",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Globalization.Calendars.dll",
+      "bytes": 15656,
+      "sha256": "6CBAB74096AF66718944503643860590EC83FE51BAE243A40084A66C5C4A794E",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Globalization.Extensions.dll",
+      "bytes": 15144,
+      "sha256": "CE966E877D342EBAFF82577E2745940818B9831AACB6E593F2657B8F1A8D64EC",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Globalization.dll",
+      "bytes": 15656,
+      "sha256": "537FC2FF933D9D1E7AF27E73736E9C764701F0BE89DCAC2B832755701C1617E6",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.IO.Compression.Brotli.dll",
+      "bytes": 87848,
+      "sha256": "D03EB613262C4CFEA06D2F036205FFA57C977A0FA601ED5C9FDB1A82900D7F54",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.Compression.FileSystem.dll",
+      "bytes": 15144,
+      "sha256": "95548289BD512C187A4069AEDDF49DED81721BEC83810A94E1F0083924FAB47F",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.IO.Compression.Native.dll",
+      "bytes": 925008,
+      "sha256": "29F4558765E59CFA12A9609CD824363049DE972D74F46CD18553EAB4CABCFD1C",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.Compression.ZipFile.dll",
+      "bytes": 55080,
+      "sha256": "4785FB83019B224E47302290C14196CE7CCE97E2125849A4821F9BA5DED2EF91",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.Compression.dll",
+      "bytes": 268112,
+      "sha256": "8C6070F635E48C6021E0DF1CBFC90D23BC962C4C9D20681E3C1596C6C5BD66DC",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.FileSystem.AccessControl.dll",
+      "bytes": 104232,
+      "sha256": "6DAB570AF3A0618EAB0CC1B9A70F415D167755563871E3E10E6DF457DD564542",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.FileSystem.DriveInfo.dll",
+      "bytes": 55080,
+      "sha256": "127F307FA976EB02D97FB2299FEC159C0DB2D511CF3ED4B75501C4C6C59E5ED7",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.FileSystem.Primitives.dll",
+      "bytes": 15184,
+      "sha256": "B4A21C87134D83EEBB3DCDC23C15C0AC99C5488016963AECAFA52EBD20F104C7",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.IO.FileSystem.Watcher.dll",
+      "bytes": 87848,
+      "sha256": "FFD20593FAC8D653C0168C287B2434C38AE5A0812B5B69FBC7893EDBBEF77D0B",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.FileSystem.dll",
+      "bytes": 15656,
+      "sha256": "423B963A8124F07F01482C473731B16D64E6D389E14B1ED9DD754A0FF3045A67",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.IO.IsolatedStorage.dll",
+      "bytes": 91944,
+      "sha256": "3C13FFF40CF94F1760C071006AF5197F8BEB1D0466231FBA1BA7EBDC4B9D5388",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.MemoryMappedFiles.dll",
+      "bytes": 83792,
+      "sha256": "932547468DE40221AAF3562A84385D7EBDC34EA82979946D1D20C9716D24B7C2",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.Packaging.dll",
+      "bytes": 325416,
+      "sha256": "16480F9C24B30507CA8B1F9120B870DDF81155631970F62A88FA2BB8687A2E2E",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.Pipelines.dll",
+      "bytes": 194384,
+      "sha256": "5E13A3600DA8D436D2A84815758528328C8DE22D2800F7E3D8B0CA0DCD88F038",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.Pipes.AccessControl.dll",
+      "bytes": 15656,
+      "sha256": "E6CF1B61B14E1DE871BFDEB3A6051D9D0C4464A4C5D971E4888F6E4C4558B9B7",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.IO.Pipes.dll",
+      "bytes": 169768,
+      "sha256": "864C1928C8FE95A28948F4D133DD4860ACE3F8A36C39CEFB7CB06755183CF7D0",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.IO.UnmanagedMemoryStream.dll",
+      "bytes": 15144,
+      "sha256": "0A83AABBB3C9A0FFA6A1AE7680885564569ADED4D9AEE30F559F7F785EF39527",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.IO.dll",
+      "bytes": 15656,
+      "sha256": "D89D8B66C9BE88DF046C5B06FE9AED030AFE3B587927ED091131B165C2E69D5D",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Linq.Expressions.dll",
+      "bytes": 3667752,
+      "sha256": "AD71B5E28DE0160401CACAFD6492FA9F0233066787ADA3C35F3A3EA05BDCBDF2",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Linq.Parallel.dll",
+      "bytes": 800552,
+      "sha256": "06200DA38C0BECD861E62625C92DB2F24A89D841DCA13C4C391FFD6AF1D77EFE",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Linq.Queryable.dll",
+      "bytes": 177960,
+      "sha256": "847C3C4EFF22701A8B2F6581D1A8D4EE25B706499C7DDCD184017101EE8700F8",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Linq.dll",
+      "bytes": 657192,
+      "sha256": "A24133B3F64046B7EFC2AACD2A48239C696E31443041078247E042F872E43402",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Memory.dll",
+      "bytes": 161616,
+      "sha256": "B502778B8DD159125592B9317B23CFBC0C5F5D4562A61EA3E2FC25C01497CECF",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.Http.Json.dll",
+      "bytes": 132904,
+      "sha256": "9C28B7422CD1E6CB43B608949432511CA5A65FB3C2C3BC463FE8FB946C516AD8",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.Http.dll",
+      "bytes": 1787688,
+      "sha256": "684A977F52DC2A47100ADD3A5BDC778D5124BA4670687C90A6AFB883FE49CC4D",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.HttpListener.dll",
+      "bytes": 550696,
+      "sha256": "E886FB1452D50EFF8A19241559606AA11C812FDCDEAAE2EE340EE00A8A40742A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.Mail.dll",
+      "bytes": 431912,
+      "sha256": "76876967278E1BC10B8FF19B6DC1434D9A748547D3A8F1CE6EA0A4F59A3272FC",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.NameResolution.dll",
+      "bytes": 124712,
+      "sha256": "72A04EA7C2D44AB6873DF7887468EAA10A015F5315914D9FB2D8B325489886CC",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.NetworkInformation.dll",
+      "bytes": 157480,
+      "sha256": "74CFBD5102BF92BD2BAA281F4FBB185CE386476CB2D3D90FE7EF933528984095",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.Ping.dll",
+      "bytes": 96040,
+      "sha256": "11FA8E0947093DFECDBF0E92A359AA7AF3B669B33746038447FD1105F4CB2E64",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.Primitives.dll",
+      "bytes": 227152,
+      "sha256": "B714A102FC4F7A83DC48FE94083D4A1E939EBD767D2E58268AECA48DDA49DE7D",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.Quic.dll",
+      "bytes": 370472,
+      "sha256": "B6C8BB092BE1EF2556A43DA89736AF52529B5C66D474E6DF627EAAEDCBA76501",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.Requests.dll",
+      "bytes": 382800,
+      "sha256": "2A199A2E9D40ABE55F3097D067A9034C36B973E4495A5DBCF1D90037D8E1DC70",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.Security.dll",
+      "bytes": 677712,
+      "sha256": "428F8FCC44D6D824D1E3EABE9733536E3872E29ADB2D734E629807FC91662408",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.ServicePoint.dll",
+      "bytes": 15144,
+      "sha256": "9AC7840322EC502AAAC853189ED5C2F2FA59FB7D5959E02E58CED9C67A70F5C9",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Net.Sockets.dll",
+      "bytes": 546600,
+      "sha256": "7EC76789FD71C35CE77F2BCEC3325D9317875C022CB8DEEA885FF31F96DA0273",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.WebClient.dll",
+      "bytes": 169768,
+      "sha256": "7D11DCE4A7B3914E606CC78AED4FD7B5153EF392932107F45D02D70D878F02E0",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.WebHeaderCollection.dll",
+      "bytes": 63312,
+      "sha256": "50DA88C789C0E144A78D3C5BE273A45966BC276C292D874C3BAAF96311C36917",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.WebProxy.dll",
+      "bytes": 42792,
+      "sha256": "FAABB7D2A7C3C754042F062F48D26ABAB405E876EF0DBB691A6E776E67053323",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.WebSockets.Client.dll",
+      "bytes": 104272,
+      "sha256": "DBC3C7E42C5DB3E96D5C64F1451CBDB97F42FD65F3C5642D2A0CCDEA5A16EC0A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.WebSockets.dll",
+      "bytes": 235304,
+      "sha256": "BB6FB38DFD137031E921EB41CE47A71BF0CC3A84E2ABA3F99CD780F3535B44B7",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Net.dll",
+      "bytes": 17232,
+      "sha256": "2307BA2AC1C85FD48FFAA999E434610540C94BA50DE39ADE256154A33D6CDBFD",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Numerics.Vectors.dll",
+      "bytes": 15656,
+      "sha256": "34AE8ECD6A56CFAB4E13A0A5F0C11BC7A17CFE0EABA4782E9997D385F4B14E72",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Numerics.dll",
+      "bytes": 15184,
+      "sha256": "6E851C5FAC0F320C36A0822172DF0A7EC8A3CE946AED24AF81825A2D01CF754A",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.ObjectModel.dll",
+      "bytes": 83752,
+      "sha256": "FF346FA49E8389EB21845492E56D72D89D78A1EE9C4ADCA9CA0A63C19B91327F",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Private.CoreLib.dll",
+      "bytes": 15263528,
+      "sha256": "E797F95C8E198AFB9F6FA58B04FAB9BF4380FAB3C260214E1017BB92AE599838",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Private.DataContractSerialization.dll",
+      "bytes": 2070312,
+      "sha256": "A3E5FAC7C367729C8E7C0E30210BDEB896AC7762AB7228296ECFD183E05CECB1",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Private.Uri.dll",
+      "bytes": 259920,
+      "sha256": "33F72D2C6F78791EF1E14A6FFDE2599A3FC75C5DD3666C760D309B2BE7CF0D5D",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Private.Windows.Core.dll",
+      "bytes": 1218344,
+      "sha256": "21649EA8A5314BE071BD2F9F138A04B037F5F7BBDC1B43588DD5FCFCE7019C6C",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Private.Xml.Linq.dll",
+      "bytes": 399144,
+      "sha256": "9AB916C522BC2BD4DE07FA6D57CEC898E152C49EA4B27C3683C83E6CCA5B8A35",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Private.Xml.dll",
+      "bytes": 7919440,
+      "sha256": "95EBFF2F348B2F7E00E96F41DB683127499A7AF806E6FD69D778BF731B0F390A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Reflection.DispatchProxy.dll",
+      "bytes": 75560,
+      "sha256": "BB838B1795ED26244C15F3A0712401A2EBCA75705D5E329640C7D550507B12AD",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Reflection.Emit.ILGeneration.dll",
+      "bytes": 15696,
+      "sha256": "11DA4C69687E114BE7F1326BB93D06C02B67E0DEE704F16F16183BDC9F780400",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Reflection.Emit.Lightweight.dll",
+      "bytes": 15656,
+      "sha256": "B0A6BAEC8E582C6CCB5F10BF05DD7C3F59A54334CCF41F1F0AB39A16098799B9",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Reflection.Emit.dll",
+      "bytes": 300840,
+      "sha256": "0E07F1CAD5100A5D9A966266282B73B391CA2DBF2409116C4BDE0A9CDD3A22C8",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Reflection.Extensions.dll",
+      "bytes": 15144,
+      "sha256": "2A00DE215721540ED38A39819A5B4B39BF75F2CDA1F4BBA5EC7E9A35F495048B",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Reflection.Metadata.dll",
+      "bytes": 1173328,
+      "sha256": "AE891C15C49E3151145152E207539C9A31EE09A4E08A256CCF4269404FA39492",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Reflection.Primitives.dll",
+      "bytes": 15656,
+      "sha256": "EBE66951693215744C8CD1A68DEBF0C6BC622EC6DF1B70C52203111EADAC326A",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Reflection.TypeExtensions.dll",
+      "bytes": 42832,
+      "sha256": "212B4BDF905A954C070B078D0AE11BEBAA33FACA0867F6A73F08D10420B8D358",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Reflection.dll",
+      "bytes": 16168,
+      "sha256": "86C8E60093B768E628335FEB8E14CC89920ED2816A4AECA1E0A5C805C3F5E826",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Resources.Extensions.dll",
+      "bytes": 198440,
+      "sha256": "7B74D3F99F5D04306D7A91EF7048DFCEEBEDE3EF9C9CE2705006B1B003D084F5",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Resources.Reader.dll",
+      "bytes": 15144,
+      "sha256": "A799378B34691764B614404013245A04BA1F6FC408D6A8EB7D3B1C3B9946CE44",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Resources.ResourceManager.dll",
+      "bytes": 15696,
+      "sha256": "6867E69F517C5EB69FC31F76FB03C42552417ADEBA1D4399417D6DA0C99398ED",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Resources.Writer.dll",
+      "bytes": 51024,
+      "sha256": "AC9D9F7F9A0135F6FFCBA76E789B9C3E15305E5D5C45A9CF5A512E686641D715",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Runtime.CompilerServices.Unsafe.dll",
+      "bytes": 15144,
+      "sha256": "D3D5E67783DFE9921C1D75172B7889B5B28580D55B7E67B3211ED2E031D07BC1",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.CompilerServices.VisualC.dll",
+      "bytes": 30544,
+      "sha256": "E45ACA363072CC13176B7B5FA0C338A12D1F5009E2AF82D63D3F2C4936D904AF",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Runtime.Extensions.dll",
+      "bytes": 17704,
+      "sha256": "8089E6524044C125CFBAC5220DE08760EF89F7A086A05FE15A741F1014CBB656",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.Handles.dll",
+      "bytes": 15144,
+      "sha256": "869AB935319A847BDDFAF6EC3659F6714243B22E5890D3380BE8F2DB53986624",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.InteropServices.JavaScript.dll",
+      "bytes": 51024,
+      "sha256": "045D468AAC781A373A4F1B81DF8D9BA6C01488A06C3C84353B22ACC1C21E1A8D",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Runtime.InteropServices.RuntimeInformation.dll",
+      "bytes": 15144,
+      "sha256": "C30E36A31A1FD6D1840956BB370588DCC718170B915E52C086E56434D35FF6A0",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.InteropServices.dll",
+      "bytes": 112464,
+      "sha256": "69AA0FFC4FBB9D2A33409F424FD8E4F1323A423F15E0EC466321BA97DE270A52",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Runtime.Intrinsics.dll",
+      "bytes": 17192,
+      "sha256": "4ACC9C5175E7329E14A73CD01B1EF31C6877AEE81FBD8360C2825680EE396230",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.Loader.dll",
+      "bytes": 15656,
+      "sha256": "163D1FD49BCECE44216E72231D09D94955896DEFA4F85D0E8EFEB947A0A9FB28",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.Numerics.dll",
+      "bytes": 354088,
+      "sha256": "59D306B9B8BB0A5E818A2FEEC3B0A6813948957C9E7C8865780072633AE927BD",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Runtime.Serialization.Formatters.dll",
+      "bytes": 124752,
+      "sha256": "3E99AA991F3B46C62E9686A9E62D14F5D91B5DEFC7F0B49E9316046D517F804D",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Runtime.Serialization.Json.dll",
+      "bytes": 15656,
+      "sha256": "E8E815ADC40CA34E680B2C89F84F4B5440C9FE634A18EB291B3E0B783E252255",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.Serialization.Primitives.dll",
+      "bytes": 38696,
+      "sha256": "AC8CE9DA98F561734616C993FF3BA131089E5FA77FBAEC249943CFA2ED52C5CA",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Runtime.Serialization.Xml.dll",
+      "bytes": 16680,
+      "sha256": "2F8919828BFB685558D1481DA5C838EEFACBB07E6A6161AE31AFC0493277328E",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.Serialization.dll",
+      "bytes": 16720,
+      "sha256": "263E7E9387EEE6832F82988B97D4AB0FF3180466A30BD0F9CCC450FAAFFE7B81",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Runtime.dll",
+      "bytes": 44328,
+      "sha256": "1E6F1356A42EFFA7AF0ED1C65CA4C22E90BD4D970E4BA0F1A4A76A1B01808797",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.AccessControl.dll",
+      "bytes": 231208,
+      "sha256": "3959049922C3095335F0931BE3A058E2D9508FF4D0A41A7E306F9BED08F077CD",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Security.Claims.dll",
+      "bytes": 100136,
+      "sha256": "4DBEBAF1CED28963E2B2BC7A4C4DB2E83A0A3169CB2A9DF88AC00A959BF01839",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Security.Cryptography.Algorithms.dll",
+      "bytes": 17192,
+      "sha256": "4CD3DB0EF497A0E06E8AF193C16F4A009F0202E556069063F3B9334EF23F31FD",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.Cryptography.Cng.dll",
+      "bytes": 16168,
+      "sha256": "FBD724B7C155329AC663D17BC50D3AAE4C59213727CC74E58B3A750057A9CFB2",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.Cryptography.Csp.dll",
+      "bytes": 15656,
+      "sha256": "6BD03D73ED071B2285BB92EBCFF8A0D7DC84278F7AB972CDBCEF4228D569494A",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.Cryptography.Encoding.dll",
+      "bytes": 15696,
+      "sha256": "817DF2E16DABA3B3984B1F80EEA19EE1112A09BF76FCB6304AB58553D8638858",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.Cryptography.OpenSsl.dll",
+      "bytes": 15184,
+      "sha256": "B0EA5CB52FDB7B11AC0FF1AC74D651C7C7F1FD8DC1E98DB7B80F990143756CFC",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.Cryptography.Pkcs.dll",
+      "bytes": 751400,
+      "sha256": "22B816A8861813A0363EC01C94DB84B388C324F16CBFA42FEDCE2FA815EE6CB4",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Security.Cryptography.Primitives.dll",
+      "bytes": 15696,
+      "sha256": "C2B64F8C268081E2108F15A12C6387D11242CB7386F599A8E99787264E01C215",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.Cryptography.ProtectedData.dll",
+      "bytes": 55080,
+      "sha256": "A79ACF09C4763C615872E7ED11A4127F8BAAE3282E749B3AB49D9EC890275570",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Security.Cryptography.X509Certificates.dll",
+      "bytes": 16680,
+      "sha256": "9C54C5DF99C487378A170D7AFD861B77EDF4FC308CF0DF5BD62BFD667E217313",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.Cryptography.Xml.dll",
+      "bytes": 460584,
+      "sha256": "CF3B4BED606E2BCEFC424352155CC50D0EFE945F135D1DA0088C807D2A340518",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Security.Cryptography.dll",
+      "bytes": 2127656,
+      "sha256": "8688748D10D1B56177D6F1C613BEE96C9D4F6E17B094EB5C42565743D5500375",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Security.Permissions.dll",
+      "bytes": 190248,
+      "sha256": "289A609208070F10F627133859AAE4174551CB2383F449C873CBFC2068964B3C",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Security.Principal.Windows.dll",
+      "bytes": 186152,
+      "sha256": "8E86017A638B8DAFCA5B8A9C68F8705AAA856418ED99DFFB5E53D673F187D0CB",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Security.Principal.dll",
+      "bytes": 15144,
+      "sha256": "BD3D3032F6E531F454883CEA0ECB5556F96E4D64B83FE17D59A3005B6E91253F",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.SecureString.dll",
+      "bytes": 15184,
+      "sha256": "871594D61AD773E013DC7C8EB8457F6AA00EF26A5E03E09A18321E510CB856E5",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Security.dll",
+      "bytes": 18216,
+      "sha256": "5E3538EDD0DD874101BDC3C492B6669D64B79EFD169BB03F71A7FBBA7781BC0C",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.ServiceModel.Web.dll",
+      "bytes": 16680,
+      "sha256": "98060348151633E7E9CEF0F3DFB707E04BCEA9800F45237B52F63BB20F422457",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.ServiceProcess.dll",
+      "bytes": 15696,
+      "sha256": "06E9BBEC115B18096F140718B2E3D24160877723B40A4592C3A5398C06ED449F",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Text.Encoding.CodePages.dll",
+      "bytes": 861992,
+      "sha256": "4E2FABA89D833D19D8A4F950B623922D67EF2A3412A383B6E14BB06C57720A7A",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Text.Encoding.Extensions.dll",
+      "bytes": 15656,
+      "sha256": "8ACF1454FD55A58190A0EBFF2ED8451EDAB570A5542EA98FB025C89673610A02",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Text.Encoding.dll",
+      "bytes": 15656,
+      "sha256": "E8E6B8FF9A68FF753F8435AC7E8A5A583FBA1A6E8504D51A20F42FF3957C88C8",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Text.Encodings.Web.dll",
+      "bytes": 132944,
+      "sha256": "84AE6607CA0411CB91B07B66C14C1395FB6F95BFA11EF09855A92A90AAD33626",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Text.Json.dll",
+      "bytes": 1795920,
+      "sha256": "7CB41C50F28E624DC385B85BE9717EA3FCFE29E9095356487FC15AB60534D64E",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Text.RegularExpressions.dll",
+      "bytes": 1021736,
+      "sha256": "096B81EA2F1AAE213033FE114B8A95AC13FF0CBD18F2A9CD51EF0B77BA09C37E",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Threading.AccessControl.dll",
+      "bytes": 87848,
+      "sha256": "79E0DF0A13EA1084B2816E4F51195E9851B70D5FCA7ABA1AAD39AF7D14CEE2E6",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Threading.Channels.dll",
+      "bytes": 141096,
+      "sha256": "DAE9ECAB1891FBC12214253B7CFEC942E1FFED05CC2544964454DBF19DE4197F",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Threading.Overlapped.dll",
+      "bytes": 15656,
+      "sha256": "3298567B8041253FC65575FABAFE74FEAE7743E1EBA955999E34579EE7C2081F",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Threading.Tasks.Dataflow.dll",
+      "bytes": 493392,
+      "sha256": "5739B55B363679E7BAE82AB95EEE0B082B37326D9D3B80700C238B38E70AE5A4",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Threading.Tasks.Extensions.dll",
+      "bytes": 15656,
+      "sha256": "D87AF8F3FBDBAD5DF51C4A29C24238F017723652019D4DCFFE3C16EE80C9D227",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Threading.Tasks.Parallel.dll",
+      "bytes": 132904,
+      "sha256": "DE61B716E4223C21E74847580AD78DF7A121052A48A9AAE69EAF097E06DFEB58",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Threading.Tasks.dll",
+      "bytes": 16680,
+      "sha256": "C0D129A60FBA5629175BE2E65B99919587AF463747F01D54410E7624B660BFD4",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Threading.Thread.dll",
+      "bytes": 15656,
+      "sha256": "4E6C1C9F4F17C49F4510837688FA34FD4112AE0E10BC927A67091FDC2A7E0324",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Threading.ThreadPool.dll",
+      "bytes": 15696,
+      "sha256": "FEF9115A4E7069A8E840F3E386C9DD91F49AC2E5F65541AFBB5E280E147C715C",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Threading.Timer.dll",
+      "bytes": 15144,
+      "sha256": "2B4A4FD9CDB45F32FC2438096186BE4AFBF68B418F4B3FA833882C0A49FEAB8F",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Threading.dll",
+      "bytes": 83792,
+      "sha256": "2AF0018D9CA3F471D6CCD2D5AE008F9C186EC2BE7CE09C1C42359405C7EF6DEE",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Transactions.Local.dll",
+      "bytes": 653096,
+      "sha256": "77FC8A645739D4CEFE95587AF422E5AB5B6043132354563F0631ACE43F7A19A5",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Transactions.dll",
+      "bytes": 16208,
+      "sha256": "72F1CC680EB487466D288BAD685428471187A9616F5AF3C74617CE84736719BF",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.ValueTuple.dll",
+      "bytes": 15144,
+      "sha256": "62C8B1C3F9E5C4B26479A34C25BB4195352EDB04213C831B0083ED914D92945D",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Web.HttpUtility.dll",
+      "bytes": 63312,
+      "sha256": "22067CA3D0D97C4574EE4483222D902C101F36B429B31A14DC55E8617BE87953",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Web.dll",
+      "bytes": 15144,
+      "sha256": "D965C4506D8B0985902ED83CC8281CF3F11B8F2FECAA7FEDA1F30ACCB98B5745",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Windows.Extensions.dll",
+      "bytes": 120616,
+      "sha256": "105DA3AA3D6C265074F123F4E62D3D5831010BBAB904FB1302B042F0E978DE16",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Windows.Forms.Design.Editors.dll",
+      "bytes": 16168,
+      "sha256": "E160FCEF1CB29F07B8C8B30DAB9FD70D441F92248001AB7E69074F19ABC54AF9",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Windows.Forms.Design.dll",
+      "bytes": 6113064,
+      "sha256": "2AE2C079298D0F5F2E005259EA257E0C5369192F1A0B83C7E86A36608834413D",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Windows.Forms.Primitives.dll",
+      "bytes": 3962664,
+      "sha256": "9169D780FABC5B108E1710E08EA315CB3F5AC8C1DB1AD4DF9167A50E4EA04288",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Windows.Forms.dll",
+      "bytes": 13776680,
+      "sha256": "7C30910896E58B6F80843E71026528DD56B836B4CF9185535BC75446E6103D11",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Windows.dll",
+      "bytes": 15656,
+      "sha256": "DA42089A32506829121ADEA8E2F3735026C7674CBF97FD7219AE17416E6A7102",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Xml.Linq.dll",
+      "bytes": 15656,
+      "sha256": "8BDA3E9E302E7DB83B931AE5638DA5F0B8F91BA6122EA69070572BE68AFD9B48",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Xml.ReaderWriter.dll",
+      "bytes": 21800,
+      "sha256": "D71AA56E02D2653DE6E648F4A48051E9E85FF21A33236D720B37F4B9E2E8EDA9",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Xml.Serialization.dll",
+      "bytes": 16208,
+      "sha256": "CCEDE6B930679737986159B448C3FB0F99CDDEAEAF6AAC40A6640549E79D6F3A",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Xml.XDocument.dll",
+      "bytes": 15656,
+      "sha256": "CA9EC6E72CD80D6A77908F08629603410F39C57E49E53215E95A4F0822284FFC",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Xml.XPath.XDocument.dll",
+      "bytes": 30504,
+      "sha256": "C538B743D9FDFA9555EDCB46996868880EC333F538E75BDC06E14ADBC67054BE",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "System.Xml.XPath.dll",
+      "bytes": 15696,
+      "sha256": "AFD4380DE05E5A319C6612CD97E1AB337AFBD330D9C2BFAC35A1ADD52840A520",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Xml.XmlDocument.dll",
+      "bytes": 15696,
+      "sha256": "CDF899179BC4DE03696D6F67C0538723361DFF722CC048C06061B4B48CDA0995",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Xml.XmlSerializer.dll",
+      "bytes": 17704,
+      "sha256": "FA53EFCFB5E12508EBDD6133901ED33E6441AE7C5D3987B834D1689A8ADA7BE4",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.Xml.dll",
+      "bytes": 23336,
+      "sha256": "A50F6BDDA3C65B0C56A97F345FB0DF0584A31BCF5EF27E2815322B315FFA536A",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "System.dll",
+      "bytes": 50472,
+      "sha256": "83CC3941F22FDA8BE0B828F9139F9E7844DB959F505607FFE9B9539CA17DE779",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "THIRD-PARTY-LICENSES/BouncyCastle-LICENSE.md",
+      "bytes": 1133,
+      "sha256": "AFC1653B666B64A2386B7B9B914406904F45C20B9571765D8C1121B513313179",
+      "role": "application"
+    },
+    {
+      "name": "THIRD-PARTY-LICENSES/FangCunSansSC/OFL.txt",
+      "bytes": 4388,
+      "sha256": "1C05C68C34F9708415AADA51F17E1B0092D2CEA709BF4A94CD38114F9E73D7D9",
+      "role": "application"
+    },
+    {
+      "name": "THIRD-PARTY-LICENSES/FangCunSansSC/SOURCE.md",
+      "bytes": 1639,
+      "sha256": "B38F3DC740401F4F217098FDB444E1A27F9DF760D59171D20F31AFD4F3155626",
+      "role": "application"
+    },
+    {
+      "name": "WindowsBase.dll",
+      "bytes": 16208,
+      "sha256": "D1D131D22E2F2932FBE675DC6D21F8F3BC2D1EF8D09EE8F2BF6A2A43C0CA9E35",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "clretwrc.dll",
+      "bytes": 312104,
+      "sha256": "CB28373B8DDC1F0EFF88AE040C46E62EBE4CA0DC8F31BF7696E285021FE73983",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "clrgc.dll",
+      "bytes": 673104,
+      "sha256": "9196D5360A94B639B6E3B4461C0FA1C7518CE74269365E2DFB79F54B04D48A17",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "clrgcexp.dll",
+      "bytes": 709456,
+      "sha256": "0C9730F1A38EB4D3E729BA0234FAF08EAA490D4CFCF934398B77D843D5A08AF7",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "clrjit.dll",
+      "bytes": 1944872,
+      "sha256": "3EB18CFB6A7A945671166E92E2A11FCC5250F689DB2134419B7EE715B508FEEF",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "coreclr.dll",
+      "bytes": 4797224,
+      "sha256": "D131809039C7740F4631C188D22FE3BC5BB2356D6968DC648C8520B6C1286875",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "createdump.exe",
+      "bytes": 71512,
+      "sha256": "0141495DE8DD4BDBF31CAB0B8A514F58B234BA337CC9836E2386D096889BE5C2",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "cs/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25384,
+      "sha256": "AA21AA866E1175D8A0FAFC153109A9C90D8C087BF679901492EFBEEB7A490317",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "cs/System.Windows.Forms.Design.resources.dll",
+      "bytes": 252200,
+      "sha256": "83A9B5902842E0F64EF066DAC104F4F387716984E0867F86F002FA5C7AC839CF",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "cs/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15696,
+      "sha256": "CD8D9ECA488B7EFAD02BE678F839037DBF8B9E6E63FFC9C2BBF3982E04DA61DA",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "cs/System.Windows.Forms.resources.dll",
+      "bytes": 367400,
+      "sha256": "FCA83F98C49DFEE86DBFDEB8EF17E3463241A0F1CDA3B29D32C73DF9A66EAF75",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "de/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25384,
+      "sha256": "F111B40CBE8BB57F825BFE1931A7CC8970DE6C9DB667A4509430A51DBFF1C72A",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "de/System.Windows.Forms.Design.resources.dll",
+      "bytes": 252752,
+      "sha256": "D296FC963B8030FE0ABD44F8CDFC5C7910195CB9A439C0ECE499865395994020",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "de/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15696,
+      "sha256": "77F1E6BABA016027560DE1ACD92EA49A40638E89D2692AC18E6DA6548EA32C22",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "de/System.Windows.Forms.resources.dll",
+      "bytes": 375592,
+      "sha256": "4A7162DF2BE510FD650BD5541C21E7CE2220642515F3603337CF6E9557882D8A",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "es/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25424,
+      "sha256": "B196104EAB8FAF8101CCF6578385AECF848B3471926499F99FB94FCE5BC22724",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "es/System.Windows.Forms.Design.resources.dll",
+      "bytes": 252712,
+      "sha256": "1E67E19D14814E72210E8FAE789C7A554B95B92B46A9F7FA5D427FD9E93D4370",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "es/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15696,
+      "sha256": "426C51B9A6B5B9D03BE84CB0312EBD15BB03D29AD0285E049F746DA7B74282D9",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "es/System.Windows.Forms.resources.dll",
+      "bytes": 367912,
+      "sha256": "521E537179FD5A23C78CA347BDC38BBE9CA0D237E07A12766C2483CEBFBEA71D",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "fr/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25384,
+      "sha256": "BFDDCCDD628B706D655DFAA59A15FE2EE6F665134591E870988BE65E21A0456A",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "fr/System.Windows.Forms.Design.resources.dll",
+      "bytes": 253736,
+      "sha256": "356B56C13DF62B1C6E7DEF128A59B6C81E25320396FDCBF638ABF4D3DADFC6C8",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "fr/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15696,
+      "sha256": "24B0A7F29D80250A8E82D658EF93408EA561037A4160228A1C9197F809887282",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "fr/System.Windows.Forms.resources.dll",
+      "bytes": 374568,
+      "sha256": "170F331E74C1E286F0537FD3CE8A694412ADAD6DDE7AD9B5109B06E762F9549C",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "hostfxr.dll",
+      "bytes": 374056,
+      "sha256": "88B480A2D965C1C4663EF5A99C4368E434EF3FF9A2DE529CD2EECF3E5DFAF46C",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "hostpolicy.dll",
+      "bytes": 387368,
+      "sha256": "F6A81CFD58A22D812E3D423F9404E29A873B932E7B5115653DF39A76FAEFFB80",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "it/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25384,
+      "sha256": "E4FBE675E003213050725BA0E9C8D7B5C965FA6977473CD11B042E2697C1B210",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "it/System.Windows.Forms.Design.resources.dll",
+      "bytes": 253776,
+      "sha256": "D36A6B7BE514BFC281D576673615681BC67BCABE3AFDC641E823E740E41CD407",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "it/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15656,
+      "sha256": "2BB5E9821EF62974C513646AB788810371D3850E7793FA7B70C8078AFA613DB0",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "it/System.Windows.Forms.resources.dll",
+      "bytes": 370472,
+      "sha256": "840E79146C6D89BE156B2460BB547BED6127F762C31F0AC6B435728777BBB930",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ja/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25936,
+      "sha256": "7E8D4FD423EDA74B6BB7BD03867CE39146B48240629F984817DA9D7E5543846C",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ja/System.Windows.Forms.Design.resources.dll",
+      "bytes": 259408,
+      "sha256": "50456A2ADE82D9ADFCDCEFF6E63671306D800AE669370870D4D73A177AFEB149",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ja/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 16168,
+      "sha256": "55663E7634202FC6E97DA4683099AF531C0E23F6C2827C40F78111603736A9FA",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ja/System.Windows.Forms.resources.dll",
+      "bytes": 410920,
+      "sha256": "BD358BE4054966A15907310820003400C60109308F8DE3F30D3EEA36989A56C1",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ko/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25384,
+      "sha256": "48C729515FF24E39AD90DBEBCDE08B4F12845E92F81807259960BC2DC79685EC",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ko/System.Windows.Forms.Design.resources.dll",
+      "bytes": 254288,
+      "sha256": "D2560F3C617CDF8C63CFE66395A6E15B67761DB20DF55DAFA15F84668891FE63",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ko/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 16208,
+      "sha256": "98163C85B0E840409019780F7FCE87F779D2091E911B537B065CCA2DF80D18F7",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ko/System.Windows.Forms.resources.dll",
+      "bytes": 372520,
+      "sha256": "E88592A46B6C9BEBCDCC60157F9004C8F7591D1206A6083507DDAB732DF50120",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "libSkiaSharp.dll",
+      "bytes": 12254048,
+      "sha256": "C8770C219E0D3CD9BB119FAD46F2D00AE1855B11315816E86E909E3332826212",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "mscordaccore.dll",
+      "bytes": 1362784,
+      "sha256": "605D159EFF49B2E2C32A187796F6B1B48A8D0BDED512E59079070DCD9A32A172",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "mscordaccore_amd64_amd64_9.0.1726.26416.dll",
+      "bytes": 1362784,
+      "sha256": "605D159EFF49B2E2C32A187796F6B1B48A8D0BDED512E59079070DCD9A32A172",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "mscordbi.dll",
+      "bytes": 1240416,
+      "sha256": "C42CD785D6A25F2F7987DC87FD54C6A6F21AEE28C7E649D31C5DF619DA6A7FF1",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "mscorlib.dll",
+      "bytes": 59688,
+      "sha256": "8AC4FDB916BFCF46DF82B3A2BB9BFB42887BF49160EB5BEB614A8C76EC2200A6",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "mscorrc.dll",
+      "bytes": 135504,
+      "sha256": "A80902330F0897B4C6DA5405F606064D440BD34625388C99EDCB0264084421F0",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "msquic.dll",
+      "bytes": 524320,
+      "sha256": "99DAF179EE2DFB5C36493543647B64FC58A24ABA0B16D5E9232B06003FBC9054",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "netstandard.dll",
+      "bytes": 100648,
+      "sha256": "1A60C1D44F9479CEC6E6E6AEE63511985DA5971388319F943C70E4D2A1DFDE8B",
+      "role": "third-party-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "pdfium.dll",
+      "bytes": 7220736,
+      "sha256": "D3D9F4B7C9DABE3363F30779C5C3C715C47332749FA590E4B4A2B8B6780CB1C4",
+      "role": "third-party-runtime",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "pl/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25384,
+      "sha256": "025D6EACDCA20B4DD0249B629110F076A77189DE99815909EC8109C9702B8397",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "pl/System.Windows.Forms.Design.resources.dll",
+      "bytes": 252200,
+      "sha256": "D5F7D6A92B76D9D055B1B672AAE3B514A80E014D2CE8EE69DB79E7DBFEF76687",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "pl/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15656,
+      "sha256": "17E2183F3DA79F8C27B105965EB0C7DAA7F9735D0CE537A724D5FEAD017C52B3",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "pl/System.Windows.Forms.resources.dll",
+      "bytes": 367912,
+      "sha256": "4A8AD1283A7E5665427C46782DEB84B3B502F5439710D7AD84CD706C9081E269",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "pt-BR/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 25384,
+      "sha256": "4B04805B29A8FDE982DA02D40F32ECB5014D33A8B9DF947D3C92D33406547561",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "pt-BR/System.Windows.Forms.Design.resources.dll",
+      "bytes": 252200,
+      "sha256": "F34DFA73AD00BA723C54A69F0E11352B9844253E6E1B0110684345D9D4908471",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "pt-BR/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15696,
+      "sha256": "383478A07857197DD9C9D146AEF2757901A890F8C945FBF6AC1CD04E82CD9D83",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "pt-BR/System.Windows.Forms.resources.dll",
+      "bytes": 360744,
+      "sha256": "6FD6DD2E59757D97C0BEFF4047461CE4C389C2215AF6B87981FCD43DE5D3E055",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ru/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 26408,
+      "sha256": "21BF303A77EC91EF753DF1995D49AE8F0B95D360A23B0AC5EB96580EEBF1ED15",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ru/System.Windows.Forms.Design.resources.dll",
+      "bytes": 268584,
+      "sha256": "3993E5452E4B2643F79F6E37296BD31A7F66DE7A082AAEC6552E079235348188",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ru/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 16168,
+      "sha256": "436798F3AC088544DC6D04DD253C7E3AFD61879C70766F530D593BF82C17811A",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "ru/System.Windows.Forms.resources.dll",
+      "bytes": 479528,
+      "sha256": "74B0ED977ED2DC80C08513F50A3D12B84B1E636A00FA9478C3C8120B68D50AFF",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/LICENSE.html",
+      "bytes": 6644,
+      "sha256": "D9C0F00A8E0DF2CA3D3A93FE147C12F222F3EE00D1081824CF3F0697C5FE0405",
+      "role": "pdf-engine-license"
+    },
+    {
+      "name": "tools/qpdf/concrt140.dll",
+      "bytes": 259688,
+      "sha256": "A2B04C69868B08A600518EBBAD1661D38DE4DD0E0A8E638C22D4641D410E50B1",
+      "role": "pdf-engine-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/fix-qdf.exe",
+      "bytes": 96256,
+      "sha256": "432FC5F21D2A2D0F8EF88148A588FC69A184ECE54FD1091B6D1BB926C6D5EDE1",
+      "role": "pdf-engine-tool",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/msvcp140.dll",
+      "bytes": 447616,
+      "sha256": "97E71A3C697FB1AB3AF777DB39009E4602525E8C3AFF0837ECC7031CBA188165",
+      "role": "pdf-engine-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/msvcp140_1.dll",
+      "bytes": 33896,
+      "sha256": "01A58552686D0C6B9FD67A7AC81169FC0013AEDF59A8EFDC611F94907489A31C",
+      "role": "pdf-engine-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/msvcp140_2.dll",
+      "bytes": 294992,
+      "sha256": "2A5365E03CC6E78B408DFCA81537F3734BF3D7CF9CC13AE33204DFBC641DBE43",
+      "role": "pdf-engine-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/msvcp140_atomic_wait.dll",
+      "bytes": 47240,
+      "sha256": "C4A2BAE74E008A5BB2445F9078C14DF9DCB03267248DFA64E7D04CDC8AF5208E",
+      "role": "pdf-engine-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/msvcp140_codecvt_ids.dll",
+      "bytes": 30824,
+      "sha256": "A5CBECFD9B8892EC9A60E30FEF7EF2158032C6D91EFDFBACA87C082BCD48BFA9",
+      "role": "pdf-engine-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/qpdf.exe",
+      "bytes": 17408,
+      "sha256": "E102ABE236920B1D3CEC9AF87DE1DA6895B87733CDE0BFA6055BDF5CD4B6C343",
+      "role": "pdf-engine-tool",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/qpdf30.dll",
+      "bytes": 5061632,
+      "sha256": "8E807243AE76FFCC2BCC413EFBFB3983784FC28D61C6B24F524DD579DCD09F39",
+      "role": "pdf-engine-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/vcruntime140.dll",
+      "bytes": 91216,
+      "sha256": "A9D7732A3C3DE09F0601A7FA2555093DCB49F08E2FC62A86091461F0F38393ED",
+      "role": "pdf-engine-runtime",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tools/qpdf/zlib-flate.exe",
+      "bytes": 18944,
+      "sha256": "0A015516707B5383B2537A52E6A2249EB166BAC586FEB45C2175401DEEA32AF1",
+      "role": "pdf-engine-tool",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tr/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 24912,
+      "sha256": "D23AEAD2562C1216849234EBE19581FE27EB344D7DC4655B613CFCF70AD376C4",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tr/System.Windows.Forms.Design.resources.dll",
+      "bytes": 251688,
+      "sha256": "DA123AB9E50A4D025508A064A58440182D778601AE8405D3289C2A4EC940DCEB",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tr/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15656,
+      "sha256": "271DA96220E4DB201DABBAB502716C15E7D51759B2E2CAE191A45ECAF7138313",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "tr/System.Windows.Forms.resources.dll",
+      "bytes": 363304,
+      "sha256": "9A736E67E162579BB27815C401BF8B0C427BC91E8FB7AE85E090B4DE11FD51A5",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "zh-Hans/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 24872,
+      "sha256": "8813FD1C498233EC3A4B54170CA8BA18C75E00AC7EC3763849C413E2F081AA0C",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "zh-Hans/System.Windows.Forms.Design.resources.dll",
+      "bytes": 247080,
+      "sha256": "D45F483D3B5D03058DE965D49E369E2898EC06D9BE3342A5517A3DAB4FDC51CF",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "zh-Hans/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15696,
+      "sha256": "EBE5515C67102BDC646A40F22376FFE962EF6E2526CB0E6859C61D040D851EF0",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "zh-Hans/System.Windows.Forms.resources.dll",
+      "bytes": 321360,
+      "sha256": "7D5A00D8BAA0449B875A26736CCA8ACCA54EBA1893D293E244255255B69BAFEB",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "zh-Hant/Microsoft.VisualBasic.Forms.resources.dll",
+      "bytes": 24872,
+      "sha256": "D9DC526F221FC72E1686756B359861FA8A7F0E647093F38DE5D1D9CD7428CC81",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "zh-Hant/System.Windows.Forms.Design.resources.dll",
+      "bytes": 247592,
+      "sha256": "DE083E2BE0410883EFF476728E3CCCF81F5C78A476EE3CBA87A5A29A1C2C026C",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "zh-Hant/System.Windows.Forms.Primitives.resources.dll",
+      "bytes": 15656,
+      "sha256": "8332489F82D877DCEF21003A89E5007BED0065BCB53879399DC2977A8B512C86",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "zh-Hant/System.Windows.Forms.resources.dll",
+      "bytes": 326440,
+      "sha256": "31C0D83F96D96F30FB4DA17CD37BD496B5DB88ED977C6E9741650D89E79EA659",
+      "role": "application",
+      "peMachine": "0x014C"
+    },
+    {
+      "name": "方寸有序多尺寸胀色裁切.deps.json",
+      "bytes": 45619,
+      "sha256": "BF615E4833117A9172226DF2D47A356F41F957A5B2C079689D7C86C002051C06",
+      "role": "application"
+    },
+    {
+      "name": "方寸有序多尺寸胀色裁切.dll",
+      "bytes": 383488,
+      "sha256": "1D77DD2BB2FF2BA49F8EE9675036BFD7FDB9AC794A3EE3A8377504671B5FC6FC",
+      "role": "application",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "方寸有序多尺寸胀色裁切.exe",
+      "bytes": 291840,
+      "sha256": "A08C6520088FDF93FE8EB41CB80CCE0DBDA3C5442D2175C71A7AF89DE4CEFBBD",
+      "role": "client",
+      "peMachine": "0x8664"
+    },
+    {
+      "name": "方寸有序多尺寸胀色裁切.runtimeconfig.json",
+      "bytes": 526,
+      "sha256": "7F79C7361AD5E6F628E9E91B1C1B7A135DACD0AEBB63E53DBF48D9344081E63E",
+      "role": "application"
+    }
+  ]
+}

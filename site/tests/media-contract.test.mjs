@@ -157,12 +157,12 @@ test('conversation-generated demo packages and attachment hooks are absent', asy
 test('every retained product exposes direct public files without substituting a demo package for a client', async () => {
   const filesByProduct = Object.fromEntries(PRODUCTS.map((product) => [product.id, getProductPublicFiles(product)]))
   assert.deepEqual(Object.fromEntries(Object.entries(filesByProduct).map(([id, files]) => [id, files.length])), {
-    label: 5,
+    label: 4,
     bleed: 4,
     'multisize-bleed': 4,
-    pdf: 5,
+    pdf: 4,
     packing: 4,
-    accounting: 5,
+    accounting: 4,
   })
   for (const product of PRODUCTS) {
     const files = filesByProduct[product.id]
@@ -182,12 +182,12 @@ test('every retained product exposes direct public files without substituting a 
     assert.equal(product.download.sha256.toUpperCase(), product.download.sha256UppercaseInChecksum)
     assert.equal(product.download.publicLink.endsWith(`/${product.download.filename}`), true)
   }
-  assert.equal(filesByProduct.label.filter((file) => file.kind === 'client-variant').length, 1)
-  assert.equal(filesByProduct.pdf.filter((file) => file.kind === 'client-variant').length, 1)
+  assert.equal(filesByProduct.label.filter((file) => file.kind === 'client-variant').length, 0)
+  assert.equal(filesByProduct.pdf.filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct.bleed.filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct['multisize-bleed'].filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct.packing.filter((file) => file.kind === 'client-variant').length, 0)
-  assert.equal(filesByProduct.accounting.filter((file) => file.kind === 'client-variant').length, 1)
+  assert.equal(filesByProduct.accounting.filter((file) => file.kind === 'client-variant').length, 0)
   for (const product of PRODUCTS.filter((item) => item.download.variants?.length)) {
     for (const variant of product.download.variants) {
       assert.match(variant.sha256, /^[a-f0-9]{64}$/)

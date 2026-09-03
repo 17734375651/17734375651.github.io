@@ -1,0 +1,1655 @@
+{
+  "schema": "fangcun-offline-public-manifest/v1",
+  "catalog_id": "accounting",
+  "product_id": "fangcun-accounting",
+  "protocol": "ACCTO1",
+  "app_version": "0.8.0",
+  "platform": "windows-x64",
+  "trial": {
+    "duration_days": 30,
+    "scope": "machine_and_product",
+    "network_required": false
+  },
+  "paid": {
+    "annual_price": "¥999/账号/年",
+    "offline_after_import": true
+  },
+  "sync": {
+    "optional": true,
+    "required_for_trial": false
+  },
+  "keys": [
+    {
+      "key_id": "accounting-offline-paid-ed25519-2026-09",
+      "purpose": "paid",
+      "algorithm": "Ed25519",
+      "status": "CURRENT",
+      "public_key_b64url": "ZyeJIj1_PD-1NENYjsuw0jaDk-ypdJUyliIsA4v_oa8",
+      "public_key_sha256": "E6834BECFC305C33F7B4183BE008585AD42A601C11188011A32D72B43B6C03EF"
+    },
+    {
+      "key_id": "accounting-offline-recovery-ed25519-2026-09",
+      "purpose": "recovery",
+      "algorithm": "Ed25519",
+      "status": "CURRENT",
+      "public_key_b64url": "LON0poQKDg19ibFefE9TogcGKMS1cC8YjFYEgtgFNHk",
+      "public_key_sha256": "B57FF5F2B96ED9BF9FB2FA43AC5F7E0411059891A289F7C0A1B0538326BD6B8E"
+    }
+  ],
+  "package_files": [
+    {
+      "name": "FangCunOfflineRecovery.exe",
+      "bytes": 76004577,
+      "sha256": "46C5EB982E91B25E1DDF1444D6D1F6EC2CA3920F405050A76EAD9F4A669A0F4F",
+      "role": "recovery-helper"
+    },
+    {
+      "name": "FangCunOfflineTrialInit.exe",
+      "bytes": 76000487,
+      "sha256": "E9D44CFA8954234C93991C3021C2B194B9D3148DDE5EC0FC0835DBA10FFB0C30",
+      "role": "trial-init-helper"
+    },
+    {
+      "name": "LICENSE",
+      "bytes": 1088,
+      "sha256": "7D0BCA5DBB27B68ED7FC940BCE0B14A51E594027CF70709E84287D68728B177F",
+      "role": "application-resource"
+    },
+    {
+      "name": "README-纯离线授权.txt",
+      "bytes": 708,
+      "sha256": "BDAEE7FD58A05AD97F27FCB5B59686CFE028AF2BA201FF69B0C6304D45105A4D",
+      "role": "documentation"
+    },
+    {
+      "name": "THIRD_PARTY_NOTICES.md",
+      "bytes": 5985,
+      "sha256": "2E3191E31D04244855E7CA6554FA65B8120DE974EAE1D6EBFCDC084A09B8AED1",
+      "role": "documentation"
+    },
+    {
+      "name": "_internal/VCRUNTIME140.dll",
+      "bytes": 120400,
+      "sha256": "052AD6A20D375957E82AA6A3C441EA548D89BE0981516CA7EB306E063D5027F4",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/VCRUNTIME140_1.dll",
+      "bytes": 49776,
+      "sha256": "6A99BC0128E0C7D6CBBF615FCC26909565E17D4CA3451B97F8987F9C6ACBC6C8",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_asyncio.pyd",
+      "bytes": 74096,
+      "sha256": "C77DE90CAD749087A0C5DC5E19D78D24F6EF44E7E5AC19B8420CFC0CEA62395D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_bz2.pyd",
+      "bytes": 86896,
+      "sha256": "65F610646D10D5BABEA080E060D244B546EC52C54012E5E937DC72DCC2E2E7BC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_cffi_backend.cp312-win_amd64.pyd",
+      "bytes": 181248,
+      "sha256": "9AF5E4F68A41F26B726F2E9424F9D58A4F5666189F6A48BE95F406B257102AEC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_ctypes.pyd",
+      "bytes": 127480,
+      "sha256": "0E56107A891100535F2DA79D85A5AE65FF1227B4765BD108F8593AC1A1110D81",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_decimal.pyd",
+      "bytes": 262000,
+      "sha256": "AEACFEAD2BEFCC0768063A037BB64BD32109AE09CB144E5F571B04DD7965DB9D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_elementtree.pyd",
+      "bytes": 135160,
+      "sha256": "5009A9A53C03EF8387443B5CF6CE08E5C3A79727466A0B931C5BBCA915BF89CA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_hashlib.pyd",
+      "bytes": 68976,
+      "sha256": "03D233DBACE599168EAFFEC823DE6ED7BEEC8C2A4EBFE9B8A3D8E042A59AF3BA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_lzma.pyd",
+      "bytes": 161136,
+      "sha256": "E3DEECC1F59A3B811C608861DECD84DE1E8DF8BAFD5E2B39188861318C5A38CF",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_multiprocessing.pyd",
+      "bytes": 37368,
+      "sha256": "2C636DF7059CB0DD7E978DD735C7C5C8DDB09CF94754CF9E232296B96C5C545A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_overlapped.pyd",
+      "bytes": 57336,
+      "sha256": "662126FF80C3A1B4CEDF74074029C12AE4743E6D3B37376E39AC70AACB7D4D3C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_queue.pyd",
+      "bytes": 33784,
+      "sha256": "48E76E0AD63F6932B4A77B5819F41C1E7595636CA8D9E824F0943A14B8BB5035",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_socket.pyd",
+      "bytes": 85496,
+      "sha256": "3EFA4636CF9E350856F6927D67A4C2564BF9BD2758A00BBF17D3AECE5B60016D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_sqlite3.pyd",
+      "bytes": 126184,
+      "sha256": "64B51DF2805C58B023A875E8AE3BE7AC7F61EF664F32CA6C90F6315DA47EF0BC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_ssl.pyd",
+      "bytes": 179432,
+      "sha256": "0BC527D2DBC50009F43B2ED5D5982C4F63F4B647647FFA9EDA612DCDA80F6040",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_uuid.pyd",
+      "bytes": 27128,
+      "sha256": "ACCE4F281D7FFB2DEC0997527FAF25B1DF62AD7BD3032C568DDCF65C90EDC867",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/_wmi.pyd",
+      "bytes": 40304,
+      "sha256": "A980F1E7A29842BD946863FC2693FBEB555A9DC0F9E1630DFED9A2FCDEF3ECE2",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-console-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "015BD08815C7B934A8952C3A7578E9CE59F21136E8A880D42BBD414BEC2C6058",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-datetime-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "5534812CDBDAE94BA45CB216E5EB9AF686B853948DF54365103555ABBBAF9D9A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-debug-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "837D2B1B2CD03E03FC6CCB050698B6B5763AF17C201304872342A5EAE9E0A2D2",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-errorhandling-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "DE43B165F568C276C00E95ACD454E3092F352A18E95874595F4F4658C06D2EC7",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-fibers-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "3CEBC45BF479AD74CFABF2C6BFD4994D7AD639ED1221025981D19CEDF9CE0416",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-fibers-l1-1-1.dll",
+      "bytes": 22872,
+      "sha256": "5EF70308BCCA628CE6B0E2856B15B1C7AE340C3F9BBBC4C1071D8C191A34A5C3",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-file-l1-1-0.dll",
+      "bytes": 27008,
+      "sha256": "250AC829F2617BCAC1C6E5B8C4F630462E20765863BA573526A3E11BBFB94A9A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-file-l1-2-0.dll",
+      "bytes": 22888,
+      "sha256": "AE14079A114733F60CE87B92CBA42ACD8083C2CD67594E53BC37DC0B97A4B465",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-file-l2-1-0.dll",
+      "bytes": 22912,
+      "sha256": "914BF26A298713119477EA0A8E7BD43171B91344EBE24FB47AD77C49686E3D87",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-handle-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "AB5489955E371B15F77906C08EC3C7AFFE2C7A46A08C514CA628768B4478974B",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-heap-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "C70F9644D8377FA39C5B71F2E9734C1400D7598904FDEB772E8502099982DCB7",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-interlocked-l1-1-0.dll",
+      "bytes": 22888,
+      "sha256": "F8129710188E407BB0E6F46D30AEBA277D67B947ECE5FE09E883FDE2323F3AE6",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-kernel32-legacy-l1-1-1.dll",
+      "bytes": 22888,
+      "sha256": "5200B16CB2DDC61CFC07373A9A84AA85A3AB50806CA96C879C883275832944C1",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-libraryloader-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "48786FB88B001DCD1F63ACEA903D3CA9CC0B3060D5A325E3F2F3CBC3BFD53166",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-localization-l1-2-0.dll",
+      "bytes": 22872,
+      "sha256": "9EC3898F7EBA91FAA28B51616C211A2689E3A13AEEF8DE6E13CB674E49D689EB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-memory-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "3A6CBC524C99E1CD80D5368F5601402A37AD602528B1AB628093573EF638EB3B",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-namedpipe-l1-1-0.dll",
+      "bytes": 22888,
+      "sha256": "97145EF89C44949FCF0F04AC834A8BC7D687EF49EE73AE9FC32F3C11136B7201",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-processenvironment-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "8BC7C10B1851AEA644E9C9F381CDB935E091FEE6B0BE3D3AEDC6FFFAAC96ADB7",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-processthreads-l1-1-0.dll",
+      "bytes": 22912,
+      "sha256": "D8030B777617C71F0F94564607699DBF7561487D779DB9756AED378C5675213F",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-processthreads-l1-1-1.dll",
+      "bytes": 22872,
+      "sha256": "F5E676713340F73A03A3D41A6EC9883B431DA7D16C7F07BD0A920FB80E6C0753",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-profile-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "F023D47E44D3EEA6B0743580F57E8C6BA81E79D5EBFA7DA26250076C647B980E",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-rtlsupport-l1-1-0.dll",
+      "bytes": 22888,
+      "sha256": "9746D8930704153578A628C010638A5F818FFE5A927E25591B108E256DC6AFCA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-string-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "7C53AE24C982D16FFD1BF7F918D115B11B7F30E57BC7FEAA18CB9781E4ABB926",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-synch-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "56D9D62CA5DBA79A6581B8D574A7D8B2A64A5ECB71E47DCF06ED0285708B1859",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-synch-l1-2-0.dll",
+      "bytes": 22888,
+      "sha256": "F6482BBEC5612C39ECB4822787A333F2B7570F7A5F922A4059BE41BA957BB372",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-sysinfo-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "272D02765FDD3582618236C2D309ABBA069642F9BC1062EDE069D0C144E17007",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-sysinfo-l1-2-0.dll",
+      "bytes": 22912,
+      "sha256": "8A0900788859D0EB51C2F48F50CC6ED376A120B518100FA20E11D7702CCDE260",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-timezone-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "FF35DE6C03812B332E140F17DADE25C5DD4775156DA9EEB1EAAE3FDDD27236EC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-core-util-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "191EF3E98641A57296F19D572D8EB62489470FF1EF6030D136AF170C2F835173",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-conio-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "54EE5EC719A051496FF60AA00DBEAA94B9A7D2CDAC27FE9B7317F1A666B6A2AA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-convert-l1-1-0.dll",
+      "bytes": 26992,
+      "sha256": "8B94662429171019FCD63C70BBF2095A075170599704A5E7DCDBE3DA13F3A429",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-environment-l1-1-0.dll",
+      "bytes": 22912,
+      "sha256": "39E5929593709E8AF3BC9E0A75EC1155778D6F4A247F4CDFC58928AD6DB88434",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-filesystem-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "5A8ECEBAC32EDF4E1F3C5C6C1C8EA1A1ADD6CDA4F9C9CB26F752FB295BEA6865",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-heap-l1-1-0.dll",
+      "bytes": 22872,
+      "sha256": "C71080CBCB43BF1F8F3E391DEB12A582EB0ABEFC80946F340675A2C616E4FEB4",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-locale-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "6C68648E524187E03C4AD9AAA4A99113C6EE9F29FB39CC0ED93F951975138E63",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-math-l1-1-0.dll",
+      "bytes": 31064,
+      "sha256": "D4FBCCCBE29371CBCE431E43B2EB4F7BA9A6F04A3D740A071F02457A505E9DC8",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-process-l1-1-0.dll",
+      "bytes": 22896,
+      "sha256": "47C1935942E3AC0812E4DCF18C0E265E565F0194A3349111C299712F5565F7AC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-runtime-l1-1-0.dll",
+      "bytes": 26968,
+      "sha256": "72ADC1B3677E0814D9C4EBF0964000E84BB2ACF67336C8963061665E44F78029",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-stdio-l1-1-0.dll",
+      "bytes": 26968,
+      "sha256": "900AFC3989673C9BB1A687ED38C192F46DB9E6BA6D11A668898A539E7FC23798",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-string-l1-1-0.dll",
+      "bytes": 26968,
+      "sha256": "FCF12466CC12FD3B73611FC0763A5A1F9D44E90349513C34A0C83B0F36421793",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-time-l1-1-0.dll",
+      "bytes": 22912,
+      "sha256": "886E57C4A6ADB299B38F02945369F590A67DA4E79A798359FC60AAA067212D7C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/api-ms-win-crt-utility-l1-1-0.dll",
+      "bytes": 22912,
+      "sha256": "5F8F26B216ADE615B67A41F6FBBB910972FC6153315A65BB8F09912BE50215B1",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/base_library.zip",
+      "bytes": 1333717,
+      "sha256": "36EBC133C1D79AB9D8843FDB0F5256CFB6039D43171762878EB8F9CA917F438C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/click-8.5.0.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "CEEBAE7B8927A3227E5303CF5E0F1F7B34BB542AD7250AC03FBCDE36EC2F1508",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/click-8.5.0.dist-info/METADATA",
+      "bytes": 2567,
+      "sha256": "E87BCE0BD194DE70DFB8E708E0A6B0483009F25611804EAF87BFEB63E6C20501",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/click-8.5.0.dist-info/RECORD",
+      "bytes": 2533,
+      "sha256": "43D8BB1CE44DEA5D9423B7EAE1D6BA911974425B96ACC170B036E1655A901E10",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/click-8.5.0.dist-info/WHEEL",
+      "bytes": 82,
+      "sha256": "1B68144734C4B66791F27ADD5D425F3620775585718A03D0F9B110BA3A4D88DB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/click-8.5.0.dist-info/licenses/LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "9A8AD106A394E853BFE21F42F4E72D592819A22805D991B5F3275029292B658D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "CEEBAE7B8927A3227E5303CF5E0F1F7B34BB542AD7250AC03FBCDE36EC2F1508",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/METADATA",
+      "bytes": 4343,
+      "sha256": "8E9B5570DA4686848EE5C6BB83FFFC224BCDDF9793136731DD050CE0C05FFFE2",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/RECORD",
+      "bytes": 17959,
+      "sha256": "8190D6F8072BA1DF8308F7390C84B23DB40466F30D79287FFA6E0465702986EB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/REQUESTED",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/WHEEL",
+      "bytes": 96,
+      "sha256": "9EFE56059DBB731C438C822AC4132A2B670E174DB90F09059AA246A8BDD2A575",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/licenses/LICENSE",
+      "bytes": 197,
+      "sha256": "3E0C7C091A948B82533BA98FD7CBB40432D6F1A9ACBF85F5922D2F99A93AE6BB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/licenses/LICENSE.APACHE",
+      "bytes": 11360,
+      "sha256": "AAC73B3148F6D1D7111DBCA32099F68D26C644C6813AE1E4F05F6579AA2663FE",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/licenses/LICENSE.BSD",
+      "bytes": 1532,
+      "sha256": "602C4C7482DE6479DD2E9793CDA275E5E63D773DACD1ECA689232AB7008FB4FB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/sboms/cryptography-rust.cyclonedx.json",
+      "bytes": 45629,
+      "sha256": "CA81FD6162FBB9C39D1C4530C4BEB49DD3F938A77CB867F82CE788DEF949E3CE",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography-50.0.1.dist-info/sboms/sbom.json",
+      "bytes": 1223,
+      "sha256": "3375A1384A4782D4A871FFE6D00D22926C140AB2DB7C3671087E15A1FF239234",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/cryptography/hazmat/bindings/_rust.pyd",
+      "bytes": 9943040,
+      "sha256": "6A42262974F0E086C1F2DEFAFF4CCD9FB25046CF193422135E2DDA5B4B29B2A2",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/flask-3.1.3.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "CEEBAE7B8927A3227E5303CF5E0F1F7B34BB542AD7250AC03FBCDE36EC2F1508",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/flask-3.1.3.dist-info/METADATA",
+      "bytes": 3167,
+      "sha256": "AA6760ED6F545704474D70733E4A63A7F1481E376973EDC896A13D02A7224C7C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/flask-3.1.3.dist-info/RECORD",
+      "bytes": 3729,
+      "sha256": "9C65C2C404150DDBA8DF15A761BE18B8396F3C5E15947209EB0BE73D5630A765",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/flask-3.1.3.dist-info/REQUESTED",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/flask-3.1.3.dist-info/WHEEL",
+      "bytes": 82,
+      "sha256": "1B68144734C4B66791F27ADD5D425F3620775585718A03D0F9B110BA3A4D88DB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/flask-3.1.3.dist-info/entry_points.txt",
+      "bytes": 40,
+      "sha256": "6C13FB853392E5FCFDCCBB42EEC3E87C164094C904BC1C6EECAA92EA5E65BDCE",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/flask-3.1.3.dist-info/licenses/LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "489A8E1108509ED98A37BB983E11E0F7E1D31F0BD8F99A79C8448E7FF37D07EA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/greenlet/_greenlet.cp312-win_amd64.pyd",
+      "bytes": 221696,
+      "sha256": "63F097E32E9628C9DB1DB8EEADC1E4F4021A1D0705CD6D350940C277C30821CE",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/itsdangerous-2.2.0.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "CEEBAE7B8927A3227E5303CF5E0F1F7B34BB542AD7250AC03FBCDE36EC2F1508",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/itsdangerous-2.2.0.dist-info/LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "63AF09891B6BE8AD1A4252ED43AF0F4EFBA7FC948E228367BED7F3C5AE0B09D7",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/itsdangerous-2.2.0.dist-info/METADATA",
+      "bytes": 1924,
+      "sha256": "D2B934FB56708A1B94E439F0255C0F5A8108E3258EC827B18A1DC9C991DB9611",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/itsdangerous-2.2.0.dist-info/RECORD",
+      "bytes": 1549,
+      "sha256": "B303BCD128D85B48CEFD16F82F5C7C48A95E8DD186422C220A4C79BF176CB1AA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/itsdangerous-2.2.0.dist-info/WHEEL",
+      "bytes": 81,
+      "sha256": "1196C6921EC87B83E865F450F08D19B8FF5592537F4EF719E83484E546ABE33E",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/app.css",
+      "bytes": 47630,
+      "sha256": "AAE675FE673A47092527D614358ECB89A0C80BE3299ABD6B45428A7496FD29C0",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/manifest.webmanifest",
+      "bytes": 967,
+      "sha256": "40D94B5842E94E8E967D2CA9DD09477018083908B755225EA3DB97FC3568C05F",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/print.css",
+      "bytes": 11094,
+      "sha256": "AD9E517F358E145B8827B7CEBFE5A93AA6EFCD5C4AF2EBE39CE3B3B4D0F37F28",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/product_picker.js",
+      "bytes": 7101,
+      "sha256": "6C4D8D16CBDE72D894A2DC31BFE0C927BF68222E25ED1E48AFEEF11EDE416E27",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/pwa-icon-180.png",
+      "bytes": 2486,
+      "sha256": "43AB7414E2B6EA6501F5390EB357032623E418083E456904C221F84DA1A6DCA2",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/pwa-icon-192.png",
+      "bytes": 2659,
+      "sha256": "093518CB0FD50AB3BB2DCDBC1B4B1F6E652EF0778031B844B3629EBABEA3D06D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/pwa-icon-512.png",
+      "bytes": 7291,
+      "sha256": "7739B04F668A8B802C263F1A729470E0C4B915EF564A99D47781B59F63FC405A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/pwa-icon-maskable-512.png",
+      "bytes": 7351,
+      "sha256": "9282892BF5EC9D146A647338A4D88138EB473CB0694030E0C2AA5B068FAF2EF9",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/pwa-offline.html",
+      "bytes": 1613,
+      "sha256": "145BEA9A9F7A4D57C1FF12417DA9B89796E372D872DECDB67A867636B0032907",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/pwa.js",
+      "bytes": 8119,
+      "sha256": "C63E558EDB09A90CC22EC9BDB76963DBBD36903853D0E13562CF020E6A707D2D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/sales_consolidations.js",
+      "bytes": 1442,
+      "sha256": "1B3EE9D7B491F00793FF4BA3D47E1FBE63F3C0C323C35A6A3B8738FFCED43C24",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/sales_dense_entry.js",
+      "bytes": 9771,
+      "sha256": "38B0343643048FBAA35C34EE910DF00AC25C5B6F30EBF1CC724D2E0AC8521B8F",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/static/service-worker.js",
+      "bytes": 7536,
+      "sha256": "A2215729E0F57F3940BCB90114858DD846C486339F75EBF3EC2BCA46B50801D8",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/activate.html",
+      "bytes": 2603,
+      "sha256": "1B52433BDAF48A62F533B7FCF9ADB7B4038DDF61C387A2E265E282ACED28D48A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/aging_report.html",
+      "bytes": 6168,
+      "sha256": "DD0CFB2D5197B1487FDA986D703AA2D25EDC768205B7A5F59C6F48BE903361E3",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/audit_log.html",
+      "bytes": 641,
+      "sha256": "7C6B4636619660240E4B24B4D5E73CD41EE8563BE85B2C40FE4CBCC67FC824D9",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/balance_sheet.html",
+      "bytes": 1696,
+      "sha256": "75742CA9B25961C906109CF049CA01CA7682CE1DE932B57BA14F5247FF418AF3",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/base.html",
+      "bytes": 7656,
+      "sha256": "240D87A51365D97E17F0756F3A141FFADC50EE3C2251169AB7146CBE1B3CDD8C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/central_login.html",
+      "bytes": 2146,
+      "sha256": "070D09210BF951639A1928131467B2B158C2590ACDD2EC9EEB2707D536DB98B6",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/change_password.html",
+      "bytes": 698,
+      "sha256": "AE3968B6F709224EDF20B9AC41D5D6D247FD90F3F7C4F93385368E055B60CEC7",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/customer_statement_detail.html",
+      "bytes": 4907,
+      "sha256": "616AD6D076F1681936E6ECFC6A8AD098A19EC24F524A94B55D60D3B694687C95",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/customer_statement_new.html",
+      "bytes": 8190,
+      "sha256": "86FC99266555CD6D9625C90E40B4D3E6097B8FAED662C6773532A2132C473678",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/customer_statement_print.html",
+      "bytes": 5290,
+      "sha256": "A26FC75C138DF4B63E63CD855B4EC519D0075A62072D9B11C678EA324ADFFFD9",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/customer_statements.html",
+      "bytes": 2788,
+      "sha256": "7DBFD917C42FB7A91FD534C73ABDF71ED209CBB863F76E5EDDA8C224E37D7BCD",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/dashboard.html",
+      "bytes": 3377,
+      "sha256": "82D988E7707AFCD68528F352C7CC3D7EDB572C2F816044EAFA4B771E54C580AB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/debts.html",
+      "bytes": 757,
+      "sha256": "130CEA5E699D9348CF7CD7BFB9365E292517894AB4B0A2C53F1FC28243A29B62",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/finance_dashboard.html",
+      "bytes": 2041,
+      "sha256": "C52AFD56AD346287D92C8299A4420D4E5678E7225F60F5C5AF7F64A96F246EF6",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/general_ledger.html",
+      "bytes": 1592,
+      "sha256": "E9A71FFE541C38EC143D77CEB30A58C357F62F01D1A92BE291FD8CF5E9694A07",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/income_statement.html",
+      "bytes": 1075,
+      "sha256": "9D53D62145ED0E0FAE9B18286F0D6C4D47937F3B2BEAAFCD50BF35A5A50C57EF",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/item_form.html",
+      "bytes": 4124,
+      "sha256": "2109A65E6F59CF9721146E81BDC7D5A7C5BF4BF16249C419F31486E8D87A6DDD",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/items.html",
+      "bytes": 2412,
+      "sha256": "9B90AE6F4FE60F0E38484DD97A6914C862F7C64D3F5E8C491DFE31AC12379F04",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/journal_new.html",
+      "bytes": 1236,
+      "sha256": "4EB576A1E340CC9D7A5DBCE5EFF5DDD4486C2F6C261B020EDF450E35C5DC56BA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/journals.html",
+      "bytes": 1504,
+      "sha256": "5E9BAA0C7FD60BF89B54AC401818DDB9D13F960B2EEBC3247682E16DFC44A67F",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/login.html",
+      "bytes": 759,
+      "sha256": "DEB11C75A83BCD1BC9974A1CCAF0AE94B401A862EF931866D2D8BC65010B17E5",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/parties.html",
+      "bytes": 840,
+      "sha256": "C172BD44DCF4231C9CC96C3F38B46D22B9A4F67E907B8051DFFF0BC02C41435D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/party_new.html",
+      "bytes": 1122,
+      "sha256": "63046A9C9379E474431C597F0B95FCAF11D7BFE16156940C72952C20329EB461",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/print_document.html",
+      "bytes": 5082,
+      "sha256": "17369F5BD379956EEE9911FBC1307564B8E25D134558164CC07109F4BD62C851",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/print_settings.html",
+      "bytes": 1872,
+      "sha256": "C16EB212DADB8A6B0E90022B55351E69AF241B15AB57B336BA94044A799DFDCD",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/purchase_detail.html",
+      "bytes": 6027,
+      "sha256": "174D18A946010CEE1313DA7BF77833B7F1822C9A26FE854DA9DE1A1BFBF36DC7",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/purchase_new.html",
+      "bytes": 8342,
+      "sha256": "4BA4DA56E785CBEEEAC5CECA654D901CA2C65E83811F936C844EF6C76112160C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/purchases.html",
+      "bytes": 3264,
+      "sha256": "3A1D4DA91FE92B481E259D8F0D30D3EBA0E61AA938F84539D6BBC79CC545D229",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/sales_consolidation_detail.html",
+      "bytes": 8470,
+      "sha256": "13D0C14105202F7DD73AC559B7398F2052C5C0AC20444C2E7A4EC4B706F26CB7",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/sales_consolidation_print.html",
+      "bytes": 5581,
+      "sha256": "5A575B1C08DD3804B39429D784640DD636AF9038A83C89C817EFD0A6B0CB92D4",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/sales_consolidations.html",
+      "bytes": 3162,
+      "sha256": "43C013B47DEB05AA024F9F8B0ECD07C1F0351ECE654CAB9D3F3C5307C1C70AFC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/sales_invoice_detail.html",
+      "bytes": 6643,
+      "sha256": "2323514451720833C85F41399167998CF47118AB6735C4CE5CAF081D60754156",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/sales_invoice_new.html",
+      "bytes": 11206,
+      "sha256": "8FB133CBBA6D63C0C6FAC30E6DE0A1FE811C4C11711C47DEF647AE2C2683808E",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/sales_invoices.html",
+      "bytes": 6260,
+      "sha256": "7340A3A841201C4AD7DA20B22BAD4A291CD0797A5B8C68B81D5083C14E254F87",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ledgerlite/templates/trial_balance.html",
+      "bytes": 1593,
+      "sha256": "DD5C29BC0F0510FAD041661FDD287DA5F8825372AB1F8D25AFA2F7879DAF2DE3",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/libcrypto-3.dll",
+      "bytes": 5231472,
+      "sha256": "CCFFFDDCD3DEFB8D899026298AF9AF43BC186130F8483D77E97C93233D5F27D7",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/libffi-8.dll",
+      "bytes": 39696,
+      "sha256": "EFF52743773EB550FCC6CE3EFC37C85724502233B6B002A35496D828BD7B280A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/libssl-3.dll",
+      "bytes": 794992,
+      "sha256": "007142039F04D04E0ED607BDA53DE095E5BC6A8A10D26ECEDDE94EA7D2D7EEFE",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/licensing/public_keys.json",
+      "bytes": 191,
+      "sha256": "3BECCF7CA0FB5A269D4F307C5171249A857EC84105B17C14763AF2026CE7908D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/_elementpath.cp312-win_amd64.pyd",
+      "bytes": 147456,
+      "sha256": "02D38AB4CC4AC2ED7398828990DD7A0A9F70B0B9E06AD6AABDC485181BEB9B5A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/builder.cp312-win_amd64.pyd",
+      "bytes": 88064,
+      "sha256": "D5B94837735C1C2876AC31EE21DB2AED6DCDB8FB6908869C8CE2E03B92276ECC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/etree.cp312-win_amd64.pyd",
+      "bytes": 4035584,
+      "sha256": "B42EE5CB764AB38AFB290D5AA62FA4C81EE0BDBE09B1BF06D906B02D9A56E170",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/html/_difflib.cp312-win_amd64.pyd",
+      "bytes": 365056,
+      "sha256": "E97AE331AFC8C9725469656B7438704CDEAB0B70E3471A6E96D52C120F156E6D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/html/diff.cp312-win_amd64.pyd",
+      "bytes": 230912,
+      "sha256": "7E949B2749BCB20A3C8F53D8FD3B2D0466B92B74965DC75A94D3F69058EF6331",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/rng/iso-schematron.rng",
+      "bytes": 19046,
+      "sha256": "702338AA97EE4D8015B6E923C65A1B3CC949F2767E6AEEC380E352DA0E2B60EE",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/xsl/RNG2Schtrn.xsl",
+      "bytes": 3247,
+      "sha256": "832F84EB1476A77E522BDC1715386B68F24423D35DA084CD1DDE319AACBBA316",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/xsl/XSD2Schtrn.xsl",
+      "bytes": 4563,
+      "sha256": "430791AC820CFB315C820F7C19703609A59F21B8151345CA11E6127EFBFAEC0D",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_abstract_expand.xsl",
+      "bytes": 12015,
+      "sha256": "492519900916845606FD8347BD6F5453A5FCB6630E1F5BDDA519B3AAED25E103",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_dsdl_include.xsl",
+      "bytes": 41116,
+      "sha256": "659F9DEF6AF14250027EBB381266836316916F177480F6BE0CF2D195557A4118",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_message.xsl",
+      "bytes": 2069,
+      "sha256": "3506A5E33DC4B99FF9415A0C15B26A99AD922A0E3E8739BF0DBDBCDFED25D245",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_schematron_skeleton_for_xslt1.xsl",
+      "bytes": 73560,
+      "sha256": "568D45E7BEA875191D2C19AE1045AB2DAE4B17748C4D7F41E841069F151BBFFF",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/iso_svrl_for_xslt1.xsl",
+      "bytes": 20970,
+      "sha256": "508EF11F1D2578D5D2F41694E9CC90E021DE7E5B9F2A6004FB38CEAE286E1FE1",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/isoschematron/resources/xsl/iso-schematron-xslt1/readme.txt",
+      "bytes": 3310,
+      "sha256": "3862E216CC2E2C9116E443D828E7A86AEB8224512D55AEA3CB3044D4E70923DF",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/objectify.cp312-win_amd64.pyd",
+      "bytes": 1744896,
+      "sha256": "5B982FC392CA4873ADF97EB6C22DF0B76402BE9BAE680E441CE99EA9723FF790",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/lxml/sax.cp312-win_amd64.pyd",
+      "bytes": 120320,
+      "sha256": "370AE45BEB6468AC769299EC6FA7130D74F66D3BFBE5E0A082328B85BC04BE69",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/markupsafe-3.0.3.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "CEEBAE7B8927A3227E5303CF5E0F1F7B34BB542AD7250AC03FBCDE36EC2F1508",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/markupsafe-3.0.3.dist-info/METADATA",
+      "bytes": 2764,
+      "sha256": "F0AE5DBB09D50FB5F7632C3D53F0220995EF76019E5892E0A545740136A4E3CB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/markupsafe-3.0.3.dist-info/RECORD",
+      "bytes": 1104,
+      "sha256": "D2B82CC3750BB0CD40C0F6E13F388C346BFF58AAAF2791F289411EC92E04BD81",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/markupsafe-3.0.3.dist-info/WHEEL",
+      "bytes": 101,
+      "sha256": "F143FDC7DA6E588D0FD55FDDECADA831306A7DE2CD9B6D424F367F3EDAF43575",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/markupsafe-3.0.3.dist-info/licenses/LICENSE.txt",
+      "bytes": 1503,
+      "sha256": "4631EC0DB5FD90A547E336817264C6798214338146F8AC94B4A57F96EE8C9EC4",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/markupsafe-3.0.3.dist-info/top_level.txt",
+      "bytes": 11,
+      "sha256": "AB2D0F9637B9209BAFB020637A32728430A310075C0CB2BFD9A81571EC7C67A5",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/markupsafe/_speedups.cp312-win_amd64.pyd",
+      "bytes": 13312,
+      "sha256": "6107CD12E027357194947A9E4881AECF468790D2CB6EF4DD6EC77F5736232098",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/pyexpat.pyd",
+      "bytes": 205304,
+      "sha256": "D615E193D1AFFCDBFE504E90D3621CBDCFF94BF72B79D899126534507FD6D27A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/python3.dll",
+      "bytes": 70376,
+      "sha256": "FB975A606E7FBF74F64260E3F60C3490B4F74A183C0926FD6ED1AC4C52AC7B1C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/python312.dll",
+      "bytes": 6945272,
+      "sha256": "9A0E3435AAA680D868150F87AB3E388AD2EEBC22F87E036155C7B4EDA8CD2120",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/select.pyd",
+      "bytes": 33136,
+      "sha256": "D4D7181B11DB0BD22A6CD5CDA6F8583D1F5C77615FD0A6CA33350619D6E0438A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/INSTALLER",
+      "bytes": 2,
+      "sha256": "E6184CE10E266134FDCFA401E8F1A95005BCD4F18D16B62B757323E2833FE9A9",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/METADATA",
+      "bytes": 4670,
+      "sha256": "A3E38B9EE4326289D4864704F30E299EE769E2309CE9F4A75F0DE1A50AD0A356",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/RECORD",
+      "bytes": 1868,
+      "sha256": "52A6B8EE0DE15CF7FD99625F43B97CD2E3942AC86F16054EA90DE48E66F29355",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/REQUESTED",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/WHEEL",
+      "bytes": 91,
+      "sha256": "FF309DDCDD65EBD02BC724DBF2BCC4A0FF53A5B61792A44548D383E4EBB19D3B",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE",
+      "bytes": 10278,
+      "sha256": "458502E12D97BBF64438606A20044AA85EB05FB0A8A807BB35DBEC253FD1FC04",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/top_level.txt",
+      "bytes": 19,
+      "sha256": "08EDDF0FDCB29403625E4ACCA38A872D5FE6A972F6B02E4914A82DD725804FE0",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/setuptools/_vendor/jaraco/text/Lorem ipsum.txt",
+      "bytes": 1335,
+      "sha256": "37FEDCFFBF73C4EB9F058F47677CB33203A436FF9390E4D38A8E01C9DAD28E0B",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/sqlalchemy/cyextension/collections.cp312-win_amd64.pyd",
+      "bytes": 165376,
+      "sha256": "B26C4357FCFF79DDEF3C939F1D7C5C77B75D685DBA2A4C79864DDBBB680F0B4B",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/sqlalchemy/cyextension/immutabledict.cp312-win_amd64.pyd",
+      "bytes": 70144,
+      "sha256": "84A8F02E7F2045CD210963A44E76ECF17C7DCA2DDC40B479C0F75D6D9C626A1E",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/sqlalchemy/cyextension/processors.cp312-win_amd64.pyd",
+      "bytes": 60928,
+      "sha256": "DF8997EFB277F8E04E984C2AE7BC031997BDD310406F2BD4667C62E923A0388A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/sqlalchemy/cyextension/resultproxy.cp312-win_amd64.pyd",
+      "bytes": 61952,
+      "sha256": "9B0DEC75ED97B9F773A3C4D973BAF7140F9E09B35D2DCAB2D4DC6D3C0CB62ACE",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/sqlalchemy/cyextension/util.cp312-win_amd64.pyd",
+      "bytes": 73216,
+      "sha256": "3C513A31A0AA99FFD6ADBBE90137EC7DE112857D0CD25AE71439A74424328E3F",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/sqlite3.dll",
+      "bytes": 1583608,
+      "sha256": "8DAA45684BF6688FCA28D956B2E8942F2FA98F656675CE68E6D61DD869848A7A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/ucrtbase.dll",
+      "bytes": 1362264,
+      "sha256": "3239227D27667BA20D10A880751924E5719DE0078F9FCE232D149D383F7681F6",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/unicodedata.pyd",
+      "bytes": 1140592,
+      "sha256": "208EE1CD3CBAD0828433CA7246B05BE2B1FF5569983D27D296C0B38888585488",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress-3.0.2.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "CEEBAE7B8927A3227E5303CF5E0F1F7B34BB542AD7250AC03FBCDE36EC2F1508",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress-3.0.2.dist-info/LICENSE.txt",
+      "bytes": 2070,
+      "sha256": "3E671DB11DF687516CC1DB5B3D65E4AA383EACA3C20CEA3FAF53A0F7335D0A3C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress-3.0.2.dist-info/METADATA",
+      "bytes": 5764,
+      "sha256": "103A993B671C333C467CDAFE1D1AF460093D30846ADB889A9F9FD980476DF77A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress-3.0.2.dist-info/RECORD",
+      "bytes": 2791,
+      "sha256": "F8C891D160CF28F952C3E38FE99679715A69A4E2656CEA729025435CA3AB2374",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress-3.0.2.dist-info/REQUESTED",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress-3.0.2.dist-info/WHEEL",
+      "bytes": 91,
+      "sha256": "474E8F0375156074E1C07BF1B9158CA9A19CAFE3EE9E25DA8708E641114C1246",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress-3.0.2.dist-info/entry_points.txt",
+      "bytes": 106,
+      "sha256": "B4347C7A91B683823BD0B6A4F5DFB5A931DB09F07365DE450C449C02456E1FF1",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress-3.0.2.dist-info/top_level.txt",
+      "bytes": 9,
+      "sha256": "FE41675D8B435EF4561D25E9AC7E77879E803368C37D8F98EEC8086A45442262",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/__init__.py",
+      "bytes": 1370,
+      "sha256": "5EE70BB2085AC1231395400067A4E8379A8A67224DBF78A8958620C7CD766B9A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/__main__.py",
+      "bytes": 75,
+      "sha256": "E7658922B60A69DB068B41BDDE310C09F6815DA55096E1F2E170667D32D3FBAA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/adjustments.py",
+      "bytes": 17907,
+      "sha256": "F1ED00A8217A79F5D3EDEDAD82B2CC8B426079D3167839714760EC9A3A8AEA12",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/buffers.py",
+      "bytes": 9327,
+      "sha256": "50BF15244D9056A94E4AA6E30CB97A915A02D484361168BD21B854250C5ECC89",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/channel.py",
+      "bytes": 19440,
+      "sha256": "6B44713FD38F8917E6D29A5AB35D1579299D582980BCF5D390DF7B70E8018215",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/compat.py",
+      "bytes": 867,
+      "sha256": "C9EEEF06FD122D789C8C9EB600B62B97CEB7314C22B3D3CAA9B86C8E20124920",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/parser.py",
+      "bytes": 15579,
+      "sha256": "F3C294637D49CED327B97238E8F38714BE72607B89E5909CCD5F008FA510B633",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/proxy_headers.py",
+      "bytes": 12336,
+      "sha256": "FA16263B0D4E6DE75850AAEA3703782D999B1AF2AB6729BB172C04BF6343070E",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/receiver.py",
+      "bytes": 5897,
+      "sha256": "E4B4903D525A6D6AF2B7067068A2A21E01BCD165CFA3F54B2BAB4DC529A1CFA2",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/rfc7230.py",
+      "bytes": 2525,
+      "sha256": "0F5FE455E0896B71BEBB88C09E26627854CC7B7C6B31ABD38D00C46E3F5205FA",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/runner.py",
+      "bytes": 7615,
+      "sha256": "1C73F38C5998D7A33E93E80828D0CDACC58DB84A17FDD207FBDE69E2887EE0BC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/server.py",
+      "bytes": 13752,
+      "sha256": "93FA60086CB5B979D176BFEA7A390E67903D8F1745468ABB84D043322D23E6C0",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/task.py",
+      "bytes": 21847,
+      "sha256": "FC30D7EB4FDE61349094420EF83A6575DDF1532F34EE5B2253EDEC86EAA984A0",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/trigger.py",
+      "bytes": 7811,
+      "sha256": "98FC875BFC940B7627FA26C8216C13598A917B40C97AE6932BA8AF398DA8FF71",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/utilities.py",
+      "bytes": 6356,
+      "sha256": "D7D243C4C848323EFC00EF810503FFB72DF5A935D5204A56BE3CA8F4AD812BBD",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/waitress/wasyncore.py",
+      "bytes": 18910,
+      "sha256": "AC7821B11B192A195716ECB3ACD742B4DDB02FC6427577CD7A43EC644323066B",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/werkzeug-3.1.8.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "CEEBAE7B8927A3227E5303CF5E0F1F7B34BB542AD7250AC03FBCDE36EC2F1508",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/werkzeug-3.1.8.dist-info/METADATA",
+      "bytes": 4029,
+      "sha256": "F57D29864FB04C6CBF2B4E844C108D62331F4621FD163CBCED288F90DFD6D392",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/werkzeug-3.1.8.dist-info/RECORD",
+      "bytes": 8318,
+      "sha256": "D2570E287D523046D4F15A7164012350F9A543368C3D270FDF739125A2AF6C3C",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/werkzeug-3.1.8.dist-info/WHEEL",
+      "bytes": 82,
+      "sha256": "1B68144734C4B66791F27ADD5D425F3620775585718A03D0F9B110BA3A4D88DB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/werkzeug-3.1.8.dist-info/licenses/LICENSE.txt",
+      "bytes": 1475,
+      "sha256": "3B49DCEE4105EB37BAC10FAF1BE260408FE85D252B8E9DF2E0979FC1E094437B",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter-3.2.9.dist-info/INSTALLER",
+      "bytes": 4,
+      "sha256": "CEEBAE7B8927A3227E5303CF5E0F1F7B34BB542AD7250AC03FBCDE36EC2F1508",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter-3.2.9.dist-info/LICENSE.txt",
+      "bytes": 1349,
+      "sha256": "CF08B60A4DED986B58A617CB8304373BDA5C4EFF42FB4E30D7597B616E116E87",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter-3.2.9.dist-info/METADATA",
+      "bytes": 2712,
+      "sha256": "10D504F188E087F07A06B9038ED0535F37AC072C232E60C075DDB0AEDB7B7D78",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter-3.2.9.dist-info/RECORD",
+      "bytes": 6341,
+      "sha256": "17BEB7FC73E1A14DEABDB455EF26E233E7F63517B36FA612758C44DE780DDFE3",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter-3.2.9.dist-info/REQUESTED",
+      "bytes": 0,
+      "sha256": "E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter-3.2.9.dist-info/WHEEL",
+      "bytes": 91,
+      "sha256": "227F454CDC5E3FAD0A9D3906C3BC24EA624F61DFDD4128C46665DD05D30223EF",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter-3.2.9.dist-info/top_level.txt",
+      "bytes": 11,
+      "sha256": "C45114729718ED0CC0AFFFB3B645DE6C4B751590B1A6E09B9B20AC05A7AF8519",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/__init__.py",
+      "bytes": 218,
+      "sha256": "F81B0587E6FC5A979724A31CD288753E722D4EA29D0BF2310B5F50FE93BF13D3",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/app.py",
+      "bytes": 6094,
+      "sha256": "1718F6E3ABA7E5179C9228EFA2B30B3B2E7D9ACE73A40C5363A3D4CBA5697C01",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart.py",
+      "bytes": 132029,
+      "sha256": "E1F43C70AE79D7196F8A255CFE3E357423CD0FC4D783F23148E6CC786A4A1034",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_area.py",
+      "bytes": 2758,
+      "sha256": "F6D001255E8E6A05718AE2F384F1D7D97F174100693BEE50E7335D96E49388C2",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_bar.py",
+      "bytes": 5007,
+      "sha256": "AAA483DE6D38992DA6923A010E39542DAC8850283300EA296CE2AF0CC013A85F",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_column.py",
+      "bytes": 3671,
+      "sha256": "492BDA7CD1427C262183290C94EDDD79ABA981EFCD8B16687A08B644264E38F9",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_doughnut.py",
+      "bytes": 2698,
+      "sha256": "9FB6BC561C887BD4C97EDEFDF85EF2F66C8D97AD7ACBBB8E48BC57CDDF5CBD72",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_line.py",
+      "bytes": 3851,
+      "sha256": "7F817FC5AA51B76FD730AF87F2E1A3B97B6E343BA3FCD3017D4DE4D82753C7FD",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_pie.py",
+      "bytes": 7524,
+      "sha256": "583B7DFA555BBDFB95C154911EC2E4937B428A94A67BF496557BFF792435BA9B",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_radar.py",
+      "bytes": 2824,
+      "sha256": "A8BDFFBDB04F743CB863693956AB7E8D9830F756F704954EB7E5612D600D8691",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_scatter.py",
+      "bytes": 9699,
+      "sha256": "C1B56A5D1BE8E698B35CE5FDD569B45AA44763950133925134552F11B7BA1012",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_stock.py",
+      "bytes": 3531,
+      "sha256": "479137573B85483FBD5276700E165DD39E2785ECF2CF1E66ACFDB90A9B357F04",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chart_title.py",
+      "bytes": 3344,
+      "sha256": "343348C4902F5B34089B7CB013FA23845F5196027568FAFC805437F3E8A2D263",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/chartsheet.py",
+      "bytes": 5631,
+      "sha256": "D02ADB8E474D9AC698A784EC1A5096707A65E9BDCA1B7029E706A5081474F79A",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/color.py",
+      "bytes": 13486,
+      "sha256": "27D2C053985B3D14EE2F4EE2191C60589E333EF092E1A742A74AF4D7E0E10DC4",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/comments.py",
+      "bytes": 11679,
+      "sha256": "C408BEE3725B7373857BEAF408DAC40A4FF7365565A42FB20BA78C5F0FDE2520",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/contenttypes.py",
+      "bytes": 8971,
+      "sha256": "26BDC381635CB26FF654FCAF0056A5F40404BE7FE2CBEE085F20815C0ECB5400",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/core.py",
+      "bytes": 5425,
+      "sha256": "7E22AA6B03E7C1BE8BE7197DD9ED9A564709DA2D04B578F64F328ADDAEDDFE12",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/custom.py",
+      "bytes": 3921,
+      "sha256": "A0A6D2A82F993586B0C260D738C5FF83CA0DE27FC923CA0C8D0A99060EB1F486",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/drawing.py",
+      "bytes": 34349,
+      "sha256": "299D7E20BE3067D04DE000F8EC48A9A36A59DC4BF13A0B70E1A63CFEFDAA8629",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/exceptions.py",
+      "bytes": 1400,
+      "sha256": "447A7C4397B2DFA038DE5A63B1A7B218635FF5D6550CA01E90651A9871EE69C9",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/feature_property_bag.py",
+      "bytes": 4274,
+      "sha256": "A0CA30482FEBDE835717D532BF53FC49ED13C0AB376123BAF4BE471330829BB8",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/format.py",
+      "bytes": 32417,
+      "sha256": "CF21D378DA86BE744AC0B77A950170A97E9C7F0348E3675EC44706D368AABB88",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/image.py",
+      "bytes": 13610,
+      "sha256": "C010D7F26A15BAA71FEDB4E349676684AA8521C9376CF41325E2C37D5666C032",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/metadata.py",
+      "bytes": 7654,
+      "sha256": "DB3E10BBDC3F9D5BE0DF4D92DA4DC7E875689B59F02594EB2B605535FEFEFAF8",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/packager.py",
+      "bytes": 30287,
+      "sha256": "EFFB37E1D60AD05DBC934D4AC363132704B8BBAAFD950771DC0671C4A8CFBF5E",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/relationships.py",
+      "bytes": 4578,
+      "sha256": "436B5AF0E6823700F995CEA6C3C3853026E92B6833C383E0479F4BBA6DE8D5B9",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/rich_value.py",
+      "bytes": 2483,
+      "sha256": "F0A1CB6F7F075E1CDB554FEE01295292306ADC8F8B8FB35EBE54E2AEEC4B4CAC",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/rich_value_rel.py",
+      "bytes": 2226,
+      "sha256": "5B5932BDDF76E369E042CF81E2CA4465B178B1CC859664646C71240C0A3043E3",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/rich_value_structure.py",
+      "bytes": 2544,
+      "sha256": "E00907F8903AA77A2FCB1C769EF3367C1CDBE8D5EDA2491FBD4D8E82170126AB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/rich_value_types.py",
+      "bytes": 3347,
+      "sha256": "28B5D5B26B3CE600D9DB60CEF312AA41B1472B5D04F4954554E461CC2DE2B583",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/shape.py",
+      "bytes": 13639,
+      "sha256": "F0C941FDAB04B3955E9EBE721A41316687685D81FA18C2DF7FC034553E2AE550",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/sharedstrings.py",
+      "bytes": 3960,
+      "sha256": "7AB6EAEBAB3922CC81859ECBA5F9C4C4C816BE6F5F7269E49F51ED22DEDB4799",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/styles.py",
+      "bytes": 24409,
+      "sha256": "6D945A45452DE09AD32E852F358D98363D88F7AF067337743961E88C87C88B73",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/table.py",
+      "bytes": 5918,
+      "sha256": "D71D303ACD5E93CCF38DCA25A8C27CE2F9285CEB76436529AEF71DCCA23ABE99",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/theme.py",
+      "bytes": 8953,
+      "sha256": "D3160398257AD2A3B88F323168F72EF5B6E95E3F990C3DA3D2D4DD1BE5AE2FAB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/url.py",
+      "bytes": 8535,
+      "sha256": "8EEF023442210EC8C7C93E777C70285F3D3E5B355659E1E3206BD7ED4BD8A8BB",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/utility.py",
+      "bytes": 30070,
+      "sha256": "27BD9B37865B530D409965DEA30F69A496DA71BB9AA84EDC902288C9321DA31E",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/vml.py",
+      "bytes": 22208,
+      "sha256": "286F36688F2520DA9CAE0E9F57552D3CA82C19C279C351DE750A6C2A91F2F33F",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/workbook.py",
+      "bytes": 59539,
+      "sha256": "4B4A3820B4877EF31920CE13630D66AABF4AED5E9F9C7A7A7E27694276B7E2F9",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/worksheet.py",
+      "bytes": 285350,
+      "sha256": "DB89556547C80594596BC9E264AF9B9AC4453713748CFC7D09B052DFA05AA1AD",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "_internal/xlsxwriter/xmlwriter.py",
+      "bytes": 7821,
+      "sha256": "AEED276D30C46CCB29B8AD53774D5467F77C1846F4590A7A53DF27A07C66B90E",
+      "role": "third-party-runtime"
+    },
+    {
+      "name": "方寸有序记账软件.exe",
+      "bytes": 9773815,
+      "sha256": "9E472F94263F199760FAEBC8664A7441ADF6B59FE31E059B3CEF6371E9F909DD",
+      "role": "application"
+    }
+  ]
+}
