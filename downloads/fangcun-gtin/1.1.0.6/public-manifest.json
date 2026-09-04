@@ -10,13 +10,13 @@
   "architecture": "x64",
   "package": {
     "filename": "fangcun-gtin-pdf-integrator-1.1.0.6-win-x64-public.zip",
-    "bytes": 167570551,
-    "sha256": "255540FD8934FD6EF6DB2635F931A5DF612F1B2BA4F15F00459B82DF34EF5AAC"
+    "bytes": 167572555,
+    "sha256": "F27D4F3292F0F91FDC58003770C2FFCBC860455EA6D51482D0EBCF230205A7D4"
   },
   "main_executable": {
     "path": "方寸有序条码匹配/方寸有序条码匹配.exe",
     "bytes": 8077259,
-    "sha256": "E00796C6D2DFA718DA8C6FF563AA10F6F4F8A16B7D12A29528E1EE8D7A7BDC41",
+    "sha256": "86604D09E3F8876A7D44530A8656D6F67655C5511990123F81889C1E1D48BDC4",
     "file_version": "1.1.0.6",
     "product_version": "1.1.0.0"
   },
