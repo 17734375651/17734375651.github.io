@@ -26,6 +26,8 @@ test('all retained products expose a verified client action', () => {
     'pdf',
     'packing',
     'accounting',
+    'gtin-pdf',
+    'color-size',
   ])
   for (const product of PRODUCTS) {
     assert.equal(product.status.effectiveStatus, 'available')

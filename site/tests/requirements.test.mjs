@@ -41,6 +41,10 @@ test('normalizePrefill accepts known scenarios and ignores unknown values', () =
   assert.deepEqual(known, { scenario: 'printing-shop', product: 'bleed' })
   const multisize = normalizePrefill(new URLSearchParams('product=multisize-bleed'))
   assert.deepEqual(multisize, { scenario: null, product: 'multisize-bleed' })
+  const gtinPdf = normalizePrefill(new URLSearchParams('product=gtin-pdf'))
+  assert.deepEqual(gtinPdf, { scenario: null, product: 'gtin-pdf' })
+  const colorSize = normalizePrefill(new URLSearchParams('product=color-size'))
+  assert.deepEqual(colorSize, { scenario: null, product: 'color-size' })
 
   const unknown = normalizePrefill(new URLSearchParams('scenario=made-up&product=secret'))
   assert.deepEqual(unknown, { scenario: null, product: null })

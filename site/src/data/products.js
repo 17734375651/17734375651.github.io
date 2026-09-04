@@ -712,6 +712,238 @@ export const PRODUCTS = [
         "nextStep": "下载 0.8.0 对应系统客户端，核对 SHA-256 后按账号年度授权说明完成授权"
       }
     }
+  },
+  {
+    "id": "gtin-pdf",
+    "route": "/products/gtin-pdf/",
+    "name": "方寸有序条码匹配",
+    "shortName": "条码匹配",
+    "eyebrow": "GTIN & PDF MATCHING",
+    "statement": "把 Excel 产品资料与 PDF 页面按条码和产品属性进行匹配，整理成可复核的结果表与合并 PDF。",
+    "outcome": "串联条码匹配、人工复核与 PDF 整理",
+    "price": {
+      "amountCny": null,
+      "display": "价格咨询",
+      "termDays": 365,
+      "sourceUnit": "年度授权",
+      "public": false
+    },
+    "status": {
+      "sourceStatus": "正式销售",
+      "downloadable": true,
+      "effectiveStatus": "available",
+      "label": "正式销售 · 已验证下载",
+      "reason": "Windows x64 公开包的版本、文件大小、ZIP 完整性与 SHA-256 已完成核对。"
+    },
+    "trial": {
+      "days": 30,
+      "minutes": 43200,
+      "display": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "state": "first-machine-thirty-day-offline",
+      "source": "纯离线体验规则"
+    },
+    "download": {
+      "state": "available",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0/fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip",
+      "filename": "fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip",
+      "platform": "Windows x64",
+      "version": "1.1.0",
+      "date": "2026-09-04",
+      "verification": "verified",
+      "bytes": 168917182,
+      "displaySize": "161.1 MiB",
+      "sha256": "7db3ba32df14c6467464064069daa71e3786b645098b2d09bfed261ef511020b",
+      "sha256UppercaseInChecksum": "7DB3BA32DF14C6467464064069DAA71E3786B645098B2D09BFED261EF511020B",
+      "sha256CaseInsensitiveMatch": true,
+      "releaseRecordPackage": "fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip",
+      "digitalSignature": "NotSigned",
+      "localArchivePresent": false,
+      "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
+      "variants": [],
+      "supportFiles": [
+        {
+          "title": "公开发布清单",
+          "filename": "public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0/public-manifest.json",
+          "format": "JSON",
+          "bytes": 1323,
+          "displaySize": "1.3 KiB",
+          "buttonLabel": "下载公开发布清单"
+        },
+        {
+          "title": "发布记录",
+          "filename": "release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0/release-record.json",
+          "format": "JSON",
+          "bytes": 1727,
+          "displaySize": "1.7 KiB",
+          "buttonLabel": "下载发布记录"
+        },
+        {
+          "title": "SHA-256 校验文件",
+          "filename": "SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0/SHA256SUMS.txt",
+          "format": "TXT",
+          "bytes": 292,
+          "displaySize": "292 B",
+          "buttonLabel": "下载 SHA-256 校验文件"
+        }
+      ]
+    },
+    "media": {
+      "video": null,
+      "poster": null,
+      "declared": false,
+      "mode": "not-published",
+      "fallback": "当前页面先公开产品能力、价格状态与已验证下载；操作演示将在完成公开素材核验后补充。"
+    },
+    "workflow": {
+      "input": [
+        "Excel 产品或订单资料",
+        "待匹配的 PDF 页面",
+        "条码与产品属性规则"
+      ],
+      "process": [
+        "提取 GTIN、条码与产品属性",
+        "先按标识符精确匹配，再按属性进行匹配",
+        "将未解决项目留给人工复核"
+      ],
+      "output": [
+        "分工作表匹配结果 Excel",
+        "按结果合并的 PDF",
+        "未解决项目与复核明细"
+      ]
+    },
+    "capabilityBoundary": "Excel 与 PDF 在本地完成读取、匹配和输出；试用与年度授权均为纯离线流程，业务资料不上传官网。",
+    "cta": {
+      "homeCard": "查看产品详情",
+      "pricingCard": "查看详情",
+      "productHeroPrimary": "查看下载与授权",
+      "productHeroSecondary": "查看工作流",
+      "downloadPanel": "已核验下载 / 条码匹配 1.1.0 / SHA-256",
+      "downloadButton": "下载 Windows x64 客户端 · 161.1 MiB",
+      "recommended": {
+        "primary": "下载客户端",
+        "secondary": "查看工作流",
+        "nextStep": "下载 1.1.0 Windows x64 客户端，核对 SHA-256 后可直接开启 30 天纯离线试用"
+      }
+    }
+  },
+  {
+    "id": "color-size",
+    "route": "/products/color-size/",
+    "name": "方寸有序颜色尺寸提取",
+    "shortName": "颜色尺寸提取",
+    "eyebrow": "EXCEL COLOR & SIZE",
+    "statement": "批量读取 Excel 中的颜色与尺寸文本，翻译中文颜色并提取英尺、厘米尺寸，生成不覆盖原文件的新结果表。",
+    "outcome": "把颜色翻译与尺寸提取整理成新表格",
+    "price": {
+      "amountCny": null,
+      "display": "价格咨询",
+      "termDays": 365,
+      "sourceUnit": "年度授权",
+      "public": false
+    },
+    "status": {
+      "sourceStatus": "正式销售",
+      "downloadable": true,
+      "effectiveStatus": "available",
+      "label": "正式销售 · 已验证下载",
+      "reason": "Windows x64 公开包的版本、文件大小、自检结果、ZIP 完整性与 SHA-256 已完成核对。"
+    },
+    "trial": {
+      "days": 30,
+      "minutes": 43200,
+      "display": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "state": "first-machine-thirty-day-offline",
+      "source": "纯离线体验规则"
+    },
+    "download": {
+      "state": "available",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-color-size-1.0.2/fangcun-color-size-extractor-1.0.2-win-x64-public.zip",
+      "filename": "fangcun-color-size-extractor-1.0.2-win-x64-public.zip",
+      "platform": "Windows x64",
+      "version": "1.0.2",
+      "date": "2026-09-04",
+      "verification": "verified",
+      "bytes": 162058084,
+      "displaySize": "154.6 MiB",
+      "sha256": "761595f0ede7447decf51727f48cee6b838a7abaefa35a3ac5eee996ece6aaab",
+      "sha256UppercaseInChecksum": "761595F0EDE7447DECF51727F48CEE6B838A7ABAEFA35A3AC5EEE996ECE6AAAB",
+      "sha256CaseInsensitiveMatch": true,
+      "releaseRecordPackage": "fangcun-color-size-extractor-1.0.2-win-x64-public.zip",
+      "digitalSignature": "NotSigned",
+      "localArchivePresent": false,
+      "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
+      "variants": [],
+      "supportFiles": [
+        {
+          "title": "公开发布清单",
+          "filename": "public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-color-size-1.0.2/public-manifest.json",
+          "format": "JSON",
+          "bytes": 1342,
+          "displaySize": "1.3 KiB",
+          "buttonLabel": "下载公开发布清单"
+        },
+        {
+          "title": "发布记录",
+          "filename": "release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-color-size-1.0.2/release-record.json",
+          "format": "JSON",
+          "bytes": 1744,
+          "displaySize": "1.7 KiB",
+          "buttonLabel": "下载发布记录"
+        },
+        {
+          "title": "SHA-256 校验文件",
+          "filename": "SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-color-size-1.0.2/SHA256SUMS.txt",
+          "format": "TXT",
+          "bytes": 293,
+          "displaySize": "293 B",
+          "buttonLabel": "下载 SHA-256 校验文件"
+        }
+      ]
+    },
+    "media": {
+      "video": null,
+      "poster": null,
+      "declared": false,
+      "mode": "not-published",
+      "fallback": "当前页面先公开产品能力、价格状态与已验证下载；操作演示将在完成公开素材核验后补充。"
+    },
+    "workflow": {
+      "input": [
+        "一个或多个 .xlsx 工作簿",
+        "包含颜色和尺寸的文本列",
+        "待保留的原始数据"
+      ],
+      "process": [
+        "识别并翻译中文颜色名称",
+        "提取英尺与厘米尺寸表达",
+        "将结果写入新列并保留原始工作簿"
+      ],
+      "output": [
+        "颜色英文翻译列",
+        "英尺与厘米尺寸列",
+        "不覆盖原文件的新 Excel 结果"
+      ]
+    },
+    "capabilityBoundary": "Excel 数据在本地读取和生成新结果，原始工作簿不被覆盖；试用与年度授权均为纯离线流程。",
+    "cta": {
+      "homeCard": "查看产品详情",
+      "pricingCard": "查看详情",
+      "productHeroPrimary": "查看下载与授权",
+      "productHeroSecondary": "查看工作流",
+      "downloadPanel": "已核验下载 / 颜色尺寸提取 1.0.2 / SHA-256",
+      "downloadButton": "下载 Windows x64 客户端 · 154.6 MiB",
+      "recommended": {
+        "primary": "下载客户端",
+        "secondary": "查看工作流",
+        "nextStep": "下载 1.0.2 Windows x64 客户端，核对 SHA-256 后可直接开启 30 天纯离线试用"
+      }
+    }
   }
 ];
 

@@ -138,10 +138,10 @@ test('requirements expose four required semantics and build only a local summary
   assert.doesNotMatch(app, /\b(?:fetch|axios|XMLHttpRequest|sendBeacon)\s*\(/i)
 })
 
-test('six products render their verified status through a data-driven UI path', async () => {
+test('eight products render their verified status through a data-driven UI path', async () => {
   const app = await readSource(appPath)
   const css = await readSource(path.join(srcRoot, 'styles.css'))
-  const expectedIds = ['label', 'bleed', 'multisize-bleed', 'pdf', 'packing', 'accounting']
+  const expectedIds = ['label', 'bleed', 'multisize-bleed', 'pdf', 'packing', 'accounting', 'gtin-pdf', 'color-size']
   assert.deepEqual(PRODUCTS.map((product) => product.id), expectedIds)
   for (const product of PRODUCTS) {
     assert.ok(PRODUCT_STATUS[product.status.effectiveStatus], `missing status vocabulary for ${product.id}`)
@@ -190,6 +190,31 @@ test('packing and accounting metadata preserve the approved price and client rec
   assert.equal(accounting.download.sha256, 'bdf5e898eb08bd4e34dde9b071471bb02bf9b184099ba70c5313e80b058f0da9')
 
   assert.deepEqual(accounting.download.variants, [])
+})
+
+test('newly completed workflow tools expose verified clients without inventing prices', () => {
+  const gtinPdf = PRODUCTS.find((product) => product.id === 'gtin-pdf')
+  const colorSize = PRODUCTS.find((product) => product.id === 'color-size')
+
+  assert.ok(gtinPdf, 'GTIN/PDF product is required')
+  assert.equal(gtinPdf.name, '方寸有序条码匹配')
+  assert.equal(gtinPdf.price.public, false)
+  assert.equal(gtinPdf.price.display, '价格咨询')
+  assert.equal(gtinPdf.download.version, '1.1.0')
+  assert.equal(gtinPdf.download.platform, 'Windows x64')
+  assert.equal(gtinPdf.download.filename, 'fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip')
+  assert.equal(gtinPdf.download.bytes, 168917182)
+  assert.equal(gtinPdf.download.sha256, '7db3ba32df14c6467464064069daa71e3786b645098b2d09bfed261ef511020b')
+
+  assert.ok(colorSize, 'color/size product is required')
+  assert.equal(colorSize.name, '方寸有序颜色尺寸提取')
+  assert.equal(colorSize.price.public, false)
+  assert.equal(colorSize.price.display, '价格咨询')
+  assert.equal(colorSize.download.version, '1.0.2')
+  assert.equal(colorSize.download.platform, 'Windows x64')
+  assert.equal(colorSize.download.filename, 'fangcun-color-size-extractor-1.0.2-win-x64-public.zip')
+  assert.equal(colorSize.download.bytes, 162058084)
+  assert.equal(colorSize.download.sha256, '761595f0ede7447decf51727f48cee6b838a7abaefa35a3ac5eee996ece6aaab')
 })
 
 test('ERP is absent from every public runtime source and route manifest', async () => {

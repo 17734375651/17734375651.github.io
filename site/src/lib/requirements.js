@@ -5,7 +5,7 @@ const KNOWN_SCENARIOS = new Set([
   'small-and-medium-enterprise',
   'other-repetitive-workflows',
 ])
-const KNOWN_PRODUCTS = new Set(['label', 'bleed', 'multisize-bleed', 'pdf', 'packing', 'accounting'])
+const KNOWN_PRODUCTS = new Set(['label', 'bleed', 'multisize-bleed', 'pdf', 'packing', 'accounting', 'gtin-pdf', 'color-size'])
 
 const hasValue = (value) => typeof value === 'string' && value.trim().length > 0
 

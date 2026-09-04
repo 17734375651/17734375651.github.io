@@ -54,8 +54,8 @@ test('customer-facing copy uses bounded workflow language', async () => {
   assert.match(app, /每台设备每款产品一次/)
 })
 
-test('all six Windows products publish the same pure-offline 30-day trial contract', () => {
-  assert.equal(PRODUCTS.length, 6)
+test('all eight Windows products publish the same pure-offline 30-day trial contract', () => {
+  assert.equal(PRODUCTS.length, 8)
   for (const product of PRODUCTS) {
     assert.deepEqual(product.trial, {
       days: 30,

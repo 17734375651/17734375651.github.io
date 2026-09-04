@@ -266,3 +266,130 @@ test('bleed and multisize .NET release sidecars match the current Windows client
     }
   }
 })
+
+test('GTIN matching and color-size extraction release sidecars match their verified public packages', async () => {
+  const releases = [
+    {
+      productId: 'gtin-pdf',
+      directory: 'fangcun-gtin',
+      version: '1.1.0',
+      releaseTag: 'fangcun-gtin-pdf-1.1.0',
+      manifestCatalogId: 'gtin-pdf',
+      manifestProductId: 'fangcun-gtin-pdf-integrator',
+      feature: 'gtin-pdf-matching-export',
+      filename: 'fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip',
+      bytes: 168917182,
+      sha256: '7db3ba32df14c6467464064069daa71e3786b645098b2d09bfed261ef511020b',
+      fileCount: 1053,
+      sidecars: {
+        'public-manifest.json': { bytes: 1323, sha256: 'bbca578ca8f0455fed7395c01042be52dc4d36b7f9b5760c26797520fc3a78f4' },
+        'release-record.json': { bytes: 1727, sha256: '863fdcaf891dbc439c192808ab020b7a2546f06dc54d1ab3b5be6b3f732dd29d' },
+        'SHA256SUMS.txt': { bytes: 292, sha256: '031e642a5d65d234aaa4ad44f3fa76c561e951eacbbc0d9c53563ce0c9173a4a' },
+      },
+    },
+    {
+      productId: 'color-size',
+      directory: 'fangcun-color-size',
+      version: '1.0.2',
+      releaseTag: 'fangcun-color-size-1.0.2',
+      manifestCatalogId: 'excel-color-size',
+      manifestProductId: 'FangCun.ExcelColorSizeExtractor',
+      feature: 'excel-color-size-extract',
+      filename: 'fangcun-color-size-extractor-1.0.2-win-x64-public.zip',
+      bytes: 162058084,
+      sha256: '761595f0ede7447decf51727f48cee6b838a7abaefa35a3ac5eee996ece6aaab',
+      fileCount: 9,
+      sidecars: {
+        'public-manifest.json': { bytes: 1342, sha256: '7ee79ea030d7fd0e901652bd81fd69c06beb20fe01f8e919585564527d16786d' },
+        'release-record.json': { bytes: 1744, sha256: 'c8dd6596af44f5c1accdf95feaffab389957ec8cac2afbb24976b4333dc2c110' },
+        'SHA256SUMS.txt': { bytes: 293, sha256: 'c1d1590d94884be7e2b93492f6c825cb021d468772457b449059e77bb1ed5e91' },
+      },
+    },
+  ]
+
+  for (const release of releases) {
+    const product = PRODUCTS_BY_ID[release.productId]
+    const recordRoot = path.join(repoRoot, 'downloads', release.directory, release.version)
+    const [manifest, record, sums] = await Promise.all([
+      readFile(path.join(recordRoot, 'public-manifest.json'), 'utf8').then(JSON.parse),
+      readFile(path.join(recordRoot, 'release-record.json'), 'utf8').then(JSON.parse),
+      readFile(path.join(recordRoot, 'SHA256SUMS.txt'), 'utf8'),
+    ])
+
+    assert.ok(product, `missing product ${release.productId}`)
+    assert.equal(manifest.schema, 'fangcun-offline-public-manifest/v1')
+    assert.equal(manifest.catalog_id, release.manifestCatalogId)
+    assert.equal(manifest.product_id, release.manifestProductId)
+    assert.equal(manifest.feature, release.feature)
+    assert.equal(manifest.app_version, release.version)
+    assert.equal(manifest.platform, 'windows-x64')
+    assert.equal(manifest.architecture, 'x64')
+    assert.deepEqual(manifest.package, {
+      filename: release.filename,
+      bytes: release.bytes,
+      sha256: release.sha256.toUpperCase(),
+    })
+    assert.equal(manifest.trial.duration_days, 30)
+    assert.equal(manifest.trial.scope, 'one_per_device_per_product')
+    assert.equal(manifest.trial.network_required, false)
+    assert.equal(manifest.trial.reinstall_resets, false)
+    assert.equal(manifest.license.type, 'annual_offline_device_product_bound')
+    assert.equal(manifest.license.term_days, 365)
+    assert.equal(manifest.license.network_required, false)
+    assert.deepEqual(manifest.price, {
+      display: '价格咨询',
+      public: false,
+      currency: 'CNY',
+      term: '年度授权',
+    })
+    assert.equal(manifest.source.public_scope, 'client_only')
+    assert.equal(manifest.source.admin_materials, 'excluded')
+    assert.equal(manifest.source.private_keys, 'excluded')
+    assert.equal(manifest.verification.zip_test, 'PASS')
+    assert.equal(manifest.verification.digital_signature, 'NotSigned')
+
+    assert.equal(record.schema, 'fangcun-offline-release-record/v1')
+    assert.equal(record.tag, release.releaseTag)
+    assert.equal(record.catalog_id, release.manifestCatalogId)
+    assert.equal(record.product_id, release.manifestProductId)
+    assert.equal(record.feature, release.feature)
+    assert.equal(record.app_version, release.version)
+    assert.equal(record.platform, 'windows-x64')
+    assert.equal(record.package_filename, release.filename)
+    assert.equal(record.package_bytes, release.bytes)
+    assert.equal(record.package_sha256, release.sha256.toUpperCase())
+    assert.equal(record.archive.zip_test, 'PASS')
+    assert.equal(record.archive.file_count, release.fileCount)
+    assert.equal(record.trial.duration_days, 30)
+    assert.equal(record.trial.first_launch, 'automatic')
+    assert.equal(record.trial.scope, 'one_per_device_per_product')
+    assert.equal(record.trial.network_required, false)
+    assert.equal(record.license.type, 'annual_offline_device_product_bound')
+    assert.equal(record.license.term_days, 365)
+    assert.equal(record.publication.status, 'published')
+    assert.equal(record.publication.github_release_created, true)
+    assert.equal(record.publication.url, `https://github.com/17734375651/17734375651.github.io/releases/tag/${release.releaseTag}`)
+
+    assert.equal(product.price.display, '价格咨询')
+    assert.equal(product.price.public, false)
+    assert.equal(product.download.version, release.version)
+    assert.equal(product.download.filename, release.filename)
+    assert.equal(product.download.bytes, release.bytes)
+    assert.equal(product.download.sha256, release.sha256)
+    assert.equal(product.download.platform, 'Windows x64')
+    assert.equal(product.download.publicLink, `https://github.com/17734375651/17734375651.github.io/releases/download/${release.releaseTag}/${release.filename}`)
+    assert.match(sums, new RegExp(`${release.sha256}\\s+${release.filename}`, 'i'))
+
+    for (const supportFile of product.download.supportFiles) {
+      const localPath = path.join(recordRoot, supportFile.filename)
+      const localBytes = await readFile(localPath)
+      assert.equal(localBytes.byteLength, release.sidecars[supportFile.filename].bytes)
+      assert.equal(createHash('sha256').update(localBytes).digest('hex'), release.sidecars[supportFile.filename].sha256)
+      assert.equal(supportFile.bytes, release.sidecars[supportFile.filename].bytes)
+      assert.equal(supportFile.path, `https://github.com/17734375651/17734375651.github.io/releases/download/${release.releaseTag}/${supportFile.filename}`)
+      if (supportFile.filename !== 'SHA256SUMS.txt') {
+        assert.match(sums, new RegExp(`\\b[A-Fa-f0-9]{64}\\s+${supportFile.filename.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}`))
+      }
+    }
+  }
+})

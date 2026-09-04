@@ -1,0 +1,45 @@
+{
+  "schema": "fangcun-offline-public-manifest/v1",
+  "product_name": "方寸有序条码匹配",
+  "catalog_id": "gtin-pdf",
+  "product_id": "fangcun-gtin-pdf-integrator",
+  "feature": "gtin-pdf-matching-export",
+  "app_version": "1.1.0",
+  "platform": "windows-x64",
+  "architecture": "x64",
+  "package": {
+    "filename": "fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip",
+    "bytes": 168917182,
+    "sha256": "7DB3BA32DF14C6467464064069DAA71E3786B645098B2D09BFED261EF511020B"
+  },
+  "trial": {
+    "duration_days": 30,
+    "description": "首次启动自动开启30天纯离线试用",
+    "scope": "one_per_device_per_product",
+    "network_required": false,
+    "reinstall_resets": false
+  },
+  "license": {
+    "type": "annual_offline_device_product_bound",
+    "term_days": 365,
+    "description": "年度离线授权，按设备与产品绑定",
+    "network_required": false
+  },
+  "price": {
+    "display": "价格咨询",
+    "public": false,
+    "currency": "CNY",
+    "term": "年度授权"
+  },
+  "source": {
+    "mode": "read-only",
+    "original_package_unchanged": true,
+    "public_scope": "client_only",
+    "admin_materials": "excluded",
+    "private_keys": "excluded"
+  },
+  "verification": {
+    "zip_test": "PASS",
+    "digital_signature": "NotSigned"
+  }
+}

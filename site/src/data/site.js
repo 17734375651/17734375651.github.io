@@ -21,8 +21,8 @@ export const SITE = {
     "中小企业",
     "其他重复流程"
   ],
-  "productClaim": "六款正式软件可分别购买、独立使用；客户端与发布校验文件均可直接下载。",
-  "licenseClaim": "六款软件正式授权均按年离线导入；授权状态、起止时间与机器码可在客户端查看。",
+  "productClaim": "八款正式软件可分别购买、独立使用；客户端与发布校验文件均可直接下载。",
+  "licenseClaim": "八款软件正式授权均按年离线导入；授权状态、起止时间与机器码可在客户端查看。",
   "trialRibbon": "首次启动无需申请，按本机受保护时间自动体验 30 天",
   "trialScope": "在正常系统状态下每台设备每款产品一次；正式授权后可完全离线使用。",
   "privacyClaims": [
@@ -114,7 +114,7 @@ export const SEO_ROUTES = [
     "coreStaticBody": [
       "为图文店、印刷店、中小企业提供能够真正落地的效率软件，也承接按业务流程开发的个性化工具。",
       "把重复核算、反复整理与逐页核对，转成可执行、可复核的软件流程。",
-      "六款正式软件：标签印刷排版计划、方寸有序胀色裁切、方寸有序多尺寸胀色裁切、方寸 PDF 配印助手、方寸打包计算器、方寸有序记账软件。六款客户端与发布校验文件均可直接下载。"
+      "八款正式软件：标签印刷排版计划、方寸有序胀色裁切、方寸有序多尺寸胀色裁切、方寸 PDF 配印助手、方寸打包计算器、方寸有序记账软件、方寸有序条码匹配、方寸有序颜色尺寸提取。八款客户端与发布校验文件均可直接下载。"
     ],
     "verifiedFacts": {
       "audience": [
@@ -128,7 +128,9 @@ export const SEO_ROUTES = [
         "方寸有序多尺寸胀色裁切",
         "方寸 PDF 配印助手",
         "方寸打包计算器",
-        "方寸有序记账软件"
+        "方寸有序记账软件",
+        "方寸有序条码匹配",
+        "方寸有序颜色尺寸提取"
       ],
       "contact": "电话 17734375651（微信同号）",
       "trustStatements": [
@@ -136,7 +138,7 @@ export const SEO_ROUTES = [
         "客户资料不上传官网",
         "可复核输出",
         "离线授权",
-        "六款软件首次启动均可离线体验 30 天",
+        "八款软件首次启动均可离线体验 30 天",
         "正常系统状态下每台设备每款产品一次"
       ]
     }
@@ -414,6 +416,72 @@ export const SEO_ROUTES = [
     }
   },
   {
+    "path": "/products/gtin-pdf/",
+    "kind": "product",
+    "productId": "gtin-pdf",
+    "status": 200,
+    "title": "方寸有序条码匹配｜Excel 与 PDF 匹配复核",
+    "description": "方寸有序条码匹配：把 Excel 产品资料与 PDF 页面按 GTIN、条码和产品属性匹配，输出可复核结果表与合并 PDF。",
+    "canonical": "https://17734375651.github.io/products/gtin-pdf/",
+    "og": {
+      "title": "方寸有序条码匹配｜Excel 与 PDF 匹配复核",
+      "description": "按 GTIN、条码和产品属性匹配 Excel 与 PDF，将未解决项目保留给人工复核。",
+      "type": "product",
+      "url": "https://17734375651.github.io/products/gtin-pdf/"
+    },
+    "h1": "方寸有序条码匹配",
+    "coreStaticBody": [
+      "把 Excel 产品资料与 PDF 页面按条码和产品属性进行匹配，整理成可复核的结果表与合并 PDF。",
+      "输入资料：Excel 产品或订单资料、待匹配 PDF、条码与产品属性规则。",
+      "处理：先按标识符精确匹配，再按产品属性匹配，并标记未解决项目。",
+      "输出：分工作表匹配结果 Excel、合并 PDF、未解决项目与复核明细。",
+      "价格咨询；Windows x64 客户端可下载；首次启动无需申请，可离线体验 30 天。"
+    ],
+    "verifiedFacts": {
+      "status": "正式销售 · 已验证下载",
+      "price": "价格咨询",
+      "trial": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "inputs": ["Excel 产品或订单资料", "待匹配的 PDF 页面", "条码与产品属性规则"],
+      "outputs": ["分工作表匹配结果 Excel", "按结果合并的 PDF", "未解决项目与复核明细"],
+      "features": ["提取 GTIN、条码与产品属性", "分层匹配并保留未解决项目", "输出可复核的 Excel 与 PDF"],
+      "boundary": "Excel 与 PDF 均在本地处理；试用与年度授权均为纯离线流程。",
+      "releaseEvidence": "fangcun-gtin-pdf-1.1.0 Release 提供 Windows x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
+    }
+  },
+  {
+    "path": "/products/color-size/",
+    "kind": "product",
+    "productId": "color-size",
+    "status": 200,
+    "title": "方寸有序颜色尺寸提取｜Excel 字段整理",
+    "description": "方寸有序颜色尺寸提取：批量翻译 Excel 中的中文颜色，提取英尺与厘米尺寸，生成不覆盖原文件的新工作簿。",
+    "canonical": "https://17734375651.github.io/products/color-size/",
+    "og": {
+      "title": "方寸有序颜色尺寸提取｜Excel 字段整理",
+      "description": "批量翻译中文颜色并提取英尺、厘米尺寸，生成新 Excel 结果。",
+      "type": "product",
+      "url": "https://17734375651.github.io/products/color-size/"
+    },
+    "h1": "方寸有序颜色尺寸提取",
+    "coreStaticBody": [
+      "批量读取 Excel 中的颜色与尺寸文本，翻译中文颜色并提取英尺、厘米尺寸。",
+      "输入资料：一个或多个 .xlsx 工作簿、包含颜色和尺寸的文本列。",
+      "处理：识别中文颜色名称，提取英尺与厘米尺寸表达，并写入新列。",
+      "输出：颜色英文翻译列、英尺与厘米尺寸列、不覆盖原文件的新 Excel 结果。",
+      "价格咨询；Windows x64 客户端可下载；首次启动无需申请，可离线体验 30 天。"
+    ],
+    "verifiedFacts": {
+      "status": "正式销售 · 已验证下载",
+      "price": "价格咨询",
+      "trial": "首次启动无需申请，按本机受保护时间自动体验 30 天",
+      "inputs": ["一个或多个 .xlsx 工作簿", "包含颜色和尺寸的文本列", "待保留的原始数据"],
+      "outputs": ["颜色英文翻译列", "英尺与厘米尺寸列", "不覆盖原文件的新 Excel 结果"],
+      "features": ["批量处理多个 Excel 工作簿", "翻译中文颜色字段", "提取英尺与厘米尺寸并保留原文件"],
+      "boundary": "Excel 数据在本地读取和生成新结果；试用与年度授权均为纯离线流程。",
+      "releaseEvidence": "fangcun-color-size-1.0.2 Release 提供 Windows x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
+    }
+  },
+  {
     "path": "/custom/requirements/",
     "kind": "custom-requirements",
     "status": 200,
@@ -430,7 +498,7 @@ export const SEO_ROUTES = [
     "coreStaticBody": [
       "填写业务类型、目前最耗时的工作环节、可提供的资料与期望的交付结果；规则、预算、时间可补充填写。",
       "页面仅在当前页面生成可复制的微信需求摘要，内容不上传、不保存；复制后请在微信中粘贴发送。",
-      "定制设计及首个可用版本 499 元起；正式版年费根据功能复杂度报价。六款成品软件首次启动均可离线体验 30 天；定制项目按需求沟通。"
+      "定制设计及首个可用版本 499 元起；正式版年费根据功能复杂度报价。八款成品软件首次启动均可离线体验 30 天；定制项目按需求沟通。"
     ],
     "verifiedFacts": {
       "requiredFields": [
@@ -456,22 +524,22 @@ export const SEO_ROUTES = [
     "kind": "not-found",
     "status": 404,
     "title": "页面未找到｜方寸有序",
-    "description": "这个页面还没有建立。返回产品中心，查看六款正式软件或描述你的业务流程。",
+    "description": "这个页面还没有建立。返回产品中心，查看八款正式软件或描述你的业务流程。",
     "canonical": null,
     "og": {
       "title": "页面未找到｜方寸有序",
-      "description": "这个页面还没有建立。返回产品中心，查看六款正式软件或描述你的业务流程。",
+      "description": "这个页面还没有建立。返回产品中心，查看八款正式软件或描述你的业务流程。",
       "type": "website",
       "url": null
     },
     "h1": "这个页面还没有建立。",
     "coreStaticBody": [
       "这个页面还没有建立。",
-      "返回产品中心，查看六款正式软件或描述你的业务流程。"
+      "返回产品中心，查看八款正式软件或描述你的业务流程。"
     ],
     "verifiedFacts": {
       "clientFallbackText": "这个页面还没有建立。",
-      "clientFallbackDescription": "返回产品中心，查看六款正式软件或描述你的业务流程。",
+      "clientFallbackDescription": "返回产品中心，查看八款正式软件或描述你的业务流程。",
       "expectedResponse": 404
     },
     "canonicalPolicy": "omit-self-canonical; emit noindex and do not include in sitemap"
