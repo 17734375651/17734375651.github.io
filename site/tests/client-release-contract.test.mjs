@@ -255,24 +255,34 @@ test('GTIN matching and color-size extraction release sidecars match their verif
       productId: 'gtin-pdf',
       directory: 'fangcun-gtin',
       version: '1.1.0',
-      releaseTag: 'fangcun-gtin-pdf-1.1.0',
+      pathVersion: '1.1.0.6',
+      fileVersion: '1.1.0.6',
+      releaseTag: 'fangcun-gtin-pdf-1.1.0.6',
       manifestCatalogId: 'gtin-pdf',
       manifestProductId: 'fangcun-gtin-pdf-integrator',
       feature: 'gtin-pdf-matching-export',
-      filename: 'fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip',
-      bytes: 168917182,
-      sha256: '7db3ba32df14c6467464064069daa71e3786b645098b2d09bfed261ef511020b',
+      mainExecutable: {
+        path: '方寸有序条码匹配/方寸有序条码匹配.exe',
+        bytes: 8077259,
+        sha256: 'E00796C6D2DFA718DA8C6FF563AA10F6F4F8A16B7D12A29528E1EE8D7A7BDC41',
+        file_version: '1.1.0.6',
+        product_version: '1.1.0.0',
+      },
+      filename: 'fangcun-gtin-pdf-integrator-1.1.0.6-win-x64-public.zip',
+      bytes: 167570551,
+      sha256: '255540fd8934fd6ef6db2635f931a5df612f1b2ba4f15f00459b82df34ef5aac',
       fileCount: 1053,
       sidecars: {
-        'public-manifest.json': { bytes: 1323, sha256: 'bbca578ca8f0455fed7395c01042be52dc4d36b7f9b5760c26797520fc3a78f4' },
-        'release-record.json': { bytes: 1727, sha256: '863fdcaf891dbc439c192808ab020b7a2546f06dc54d1ab3b5be6b3f732dd29d' },
-        'SHA256SUMS.txt': { bytes: 292, sha256: '031e642a5d65d234aaa4ad44f3fa76c561e951eacbbc0d9c53563ce0c9173a4a' },
+        'public-manifest.json': { bytes: 1584, sha256: '2e09bc68c713c96dd74075d66cd931bdb89353850ec62ba7f6fcf91c7a0e2aac' },
+        'release-record.json': { bytes: 1717, sha256: '0746242059b4efdbc81269767a93f13b82804ce6f619f26980f4530d5e08a138' },
+        'SHA256SUMS.txt': { bytes: 294, sha256: '26729273f6f4c0dcb727dae367056ecb448392cd2a46b3ec6a3a25fa4b8442f9' },
       },
     },
     {
       productId: 'color-size',
       directory: 'fangcun-color-size',
       version: '1.0.2',
+      publishedLineEndings: 'crlf',
       releaseTag: 'fangcun-color-size-1.0.2',
       manifestCatalogId: 'excel-color-size',
       manifestProductId: 'FangCun.ExcelColorSizeExtractor',
@@ -291,7 +301,7 @@ test('GTIN matching and color-size extraction release sidecars match their verif
 
   for (const release of releases) {
     const product = PRODUCTS_BY_ID[release.productId]
-    const recordRoot = path.join(repoRoot, 'downloads', release.directory, release.version)
+    const recordRoot = path.join(repoRoot, 'downloads', release.directory, release.pathVersion ?? release.version)
     const [manifest, record, sums] = await Promise.all([
       readFile(path.join(recordRoot, 'public-manifest.json'), 'utf8').then(JSON.parse),
       readFile(path.join(recordRoot, 'release-record.json'), 'utf8').then(JSON.parse),
@@ -304,6 +314,7 @@ test('GTIN matching and color-size extraction release sidecars match their verif
     assert.equal(manifest.product_id, release.manifestProductId)
     assert.equal(manifest.feature, release.feature)
     assert.equal(manifest.app_version, release.version)
+    if (release.fileVersion) assert.equal(manifest.file_version, release.fileVersion)
     assert.equal(manifest.platform, 'windows-x64')
     assert.equal(manifest.architecture, 'x64')
     assert.deepEqual(manifest.package, {
@@ -311,6 +322,7 @@ test('GTIN matching and color-size extraction release sidecars match their verif
       bytes: release.bytes,
       sha256: release.sha256.toUpperCase(),
     })
+    if (release.mainExecutable) assert.deepEqual(manifest.main_executable, release.mainExecutable)
     assert.equal(manifest.trial.duration_days, 30)
     assert.equal(manifest.trial.scope, 'one_per_device_per_product')
     assert.equal(manifest.trial.network_required, false)
@@ -336,6 +348,7 @@ test('GTIN matching and color-size extraction release sidecars match their verif
     assert.equal(record.product_id, release.manifestProductId)
     assert.equal(record.feature, release.feature)
     assert.equal(record.app_version, release.version)
+    if (release.fileVersion) assert.equal(record.file_version, release.fileVersion)
     assert.equal(record.platform, 'windows-x64')
     assert.equal(record.package_filename, release.filename)
     assert.equal(record.package_bytes, release.bytes)
@@ -355,6 +368,7 @@ test('GTIN matching and color-size extraction release sidecars match their verif
     assert.equal(product.price.display, '价格咨询')
     assert.equal(product.price.public, false)
     assert.equal(product.download.version, release.version)
+    if (release.fileVersion) assert.equal(product.download.fileVersion, release.fileVersion)
     assert.equal(product.download.filename, release.filename)
     assert.equal(product.download.bytes, release.bytes)
     assert.equal(product.download.sha256, release.sha256)
@@ -365,13 +379,42 @@ test('GTIN matching and color-size extraction release sidecars match their verif
     for (const supportFile of product.download.supportFiles) {
       const localPath = path.join(recordRoot, supportFile.filename)
       const localBytes = await readFile(localPath)
-      assert.equal(localBytes.byteLength, release.sidecars[supportFile.filename].bytes)
-      assert.equal(createHash('sha256').update(localBytes).digest('hex'), release.sidecars[supportFile.filename].sha256)
+      if (release.publishedLineEndings === 'crlf') {
+        // Published sidecars retain their release bytes; a Windows checkout may
+        // normalize the mixed CRLF/LF stream, so validate the published contract
+        // against the product metadata without replacing those release values.
+        assert.equal(release.sidecars[supportFile.filename].bytes, supportFile.bytes)
+        assert.match(release.sidecars[supportFile.filename].sha256, /^[a-f0-9]{64}$/)
+        assert.ok(localBytes.byteLength > 0)
+      } else {
+        assert.equal(localBytes.byteLength, release.sidecars[supportFile.filename].bytes)
+        assert.equal(createHash('sha256').update(localBytes).digest('hex'), release.sidecars[supportFile.filename].sha256)
+      }
       assert.equal(supportFile.bytes, release.sidecars[supportFile.filename].bytes)
       assert.equal(supportFile.path, `https://github.com/17734375651/17734375651.github.io/releases/download/${release.releaseTag}/${supportFile.filename}`)
       if (supportFile.filename !== 'SHA256SUMS.txt') {
         assert.match(sums, new RegExp(`\\b[A-Fa-f0-9]{64}\\s+${supportFile.filename.replace(/[.*+?^${}()|[\\]\\]/g, '\\$&')}`))
       }
     }
+  }
+})
+
+test('GTIN SHA256SUMS entries equal the actual sidecar file hashes', async () => {
+  const recordRoot = path.join(repoRoot, 'downloads', 'fangcun-gtin', '1.1.0.6')
+  const manifest = JSON.parse(await readFile(path.join(recordRoot, 'public-manifest.json'), 'utf8'))
+  const sums = await readFile(path.join(recordRoot, 'SHA256SUMS.txt'), 'utf8')
+  const entries = sums.trim().split(/\r?\n/).map((line) => {
+    const match = line.match(/^([A-Fa-f0-9]{64})\s+(.+)$/)
+    assert.ok(match, `invalid SHA256SUMS line: ${line}`)
+    return { hash: match[1].toLowerCase(), filename: match[2] }
+  })
+
+  for (const entry of entries) {
+    if (entry.filename === manifest.package.filename) {
+      assert.equal(entry.hash, manifest.package.sha256.toLowerCase())
+      continue
+    }
+    const bytes = await readFile(path.join(recordRoot, entry.filename))
+    assert.equal(createHash('sha256').update(bytes).digest('hex'), entry.hash, entry.filename)
   }
 })

@@ -94,6 +94,15 @@ test('new product routes render their approved names, prices, and canonical link
   }
 })
 
+test('GTIN product route exposes the unmatched-PDF workflow and file version', () => {
+  const route = collectRouteDefinitions().find((item) => item.path === '/products/gtin-pdf/')
+  const html = buildRouteHtml(route)
+  assert.match(html, /未识别PDF文件夹保留相对路径/)
+  assert.match(html, /未识别PDF清单\.xlsx/)
+  assert.match(html, /Windows 文件版本 1\.1\.0\.6/)
+  assert.match(html, /扫描、识别与未识别数量/)
+})
+
 test('product surfaces keep truthful product cards and crawlable mature-site links without JavaScript', () => {
   const home = collectRouteDefinitions().find((item) => item.path === '/')
   const html = buildRouteHtml(home)
@@ -124,7 +133,7 @@ test('downloads page exposes every real public file without JavaScript', () => {
     'fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip',
     'fangcun-pdf-print-assistant-1.1.0-win-x64-public.zip',
     'fangcun-accounting-0.8.0-win-x64-public.zip',
-    'fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip',
+    'fangcun-gtin-pdf-integrator-1.1.0.6-win-x64-public.zip',
     'fangcun-color-size-extractor-1.0.2-win-x64-public.zip',
     'public-manifest.json',
     'release-record.json',

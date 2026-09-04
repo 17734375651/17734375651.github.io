@@ -389,7 +389,7 @@ function AvailabilityPanel({ product }) {
           <div className={`download-panel ${publicFiles.length ? 'download-panel-verified' : ''}`} id="downloads">
             <div className="download-panel-head"><span className="download-state-dot" /><span>{product.cta.downloadPanel}</span></div>
             {available && primaryClient ? <>
-              <div className="download-spec-grid"><div><small>版本</small><strong>{product.download.version}</strong></div><div><small>运行时</small><strong>{product.download.platform}</strong></div><div><small>文件大小</small><strong>{product.download.displaySize}</strong></div><div><small>核验</small><strong>已核验</strong></div></div>
+              <div className="download-spec-grid"><div><small>产品兼容版本</small><strong>{product.download.version}</strong>{product.download.fileVersion && <small>Windows 文件版本 {product.download.fileVersion}</small>}</div><div><small>运行时</small><strong>{product.download.platform}</strong></div><div><small>文件大小</small><strong>{product.download.displaySize}</strong></div><div><small>核验</small><strong>已核验</strong></div></div>
               <div className="checksum"><small>SHA-256</small><code>{product.download.sha256}</code></div>
               <a className="download-link" href={primaryClient.path} target="_blank" rel="noreferrer"><DownloadSimple size={19} weight="bold" aria-hidden="true" />{primaryClient.buttonLabel}<ArrowUpRight size={17} aria-hidden="true" /></a>
               {product.download.digitalSignature === 'NotSigned' && <p className="download-note">当前客户端未进行数字签名；请从本页公开链接下载并核对 SHA-256，完整解压后启动。首次初始化可能出现一次 Windows UAC 系统确认，这是本机初始化，不代表申请试用或联网激活。</p>}

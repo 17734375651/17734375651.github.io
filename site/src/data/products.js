@@ -603,7 +603,7 @@ export const PRODUCTS = [
     "name": "方寸有序条码匹配",
     "shortName": "条码匹配",
     "eyebrow": "GTIN & PDF MATCHING",
-    "statement": "把 Excel 产品资料与 PDF 页面按条码和产品属性进行匹配，整理成可复核的结果表与合并 PDF。",
+    "statement": "把 Excel 产品资料与 PDF 页面按条码和产品属性进行匹配，整理成可复核的结果表与合并 PDF，并单独标明未识别的 PDF。",
     "outcome": "串联条码匹配、人工复核与 PDF 整理",
     "price": {
       "amountCny": null,
@@ -617,7 +617,7 @@ export const PRODUCTS = [
       "downloadable": true,
       "effectiveStatus": "available",
       "label": "正式销售 · 已验证下载",
-      "reason": "Windows x64 公开包的版本、文件大小、ZIP 完整性与 SHA-256 已完成核对。"
+      "reason": "产品兼容版本 1.1.0、Windows x64 文件版本 1.1.0.6 的公开包版本、文件大小、ZIP 完整性与 SHA-256 已完成核对。"
     },
     "trial": {
       "days": 30,
@@ -628,18 +628,19 @@ export const PRODUCTS = [
     },
     "download": {
       "state": "available",
-      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0/fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip",
-      "filename": "fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip",
+      "publicLink": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0.6/fangcun-gtin-pdf-integrator-1.1.0.6-win-x64-public.zip",
+      "filename": "fangcun-gtin-pdf-integrator-1.1.0.6-win-x64-public.zip",
       "platform": "Windows x64",
       "version": "1.1.0",
+      "fileVersion": "1.1.0.6",
       "date": "2026-09-04",
       "verification": "verified",
-      "bytes": 168917182,
-      "displaySize": "161.1 MiB",
-      "sha256": "7db3ba32df14c6467464064069daa71e3786b645098b2d09bfed261ef511020b",
-      "sha256UppercaseInChecksum": "7DB3BA32DF14C6467464064069DAA71E3786B645098B2D09BFED261EF511020B",
+      "bytes": 167570551,
+      "displaySize": "159.8 MiB",
+      "sha256": "255540fd8934fd6ef6db2635f931a5df612f1b2ba4f15f00459b82df34ef5aac",
+      "sha256UppercaseInChecksum": "255540FD8934FD6EF6DB2635F931A5DF612F1B2BA4F15F00459B82DF34EF5AAC",
       "sha256CaseInsensitiveMatch": true,
-      "releaseRecordPackage": "fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip",
+      "releaseRecordPackage": "fangcun-gtin-pdf-integrator-1.1.0.6-win-x64-public.zip",
       "digitalSignature": "NotSigned",
       "localArchivePresent": false,
       "localArchiveNote": "公开包由 GitHub Release 提供；请完整解压后启动，并在下载后核对 SHA-256。",
@@ -648,28 +649,28 @@ export const PRODUCTS = [
         {
           "title": "公开发布清单",
           "filename": "public-manifest.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0/public-manifest.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0.6/public-manifest.json",
           "format": "JSON",
-          "bytes": 1323,
-          "displaySize": "1.3 KiB",
+          "bytes": 1584,
+          "displaySize": "1.5 KiB",
           "buttonLabel": "下载公开发布清单"
         },
         {
           "title": "发布记录",
           "filename": "release-record.json",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0/release-record.json",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0.6/release-record.json",
           "format": "JSON",
-          "bytes": 1727,
+          "bytes": 1717,
           "displaySize": "1.7 KiB",
           "buttonLabel": "下载发布记录"
         },
         {
           "title": "SHA-256 校验文件",
           "filename": "SHA256SUMS.txt",
-          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0/SHA256SUMS.txt",
+          "path": "https://github.com/17734375651/17734375651.github.io/releases/download/fangcun-gtin-pdf-1.1.0.6/SHA256SUMS.txt",
           "format": "TXT",
-          "bytes": 292,
-          "displaySize": "292 B",
+          "bytes": 294,
+          "displaySize": "294 B",
           "buttonLabel": "下载 SHA-256 校验文件"
         }
       ]
@@ -690,12 +691,16 @@ export const PRODUCTS = [
       "process": [
         "提取 GTIN、条码与产品属性",
         "先按标识符精确匹配，再按属性进行匹配",
+        "扫描全部 PDF 并记录识别、重复、歧义与扫描失败状态",
         "将未解决项目留给人工复核"
       ],
       "output": [
         "分工作表匹配结果 Excel",
         "按结果合并的 PDF",
-        "未解决项目与复核明细"
+        "未解决项目与复核明细",
+        "根级未识别PDF文件夹（保留原相对路径）",
+        "未识别PDF清单.xlsx（未识别 / 全部PDF状态）",
+        "完成时显示 PDF 扫描、识别、未识别数量"
       ]
     },
     "capabilityBoundary": "Excel 与 PDF 在本地完成读取、匹配和输出；试用与年度授权均为纯离线流程，业务资料不上传官网。",
@@ -704,12 +709,12 @@ export const PRODUCTS = [
       "pricingCard": "查看详情",
       "productHeroPrimary": "查看下载与授权",
       "productHeroSecondary": "查看工作流",
-      "downloadPanel": "已核验下载 / 条码匹配 1.1.0 / SHA-256",
-      "downloadButton": "下载 Windows x64 客户端 · 161.1 MiB",
+      "downloadPanel": "已核验下载 / 产品兼容版本 1.1.0 / Windows 文件版本 1.1.0.6 / SHA-256",
+      "downloadButton": "下载 Windows x64 客户端 · 文件版本 1.1.0.6 · 159.8 MiB",
       "recommended": {
         "primary": "下载客户端",
         "secondary": "查看工作流",
-        "nextStep": "下载 1.1.0 Windows x64 客户端，核对 SHA-256 后可直接开启 30 天纯离线试用"
+        "nextStep": "下载产品兼容版本 1.1.0 的 Windows x64 客户端（文件版本 1.1.0.6），核对 SHA-256 后可直接开启 30 天纯离线试用"
       }
     }
   },
@@ -864,7 +869,7 @@ export function getProductPublicFiles(product) {
   if (product.download?.publicLink) {
     files.push({
       kind: 'client',
-      title: `${product.name} ${product.download.version} Windows 客户端`,
+      title: `${product.name} ${product.download.version}${product.download.fileVersion ? `（Windows 文件版本 ${product.download.fileVersion}）` : ''} Windows 客户端`,
       description: `${product.download.platform} · ${product.download.displaySize}`,
       filename: product.download.filename,
       path: product.download.publicLink,

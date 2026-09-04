@@ -1,0 +1,57 @@
+{
+  "schema": "fangcun-offline-release-record/v1",
+  "tag": "fangcun-gtin-pdf-1.1.0.6",
+  "product_name": "方寸有序条码匹配",
+  "catalog_id": "gtin-pdf",
+  "product_id": "fangcun-gtin-pdf-integrator",
+  "feature": "gtin-pdf-matching-export",
+  "app_version": "1.1.0",
+  "file_version": "1.1.0.6",
+  "platform": "windows-x64",
+  "package_filename": "fangcun-gtin-pdf-integrator-1.1.0.6-win-x64-public.zip",
+  "package_bytes": 167570551,
+  "package_sha256": "255540FD8934FD6EF6DB2635F931A5DF612F1B2BA4F15F00459B82DF34EF5AAC",
+  "archive": {
+    "zip_test": "PASS",
+    "entry_count": 1061,
+    "file_count": 1053,
+    "bytes_read": 223835721
+  },
+  "trial": {
+    "duration_days": 30,
+    "first_launch": "automatic",
+    "scope": "one_per_device_per_product",
+    "network_required": false,
+    "reinstall_resets": false
+  },
+  "license": {
+    "type": "annual_offline_device_product_bound",
+    "term_days": 365,
+    "network_required": false
+  },
+  "price": {
+    "display": "价格咨询",
+    "public": false,
+    "currency": "CNY",
+    "term": "年度授权"
+  },
+  "source": {
+    "mode": "read-only",
+    "original_package_unchanged": true,
+    "public_scope": "client_only",
+    "admin_materials": "excluded",
+    "private_keys": "excluded"
+  },
+  "publication": {
+    "status": "published",
+    "release_date": "2026-09-04",
+    "github_release_created": true,
+    "url": "https://github.com/17734375651/17734375651.github.io/releases/tag/fangcun-gtin-pdf-1.1.0.6"
+  },
+  "release_artifacts": {
+    "package": "fangcun-gtin-pdf-integrator-1.1.0.6-win-x64-public.zip",
+    "public_manifest": "public-manifest.json",
+    "release_record": "release-record.json",
+    "sha256sums": "SHA256SUMS.txt"
+  }
+}

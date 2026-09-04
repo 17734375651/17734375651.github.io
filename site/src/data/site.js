@@ -379,27 +379,27 @@ export const SEO_ROUTES = [
     "canonical": "https://17734375651.github.io/products/gtin-pdf/",
     "og": {
       "title": "方寸有序条码匹配｜Excel 与 PDF 匹配复核",
-      "description": "按 GTIN、条码和产品属性匹配 Excel 与 PDF，将未解决项目保留给人工复核。",
+      "description": "按 GTIN、条码和产品属性匹配 Excel 与 PDF，将未识别 PDF 单独整理并把未解决项目保留给人工复核。",
       "type": "product",
       "url": "https://17734375651.github.io/products/gtin-pdf/"
     },
     "h1": "方寸有序条码匹配",
     "coreStaticBody": [
-      "把 Excel 产品资料与 PDF 页面按条码和产品属性进行匹配，整理成可复核的结果表与合并 PDF。",
+      "把 Excel 产品资料与 PDF 页面按条码和产品属性进行匹配，整理成可复核的结果表与合并 PDF，并单独标明未识别 PDF。",
       "输入资料：Excel 产品或订单资料、待匹配 PDF、条码与产品属性规则。",
       "处理：先按标识符精确匹配，再按产品属性匹配，并标记未解决项目。",
-      "输出：分工作表匹配结果 Excel、合并 PDF、未解决项目与复核明细。",
-      "价格咨询；Windows x64 客户端可下载；首次启动无需申请，可离线体验 30 天。"
+      "输出：分工作表匹配结果 Excel、合并 PDF、未解决项目与复核明细；根级未识别PDF文件夹保留相对路径，未识别PDF清单.xlsx 同时记录未识别与全部 PDF 状态，完成时显示扫描、识别与未识别数量。",
+      "价格咨询；产品兼容版本 1.1.0；Windows 文件版本 1.1.0.6；Windows x64 客户端首次启动无需申请，可离线体验 30 天。"
     ],
     "verifiedFacts": {
       "status": "正式销售 · 已验证下载",
       "price": "价格咨询",
       "trial": "首次启动无需申请，按本机受保护时间自动体验 30 天",
       "inputs": ["Excel 产品或订单资料", "待匹配的 PDF 页面", "条码与产品属性规则"],
-      "outputs": ["分工作表匹配结果 Excel", "按结果合并的 PDF", "未解决项目与复核明细"],
-      "features": ["提取 GTIN、条码与产品属性", "分层匹配并保留未解决项目", "输出可复核的 Excel 与 PDF"],
+      "outputs": ["分工作表匹配结果 Excel", "按结果合并的 PDF", "未解决项目与复核明细", "未识别PDF文件夹（保留相对路径）", "未识别PDF清单.xlsx（未识别 / 全部PDF状态）", "完成时显示 PDF 扫描、识别、未识别数量"],
+      "features": ["提取 GTIN、条码与产品属性", "分层匹配并保留未解决项目", "输出可复核的 Excel 与 PDF", "逐个记录 PDF 识别状态并整理未识别文件"],
       "boundary": "Excel 与 PDF 均在本地处理；试用与年度授权均为纯离线流程。",
-      "releaseEvidence": "fangcun-gtin-pdf-1.1.0 Release 提供 Windows x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
+      "releaseEvidence": "fangcun-gtin-pdf-1.1.0.6 Release 提供产品兼容版本 1.1.0、Windows 文件版本 1.1.0.6 的 x64 客户端、公开清单、发布记录与 SHA-256 校验文件。"
     }
   },
   {
