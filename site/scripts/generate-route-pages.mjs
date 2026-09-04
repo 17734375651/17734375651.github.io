@@ -20,7 +20,7 @@ const SYNTHETIC_ROUTES = [
     path: '/products/',
     kind: 'product-index',
     title: '产品中心｜方寸有序工作室',
-    description: '查看标签排版、胀色裁切、多尺寸胀色裁切、PDF 配印、打包计算、记账、条码匹配与颜色尺寸提取八款正式软件，以及各自准确的价格、授权和公开下载文件。',
+    description: '查看标签排版、胀色裁切、多尺寸胀色裁切、PDF 配印、记账、条码匹配与颜色尺寸提取七款正式软件，以及各自准确的价格、授权和公开下载文件。',
     h1: '把重复工作，交给清楚可靠的软件流程',
   },
   {
@@ -51,7 +51,7 @@ const SYNTHETIC_ROUTES = [
     kind: 'content-index',
     category: 'downloads',
     title: '文件下载｜客户端与校验资料｜方寸有序工作室',
-    description: '集中下载八款正式软件客户端、公开发布清单、发布记录与 SHA-256 校验文件。',
+    description: '集中下载七款正式软件客户端、公开发布清单、发布记录与 SHA-256 校验文件。',
     h1: '公开文件下载',
   },
   {
@@ -67,7 +67,7 @@ const SYNTHETIC_ROUTES = [
     kind: 'legal',
     legalId: 'service-license',
     title: '软件服务与授权边界｜方寸有序工作室',
-    description: '查看八款正式软件、个性化定制、年度授权以及客户端与校验文件的当前公开边界。',
+    description: '查看七款正式软件、个性化定制、年度授权以及客户端与校验文件的当前公开边界。',
     h1: '软件服务与授权边界',
   },
 ]

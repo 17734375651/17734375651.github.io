@@ -13,7 +13,7 @@ test('package scripts generate static routes before serving and building', async
   assert.equal(pkg.scripts['publish:pages'], 'npm run build && node scripts/publish-pages.mjs')
   assert.equal(
     pkg.scripts.test,
-    'node --test tests/build-contract.test.mjs tests/client-release-contract.test.mjs tests/media-contract.test.mjs tests/navigation.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/route-pages.test.mjs tests/sanitized-video-build-contract.test.mjs tests/ui-content-contract.test.mjs',
+    'node --test tests/build-contract.test.mjs tests/client-release-contract.test.mjs tests/media-contract.test.mjs tests/navigation.test.mjs tests/product-actions.test.mjs tests/public-copy-contract.test.mjs tests/publish-pages.test.mjs tests/requirements.test.mjs tests/retired-product-contract.test.mjs tests/route-pages.test.mjs tests/sanitized-video-build-contract.test.mjs tests/ui-content-contract.test.mjs',
   )
 })
 
@@ -27,7 +27,6 @@ test('vite multi-page input includes the key static route documents', async () =
     'products/bleed/index.html',
     'products/multisize-bleed/index.html',
     'products/pdf/index.html',
-    'products/packing/index.html',
     'products/accounting/index.html',
     'products/gtin-pdf/index.html',
     'products/color-size/index.html',

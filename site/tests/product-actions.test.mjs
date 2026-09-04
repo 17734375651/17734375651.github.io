@@ -24,7 +24,6 @@ test('all retained products expose a verified client action', () => {
     'bleed',
     'multisize-bleed',
     'pdf',
-    'packing',
     'accounting',
     'gtin-pdf',
     'color-size',

@@ -30,24 +30,6 @@ const releaseContracts = [
     },
   },
   {
-    productId: 'packing',
-    directory: 'fangcun-packing',
-    version: '3.1.0',
-    releaseTag: 'fangcun-packing-3.1.0',
-    manifestProductId: 'fangcun-packing-windows-v3',
-    annualPrice: '¥499/年',
-    fileCount: 8,
-    filename: 'fangcun-packing-calculator-3.1.0-win-x64-public.zip',
-    platform: 'Windows 10/11 x64',
-    bytes: 130207020,
-    sha256: 'eed20084797c06d6063837040b25522e63fe2f16d1e1080e5f57d83208726d0d',
-    sidecarSha256: {
-      'public-manifest.json': 'fa22e09b2b7589ca3cfb864cbf6c801d450cdc56d4ee1c111098bc4a2cb1903f',
-      'release-record.json': '3f643ede8c3d4de93f85c9ed6561e9d639c2f3939188f07d0d85e5abfa61c061',
-      'SHA256SUMS.txt': '0c3357183fef662e8d8a4411c70cffc40a368364ba35be3cd9dd2c8a6a3fdf07',
-    },
-  },
-  {
     productId: 'accounting',
     directory: 'fangcun-accounting',
     version: '0.8.0',
@@ -85,7 +67,7 @@ const releaseContracts = [
   },
 ]
 
-test('final release records match the four pure-offline Windows x64 client contracts', async () => {
+test('final release records match the retained pure-offline Windows x64 client contracts', async () => {
   for (const release of releaseContracts) {
     const product = PRODUCTS_BY_ID[release.productId]
     const recordRoot = path.join(repoRoot, 'downloads', release.directory, release.version)

@@ -138,10 +138,10 @@ test('requirements expose four required semantics and build only a local summary
   assert.doesNotMatch(app, /\b(?:fetch|axios|XMLHttpRequest|sendBeacon)\s*\(/i)
 })
 
-test('eight products render their verified status through a data-driven UI path', async () => {
+test('seven products render their verified status through a data-driven UI path', async () => {
   const app = await readSource(appPath)
   const css = await readSource(path.join(srcRoot, 'styles.css'))
-  const expectedIds = ['label', 'bleed', 'multisize-bleed', 'pdf', 'packing', 'accounting', 'gtin-pdf', 'color-size']
+  const expectedIds = ['label', 'bleed', 'multisize-bleed', 'pdf', 'accounting', 'gtin-pdf', 'color-size']
   assert.deepEqual(PRODUCTS.map((product) => product.id), expectedIds)
   for (const product of PRODUCTS) {
     assert.ok(PRODUCT_STATUS[product.status.effectiveStatus], `missing status vocabulary for ${product.id}`)
@@ -164,20 +164,9 @@ test('eight products render their verified status through a data-driven UI path'
   assert.match(app, /同系列独立产品/)
 })
 
-test('packing and accounting metadata preserve the approved price and client records', () => {
-  const packing = PRODUCTS.find((product) => product.id === 'packing')
+test('accounting metadata preserves the approved price and client record', () => {
   const accounting = PRODUCTS.find((product) => product.id === 'accounting')
-  assert.ok(packing, 'packing product is required')
   assert.ok(accounting, 'accounting product is required')
-
-  assert.equal(packing.name, '方寸打包计算器')
-  assert.equal(packing.price.amountCny, 499)
-  assert.equal(packing.price.display, '¥499 / 年')
-  assert.equal(packing.download.version, '3.1.0')
-  assert.equal(packing.download.platform, 'Windows 10/11 x64')
-  assert.equal(packing.download.filename, 'fangcun-packing-calculator-3.1.0-win-x64-public.zip')
-  assert.equal(packing.download.bytes, 130207020)
-  assert.equal(packing.download.sha256, 'eed20084797c06d6063837040b25522e63fe2f16d1e1080e5f57d83208726d0d')
 
   assert.equal(accounting.name, '方寸有序记账软件')
   assert.equal(accounting.price.amountCny, 999)

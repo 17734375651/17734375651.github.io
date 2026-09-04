@@ -54,8 +54,8 @@ test('customer-facing copy uses bounded workflow language', async () => {
   assert.match(app, /每台设备每款产品一次/)
 })
 
-test('all eight Windows products publish the same pure-offline 30-day trial contract', () => {
-  assert.equal(PRODUCTS.length, 8)
+test('all seven Windows products publish the same pure-offline 30-day trial contract', () => {
+  assert.equal(PRODUCTS.length, 7)
   for (const product of PRODUCTS) {
     assert.deepEqual(product.trial, {
       days: 30,
@@ -79,15 +79,14 @@ test('generated static shell uses the same customer-facing contact wording', asy
   assert.match(generator, /电话 17734375651（微信同号）/)
 })
 
-test('SME solution links the packing and accounting products to the confirmed business workflow', () => {
+test('SME solution links only the retained accounting product to the confirmed business workflow', () => {
   const solution = SOLUTIONS.find((item) => item.id === 'small-and-medium-enterprise')
   assert.ok(solution, 'the SME solution is required')
   const relatedIds = solution.relatedProducts.map((product) => product.productId)
-  assert.equal(relatedIds.includes('packing'), true)
-  assert.equal(relatedIds.includes('accounting'), true)
+  assert.deepEqual(relatedIds, ['accounting'])
 
   const publicCopy = JSON.stringify(solution)
-  for (const term of ['销售', '进货', '财务', '商品', '箱型', '快递计费']) {
+  for (const term of ['销售', '进货', '财务']) {
     assert.match(publicCopy, new RegExp(term), `SME solution copy must mention ${term}`)
   }
   assert.doesNotMatch(publicCopy, /\bERP\b|\/products\/erp\//i)

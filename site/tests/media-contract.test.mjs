@@ -161,7 +161,6 @@ test('every retained product exposes direct public files without substituting a 
     bleed: 4,
     'multisize-bleed': 4,
     pdf: 4,
-    packing: 4,
     accounting: 4,
     'gtin-pdf': 4,
     'color-size': 4,
@@ -188,7 +187,6 @@ test('every retained product exposes direct public files without substituting a 
   assert.equal(filesByProduct.pdf.filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct.bleed.filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct['multisize-bleed'].filter((file) => file.kind === 'client-variant').length, 0)
-  assert.equal(filesByProduct.packing.filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct.accounting.filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct['gtin-pdf'].filter((file) => file.kind === 'client-variant').length, 0)
   assert.equal(filesByProduct['color-size'].filter((file) => file.kind === 'client-variant').length, 0)
@@ -207,7 +205,7 @@ test('every retained product exposes direct public files without substituting a 
 })
 
 test('products without verified public recordings keep media explicitly unpublished', () => {
-  for (const productId of ['packing', 'accounting', 'gtin-pdf', 'color-size']) {
+  for (const productId of ['accounting', 'gtin-pdf', 'color-size']) {
     const product = PRODUCTS.find((item) => item.id === productId)
     assert.ok(product, `missing product ${productId}`)
     assert.equal(product.media.declared, false)

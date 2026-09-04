@@ -26,7 +26,6 @@ test('route definitions cover the mature-site information architecture', () => {
     '/products/bleed/',
     '/products/multisize-bleed/',
     '/products/pdf/',
-    '/products/packing/',
     '/products/accounting/',
     '/products/gtin-pdf/',
     '/products/color-size/',
@@ -58,7 +57,6 @@ test('routeToOutputFile maps directory routes and the custom 404 file', () => {
   assert.equal(routeToOutputFile('/'), 'index.html')
   assert.equal(routeToOutputFile('/products/bleed/'), 'products/bleed/index.html')
   assert.equal(routeToOutputFile('/products/multisize-bleed/'), 'products/multisize-bleed/index.html')
-  assert.equal(routeToOutputFile('/products/packing/'), 'products/packing/index.html')
   assert.equal(routeToOutputFile('/products/accounting/'), 'products/accounting/index.html')
   assert.equal(routeToOutputFile('/products/gtin-pdf/'), 'products/gtin-pdf/index.html')
   assert.equal(routeToOutputFile('/products/color-size/'), 'products/color-size/index.html')
@@ -81,7 +79,6 @@ test('generated HTML contains static route content and real navigation links', (
 
 test('new product routes render their approved names, prices, and canonical links', () => {
   const expected = [
-    { id: 'packing', name: '方寸打包计算器', price: '¥499 / 年' },
     { id: 'accounting', name: '方寸有序记账软件', price: '¥999 / 账号 / 年' },
     { id: 'gtin-pdf', name: '方寸有序条码匹配', price: '价格咨询' },
     { id: 'color-size', name: '方寸有序颜色尺寸提取', price: '价格咨询' },
@@ -100,14 +97,14 @@ test('new product routes render their approved names, prices, and canonical link
 test('product surfaces keep truthful product cards and crawlable mature-site links without JavaScript', () => {
   const home = collectRouteDefinitions().find((item) => item.path === '/')
   const html = buildRouteHtml(home)
-  assert.equal((html.match(/class="product-card"/g) ?? []).length, 8)
-  assert.equal((html.match(/class="product-card-detail-link"/g) ?? []).length, 8)
-  assert.equal((html.match(/class="product-card-icon-image"/g) ?? []).length, 8)
-  assert.equal((html.match(/src="\/assets\/brand\/fangcun-software-icon\.png"/g) ?? []).length, 8)
+  assert.equal((html.match(/class="product-card"/g) ?? []).length, 7)
+  assert.equal((html.match(/class="product-card-detail-link"/g) ?? []).length, 7)
+  assert.equal((html.match(/class="product-card-icon-image"/g) ?? []).length, 7)
+  assert.equal((html.match(/src="\/assets\/brand\/fangcun-software-icon\.png"/g) ?? []).length, 7)
   for (const product of PRODUCTS) {
     assert.match(html, new RegExp(`class="product-card-detail-link" href="${product.route.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}"`))
   }
-  assert.equal((html.match(/正式销售 · 已验证下载/g) ?? []).length, 8)
+  assert.equal((html.match(/正式销售 · 已验证下载/g) ?? []).length, 7)
   assert.match(html, /方寸有序多尺寸胀色裁切/)
   assert.match(html, /¥1499 \/ 年/)
   assert.doesNotMatch(html, /正式销售 · 展示包可下载/)
@@ -126,7 +123,6 @@ test('downloads page exposes every real public file without JavaScript', () => {
     'fangcun-bleed-1.2.12-win-x86-public.zip',
     'fangcun-multisize-bleed-cut-0.10.0-win-x64-public.zip',
     'fangcun-pdf-print-assistant-1.1.0-win-x64-public.zip',
-    'fangcun-packing-calculator-3.1.0-win-x64-public.zip',
     'fangcun-accounting-0.8.0-win-x64-public.zip',
     'fangcun-gtin-pdf-integrator-1.1.0-win-x64-public.zip',
     'fangcun-color-size-extractor-1.0.2-win-x64-public.zip',
@@ -138,7 +134,7 @@ test('downloads page exposes every real public file without JavaScript', () => {
   }
   const downloadItems = CONTENT_CATEGORIES.find((category) => category.id === 'downloads').items
   assert.equal((html.match(/class="download-card"/g) ?? []).length, downloadItems.length)
-  assert.equal(downloadItems.length, 32)
+  assert.equal(downloadItems.length, 28)
   assert.doesNotMatch(html, /redacted-demo-materials|脱敏展示包/)
   assert.doesNotMatch(html, /ERP|\/products\/erp\//i)
 })
@@ -149,6 +145,7 @@ test('sitemap and robots expose indexable canonicals but exclude the 404 page', 
   const robots = buildRobotsTxt()
   assert.match(sitemap, /https:\/\/17734375651\.github\.io\/products\/bleed\//)
   assert.match(sitemap, /https:\/\/17734375651\.github\.io\/products\/multisize-bleed\//)
+  assert.doesNotMatch(sitemap, /\/products\/packing\//)
   assert.match(sitemap, /https:\/\/17734375651\.github\.io\/legal\/privacy\//)
   assert.doesNotMatch(sitemap, /404\.html/)
   assert.match(robots, /Sitemap: https:\/\/17734375651\.github\.io\/sitemap\.xml/)
