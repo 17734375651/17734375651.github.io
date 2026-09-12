@@ -3,6 +3,7 @@ import path from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { PRODUCTS, getProductPublicFiles } from '../src/data/products.js'
+import { PRODUCT_DOMAINS, WORKFLOW_ROADMAP, getProductsByDomain } from '../src/data/product-domains.js'
 import { SEO_ROUTES, SITE } from '../src/data/site.js'
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
@@ -10,6 +11,7 @@ const SITE_ORIGIN = SITE.publicUrl
 const PRODUCT_SURFACE_PATHS = new Set([
   '/',
   '/products/',
+  ...PRODUCT_DOMAINS.map((domain) => domain.route),
   ...PRODUCTS.map((product) => product.route),
   '/solutions/',
   '/custom/requirements/',
@@ -20,7 +22,7 @@ const SYNTHETIC_ROUTES = [
     path: '/products/',
     kind: 'product-index',
     title: '产品中心｜方寸有序工作室',
-    description: '查看标签排版、胀色裁切、多尺寸胀色裁切、PDF 配印、记账、条码匹配与颜色尺寸提取七款正式软件，以及各自准确的价格、授权和公开下载文件。',
+    description: '按工作流软件与印刷排版软件两条产品线，查看记账、颜色尺寸提取、标签排版、胀色裁切、多尺寸胀色裁切、PDF 配印与条码匹配七款独立软件的价格、授权和下载。',
     h1: '把重复工作，交给清楚可靠的软件流程',
   },
   {
@@ -139,8 +141,8 @@ function fallbackBody(route) {
   return [route.description]
 }
 
-function staticProductCards() {
-  return PRODUCTS.map((product) => {
+function staticProductCards(products = PRODUCTS) {
+  return products.map((product) => {
     const metric = product.price?.display ?? '价格咨询'
     return `<article class="product-card">
           <a class="product-card-detail-link" href="${escapeHtml(product.route)}" aria-label="查看${escapeHtml(product.name)}详情">
@@ -155,8 +157,8 @@ function staticProductCards() {
   }).join('\n')
 }
 
-function staticDownloadLinks() {
-  return PRODUCTS.flatMap((product) => getProductPublicFiles(product).map((file) => ({ product, file })))
+function staticDownloadLinks(products = PRODUCTS) {
+  return products.flatMap((product) => getProductPublicFiles(product).map((file) => ({ product, file })))
     .map(({ product, file }) => `<article class="download-card">
           <span>${escapeHtml(product.shortName)}</span>
           <h3>${escapeHtml(file.title)}</h3>
@@ -166,6 +168,27 @@ function staticDownloadLinks() {
     .join('\n')
 }
 
+function staticDomainGroups(route, downloads = false) {
+  const domains = route.domainId
+    ? PRODUCT_DOMAINS.filter((domain) => domain.id === route.domainId)
+    : PRODUCT_DOMAINS
+  return domains.map((domain) => `<section data-domain="${escapeHtml(domain.id)}" aria-labelledby="static-${escapeHtml(domain.id)}-heading">
+          <h2 id="static-${escapeHtml(domain.id)}-heading"><a href="${escapeHtml(domain.route)}">${escapeHtml(domain.title)}</a></h2>
+          <p>${escapeHtml(domain.description)}</p>
+          ${downloads ? staticDownloadLinks(getProductsByDomain(domain.id)) : staticProductCards(getProductsByDomain(domain.id))}
+        </section>`).join('\n')
+}
+
+function staticWorkflowRoadmap() {
+  return `<section id="workflow-roadmap" class="workflow-roadmap" data-state="${escapeHtml(WORKFLOW_ROADMAP.state)}" aria-labelledby="static-roadmap-heading">
+          <span>规划中 · 尚未上线</span>
+          <h2 id="static-roadmap-heading">${escapeHtml(WORKFLOW_ROADMAP.title)}</h2>
+          <p>${escapeHtml(WORKFLOW_ROADMAP.description)}</p>
+          <ul>${WORKFLOW_ROADMAP.modules.map((module) => `<li data-state="${escapeHtml(module.state)}">${escapeHtml(module.title)} · 规划中</li>`).join('')}</ul>
+          <a href="/products/accounting/">查看当前可独立使用的记账软件</a>
+        </section>`
+}
+
 function staticNavigation(route) {
   const homeFragments = route.path === '/'
     ? '<a href="#pricing">服务与价格</a><a href="#contact">联系我们</a>'
@@ -173,6 +196,7 @@ function staticNavigation(route) {
   return `<nav aria-label="主要导航">
           <a href="/">首页</a>
           <a href="/products/">产品中心</a>
+          ${PRODUCT_DOMAINS.map((domain) => `<a href="${escapeHtml(domain.route)}">${escapeHtml(domain.title)}</a>`).join('\n          ')}
           ${PRODUCTS.map((product) => `<a href="${escapeHtml(product.route)}">${escapeHtml(product.shortName)}</a>`).join('\n          ')}
           <a href="/solutions/">行业方案</a>
           <a href="/custom/requirements/">描述你的需求</a>
@@ -245,17 +269,20 @@ export function buildRouteHtml(route) {
     .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
     .join('')
   const productCards = PRODUCT_SURFACE_PATHS.has(route.path)
-    ? `<section aria-labelledby="static-products-heading">
+    ? (route.path === '/' || route.path === '/products/' || route.kind === 'product-domain'
+      ? staticDomainGroups(route)
+      : `<section aria-labelledby="static-products-heading">
         <h2 id="static-products-heading">产品中心</h2>
         ${staticProductCards()}
-      </section>`
+      </section>`)
     : ''
   const homeSections = route.path === '/'
     ? '<section id="pricing"><h2>服务与价格</h2></section><footer id="contact">电话 17734375651（微信同号）</footer>'
     : ''
   const downloadSection = route.path === '/downloads/'
-    ? `<section aria-labelledby="static-downloads-heading"><h2 id="static-downloads-heading">公开文件下载</h2>${staticDownloadLinks()}</section>`
+    ? `<section aria-labelledby="static-downloads-heading"><h2 id="static-downloads-heading">公开文件下载</h2>${staticDomainGroups(route, true)}</section>`
     : ''
+  const roadmapSection = route.domainId === 'workflow' ? staticWorkflowRoadmap() : ''
   const structuredData = structuredDataForRoute(route)
 
   return `<!doctype html>
@@ -278,6 +305,7 @@ export function buildRouteHtml(route) {
         <h1>${escapeHtml(route.h1)}</h1>
         ${paragraphs}
         ${productCards}
+        ${roadmapSection}
         ${downloadSection}
         ${homeSections}
       </main>

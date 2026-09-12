@@ -31,6 +31,7 @@ import { CONTENT_CATEGORIES, CONTENT_STATUS_LABELS } from './data/public-content
 import { LEGAL_BY_ROUTE } from './data/legal.js'
 import { PRODUCTS, PRODUCT_STATUS_DESCRIPTIONS, getProductPublicFiles } from './data/products.js'
 import { NAV_ITEMS, SITE, TRUST_POINTS } from './data/site.js'
+import { PRODUCT_DOMAINS, getProductsByDomain, getDomainByProductId, WORKFLOW_ROADMAP } from './data/product-domains.js'
 import { SOLUTIONS } from './data/public-solutions.js'
 import { getProductAction } from './lib/product-actions.js'
 import { getActiveNavHref } from './lib/navigation.js'
@@ -152,9 +153,8 @@ function Footer() {
     <footer className="site-footer" id="contact">
       <div className="container footer-grid">
         <div className="footer-brand"><a className="brand" href="/" aria-label="返回方寸有序首页"><span className="brand-mark brand-mark-software" aria-hidden="true"><img src={SITE.softwareIcon.image} alt="" width="42" height="42" /></span><span className="brand-copy"><strong>方寸有序</strong><small>FANGCUN YOUXU STUDIO</small></span></a><p>把重复核算、反复整理与逐页核对，转成可执行、可复核的软件流程。</p><a className="contact-link" href="tel:17734375651"><Phone size={18} aria-hidden="true" />电话 17734375651（微信同号）</a></div>
-        <div className="footer-column"><h2>产品中心</h2>{PRODUCTS.map((product) => <a key={product.id} href={pathForProduct(product.id)}>{product.name}</a>)}</div>
-        <div className="footer-column"><h2>内容中心</h2><a href="/updates/">产品更新</a><a href="/guides/">能力说明</a><a href="/downloads/">下载资料</a><a href="/solutions/">行业方案</a></div>
-        <div className="footer-column"><h2>服务与边界</h2><a href="/custom/requirements/">个性化定制</a><a href="/legal/privacy/">数据处理与隐私</a><a href="/legal/service/">软件服务与授权</a><a href="/#contact">联系我们</a></div>
+        {PRODUCT_DOMAINS.map((domain) => <div className="footer-column" key={domain.id}><h2><a href={domain.route}>{domain.title} <ArrowUpRight size={14} aria-hidden="true" /></a></h2>{getProductsByDomain(domain.id).map((product) => <a key={product.id} href={pathForProduct(product.id)}>{product.shortName}</a>)}</div>)}
+        <div className="footer-column"><h2>内容与服务</h2><a href="/updates/">产品更新</a><a href="/guides/">能力说明</a><a href="/downloads/">下载资料</a><a href="/solutions/">行业方案</a><a href="/custom/requirements/">个性化定制</a><a href="/legal/privacy/">数据处理与隐私</a><a href="/legal/service/">软件服务与授权</a></div>
       </div>
       <div className="container footer-bottom"><span>© {new Date().getFullYear()} 方寸有序工作室</span><span>本地优先 · 可复核输出 · 授权边界清晰</span></div>
     </footer>
@@ -299,11 +299,47 @@ function ProductCard({ product, featured = false }) {
   const action = getProductAction(product.status.effectiveStatus, product.id)
   const actionHref = product.status.effectiveStatus === 'appointment' ? action.href : `${pathForProduct(product.id)}${action.href}`
   const accessNote = product.trial?.display || (product.status.effectiveStatus === 'appointment' ? '公开安装包与正式价格未开放' : '下载状态以发布记录为准')
-  return <article className={`product-card ${featured ? 'product-card-featured' : ''}`}><a className="product-card-detail-link" href={pathForProduct(product.id)} aria-label={`查看${product.name}详情`} /><div className="product-card-topline"><span className="product-eyebrow">{product.eyebrow}</span><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span></div><div className="product-card-icon"><img src={SITE.softwareIcon.image} alt="" width="64" height="64" /></div><h3>{product.name}</h3><p className="product-statement">{product.statement}</p><div className="product-outcome"><CheckCircle size={18} weight="duotone" aria-hidden="true" />{product.outcome}</div><div className="product-card-footer"><div><strong>{product.price.display}</strong><small>{accessNote}</small></div><LinkButton href={actionHref} variant={featured ? 'primary' : 'outline'}>{action.label}</LinkButton></div></article>
+  return <article className={`product-card ${featured ? 'product-card-featured' : ''}`}><a className="product-card-detail-link" href={pathForProduct(product.id)} aria-label={`查看${product.name}详情`} /><div className="product-card-topline"><span className="product-eyebrow">{product.eyebrow}</span><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span></div><div className="product-card-icon"><img src={SITE.softwareIcon.image} alt="" width="64" height="64" /></div><h3>{product.name}</h3><p className="product-statement">{product.statement}</p><div className="product-outcome"><CheckCircle size={18} weight="duotone" aria-hidden="true" />{product.outcome}</div><span className="product-detail-cue" aria-hidden="true">查看详情 <ArrowUpRight size={16} /></span><div className="product-card-footer"><div><strong>{product.price.display}</strong><small>{accessNote}</small></div><LinkButton href={actionHref} variant={featured ? 'primary' : 'outline'}>{action.label}</LinkButton></div></article>
+}
+
+function DomainSchematic({ domain, compact = false }) {
+  const workflow = domain.id === 'workflow'
+  return <div className={`domain-schematic ${workflow ? 'schematic-workflow' : 'schematic-print'} ${compact ? 'schematic-compact' : ''}`} aria-label={`${domain.title}流程示意，非软件界面`}>
+    <div className="schematic-topline"><span>{workflow ? 'BUSINESS / FLOW' : 'PREPRESS / PROCESS'}</span><span>流程示意</span></div>
+    {workflow ? <div className="schematic-nodes">
+      {[{ icon: FileXls, title: '资料进入', detail: '账目 · 表格 · 规格' }, { icon: FlowArrow, title: '按规则处理', detail: '整理 · 核算 · 人工复核' }, { icon: CheckCircle, title: '清晰交付', detail: '记录 · 汇总 · 可复核结果' }].map((step, index) => <div className="schematic-node" key={step.title}><span className="schematic-node-icon"><step.icon size={compact ? 19 : 24} weight="duotone" aria-hidden="true" /></span><div><strong>{step.title}</strong><small>{step.detail}</small></div><span className="schematic-node-number">0{index + 1}</span></div>)}
+    </div> : <div className="print-diagram"><div className="print-sheet" aria-hidden="true"><span className="crop-mark crop-tl" /><span className="crop-mark crop-tr" /><span className="crop-mark crop-bl" /><span className="crop-mark crop-br" /><div className="print-sheet-grid">{Array.from({ length: 6 }, (_, index) => <div className="print-label" key={index}><span>FC / {String(index + 1).padStart(2, '0')}</span><i /><b /></div>)}</div></div><div className="print-diagram-notes"><span><i />版面规划</span><span><i />出血与裁切</span><span><i />输出前复核</span></div></div>}
+    {!compact && <div className="schematic-caption"><ShieldCheck size={16} aria-hidden="true" /><span>{workflow ? '每款工具独立使用，按需要组合流程。' : '示意仅说明处理环节，不代表实际排版参数。'}</span></div>}
+  </div>
+}
+
+function DomainEntrances() {
+  return <section className="section domain-entrances" id="products" aria-labelledby="domains-title"><div className="container">
+    <div className="section-heading split-heading"><div><p className="section-kicker">TWO DOMAINS. ONE CLEAR PURPOSE.</p><h2 id="domains-title">两条路径，把工作理顺。</h2></div><p>经营资料与印前文件，各有清晰入口。<br />从你正在做的事开始，找到合适的工具。</p></div>
+    <div className="domain-entry-grid">{PRODUCT_DOMAINS.map((domain, index) => <a className={`domain-entry domain-entry-${domain.id}`} data-domain={domain.id} key={domain.id} href={domain.route}><div className="domain-entry-heading"><span className="domain-number">0{index + 1} / {domain.eyebrow}</span><ArrowUpRight size={28} aria-hidden="true" /></div><div className="domain-entry-body"><div className="domain-entry-copy"><h3>{domain.title}</h3><p>{domain.description}</p><span className="domain-entry-link">进入{domain.title}<ArrowRight size={18} aria-hidden="true" /></span></div><DomainSchematic domain={domain} compact /></div><div className="domain-entry-bottom"><span>{getProductsByDomain(domain.id).length} 款独立软件</span><span>{domain.steps.join(' / ')}</span></div></a>)}</div>
+  </div></section>
+}
+
+function HomeProducts() {
+  return <section className="home-products-section" aria-labelledby="home-products-title"><div className="container"><div className="home-products-heading"><div><p className="section-kicker">AVAILABLE NOW</p><h2 id="home-products-title">现在就能使用的工具</h2></div><a className="text-link" href="/products/">全部产品与下载 <ArrowUpRight size={17} aria-hidden="true" /></a></div><div className="home-product-groups">{PRODUCT_DOMAINS.map((domain) => <div className="home-product-group" data-domain={domain.id} key={domain.id}><div className="home-product-group-head"><h3><a href={domain.route}>{domain.title}</a></h3><span>{getProductsByDomain(domain.id).length} 款软件</span></div>{getProductsByDomain(domain.id).map((product) => <a className="home-product-row" key={product.id} href={pathForProduct(product.id)}><span className="home-product-icon"><img src={SITE.softwareIcon.image} alt="" width="40" height="40" /></span><span className="home-product-copy"><strong>{product.shortName}</strong><small>{product.outcome}</small></span><span className="home-product-price">{product.price.display}</span><ArrowUpRight size={17} aria-hidden="true" /></a>)}</div>)}</div></div></section>
 }
 
 function ProductsSection({ showHeading = true }) {
-  return <section className="section products-section" id="products" aria-labelledby="products-title"><div className="container">{showHeading && <div className="section-heading split-heading"><div><p className="section-kicker">PRODUCT CENTER</p><h2 id="products-title">产品中心</h2></div><p>七款正式软件可分别购买、独立使用。每款产品都明确展示输入、处理、输出，以及可直接下载的公开文件。</p></div>}<div className="products-grid">{PRODUCTS.map((product) => <ProductCard key={product.id} product={product} featured={product.id === 'bleed' || product.id === 'multisize-bleed'} />)}</div><div className="products-footnote"><ShieldCheck size={19} weight="duotone" aria-hidden="true" /><span>七款客户端与发布校验文件均可直接下载，并按真实发布记录展示。</span><a href="/downloads/">查看全部下载 <ArrowUpRight size={15} aria-hidden="true" /></a></div></div></section>
+  return <section className="section products-section" id="products" aria-labelledby={showHeading ? 'products-title' : undefined} aria-label={showHeading ? undefined : '按领域浏览产品'}><div className="container">{showHeading && <div className="section-heading split-heading"><div><p className="section-kicker">PRODUCT CENTER</p><h2 id="products-title">产品中心</h2></div><p>七款正式软件可分别购买、独立使用。按领域查看产品、价格与公开文件。</p></div>}{PRODUCT_DOMAINS.map((domain) => <section className="product-domain-group" data-domain={domain.id} key={domain.id} aria-labelledby={`products-${domain.id}-title`}><div className="domain-group-heading"><div><p className="section-kicker">{domain.eyebrow}</p><h2 id={`products-${domain.id}-title`}>{domain.title}</h2><p>{domain.description}</p></div><LinkButton href={domain.route} variant="text">了解{domain.title} <ArrowUpRight size={17} aria-hidden="true" /></LinkButton></div><div className="products-grid">{getProductsByDomain(domain.id).map((product) => <ProductCard key={product.id} product={product} />)}</div></section>)}<div className="products-footnote"><ShieldCheck size={19} weight="duotone" aria-hidden="true" /><span>客户端与发布校验文件按真实发布记录展示。</span><a href="/downloads/">查看全部下载 <ArrowUpRight size={15} aria-hidden="true" /></a></div></div></section>
+}
+
+const PRINT_STAGES = [
+  { id: 'planning', title: '先把版面排清楚', description: '从订单与数量出发，形成可执行的排版计划。', productIds: ['label'] },
+  { id: 'bleed', title: '再把出血与裁切做好', description: '根据文件类型与尺寸需求，选择各自独立的处理工具。', productIds: ['bleed', 'multisize-bleed'] },
+  { id: 'output', title: '最后整理与复核输出', description: '处理页面与条码资料，为后续交付保留清晰依据。', productIds: ['pdf', 'gtin-pdf'] },
+]
+
+function DomainPage({ domain }) {
+  const workflow = domain.id === 'workflow'
+  return <PageShell className={`domain-page domain-page-${domain.id}`}><main><section className="domain-hero" aria-labelledby="domain-title"><div className="container"><Breadcrumbs items={[{ label: domain.title }]} /><div className="domain-hero-grid"><div><p className="section-kicker">{domain.eyebrow}</p><h1 id="domain-title">{domain.headline}</h1><p className="domain-hero-lede">{domain.description}</p><div className="hero-actions"><LinkButton href="#products">查看当前可用软件</LinkButton><LinkButton href={workflow ? '/print-layout/' : '/workflow/'} variant="text">{workflow ? '前往印刷排版' : '前往工作流'} <ArrowUpRight size={17} aria-hidden="true" /></LinkButton></div></div><DomainSchematic domain={domain} /></div><ol className="domain-steps">{domain.steps.map((step, index) => <li key={step}><span>0{index + 1}</span>{step}{index < domain.steps.length - 1 && <ArrowRight size={16} aria-hidden="true" />}</li>)}</ol></div></section>
+    <section className="section domain-products product-domain-group" data-domain={domain.id} id="products" aria-labelledby="domain-products-title"><div className="container"><div className="section-heading split-heading"><div><p className="section-kicker">AVAILABLE NOW</p><h2 id="domain-products-title">{workflow ? '当前可用，独立使用。' : '沿着印前流程，选择你的工具。'}</h2></div><p>以下软件已提供公开下载。查看产品详情，核对功能、适用范围与授权价格。</p></div>{workflow ? <div className="products-grid">{getProductsByDomain(domain.id).map((product) => <ProductCard key={product.id} product={product} />)}</div> : <div className="print-stage-list">{PRINT_STAGES.map((stage, index) => <section className="print-stage" key={stage.id} aria-labelledby={`stage-${stage.id}`}><div className="print-stage-heading"><span>0{index + 1}</span><div><h3 id={`stage-${stage.id}`}>{stage.title}</h3><p>{stage.description}</p></div></div><div className="products-grid">{getProductsByDomain(domain.id).filter((product) => stage.productIds.includes(product.id)).map((product) => <ProductCard key={product.id} product={product} />)}</div></section>)}</div>}</div></section>
+    {workflow && <section className="section roadmap-section" aria-labelledby="roadmap-title"><div className="container"><div className="roadmap-panel" data-state={WORKFLOW_ROADMAP.state}><div className="roadmap-copy"><p className="section-kicker">LOOKING AHEAD / 未来规划</p><h2 id="roadmap-title">{WORKFLOW_ROADMAP.title}</h2><span className="planned-badge">规划中 · 尚未上线</span><p>{WORKFLOW_ROADMAP.description}</p><a className="text-link" href={pathForProduct('accounting')}>查看当前独立记账软件 <ArrowUpRight size={17} aria-hidden="true" /></a></div><div className="roadmap-modules" aria-label="规划中的模块">{WORKFLOW_ROADMAP.modules.map((module) => <div className="roadmap-module" data-state={module.state} key={module.title}><span><FlowArrow size={22} aria-hidden="true" /><strong>{module.title}</strong></span><small>规划中 · 未集成</small></div>)}</div></div></div></section>}
+    <TrustSection /><HomeCTA /></main></PageShell>
 }
 
 function TrustSection() {
@@ -325,7 +361,7 @@ function ContentSection() {
 }
 
 function PricingSection() {
-  return <section className="section pricing-section" id="pricing" aria-labelledby="pricing-title"><div className="container"><div className="section-heading centered"><p className="section-kicker">PRICING & ACCESS</p><h2 id="pricing-title">服务与价格</h2><p>价格、客户端与公开文件分开说明；七款 Windows 客户端均可直接下载。</p></div><div className="pricing-grid">{PRODUCTS.map((product) => { const action = getProductAction(product.status.effectiveStatus, product.id); const termLabel = product.price.sourceUnit === '元/账号/年' ? '账号年度授权 · 一个账号对应一个企业账套主体' : '365 天年度授权'; return <article key={product.id} className={`pricing-card ${product.id === 'bleed' || product.id === 'multisize-bleed' ? 'pricing-card-featured' : ''}`}><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><h3>{product.shortName}</h3><strong className="price-display">{product.price.display}</strong><span className="price-term">{termLabel}</span><ul>{product.workflow.output.map((output) => <li key={output}><Check size={17} weight="bold" aria-hidden="true" />{output}</li>)}</ul><a className="text-link" href={`${pathForProduct(product.id)}${action.href}`}>{action.label}<ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article> })}<article className="pricing-card pricing-card-custom"><span className="status-badge status-custom">按需求沟通</span><h3>个性化软件定制</h3><strong className="price-display">¥499 <small>起</small></strong><span className="price-term">定制设计及首个可用版本</span><ul><li><Check size={17} weight="bold" aria-hidden="true" />先梳理流程与资料</li><li><Check size={17} weight="bold" aria-hidden="true" />生成可复核需求摘要</li><li><Check size={17} weight="bold" aria-hidden="true" />正式版年费按复杂度报价</li></ul><a className="text-link" href="/custom/requirements/">描述你的需求 <ArrowRight size={16} weight="bold" aria-hidden="true" /></a></article></div><p className="pricing-note"><Clock size={18} weight="duotone" aria-hidden="true" />首次启动无需申请，按本机受保护时间自动体验 30 天；在正常系统状态下每台设备每款产品一次。正式授权后可完全离线使用；首次初始化可能出现一次 Windows UAC 系统确认。</p></div></section>
+  return <section className="section pricing-section pricing-section-compact" id="pricing" aria-labelledby="pricing-title"><div className="container pricing-overview"><div><p className="section-kicker">PRICING & ACCESS</p><h2 id="pricing-title">价格说清楚，选择更从容。</h2><p>七款软件分别购买、独立授权。具体价格、体验规则与下载校验记录，都在对应产品页中列明。</p></div><div className="pricing-overview-links"><a href="/products/"><span><strong>查看产品价格</strong><small>按需求选择，不必整套购买</small></span><ArrowUpRight size={22} aria-hidden="true" /></a><a href="/legal/service/"><span><strong>了解授权与服务</strong><small>先确认适用范围，再开始使用</small></span><ArrowUpRight size={22} aria-hidden="true" /></a><a href="/custom/requirements/"><span><strong>需要不同的流程？</strong><small>描述资料、规则与期望结果</small></span><ArrowUpRight size={22} aria-hidden="true" /></a></div><p className="pricing-scope"><Clock size={19} weight="duotone" aria-hidden="true" /><span><strong>{SITE.trialRibbon}</strong><br />{SITE.trialScope}</span></p></div></section>
 }
 
 function HomeCTA() {
@@ -333,18 +369,19 @@ function HomeCTA() {
 }
 
 function HomePage() {
-  return <PageShell className="home-page"><main><Hero /><HomeSolutions /><ProductsSection /><TrustSection /><ContentSection /><PricingSection /><HomeCTA /></main></PageShell>
+  return <PageShell className="home-page"><main><Hero /><DomainEntrances /><HomeProducts /><HomeSolutions /><TrustSection /><ContentSection /><PricingSection /><HomeCTA /></main></PageShell>
 }
 
 function Breadcrumbs({ items = [] }) {
-  return <nav className="breadcrumbs" aria-label="面包屑导航"><a href="/">首页</a>{items.map((item) => <React.Fragment key={item.label}><CaretRight size={14} aria-hidden="true" /><span>{item.label}</span></React.Fragment>)}</nav>
+  return <nav className="breadcrumbs" aria-label="面包屑导航"><a href="/">首页</a>{items.map((item) => <React.Fragment key={item.label}><CaretRight size={14} aria-hidden="true" /><>{item.href ? <a href={item.href}>{item.label}</a> : <span aria-current="page">{item.label}</span>}</></React.Fragment>)}</nav>
 }
 
 function DetailHero({ product }) {
+  const domain = getDomainByProductId(product.id)
   const action = getProductAction(product.status.effectiveStatus, product.id)
   const actualOperation = product.media.mode === 'actual-operation-redacted'
   const posterAlt = actualOperation ? `${product.name} 实际操作演示画面（已脱敏）` : `${product.name} 模拟演示画面`
-  return <section className="detail-hero" aria-labelledby="detail-title"><div className="container detail-hero-grid"><div className="detail-hero-copy"><Breadcrumbs items={[{ label: product.shortName }]} /><span className="product-eyebrow">{product.eyebrow}</span><h1 id="detail-title">{product.name}</h1><p>{product.statement}</p><div className="detail-meta"><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><span className="detail-price">{product.price.display}</span></div><div className="detail-actions"><LinkButton href={action.href}>{action.label}</LinkButton><LinkButton href="#workflow" variant="outline">查看工作流</LinkButton></div></div><div className="detail-hero-art">{product.media.poster ? <img src={mediaPath(product.media.poster)} alt={posterAlt} /> : <div className="detail-art-fallback"><FlowArrow size={66} weight="duotone" aria-hidden="true" /><span>输入 → 处理 → 输出</span><small>{product.media.fallback}</small></div>}</div></div></section>
+  return <section className="detail-hero" aria-labelledby="detail-title"><div className="container detail-hero-grid"><div className="detail-hero-copy"><Breadcrumbs items={[...(domain ? [{ label: domain.title, href: domain.route }] : []), { label: product.shortName }]} /><span className="product-eyebrow">{product.eyebrow}</span><h1 id="detail-title">{product.name}</h1><p>{product.statement}</p><div className="detail-meta"><span className={`status-badge status-${product.status.effectiveStatus}`}><span className="status-dot" />{product.status.label}</span><span className="detail-price">{product.price.display}</span></div><div className="detail-actions"><LinkButton href={action.href}>{action.label}</LinkButton><LinkButton href="#workflow" variant="outline">查看工作流</LinkButton></div></div><div className="detail-hero-art">{product.media.poster ? <img src={mediaPath(product.media.poster)} alt={posterAlt} /> : <div className="detail-art-fallback"><FlowArrow size={66} weight="duotone" aria-hidden="true" /><span>输入 → 处理 → 输出</span><small>{product.media.fallback}</small></div>}</div></div></section>
 }
 
 function WorkflowSection({ product }) {
@@ -469,7 +506,7 @@ function RelatedContent({ productId }) {
 }
 
 function ProductsIndexPage() {
-  return <PageShell><main className="light-page"><section className="page-intro"><div className="container"><Breadcrumbs items={[{ label: '产品中心' }]} /><p className="section-kicker">PRODUCT CENTER</p><h1>产品中心</h1><p>七款正式软件可分别购买、独立使用；每款产品的公开文件均提供直接下载入口。</p></div></section><ProductsSection showHeading={false} /><TrustSection /><HomeCTA /></main></PageShell>
+  return <PageShell><main className="light-page"><section className="page-intro"><div className="container"><Breadcrumbs items={[{ label: '产品中心' }]} /><p className="section-kicker">PRODUCT CENTER</p><h1>产品中心</h1><p>七款正式软件可分别购买、独立使用；每款产品的公开文件均提供直接下载入口。</p><div className="catalog-domain-links" aria-label="选择产品领域">{PRODUCT_DOMAINS.map((domain) => <a data-domain={domain.id} key={domain.id} href={domain.route}><span><strong>{domain.title}</strong><small>{getProductsByDomain(domain.id).length} 款独立软件</small></span><ArrowUpRight size={22} aria-hidden="true" /></a>)}</div></div></section><ProductsSection showHeading={false} /><TrustSection /><HomeCTA /></main></PageShell>
 }
 
 function SolutionsPage() {
@@ -510,7 +547,7 @@ function RequirementsPage() {
 function ContentIndexPage({ config }) {
   const category = CONTENT_CATEGORIES.find((item) => item.id === config.categoryId)
   const publicItems = (category?.items ?? []).filter((item) => item.status === 'publishable')
-  return <PageShell><main className="light-page"><section className="page-intro"><div className="container"><Breadcrumbs items={[{ label: config.title }]} /><p className="section-kicker">{config.eyebrow}</p><h1>{config.title}</h1><p>仅展示已经整理并可公开核对的内容。</p></div></section><section className="section content-index-section"><div className="container"><div className="content-filter-nav"><a href="/updates/" className={config.categoryId === 'product-updates' ? 'is-active' : ''}>产品更新</a><a href="/guides/" className={config.categoryId === 'tutorials' ? 'is-active' : ''}>能力说明</a><a href="/downloads/" className={config.categoryId === 'downloads' ? 'is-active' : ''}>下载资料</a></div><div className="content-list-grid">{publicItems.map((item) => <ContentCard key={item.slug} item={item} />)}</div></div></section><HomeCTA /></main></PageShell>
+  return <PageShell><main className="light-page"><section className="page-intro"><div className="container"><Breadcrumbs items={[{ label: config.title }]} /><p className="section-kicker">{config.eyebrow}</p><h1>{config.title}</h1><p>仅展示已经整理并可公开核对的内容。</p></div></section><section className="section content-index-section"><div className="container"><div className="content-filter-nav"><a href="/updates/" className={config.categoryId === 'product-updates' ? 'is-active' : ''}>产品更新</a><a href="/guides/" className={config.categoryId === 'tutorials' ? 'is-active' : ''}>能力说明</a><a href="/downloads/" className={config.categoryId === 'downloads' ? 'is-active' : ''}>下载资料</a></div>{config.categoryId === 'downloads' ? PRODUCT_DOMAINS.map((domain) => <section className="download-domain-group" data-domain={domain.id} key={domain.id} aria-labelledby={`downloads-${domain.id}-title`}><div className="domain-group-heading"><div><p className="section-kicker">{domain.eyebrow}</p><h2 id={`downloads-${domain.id}-title`}>{domain.title}</h2></div><a className="text-link" href={domain.route}>查看领域说明 <ArrowUpRight size={16} aria-hidden="true" /></a></div><div className="content-list-grid">{publicItems.filter((item) => getDomainByProductId(item.relatedProduct)?.id === domain.id).map((item) => <ContentCard key={item.slug} item={item} />)}</div></section>) : <div className="content-list-grid">{publicItems.map((item) => <ContentCard key={item.slug} item={item} />)}</div>}</div></section><HomeCTA /></main></PageShell>
 }
 
 function WarningIcon() {
@@ -532,6 +569,8 @@ function App() {
   const path = normalizePath(window.location.pathname)
   if (path === '/') return <HomePage />
   if (path === '/products/') return <ProductsIndexPage />
+  const domain = PRODUCT_DOMAINS.find((item) => item.route === path)
+  if (domain) return <DomainPage domain={domain} />
   if (path === '/solutions/') return <SolutionsPage />
   if (path === '/custom/requirements/') return <RequirementsPage />
   if (CONTENT_ROUTE_CONFIG[path]) return <ContentIndexPage config={CONTENT_ROUTE_CONFIG[path]} />

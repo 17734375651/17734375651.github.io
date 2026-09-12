@@ -6,6 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 import { CONTENT_CATEGORIES } from '../src/data/public-content.js'
 import { PRODUCTS } from '../src/data/products.js'
+import { PRODUCT_DOMAINS, WORKFLOW_ROADMAP } from '../src/data/product-domains.js'
 import { SOLUTIONS } from '../src/data/public-solutions.js'
 import { LEGAL_PAGES } from '../src/data/legal.js'
 import { SEO_ROUTES, SITE } from '../src/data/site.js'
@@ -43,6 +44,8 @@ test('the retired packing calculator is absent from every public website project
 
   const publicProjection = JSON.stringify({
     products: PRODUCTS,
+    domains: PRODUCT_DOMAINS,
+    roadmap: WORKFLOW_ROADMAP,
     content: CONTENT_CATEGORIES,
     solutions: SOLUTIONS,
     legal: LEGAL_PAGES,
@@ -59,6 +62,7 @@ test('the retired packing calculator is absent from every public website project
   const sourceProjection = (
     await Promise.all([
       'src/data/products.js',
+      'src/data/product-domains.js',
       'src/data/public-content.js',
       'src/data/public-solutions.js',
       'src/data/legal.js',

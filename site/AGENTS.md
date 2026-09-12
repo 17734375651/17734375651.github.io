@@ -15,7 +15,7 @@ When implementing from a selected generated mock, treat that image as the source
 
 ## Current product and download decision
 
-- User removed ERP from the public website on 2026-08-20. Do not restore ERP cards, routes, media, SEO text, content entries, or scenario recommendations.
+- User requested two product domains on 2026-09-13: workflow (accounting, color-size) and print-layout (label, bleed, multisize-bleed, pdf, gtin-pdf). Keep two permanent homepage entries and independent domain pages. ERP may appear ONLY in the separately marked future industrial-client integration roadmap; do not create a released ERP product, download, price, route or SoftwareApplication offer. Current accounting remains independently downloadable.
 - Keep the `中小企业` business scenario, but route unmatched workflows to the customization form rather than an ERP product.
 - User retired `packing` from the public website on 2026-09-04 because the software is not mature. Keep its product card, detail route, pricing, download entries, content posts, scenario recommendations, SEO metadata, sitemap entry, and public navigation absent. Historical GitHub Releases may remain as unadvertised archives and must not be linked from the website.
 - Every real public file must have a direct download action. As of 2026-09-04, all seven public products (`label`, `bleed`, `multisize-bleed`, `pdf`, `accounting`, `gtin-pdf`, and `color-size`) have verified pure-offline 30-day-trial client releases and release-support files. The current release set targets Windows: `bleed` is x86 and the other six are x64. Historical Windows 7 downloads remain in older GitHub Releases and are not advertised as the current trial builds. Activation generators, private keys, central-server material, and internal administration tools remain private and must never be published.
@@ -37,3 +37,7 @@ When implementing from a selected generated mock, treat that image as the source
 - Label demonstration data is source-replaced synthetic data. Preserve clear operation frames and generic path text; do not replace the workflow with mosaic or blur effects.
 
 Build app UI in `src/`. Keep `.openai/hosting.json`, `worker/index.js`, `scripts/prepare-sites-build.mjs`, and `tests/sites-worker.test.mjs` intact so the same local prototype can be handed to Sites. Before a Sites handoff, run `npm run build` and `npm run test:sites`; the build must leave `dist/client/index.html`, `dist/server/index.js`, and `dist/.openai/hosting.json`.
+
+## Dual-domain visual decision (2026-09-13)
+
+- Use equally visible ink workflow and warm-paper print-layout entrances, shared gold accents, 26% software-icon radius, compact homepage product rows and full cards on catalog/domain pages. Preserve all seven release facts and 28 files. Mobile layouts must work at 320px/390px without horizontal overflow.

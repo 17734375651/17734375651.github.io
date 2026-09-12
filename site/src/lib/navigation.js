@@ -9,7 +9,7 @@ export function getActiveNavHref(pathname = '/', hash = '') {
 
   if (path === '/' && hash === '#contact') return '/#contact'
   if (path === '/') return '/'
-  if (path.startsWith('/products/')) return '/products/'
+  if (path.startsWith('/products/') || ['/workflow/', '/print-layout/'].includes(path)) return '/products/'
   if (path === '/solutions/') return '/solutions/'
   if (['/updates/', '/guides/', '/downloads/'].includes(path)) return '/updates/'
   if (path.startsWith('/legal/')) return '/legal/service/'

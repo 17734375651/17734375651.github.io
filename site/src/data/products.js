@@ -7,6 +7,7 @@
 export const PRODUCTS = [
   {
     "id": "label",
+    "categoryId": "print-layout",
     "route": "/products/label/",
     "name": "标签印刷排版计划",
     "shortName": "标签排版",
@@ -130,6 +131,7 @@ export const PRODUCTS = [
   },
   {
     "id": "bleed",
+    "categoryId": "print-layout",
     "route": "/products/bleed/",
     "name": "方寸有序胀色裁切",
     "shortName": "胀色裁切",
@@ -252,6 +254,7 @@ export const PRODUCTS = [
   },
   {
     "id": "multisize-bleed",
+    "categoryId": "print-layout",
     "route": "/products/multisize-bleed/",
     "name": "方寸有序多尺寸胀色裁切",
     "shortName": "多尺寸胀色裁切",
@@ -368,6 +371,7 @@ export const PRODUCTS = [
   },
   {
     "id": "pdf",
+    "categoryId": "print-layout",
     "route": "/products/pdf/",
     "name": "方寸 PDF 配印助手",
     "shortName": "PDF 配印",
@@ -483,6 +487,7 @@ export const PRODUCTS = [
   },
   {
     "id": "accounting",
+    "categoryId": "workflow",
     "route": "/products/accounting/",
     "name": "方寸有序记账软件",
     "shortName": "记账软件",
@@ -599,6 +604,7 @@ export const PRODUCTS = [
   },
   {
     "id": "gtin-pdf",
+    "categoryId": "print-layout",
     "route": "/products/gtin-pdf/",
     "name": "方寸有序条码匹配",
     "shortName": "条码匹配",
@@ -720,6 +726,7 @@ export const PRODUCTS = [
   },
   {
     "id": "color-size",
+    "categoryId": "workflow",
     "route": "/products/color-size/",
     "name": "方寸有序颜色尺寸提取",
     "shortName": "颜色尺寸提取",

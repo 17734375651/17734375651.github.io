@@ -50,8 +50,10 @@ test('customer-facing copy uses bounded workflow language', async () => {
   const app = await readFile(path.join(root, 'src', 'App.jsx'), 'utf8')
   assert.doesNotMatch(app, /开箱即用|每一次交付都更清晰|RELEASE STATUS/)
   assert.match(app, /把输入、处理与输出梳理成可复核流程/)
-  assert.match(app, /首次启动无需申请，按本机受保护时间自动体验 30 天/)
-  assert.match(app, /每台设备每款产品一次/)
+  assert.match(app, /SITE\.trialRibbon/)
+  assert.match(app, /SITE\.trialScope/)
+  assert.equal(SITE.trialRibbon, '首次启动无需申请，按本机受保护时间自动体验 30 天')
+  assert.match(SITE.trialScope, /每台设备每款产品一次/)
 })
 
 test('all seven Windows products publish the same pure-offline 30-day trial contract', () => {

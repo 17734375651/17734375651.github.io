@@ -1,3 +1,5 @@
+import { PRODUCT_DOMAINS } from './product-domains.js'
+
 /**
  * Shared site facts, navigation, and route metadata.
  *
@@ -97,16 +99,33 @@ export const SEO_CANONICAL_RULES = {
   "og": "Emit og:title, og:description, og:type, and og:url for indexable routes; use the same absolute canonical URL in og:url."
 };
 export const SEO_ROUTES = [
+  ...PRODUCT_DOMAINS.map((domain) => ({
+    path: domain.route,
+    kind: 'product-domain',
+    domainId: domain.id,
+    status: 200,
+    title: `${domain.title}｜方寸有序工作室`,
+    description: domain.description,
+    canonical: new URL(domain.route, SITE.publicUrl).href,
+    og: {
+      title: `${domain.title}｜方寸有序工作室`,
+      description: domain.description,
+      type: 'website',
+      url: new URL(domain.route, SITE.publicUrl).href,
+    },
+    h1: domain.headline,
+    coreStaticBody: [domain.description, `处理路径：${domain.steps.join(' → ')}。`],
+  })),
   {
     "path": "/",
     "kind": "home",
     "status": 200,
     "title": "方寸有序工作室｜降本增效软件与个性化定制",
-    "description": "标签印刷排版、CMYK 胀色裁切、大图标签提取、多尺寸标签排版、PDF 配印与个性化软件定制。微信/电话：17734375651。",
+    "description": "工作流软件与印刷排版软件两条产品线，提供记账、Excel 字段整理、标签排版、胀色裁切、PDF 配印与条码匹配七款独立软件，也承接个性化定制。微信/电话：17734375651。",
     "canonical": "https://17734375651.github.io/",
     "og": {
       "title": "方寸有序工作室｜降本增效软件与个性化定制",
-      "description": "为图文店、印刷店、中小企业提供能够真正落地的效率软件，也承接按业务流程开发的个性化工具。",
+      "description": "工作流与印刷排版两大板块，为图文店、印刷店和中小企业提供可独立使用、可复核输出的本地效率软件。",
       "type": "website",
       "url": "https://17734375651.github.io/"
     },
